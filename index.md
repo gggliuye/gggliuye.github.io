@@ -4,6 +4,6 @@ I love the world!
 
 ## lalala
 
-[Diary](Work/Diary)
+[Diary](Work/)
 
 ## lueluelue
