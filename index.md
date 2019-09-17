@@ -1,9 +1,13 @@
+--
+title: Contents
+--
+
 ## This is my first blog
 
 I love the world!
 
-## lalala
+## Work
 
-[Diary](Work/)
+[Work](Work/) 
 
-## lueluelue
+## Music
