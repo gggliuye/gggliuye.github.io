@@ -6,5 +6,8 @@ In UTOPA, Guangzhou China.
 # Diary
 [Diary](Diary/)
 
+
+Tests all passed
 [Home Test1](https://gggliuye.github.io/)
+
 [Home Test2](../)
