@@ -4,4 +4,4 @@
 
 # Movies
 
-[Moives](Moives/)
+[Movies](Movies/)
