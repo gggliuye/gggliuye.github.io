@@ -9,3 +9,7 @@ I love the world!
 ## Life
 
 [Life](Life/)
+
+
+## Mine
+[Mine](Know/)
