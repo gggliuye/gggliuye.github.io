@@ -6,4 +6,6 @@ I love the world!
 
 [Work](Work/) 
 
-## Music
+## Life
+
+[Life](Life/)
