@@ -29,4 +29,10 @@ We can try to make VINS system to have more connection with the feature points (
 If I made ORBSLAM with IMU, I can also save the keyframes and all its points, then import into a VINS system (as they all use edge points and Brief descriptors). **That is a better way !!!**
 
 
+# 2019/09/18
+
+I talked with our algrithme engineers this morning, I found that we really need to talk to share our work, our knowledges and our perspective of our project. It may be difficult to understand each other, while I will try my best to learn and be modest to our people's opinions. 
+
+Also, I talked with one of our manager about our current projects. He said that we have a lots of projects currently working with. Pop art show is the one with highest priority. This is my main project too, which is AR art show about the recent POP art. And an another one with high priority is to travel on a car while enjoying foreign scenes. We have already sent some people to europe to take video( from about august this year).
+
 [BACK](../)
