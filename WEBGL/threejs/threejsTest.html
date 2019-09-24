@@ -11,8 +11,9 @@
                     <a href="index.html">BACK</a>
                 </p>
 		
-		<script src="https://unpkg.com/three"></script>
 		<script>
+			import * as THREE from "../build/three.module.js";
+			
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
