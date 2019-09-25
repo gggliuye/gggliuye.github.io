@@ -33,6 +33,13 @@
         			document.body.appendChild(stats.dom);
     			}
 			
+			function onWindowResize() {
+        			camera.aspect = window.innerWidth / window.innerHeight;
+        			camera.updateProjectionMatrix();
+       		 		render();
+        			renderer.setSize( window.innerWidth, window.innerHeight );
+    			}
+			
 			var controls;
 			function initControls() {
 				controls = new THREE.OrbitControls(camera, renderer.domElement);
