@@ -13,7 +13,17 @@
 		
 		<script type="module">
 			import * as THREE from "./build/three.module.js";
-			import { PLYLoader } from './src/PLYLoader.js';
+			
+			function randomColor() {
+        			var arrHex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"],
+            				strHex = "0x",
+            				index;
+        			for (var i = 0; i < 6; i++) {
+            				index = Math.round(Math.random() * 15);
+            				strHex += arrHex[index];
+        			}
+        			return strHex;
+			}
 			
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -21,13 +31,21 @@
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
-
-			var loader = new PLYLoader();
-			loader.load( '../resources/spring_square_binary.ply', function ( geometry ) {
-
-				scene.add( geometry.scene );
-
-			} );
+			
+        		var geom = new THREE.Geometry();
+		        var material = new THREE.PointCloudMaterial({
+            			{size: 4, vertexColors: true, color: 0xffffff}
+       		 	);
+			
+			for (var x = -5; x <= 5; x++) {
+            		    for (var y = -5; y <= 5; y++) {
+                		var particle = new THREE.Vector3(x * 10, y * 10, 0);
+                		geom.vertices.push(particle);
+                		geom.colors.push(new THREE.Color(+randomColor()));
+            		    }
+        		}
+			cloud = new THREE.PointCloud(geometry, material);
+        		scene.add(cloud);
 			
 			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
