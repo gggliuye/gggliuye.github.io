@@ -57,7 +57,10 @@
 			
 			initControls();	
 			
-        		var geom = new THREE.Geometry();
+			var object = new THREE.AxesHelper(500);
+        		scene.add(object);
+			
+        		var geometry = new THREE.Geometry();
 		        var material = new THREE.PointsMaterial(
             			{size: 1, vertexColors: true, color: 0xffffff}
        		 	);
@@ -65,28 +68,20 @@
 			for (var x = -5; x <= 5; x++) {
             		    for (var y = -5; y <= 5; y++) {
                 		var particle = new THREE.Vector3(x * 10, y * 10, 0);
-                		geom.vertices.push(particle);
-                		geom.colors.push(new THREE.Color(+randomColor()));
+                		geometry.vertices.push(particle);
+                		geometry.colors.push(new THREE.Color(+randomColor()));
             		    }
         		}
-			var cloud;
-			cloud = new THREE.Points(geom, material);
-        		scene.add(cloud);
 			
-			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			var cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+			var cloud;
+			cloud = new THREE.Points(geometry, material);
+        		scene.add(cloud);
 
 			var animate = function () {
 				controls.update();
 				stats.update();
 				
 				requestAnimationFrame( animate );
-
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
-				
 				renderer.render( scene, camera );
 			};
 
