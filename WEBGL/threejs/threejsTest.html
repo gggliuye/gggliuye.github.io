@@ -52,7 +52,8 @@
     			}
 			console.log("hello world!");
 			var reader = new FileReader();
-         		reader.readAsText("../resources/fused_downsampled.json");
+			var filename = "../resources/fused_downsampled.json";
+         		reader.readAsText(filename);
  
          		reader.onload = function(){
              			console.log("read result", this.result);
