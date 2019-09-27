@@ -86,7 +86,6 @@
 			//cloud = new THREE.Points(geometry, material);
         		//scene.add(cloud);
 			
-			
 			var jsonFile = "../resources/fused_downsampled.json";
 			function loadJson(){
 				//var geome = new THREE.Geometry();
@@ -110,7 +109,7 @@
 				//return geome;
 			}
 			
-			//var geometry = loadJson();
+			loadJson();
 			var cloud;
 			cloud = new THREE.Points(geometry, material);
         		scene.add(cloud);
