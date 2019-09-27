@@ -108,13 +108,11 @@
   				});
 				console.log("load done!");
 			});
-
 			console.log(geometry);
-
-			console.log("data point size check ：", pointsize, x, y, z);
 			
 			var cloud2;
 			cloud2 = new THREE.Points(geometry, material);
+			console.log(cloud2);
         		scene.add(cloud2);
 			
 			var animate = function () {
