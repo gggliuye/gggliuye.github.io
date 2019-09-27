@@ -99,6 +99,7 @@
 						else if (i%3 == 1) y = item;
 						else if (i%3 == 2) {
 							z = item;
+							console.log("start load!",x,y,z);
 							var particle = new THREE.Vector3(x, y, z);
                 					geome.vertices.push(particle);
 							geome.colors.push(new THREE.Color(+randomColor()));
@@ -107,6 +108,7 @@
 					
         			}
 				);
+				console.log("load done!");
 				return geome;
 			}
 			
