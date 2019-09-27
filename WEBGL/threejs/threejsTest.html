@@ -73,6 +73,7 @@
             			{size: 1, vertexColors: true, color: 0xffffff}
        		 	);
 			
+			function addpoints() {
 			for (var x = -5; x <= 5; x++) {
             		    for (var y = -5; y <= 5; y++) {
                 		var particle = new THREE.Vector3(x * 10, y * 10, 0.1);
@@ -80,6 +81,8 @@
                 		geometry.colors.push(new THREE.Color(+randomColor()));
             		    }
         		}
+			}
+			addpoints();
 			
 			var particle = new THREE.Vector3(-28, 2, -5);
                 	geometry.vertices.push(particle);
