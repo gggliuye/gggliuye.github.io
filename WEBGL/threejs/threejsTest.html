@@ -87,7 +87,8 @@
         		scene.add(cloud);
 
 			var jsonFile = "../resources/fused_downsampled.json";
-    			function loadJson(){
+			function loadJson(){
+				console.log("start load!");
 				$.getJSON (jsonFile, function (data){
 					console.log("hello world!");
             				console.log("data point size ：", data.size);
@@ -95,7 +96,6 @@
 				);
 			}
 			loadJson();
-			console.log("hello world!");
 			
 			var animate = function () {
 				controls.update();
