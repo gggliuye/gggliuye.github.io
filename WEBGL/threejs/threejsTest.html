@@ -16,6 +16,14 @@
 		<script src="build/dat.gui.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+			camera.position.z = 50;
+			
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setClearColor(0x000000,0);
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
 			
 			function randomColor() {
         			var arrHex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"],
@@ -37,8 +45,8 @@
 			function onWindowResize() {
         			camera.aspect = window.innerWidth / window.innerHeight;
         			camera.updateProjectionMatrix();
-       		 		render();
         			renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.render( scene, camera );
     			}
 			
 			var controls;
@@ -52,15 +60,6 @@
 			        controls.enablePan = true;
     			}
 			console.log("hello world!");
-			
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-			camera.position.z = 50;
-			
-			var renderer = new THREE.WebGLRenderer();
-			renderer.setClearColor(0x000000,0);
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
 			
 			initStats();
 			
