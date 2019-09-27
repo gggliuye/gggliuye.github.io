@@ -92,7 +92,8 @@
 			var jsonFile = "../resources/fused_downsampled.json";
 
 			console.log("start load!");
-			data = $.getJSON (jsonFile);
+			res = $.getJSON (jsonFile, data);
+			console.log("get json result ：", res);
 			
 				pointsize = data.size;
             			console.log("data point size ：", data.size);
