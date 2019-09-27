@@ -103,7 +103,9 @@
                 					geometry.vertices.push(particle);
 							geometry.colors.push(new THREE.Color(+randomColor()));
 						}
+						if (i == 9) return false;
   					});
+					
         			}
 				);
 			}
