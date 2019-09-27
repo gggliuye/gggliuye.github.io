@@ -107,13 +107,18 @@
 						z = parseInt(item*10);
 						var particle = new THREE.Vector3(x, y, z);
 						particles.push(particle);
-                				geometry.vertices.push(particle);
-						geometry.colors.push(new THREE.Color(+randomColor()));
 					}
 					if(i>200) return false;
   				});
 				console.log("load done!");
 			});
+			
+			for(var i = 0; i < particles.length; i++){
+				geometry.vertices.push(particles[i]);
+				geometry.colors.push(new THREE.Color(+randomColor()));
+			
+			}
+			
 			console.log(particles);
 			console.log(geometry);
 			
