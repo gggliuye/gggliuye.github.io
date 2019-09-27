@@ -75,7 +75,7 @@
 			
 			for (var x = -5; x <= 5; x++) {
             		    for (var y = -5; y <= 5; y++) {
-                		var particle = new THREE.Vector3(x * 10, y * 10, 0);
+                		var particle = new THREE.Vector3(x * 10, y * 10, 0.1);
                 		geometry.vertices.push(particle);
                 		geometry.colors.push(new THREE.Color(+randomColor()));
             		    }
