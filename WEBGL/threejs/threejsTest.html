@@ -86,16 +86,30 @@
 			cloud = new THREE.Points(geometry, material);
         		scene.add(cloud);
 
+			geometry = new THREE.Geometry();
 			var jsonFile = "../resources/fused_downsampled.json";
 			function loadJson(){
 				console.log("start load!");
 				$.getJSON (jsonFile, function (data){
-					console.log("hello world!");
             				console.log("data point size ：", data.size);
-        				}
+					var x,y,z;
+					$.each(data.vertex, function(i,item){
+    						if (i%3 == 0) x = item;
+						else if (i%3 == 1) y = item;
+						else if (i%3 == 2) {
+							z = item;
+							var particle = new THREE.Vector3(x, y, z);
+                					geometry.vertices.push(particle);
+							geometry.colors.push(new THREE.Color(+randomColor()));
+						}
+  					});
+        			}
 				);
 			}
 			loadJson();
+			
+			cloud = new THREE.Points(geometry, material);
+        		scene.add(cloud);
 			
 			var animate = function () {
 				controls.update();
