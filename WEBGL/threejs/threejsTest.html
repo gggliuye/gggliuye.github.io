@@ -74,22 +74,22 @@
             			{size: 1, vertexColors: true, color: 0xffffff}
        		 	);
 			
-			for (var x = -5; x <= 5; x++) {
-            		    for (var y = -5; y <= 5; y++) {
-                		var particle = new THREE.Vector3(x * 10, y * 10, 0);
-                		geometry.vertices.push(particle);
-                		geometry.colors.push(new THREE.Color(+randomColor()));
-            		    }
-        		}
-			
-			var cloud;
-			cloud = new THREE.Points(geometry, material);
-        		scene.add(cloud);
+			//for (var x = -5; x <= 5; x++) {
+            		//    for (var y = -5; y <= 5; y++) {
+                	//	var particle = new THREE.Vector3(x * 10, y * 10, 0);
+                	//	geometry.vertices.push(particle);
+                	//	geometry.colors.push(new THREE.Color(+randomColor()));
+            		//    }
+        		//}
+			//
+			//var cloud;
+			//cloud = new THREE.Points(geometry, material);
+        		//scene.add(cloud);
 			
 			
 			var jsonFile = "../resources/fused_downsampled.json";
 			function loadJson(){
-				var geome = new THREE.Geometry();
+				//var geome = new THREE.Geometry();
 				console.log("start load!");
 				$.getJSON (jsonFile, function (data){
             				console.log("data point size ：", data.size);
@@ -100,20 +100,20 @@
 						else if (i%3 == 2) {
 							z = item;
 							var particle = new THREE.Vector3(x*10, y*10, z*10);
-                					geome.vertices.push(particle);
-							geome.colors.push(new THREE.Color(+randomColor()));
+                					geometry.vertices.push(particle);
+							geometry.colors.push(new THREE.Color(+randomColor()));
 						}
   					});
         			}
 				);
 				console.log("load done!");
-				return geome;
+				//return geome;
 			}
 			
-			var geometry2 = loadJson();
-			var cloud2;
-			cloud2 = new THREE.Points(geometry2, material);
-        		scene.add(cloud2);
+			//var geometry = loadJson();
+			var cloud;
+			cloud = new THREE.Points(geometry, material);
+        		scene.add(cloud);
 			
 			var animate = function () {
 				controls.update();
