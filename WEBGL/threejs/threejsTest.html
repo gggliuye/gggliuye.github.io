@@ -94,10 +94,11 @@
 			console.log("start load!");
 			var data;
 			res = $.getJSON (jsonFile, data);
-			console.log("get json result ：", res);
+			//console.log("get json result ：", res);
+			console.log("data ：", data);
 			
-				pointsize = data.size;
-            			console.log("data point size ：", data.size);
+				pointsize = res.responseJSON.size;
+            			console.log("data point size ：", res.responseJSON.size);
 				$.each(data.vertex, function(i,item){
     					if (i%3 == 0) x = item;
 					else if (i%3 == 1) y = item;
