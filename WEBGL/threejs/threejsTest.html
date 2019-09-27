@@ -96,7 +96,7 @@
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 
-			var particles = [];
+			var particlesX = [];
 			$.getJSON (jsonFile, function(data){
 				console.log("start load!");
             			console.log("data point size ：", data.size);
@@ -106,6 +106,7 @@
 					else if (i%3 == 2) {
 						z = parseInt(item*10);
 						var particle = new THREE.Vector3(x, y, z);
+						particlesX.push(x);
 						particles.push(particle);
 					}
 					if(i>200) return false;
@@ -114,6 +115,7 @@
 			});
 			
 			for(var i = 0; i < particles.length; i++){
+				console.log(particles[i], particlesX[i]);
 				geometry.vertices.push(particles[i]);
 				geometry.colors.push(new THREE.Color(+randomColor()));
 			
