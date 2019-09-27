@@ -98,6 +98,7 @@
 						else if (i%3 == 1) y = item;
 						else if (i%3 == 2) {
 							z = item;
+							console.log("data point ：", x,y,z);
 							var particle = new THREE.Vector3(x, y, z);
                 					geometry.vertices.push(particle);
 							geometry.colors.push(new THREE.Color(+randomColor()));
