@@ -95,14 +95,11 @@
 			//geometry = new THREE.Geometry();
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
-
-			var test = new Array();
-			test.push(1);
-			console.log(test);
 			
 			var particlesX = new Array(200);
 			var particles = new Array(200);
 			$.getJSON (jsonFile, function(data){
+				var index = 0;
 				console.log("start load!");
             			console.log("data point size ：", data.size);
 				$.each(data.vertex, function(i,item){
@@ -111,10 +108,11 @@
 					else if (i%3 == 2) {
 						z = parseInt(item*10);
 						var particle = new THREE.Vector3(x, y, z);
-						particlesX.push(x);
-						particles.push(particle);
+						particlesX[index] = x;
+						particles[index] = particle;
+						index = index + 1;
 					}
-					if(i>200) return false;
+					if(index > 199) return false;
   				});
 				console.log("load done!");
 			});
