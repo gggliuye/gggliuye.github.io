@@ -92,7 +92,8 @@
 			var jsonFile = "../resources/fused_downsampled.json";
 
 			console.log("start load!");
-			$.getJSON (jsonFile, function (data){
+			data = $.getJSON (jsonFile);
+			
 				pointsize = data.size;
             			console.log("data point size ：", data.size);
 				$.each(data.vertex, function(i,item){
@@ -105,8 +106,7 @@
 						geometry.colors.push(new THREE.Color(+randomColor()));
 					}
   				});
-        		}
-			);
+
 			console.log("load done!");
 
 			console.log("data point size check ：", pointsize, x, y, z);
