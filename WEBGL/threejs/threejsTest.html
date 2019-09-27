@@ -84,7 +84,7 @@
 			}
 			//addpoints();
 
-			var x,y,z;
+			var x,y,z,r,g,b;
 			var jsonFile = "../resources/fused_downsampled.json";
 			
 			//var particlesX = new Array(200);
@@ -118,13 +118,16 @@
 					console.log("start load!");
             				console.log("data point size ：", data.size);
 					for(var i = 0; i < data.size; i++){
-    						if (i%3 == 0) x = data.vertex[i]*10;
-						else if (i%3 == 1) y = -data.vertex[i]*10;
-						else if (i%3 == 2) {
+						if (i%3 == 2) {
+							x = data.vertex[i-2]*10;
+							y = -data.vertex[i-1]*10;
 							z = data.vertex[i]*10;
+							r = data.color[i-2]/255;
+							g = data.color[i-1]/255;
+							b = data.color[i]/255;
 							var particle = new THREE.Vector3(x, y, z);
 							geometry.vertices.push(particle);
-							geometry.colors.push(new THREE.Color(+randomColor()));
+							geometry.colors.push(new THREE.Color(r,g,b));
 						}
   					}
 					console.log("load done!");	
