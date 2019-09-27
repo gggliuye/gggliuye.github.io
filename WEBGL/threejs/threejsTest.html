@@ -91,8 +91,8 @@
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 			
-			var particlesX = new Array(200);
-			var particles = new Array(200);
+			//var particlesX = new Array(200);
+			//var particles = new Array(200);
 			//$.getJSON (jsonFile, function(data){
 			//	var index = 0;
 			//	console.log("start load!");
@@ -122,14 +122,13 @@
 					console.log("start load!");
             				console.log("data point size ：", data.size);
 					$.each(data.vertex, function(i,item){
-    						if (i%3 == 0) x = parseInt(item*10);
-						else if (i%3 == 1) y = parseInt(item*10);
+    						if (i%3 == 0) x = item*10;
+						else if (i%3 == 1) y = item*10;
 						else if (i%3 == 2) {
-							z = parseInt(item*10);
+							z = item*10;
 							var particle = new THREE.Vector3(x, y, z);
-							particlesX[index] = x;
-							particles[index] = particle;
-							index = index + 1;
+							geometry.vertices.push(particle);
+							geometry.colors.push(new THREE.Color(+randomColor()));
 						}
 						if(index > 199) return false;
   					});
@@ -137,16 +136,15 @@
                 			}
            		});
 			
-			console.log(particles.length, particlesX.length);
-			for(var i = 0; i < particles.length; i++){
-				console.log(particles[i], particlesX[i]);
-				geometry.vertices.push(particles[i]);
-				geometry.colors.push(new THREE.Color(+randomColor()));
+			//console.log(particles.length, particlesX.length);
+			//for(var i = 0; i < particles.length; i++){
+			//	console.log(particles[i], particlesX[i]);
+			//	geometry.vertices.push(particles[i]);
+			//	geometry.colors.push(new THREE.Color(+randomColor()));
+			//}
 			
-			}
-			
-			console.log(particles);
-			console.log(geometry);
+			//console.log(particles);
+			//console.log(geometry);
 			
 			var cloud2;
 			cloud2 = new THREE.Points(geometry, material);
