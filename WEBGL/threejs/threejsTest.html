@@ -96,6 +96,7 @@
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 
+			var particles;
 			$.getJSON (jsonFile, function(data){
 				console.log("start load!");
             			console.log("data point size ：", data.size);
@@ -105,6 +106,7 @@
 					else if (i%3 == 2) {
 						z = parseInt(item*10);
 						var particle = new THREE.Vector3(x, y, z);
+						particles.push(particle);
                 				geometry.vertices.push(particle);
 						geometry.colors.push(new THREE.Color(+randomColor()));
 					}
@@ -112,16 +114,12 @@
   				});
 				console.log("load done!");
 			});
-			geometry.verticesNeedUpdate = true;
-			geometry.colorsNeedUpdate = true;
-			
+			console.log(particles);
 			console.log(geometry);
 			
 			var cloud2;
 			cloud2 = new THREE.Points(geometry, material);
-			console.log(cloud2);
         		scene.add(cloud2);
-			console.log(scene);
 			var animate = function () {
 				controls.update();
 				stats.update();
