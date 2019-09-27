@@ -74,25 +74,28 @@
             			{size: 1, vertexColors: true, color: 0xffffff}
        		 	);
 			
-			//for (var x = -5; x <= 5; x++) {
-            		//    for (var y = -5; y <= 5; y++) {
-                	//	var particle = new THREE.Vector3(x * 10, y * 10, 0);
-                	//	geometry.vertices.push(particle);
-                	//	geometry.colors.push(new THREE.Color(+randomColor()));
-            		//    }
-        		//}
-			//
-			//var cloud;
-			//cloud = new THREE.Points(geometry, material);
-        		//scene.add(cloud);
+			for (var x = -5; x <= 5; x++) {
+            		    for (var y = -5; y <= 5; y++) {
+                		var particle = new THREE.Vector3(x * 10, y * 10, 0);
+                		geometry.vertices.push(particle);
+                		geometry.colors.push(new THREE.Color(+randomColor()));
+            		    }
+        		}
 			
+			var cloud;
+			cloud = new THREE.Points(geometry, material);
+        		scene.add(cloud);
+			
+			geometry = new THREE.Geometry();
+			var pointsize;
+			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 			function loadJson(){
 				//var geome = new THREE.Geometry();
 				console.log("start load!");
 				$.getJSON (jsonFile, function (data){
+					pointsize = data.size;
             				console.log("data point size ：", data.size);
-					var x,y,z;
 					$.each(data.vertex, function(i,item){
     						if (i%3 == 0) x = item;
 						else if (i%3 == 1) y = item;
@@ -108,11 +111,14 @@
 				console.log("load done!");
 				//return geome;
 			}
-			
+
 			loadJson();
-			var cloud;
-			cloud = new THREE.Points(geometry, material);
-        		scene.add(cloud);
+
+			console.log("data point size ：", pointsize, x, y, z);
+			
+			var cloud2;
+			cloud2 = new THREE.Points(geometry, material);
+        		scene.add(cloud2);
 			
 			var animate = function () {
 				controls.update();
