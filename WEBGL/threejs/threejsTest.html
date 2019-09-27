@@ -87,35 +87,56 @@
 			var particle = new THREE.Vector3(-28, 2, -5);
                 	geometry.vertices.push(particle);
                 	geometry.colors.push(new THREE.Color(+randomColor()));
-			//var cloud;
-			//cloud = new THREE.Points(geometry, material);
-        		//scene.add(cloud);
-			
-			// load json point cloud
-			//geometry = new THREE.Geometry();
+
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 			
 			var particlesX = new Array(200);
 			var particles = new Array(200);
-			$.getJSON (jsonFile, function(data){
-				var index = 0;
-				console.log("start load!");
-            			console.log("data point size ：", data.size);
-				$.each(data.vertex, function(i,item){
-    					if (i%3 == 0) x = parseInt(item*10);
-					else if (i%3 == 1) y = parseInt(item*10);
-					else if (i%3 == 2) {
-						z = parseInt(item*10);
-						var particle = new THREE.Vector3(x, y, z);
-						particlesX[index] = x;
-						particles[index] = particle;
-						index = index + 1;
-					}
-					if(index > 199) return false;
-  				});
-				console.log("load done!");
-			});
+			//$.getJSON (jsonFile, function(data){
+			//	var index = 0;
+			//	console.log("start load!");
+            		//	console.log("data point size ：", data.size);
+			//	$.each(data.vertex, function(i,item){
+    			//		if (i%3 == 0) x = parseInt(item*10);
+			//		else if (i%3 == 1) y = parseInt(item*10);
+			//		else if (i%3 == 2) {
+			//			z = parseInt(item*10);
+			//			var particle = new THREE.Vector3(x, y, z);
+			//			particlesX[index] = x;
+			//			particles[index] = particle;
+			//			index = index + 1;
+			//		}
+			//		if(index > 199) return false;
+  			//	});
+			//	console.log("load done!");
+			//});
+
+			$.ajax({
+                		type: "get",
+                		url: jsonFile,
+                		dataType: "json",
+                		async: false,
+                		success: function(data){
+                    			var index = 0;
+					console.log("start load!");
+            				console.log("data point size ：", data.size);
+					$.each(data.vertex, function(i,item){
+    						if (i%3 == 0) x = parseInt(item*10);
+						else if (i%3 == 1) y = parseInt(item*10);
+						else if (i%3 == 2) {
+							z = parseInt(item*10);
+							var particle = new THREE.Vector3(x, y, z);
+							particlesX[index] = x;
+							particles[index] = particle;
+							index = index + 1;
+						}
+						if(index > 199) return false;
+  					});
+					console.log("load done!");	
+                			}
+           		});
+			
 			console.log(particles.length, particlesX.length);
 			for(var i = 0; i < particles.length; i++){
 				console.log(particles[i], particlesX[i]);
