@@ -14,6 +14,7 @@
 		<script src="build/OrbitControls.js"></script>
 		<script src="build/stats.min.js"></script>
 		<script src="build/dat.gui.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script>
 			
 			function randomColor() {
@@ -50,16 +51,7 @@
 			        controls.maxDistance = 10000;
 			        controls.enablePan = true;
     			}
-			console.log("hello world!");
-			var reader = new FileReader();
-			var filename = "../resources/fused_downsampled.json";
-         		reader.readAsText(filename);
- 
-         		reader.onload = function(){
-             			console.log("read result", this.result);
-            			let json = JSON.parse(this.result);
-             			console.log(json.size);
-         		};
+			console.log("hello world!")
 			
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -94,6 +86,13 @@
 			cloud = new THREE.Points(geometry, material);
         		scene.add(cloud);
 
+			var jsonFile = "../resources/fused_downsampled.json";
+    			var Ajax = function (){
+				$.getJSON (jsonFile, function (data){
+            				console.log("data point size ：", data.size);
+        			});
+
+			
 			var animate = function () {
 				controls.update();
 				stats.update();
