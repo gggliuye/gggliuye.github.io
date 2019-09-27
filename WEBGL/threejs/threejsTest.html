@@ -92,10 +92,8 @@
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 
-			console.log("start load!");
-			var data;
-			
-			function jsoncallback(data){
+			$.getJSON (jsonFile, function(data){
+				console.log("start load!");
 				pointsize = data.size;
             			console.log("data point size ：", data.size);
 				$.each(data.vertex, function(i,item){
@@ -109,8 +107,7 @@
 					}
   				});
 				console.log("load done!");
-			}
-			$.getJSON (jsonFile, jsoncallback(data));
+			});
 
 			console.log(geometry);
 
