@@ -96,8 +96,8 @@
 			var x,y,z;
 			var jsonFile = "../resources/fused_downsampled.json";
 
-			var particlesX = new Array();
-			var particles = new Array();
+			var particlesX = new Array(200);
+			var particles = new Array(200);
 			$.getJSON (jsonFile, function(data){
 				console.log("start load!");
             			console.log("data point size ：", data.size);
