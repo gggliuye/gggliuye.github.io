@@ -94,11 +94,11 @@
 				console.log("start load!");
             			console.log("data point size ：", data.size);
 				$.each(data.vertex, function(i,item){
-    					if (i%3 == 0) x = item;
-					else if (i%3 == 1) y = item;
+    					if (i%3 == 0) x = parseInt(item*10);
+					else if (i%3 == 1) y = parseInt(item*10);
 					else if (i%3 == 2) {
-						z = item;
-						var particle = new THREE.Vector3(x*10, y*10, z*10);
+						z = parseInt(item*10);
+						var particle = new THREE.Vector3(x, y, z);
                 				geometry.vertices.push(particle);
 						geometry.colors.push(new THREE.Color(+randomColor()));
 					}
