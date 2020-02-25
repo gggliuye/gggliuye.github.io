@@ -66,6 +66,17 @@
 			
 			var object = new THREE.AxesHelper(500);
         		scene.add(object);
+ 
+                        var loader = new THREE.PLYLoader();
+        		loader.load("../resources/rgbd_utopa_go_res_05.ply", function (geometry) {
+		            geometry.computeVertexNormals();
+
+		            var material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
+            		    var mesh = new THREE.Mesh( geometry, material );
+            		    mesh.rotation.y = Math.PI;
+            		    mesh.scale.set(0.05, 0.05, 0.05);
+            		    scene.add( mesh );
+        		});
 			
 			var animate = function () {
 				controls.update();
