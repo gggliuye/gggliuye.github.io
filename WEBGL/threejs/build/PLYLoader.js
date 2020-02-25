@@ -478,5 +478,3 @@ THREE.PLYLoader.prototype = {
         }
  
 };
- 
-THREE.EventDispatcher.prototype.apply( THREE.PLYLoader.prototype );
