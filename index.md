@@ -11,6 +11,9 @@ I love the world!
 [Life](Life/)
 
 
+## Diary
+[Diary](Diary/)
+
 ## Mine
 [Mine](Know/)
 
