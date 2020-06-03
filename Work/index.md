@@ -24,8 +24,8 @@ We have another co-worker deal with it, but I think he didn't do a great job. So
 
 ### Single image based large scene localization
 I am fully in charge of this part. Our system is based on Colmap SFM system, but I have our own modification to make it work for our system. [videos_indoor](https://www.bilibili.com/video/BV1NZ4y1j7Ba/) [videos_ar](https://www.bilibili.com/video/BV1Ci4y1b79V/) [video_outdoor](https://www.bilibili.com/video/BV1VT4y157NH/).
-* [mine work of the first period](https://vio.readthedocs.io/) is mostly study and prepare the modules. We have built all the basic algorithm interface of C++, C#, and java to support.
-* We use a fast blur detection system to reject bad matching frames.
+* [My work of the first period](https://vio.readthedocs.io/) is mostly to study and to prepare the modules. And we have built all the basic algorithm interface of C++, C#, and java to support.
+* We use a fast blur detection algorithm to reject bad image frames.
 * We have built a IMU based scale estimation algorithm.
 * We have built a system to allow to use a third-party lidar device to help optimize our map.
 * We are now developping a deep learning based feature detection algorithm to deal with the illumination changing.
