@@ -30,14 +30,20 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 * We have built a system to allow to use a third-party lidar device to help optimize our map.
 * We are now developping a deep learning based feature detection algorithm to deal with the illumination changing.
 * We are now developping a solid lidar based visual-lidar system to get a better and more dense result.
-* We are working with Deep learning based MVS methods. 
+* We are working with Deep learning based MVS methods. [articles research](https://docs.qq.com/slide/DUndnS2pwbkRiQmZM) [DeepMVS test](https://gitee.com/gggliuye/VIO/blob/master/DeepMVS/Result_show.ipynb)
 
 
 # Diary
+Some the develop diary. 
+Most of them are in my private workfile (invisible here)
+
 [Diary](Diary/)
 
 
-## WebGL demo
+# WebGL demo
+(worked with my own effort)
+* First demo : use threejs to load and show a point cloud (which I encoded into json form).
+* Second demo : use threejs to show a computer vision algorithm based 3d reconstruction.
 [WebGL demo](../WEBGL/threejs)
 
 
