@@ -37,5 +37,12 @@ Also, I talked with one of our manager about our current projects. He said that 
 
 We also talked about Vuforia image localization. As the economy battle between US and China, all the cloud service of Vuforia has been cut off. It is like they have our throat in hand. In my opinion, this is a great chance for us, and it makes the localization based on image more useful and valuable than ever before in China. I should spare some of my time in this field.
 
+## 2020/04
+
+A summary of the work of our LAB. 
+[2020_04_创科实验室_工作汇总](https://docs.qq.com/slide/DUlhFYVBYdUVVbElk)
+
+
+
 
 [BACK](../)
