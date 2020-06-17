@@ -39,6 +39,9 @@ Most of them are in my private workfile (invisible here)
 
 [Diary](Diary/)
 
+# ServerLocalization
+
+[ServerLocalization](ServerLocalization/)
 
 # WebGL demo
 (worked with my own effort)
