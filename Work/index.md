@@ -43,7 +43,7 @@ Most of them are in my private workfile (invisible here)
 
 [ServerLocalization](ServerLocalization/)
 
-## Maapings
+## Mappings
 
 [Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
 
