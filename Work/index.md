@@ -43,6 +43,14 @@ Most of them are in my private workfile (invisible here)
 
 [ServerLocalization](ServerLocalization/)
 
+## Maapings
+
+[Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
+
+[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256)
+
+[RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
+
 # WebGL demo
 (worked with my own effort)
 * First demo : use threejs to load and show a point cloud (which I encoded into json form).
