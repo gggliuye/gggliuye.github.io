@@ -2,18 +2,16 @@
 
 * **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
 
-![GTLAND](images/gtland.jpg)
+<div align="center">    
+<img src="images/gtland.jpg" width="75%" height="75%" />
+</div>
 
 * **Team** : we have dozen of algorithm engineers, major in Visual SLAM (simultaneous localization and mapping), Visual Deep Learning, and 3D Reconstruction. Support with a few dozens of employees working on Unity3d, and a few dozens working with server back-end. I am part of the algorithm group (or should I say the 'head' without a offical title).
 
 * **My Work** : I am fully charged of one major aspect (**signle image based visual localization algorithm**), and in the direction of two other parts (**mobile device visual SLAM algorithm**, and **6-DOF Image marker tracking algorithm**). The 'productions' of our group are SDKs could be used in Unity Android.
 
-![demos](images/demos.PNG)
-
-<img src="images/demos.PNG" width="75%" height="75%" />
-
 <div align="center">    
-<img src="images/demos.PNG" width="75%" height="75%" />
+<img src="images/demos.PNG"/>
 </div>
 
 # Summary and Backups (updated 2020/07)
@@ -58,12 +56,15 @@ We have another co-worker deal with it, but I think he didn't do a great job. So
 * Cooperate with a third-party SLAM system. Particularly, our system (and the demo video) is a cooperation with ARCORE (from google), and we realize a basic demo which has the potentail to achieve Vuforia's performance.
 
 **Backups and Documents**:
-* **Single, Multi, and Cube Tracking** : baiduyun/UTOPA/Backups/2020_05_Marker-based-AR-on-Android-2020-05.zip
-<!-- [Single, Multi, and Cube Tracking](https://pan.baidu.com/s/1j5ciMN88E896rxxajtf5qQ)(0dsx) -->
+
+* **Single Tracking** : baiduyun/UTOPA/Backups/2020_05_Marker-based-AR-on-Android-2020-05.zip
+<!-- [Single Tracking](https://pan.baidu.com/s/1j5ciMN88E896rxxajtf5qQ)(0dsx) -->
+* **Single, Multi, and Cube Tracking** : baiduyun/UTOPA/Backups/2020_05_Multi_Marker-based-AR-on-Android.zip
+<!-- [Single, Multi, and Cube Tracking](https://pan.baidu.com/s/1Omtd__yvESLQ-CM5O6-qiw)(cu45) -->
+* **Corresponding Unity Project** : baiduyun/UTOPA/Backups/2020_05_multi_marker_arcore.zip
+<!-- [Corresponding Unity Project](https://pan.baidu.com/s/18Qi_CYj8HaNe5hXeTcMFZQ) (2c03)-->
 
 
-
-<!---->
 <!---->
 **Work Flow**:
 
