@@ -122,8 +122,6 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 **Mapping Clouds**:
 
 * [Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
-* [RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256)
-* [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
 
 **Some Log**:
 
@@ -147,11 +145,11 @@ Backups and Documents:
 </div>
 
 * [Probability Graphy model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation)
-* [Lidar SLAM](https://github.com/gggliuye/LidarSlam)
+* [Lidar SLAM](https://github.com/gggliuye/LidarSlam) : some clouds :[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256) and [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
+
 
 ## Diary
 Some the develop diary.
-Most of them are in my private workfile (invisible here)
 
 [Diary](Diary/)
 
