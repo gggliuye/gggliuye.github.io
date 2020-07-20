@@ -8,7 +8,13 @@
 
 * **My Work** : I am fully charged of one major aspect (**signle image based visual localization algorithm**), and in the direction of two other parts (**mobile device visual SLAM algorithm**, and **6-DOF Image marker tracking algorithm**). The 'productions' of our group are SDKs could be used in Unity Android.
 
-![demos](images/demos.jpg)
+![demos](images/demos.PNG)
+
+<img src="images/demos.PNG" width="75%" height="75%" />
+
+<div  align="center">    
+![GTLAND](images/gtland.jpg)
+</div>
 
 # Summary and Backups (updated 2020/07)
 
@@ -21,16 +27,15 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 * A loop clousre system based on marker images (some posters that we can put in our scene), use an other system to obatin the exact pose of all the marker in our coordinate system. As a result, this loop clousre system is perfectly match with one single global map.
 * Now is working with PCG (preconditioned conjugate gradient) algorithm to accelerate the SLAM system [my blog](https://blog.csdn.net/weixin_44492024/article/details/106353397) . And also prepare the implementation of incremental bundle adjustment (IBA).
 
-<!-- ![run_result](images/mine_cg_pcg.jpg) -->
 **Backups and Documents**:
 
 * [VIO documents](https://vio.readthedocs.io/)
 * [PCG Matlab](https://gitee.com/gggliuye/cg_pcg)
-* ORBSLAM2 Android Modified : baiduyun/UTOPA/Backups/2020_05_ORB-SLAM2-based-AR-on-Android-2020-05.zip
+* **ORBSLAM2 Android Modified** : baiduyun/UTOPA/Backups/2020_05_ORB-SLAM2-based-AR-on-Android-2020-05.zip
 <!-- [ORBSLAM2 Android Modified](https://pan.baidu.com/s/1-WrYRPKdgZunVWLNuc2taA) (ofcd) -->
-* ORBSLAM2 Andorid Corresponding Unity project : baiduyun/UTOPA/Backups/2020_05_UnityCameraOrbslam.zip
+* **ORBSLAM2 Andorid Corresponding Unity project** : baiduyun/UTOPA/Backups/2020_05_UnityCameraOrbslam.zip
 <!-- [ORBSLAM2 Andorid Corresponding Unity project](https://pan.baidu.com/s/1FkF7LoqnwWqEadUlOLygbQ) (fwkx) -->
-* VINS Android Modified : baiduyun/UTOPA/Backups/2019_vins_android.zip
+* **VINS Android Modified** : baiduyun/UTOPA/Backups/2019_vins_android.zip
 <!-- [VINS Android Modified](https://pan.baidu.com/s/1aI53TGE-z9quwgVyzrZPxA) (dlhl) -->
 
 **Work Flow**:
@@ -52,7 +57,17 @@ We have another co-worker deal with it, but I think he didn't do a great job. So
   * Used the localized markers realize AR camera tracking within the scene.
 * Cooperate with a third-party SLAM system. Particularly, our system (and the demo video) is a cooperation with ARCORE (from google), and we realize a basic demo which has the potentail to achieve Vuforia's performance.
 
+**Backups and Documents**:
+* **Single, Multi, and Cube Tracking** : baiduyun/UTOPA/Backups/2020_05_Marker-based-AR-on-Android-2020-05.zip
+<!---->
 
+
+
+<!---->
+<!---->
+**Work Flow**:
+
+* Same as the former one.
 
 ### Single image based large scene localization
 I am fully in charge of this part. Our system is based on Colmap SFM system, but I have our own modification to make it work for our system. [videos_indoor](https://www.bilibili.com/video/BV1NZ4y1j7Ba/) [videos_ar](https://www.bilibili.com/video/BV1Ci4y1b79V/) [video_outdoor](https://www.bilibili.com/video/BV1VT4y157NH/).
