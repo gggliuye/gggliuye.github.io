@@ -1,4 +1,4 @@
-# Company Introduction (updated 2020/07)
+# Company Introduction
 
 * **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
 
@@ -14,9 +14,9 @@
 <img src="images/demos.PNG"/>
 </div>
 
-# Summary and Backups (updated 2020/07)
+# Summary and Backups
 
-The three directions of my work.
+The three directions of my work. (updated 2020/07)
 
 ### Moblie Phone Visual SLAM
 We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modification of the code to better suit our project. [videos](https://www.bilibili.com/video/BV1Xk4y1d7ap/)
