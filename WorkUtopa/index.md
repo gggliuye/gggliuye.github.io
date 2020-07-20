@@ -18,17 +18,23 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 * Now is working with PCG (preconditioned conjugate gradient) algorithm to accelerate the SLAM system [my blog](https://blog.csdn.net/weixin_44492024/article/details/106353397) . And also prepare the implementation of incremental bundle adjustment.
 
 <!-- ![run_result](images/mine_cg_pcg.jpg) -->
-Backups and Documents:
+**Backups and Documents**:
 
 * [VIO documents](https://vio.readthedocs.io/)
 * [PCG Matlab](https://gitee.com/gggliuye/cg_pcg)
 * ORBSLAM2 Android Modified : baiduyun/UTOPA/Backups/2020_05_ORB-SLAM2-based-AR-on-Android-2020-05.zip
 <!-- [ORBSLAM2 Android Modified](https://pan.baidu.com/s/1-WrYRPKdgZunVWLNuc2taA) (ofcd) -->
-* ORBSLAM2 Andorid Corresponging Unity project : baiduyun/UTOPA/Backups/2020_05_UnityCameraOrbslam.zip
-<!-- [ORBSLAM2 Andorid Corresponging Unity project](https://pan.baidu.com/s/1FkF7LoqnwWqEadUlOLygbQ) (fwkx) -->
+* ORBSLAM2 Andorid Corresponding Unity project : baiduyun/UTOPA/Backups/2020_05_UnityCameraOrbslam.zip
+<!-- [ORBSLAM2 Andorid Corresponding Unity project](https://pan.baidu.com/s/1FkF7LoqnwWqEadUlOLygbQ) (fwkx) -->
 * VINS Android Modified : baiduyun/UTOPA/Backups/2019_vins_android.zip
 <!-- [VINS Android Modified](https://pan.baidu.com/s/1aI53TGE-z9quwgVyzrZPxA) (dlhl) -->
 
+**Work Flow**:
+
+1. Linux PC algorithm developments.
+2. Andorid Native Java environment development, and test the algorithms.
+3. Build Android Library, build corresponding Unity project.
+4. Test and find problems.
 
 
 ### Marker image based tracking
