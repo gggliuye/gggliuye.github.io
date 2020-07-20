@@ -25,6 +25,11 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 * A loop clousre system based on marker images (some posters that we can put in our scene), use an other system to obatin the exact pose of all the marker in our coordinate system. As a result, this loop clousre system is perfectly match with one single global map.
 * Now is working with PCG (preconditioned conjugate gradient) algorithm to accelerate the SLAM system [my blog](https://blog.csdn.net/weixin_44492024/article/details/106353397) . And also prepare the implementation of incremental bundle adjustment (IBA).
 
+
+<div align="center">    
+<img src="images/pcg.PNG"/>
+</div>
+
 **Backups and Documents**:
 
 * [VIO documents](https://vio.readthedocs.io/)
@@ -114,41 +119,41 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 * Build Android server communication system, and the message encoder/decoder.
 * Build the corresponding Unity project.
 
+**Mapping Clouds**:
 
+* [Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
+* [RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256)
+* [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
+
+**Some Log**:
+
+[ServerLocalization](ServerLocalization/)
+
+**WebGL demo**:
+
+(worked with my own effort)
+* First demo : use threejs to load and show a point cloud (which I encoded into json form).
+* Second demo : use threejs to show a computer vision algorithm based 3d reconstruction.
+[WebGL demo](../WEBGL/threejs)
 
 ## Other Computer Vision stuff
 
 Backups and Documents:
 
 * [Hand Tracking Python](https://gitee.com/gggliuye/Opencv_based_hand_detection)
+
+<div align="center">    
+<img src="images/hand.PNG"/>
+</div>
+
 * [Probability Graphy model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation)
+* [Lidar SLAM](https://github.com/gggliuye/LidarSlam)
 
-
-# Diary
+## Diary
 Some the develop diary.
 Most of them are in my private workfile (invisible here)
 
 [Diary](Diary/)
-
-# ServerLocalization
-
-[ServerLocalization](ServerLocalization/)
-
-## Mappings
-
-[Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
-
-[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256)
-
-[RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
-
-# WebGL demo
-(worked with my own effort)
-* First demo : use threejs to load and show a point cloud (which I encoded into json form).
-* Second demo : use threejs to show a computer vision algorithm based 3d reconstruction.
-[WebGL demo](../WEBGL/threejs)
-
-
 
 ## Home
 [Home](../)
