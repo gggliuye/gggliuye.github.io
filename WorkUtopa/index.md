@@ -1,21 +1,25 @@
-# Company Introduction
+# Company Introduction (updated 2020/07)
 
 * **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
 
+![GTLAND](images/gtland.jpg)
+
 * **Team** : we have dozen of algorithm engineers, major in Visual SLAM (simultaneous localization and mapping), Visual Deep Learning, and 3D Reconstruction. Support with a few dozens of employees working on Unity3d, and a few dozens working with server back-end. I am part of the algorithm group (or should I say the 'head' without a offical title).
 
-* **My Work** : I am fully charged of one major aspect (signle image based visual localization algorithm), and in the direction of two other parts (mobile device visual SLAM algorithm, and 6-DOF Image marker tracking algorithm).
+* **My Work** : I am fully charged of one major aspect (**signle image based visual localization algorithm**), and in the direction of two other parts (**mobile device visual SLAM algorithm**, and **6-DOF Image marker tracking algorithm**). The 'productions' of our group are SDKs could be used in Unity Android.
 
-# Summary and Backups
+![demos](images/demos.jpg)
 
-The three directions of my work. (updated 2020/06)
+# Summary and Backups (updated 2020/07)
+
+The three directions of my work.
 
 ### Moblie Phone Visual SLAM
 We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modification of the code to better suit our project. [videos](https://www.bilibili.com/video/BV1Xk4y1d7ap/)
 * Use a marker image to initialize the SLAM system, to have a faster and better initialization, and have an accurate estimation of the scale.
 * A system to offer a result with higher frequence, which is realized using optical flow tracking and pose only bundle adjustment.
 * A loop clousre system based on marker images (some posters that we can put in our scene), use an other system to obatin the exact pose of all the marker in our coordinate system. As a result, this loop clousre system is perfectly match with one single global map.
-* Now is working with PCG (preconditioned conjugate gradient) algorithm to accelerate the SLAM system [my blog](https://blog.csdn.net/weixin_44492024/article/details/106353397) . And also prepare the implementation of incremental bundle adjustment.
+* Now is working with PCG (preconditioned conjugate gradient) algorithm to accelerate the SLAM system [my blog](https://blog.csdn.net/weixin_44492024/article/details/106353397) . And also prepare the implementation of incremental bundle adjustment (IBA).
 
 <!-- ![run_result](images/mine_cg_pcg.jpg) -->
 **Backups and Documents**:
@@ -31,17 +35,21 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 
 **Work Flow**:
 
-1. Linux PC algorithm developments.
-2. Andorid Native Java environment development, and test the algorithms.
-3. Build Android Library, build corresponding Unity project.
-4. Test and find problems.
+* Linux PC algorithm developments.
+* Andorid Native Java environment development, and test the algorithms.
+* Build Android Library, build corresponding Unity project.
+* Test and find problems.
 
 
 ### Marker image based tracking
 We have another co-worker deal with it, but I think he didn't do a great job. So I have realize all the algorithms on my own, in my private time. [videos](https://www.bilibili.com/video/BV1Ma4y1t7oD/)
-* Single marker detection (version of my co-worker is ORB feature match based, and version of mine is a brute force finder). Mine version could realize a faster and more robust detection.
+* Single marker detection (version of my co-worker is ORB feature match based, and version of mine is a brute force finder). Mine version could realize a faster and more robust detection (using a Branch-and-Bound optimization structure).
 * Multi-marker tracking, based on optical flow tracking and a NCC patch match to refine.
 * Structed markers detection and tracking ('structed' means we have prior of the relative poses of the markers). Particularly, I build a system to track a cube object (we track its four side faces).
+* Randomly placed marker tracking system.
+  * Place the markers randomly at the scene.
+  * Using a offline reconstruction algorithm to find their relative poses.
+  * Used the localized markers realize AR camera tracking within the scene.
 * Cooperate with a third-party SLAM system. Particularly, our system (and the demo video) is a cooperation with ARCORE (from google), and we realize a basic demo which has the potentail to achieve Vuforia's performance.
 
 
