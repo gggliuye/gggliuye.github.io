@@ -27,7 +27,7 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 
 
 <div align="center">    
-<img src="images/pcg.PNG"/>
+<img src="images/pcg.PNG"  width="80%" height="80%" />
 </div>
 
 **Backups and Documents**:
@@ -141,7 +141,7 @@ Backups and Documents:
 * [Hand Tracking Python](https://gitee.com/gggliuye/Opencv_based_hand_detection)
 
 <div align="center">    
-<img src="images/hand.PNG"/>
+<img src="images/hand.PNG"  width="80%" height="80%" />
 </div>
 
 * [Probability Graphy model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation)
