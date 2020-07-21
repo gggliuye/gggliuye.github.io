@@ -1,3 +1,10 @@
+---
+layout: page
+title: My Work In Utopa
+subtitle: GuangZhou, China, 2019/02 - Now
+---
+
+
 # Localization Tests
 
 ## Example test
@@ -44,7 +51,7 @@ test_images_path focus_length width height
 
 ### Tested in real scene
 
-* The accuracy is relatively high, for most of the cases. While, for the part of the scene with some small structured buildings, the mesh didn't match well. 
+* The accuracy is relatively high, for most of the cases. While, for the part of the scene with some small structured buildings, the mesh didn't match well.
 * The success rate is extremely low. which is the major part of later work. (To find out the reason, and optimize the condition)
 
 ## 2020/06/17
@@ -75,7 +82,7 @@ test_images_path focus_length width height
 
 ## Parameters note
 
-* float feature_parallax_threshold : The minimal parallax between two extracted frames. 
+* float feature_parallax_threshold : The minimal parallax between two extracted frames.
      larger  -> less frames
      smaller -> more frames
 
@@ -83,7 +90,7 @@ test_images_path focus_length width height
 
 ./Make_map work_space_path resource_path
 
-./Make_map /home/viki/UTOPA/Server_Localization/Maps/build_test/work_space_2 /home/viki/UTOPA/Server_Localization/Maps/build_test/build_sources_2 /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words32K.bin /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words256K.bin /home/viki/UTOPA/Server_Localization/vocabsvocab_tree_flickr100K_words1M.bin 
+./Make_map /home/viki/UTOPA/Server_Localization/Maps/build_test/work_space_2 /home/viki/UTOPA/Server_Localization/Maps/build_test/build_sources_2 /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words32K.bin /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words256K.bin /home/viki/UTOPA/Server_Localization/vocabsvocab_tree_flickr100K_words1M.bin
 
 ## Test Extract_image
 
@@ -91,7 +98,7 @@ test_images_path focus_length width height
 
 ## Test add images
 
-./Make_map_add /home/viki/UTOPA/Server_Localization/Maps/build_test/work_space_2 /home/viki/UTOPA/Server_Localization/Maps/build_test/addition_resources /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words32K.bin /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words256K.bin /home/viki/UTOPA/Server_Localization/vocabsvocab_tree_flickr100K_words1M.bin 
+./Make_map_add /home/viki/UTOPA/Server_Localization/Maps/build_test/work_space_2 /home/viki/UTOPA/Server_Localization/Maps/build_test/addition_resources /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words32K.bin /home/viki/UTOPA/Server_Localization/vocabs/vocab_tree_flickr100K_words256K.bin /home/viki/UTOPA/Server_Localization/vocabsvocab_tree_flickr100K_words1M.bin
 
 ## Test scale calculation
 
@@ -99,16 +106,16 @@ test_images_path focus_length width height
 
 // 282 images : 0.180249
 
-## State manager 
+## State manager
 
-1. DataPrepare : seperate videos. 
+1. DataPrepare : seperate videos.
 2. Feature Extractor : no built in callback exist. -> but I can roughly estimate the time
 3. Feature Matcher : no built in callback exist. -> but I can roughly estimate the time
 4. Sparse Reconstruction : has callback well built.
 5. Dense Reconstruction : no built in callback exist. -> estimate by counting files in workspace folder
-   * photometric 
+   * photometric
    * geometric
-   * fusion : estimate 
+   * fusion : estimate
 
 
 ## winter scale
@@ -121,21 +128,21 @@ Done
 * Set the maximal image size of the MVS process to accelerate.
 * Loop closure parameters could be modified.
 
-# 2020/02/mid 
+# 2020/02/mid
 ## 3D Reconstruction
 
-* Test one 
+* Test one
  1) Record images by various devices, collect images use colmap to build a consist map.
  2) Record RGB image from a logi camera, while collect depth data from MyntEye IR mode.
  3) Offline localize the images, and use Voxblox to reconstruct the model.
 
 * Problem with test one
- 1) The recored depth data is damanged, as I used opencv to save depth as image 
+ 1) The recored depth data is damanged, as I used opencv to save depth as image
     (loss info while encoding).
  2) Only a small part of the images is successfully localized, as the scene is lack of features.
     and also because of the small FOV of logi camera.
 
-* TODO 
+* TODO
  1) Remake a dataset without flaw.
  2) Develop a realtime version of the algorithm.
 

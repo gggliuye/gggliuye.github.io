@@ -1,3 +1,10 @@
+---
+layout: page
+title: My Work In Utopa
+subtitle: GuangZhou, China, 2019/02 - Now
+---
+
+
 # Company Introduction
 
 * **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
