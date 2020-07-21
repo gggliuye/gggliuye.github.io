@@ -19,8 +19,6 @@ What else do you need?
 
 **Nanjing University**, which had the best Physics department in China. In the Physics Department, National plan of basic disciplines of top-notch training (consist of the students ranked top 30) with scholarship.
 
-<div align="center">    
-<img src="assets/img/ip-paris.jpg" width="30%" height="30%" />
-</div>
+![Crepe](assets/img/ip-paris.jpg =300x){: .mx-auto.d-block :}
 
 **Insitute Polytechnique Paris** (University Paris Saclay). Awarded China Scholarship Council’s scholarship
