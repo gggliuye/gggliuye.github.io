@@ -163,6 +163,3 @@ Backups and Documents:
 Some the develop diary.
 
 [Diary](Diary/)
-
-## Home
-[Home](../)
