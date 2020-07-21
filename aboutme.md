@@ -23,4 +23,4 @@ What else do you need?
 <img src="assets/img/ip-paris.jpg" width="40%" height="40%" />
 </div>
 
-**Insitute Polytechnique Paris** (University Paris Saclay). Awarded China Scholarship Council’s scholarship
+**Institut Polytechnique de Paris** (University Paris Saclay). Awarded China Scholarship Council’s scholarship
