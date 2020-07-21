@@ -79,7 +79,7 @@ We have another co-worker deal with it, but I think he didn't do a great job. So
 I am fully in charge of this part. Our system is based on Colmap SFM system, but I have our own modification to make it work for our system. [videos_indoor](https://www.bilibili.com/video/BV1NZ4y1j7Ba/) [videos_ar](https://www.bilibili.com/video/BV1Ci4y1b79V/) and [video_outdoor](https://www.bilibili.com/video/BV1VT4y157NH/).
 
 <div align="center">    
-<img src="images/demos_server.PNG"/>
+<img src="images/demos_server.PNG" width="80%" height="80%"/>
 </div>
 
 **Algorithm Part**:
