@@ -138,14 +138,25 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 
 Backups and Documents:
 
-* [Hand Tracking Python](https://gitee.com/gggliuye/Opencv_based_hand_detection)
+* [Hand Tracking Python](https://gitee.com/gggliuye/Opencv_based_hand_detection) Use traditional Opencv Method and Deeplearning methods repectively for the task of hand detection.
 
 <div align="center">    
 <img src="images/hand.PNG"  width="80%" height="80%" />
 </div>
 
-* [Probability Graphy model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation)
-* [Lidar SLAM](https://github.com/gggliuye/LidarSlam) : some clouds :[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256) and [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
+* [Probability Graph model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation) Use Probability Graph model based algorithm for a simple image segmentation task, a realization of GraphCut algorithm, and an example of L1 heuristic for filling missing data.
+
+<div align="center">    
+<img src="images/image_pgm.jpg"  width="80%" height="80%" />
+</div>
+
+* [Lidar SLAM](https://github.com/gggliuye/LidarSlam) : Try to realize an simple ICP based lidar odometry algorithm. And try an mapping algorithm using part of the result from SFM visual reconstrction. some clouds :[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256) and [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
+
+* [Point Net ++ Kitti Detection Test](https://github.com/gggliuye/PointNetKitti) : Using point cloud clustering algorithm for object detection, and using a Point Net++ network for object classification.
+
+<div align="center">    
+<img src="images/test_result.PNG"  width="60%" height="60%" />
+</div>
 
 
 ## Diary
