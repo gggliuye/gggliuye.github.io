@@ -13,8 +13,13 @@ What else do you need?
 
 ## Education
 
-![Crepe](assets/img/nju.jpg){: .mx-auto.d-block :}
+<div align="center">    
+<img src="assets/img/nju.jpg" width="20%" height="20%" />
+</div>
+
 **Nanjing University**, which had the best Physics department in China. In the Physics Department, National plan of basic disciplines of top-notch training (consist of the students ranked top 30) with scholarship.
 
-![Crepe](assets/img/ip-paris.jpg){: .mx-auto.d-block :}
+<div align="center">    
+<img src="assets/img/ip-paris.jpg" width="30%" height="30%" />
+</div>
 **Insitute Polytechnique Paris** (University Paris Saclay). Awarded China Scholarship Council’s scholarship
