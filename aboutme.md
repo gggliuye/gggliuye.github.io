@@ -23,4 +23,4 @@ What else do you need?
 <img src="assets/img/ip-paris.jpg" width="40%" height="40%" />
 </div>
 
-**Institut Polytechnique de Paris** (University Paris Saclay). Awarded China Scholarship Council’s scholarship
+**Institut Polytechnique de Paris** (University Paris Saclay). [ENSTA](http://www.ensta-paris.fr/cn/node/1214) Awarded China Scholarship Council’s scholarship
