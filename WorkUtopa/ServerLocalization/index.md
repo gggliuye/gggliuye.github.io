@@ -4,6 +4,7 @@ title: My Work In Utopa
 subtitle: GuangZhou, China, 2019/02 - Now
 ---
 
+Some notes of server localization.
 
 # Localization Tests
 
