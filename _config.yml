@@ -13,10 +13,11 @@ author: LiuYe
 
 navbar-links:
   About Me: "aboutme"
-  My Work: "WorkUtopa/index"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  My Work:
+    - UTOPA："WorkUtopa/index"
+  #Resources:
+#    - Beautiful Jekyll: "https://beautifuljekyll.com"
+#    - Learn markdown: "https://www.markdowntutorial.com/"
   #Author's home: "https://deanattali.com"
 
 # --- Logo --- #
@@ -202,7 +203,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
-  - screenshot.png
   - index_md.md
 
 plugins:
