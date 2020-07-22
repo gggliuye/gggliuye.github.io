@@ -14,10 +14,10 @@ author: LiuYe
 navbar-links:
   About Me: "aboutme"
   My Work:
-    - UTOPA："WorkUtopa/index"
-  #Resources:
-#    - Beautiful Jekyll: "https://beautifuljekyll.com"
-#    - Learn markdown: "https://www.markdowntutorial.com/"
+    - UTOPA: "WorkUtopa/index"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
   #Author's home: "https://deanattali.com"
 
 # --- Logo --- #
