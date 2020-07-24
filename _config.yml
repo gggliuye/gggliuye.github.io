@@ -13,8 +13,10 @@ author: LiuYe
 navbar-links:
   About Me: "aboutme"
   My Study:
+    - CVX: "https://cvx-learning.readthedocs.io/"
     - Coursera: "Study/coursera"
     - Deep Blue: "Study/deepblue"
+    - CFA: "https://cfa-learning.readthedocs.io/"
   My Work:
     - UTOPA: "WorkUtopa/index"
 #  Resources:
