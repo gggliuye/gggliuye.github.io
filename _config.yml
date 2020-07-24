@@ -12,7 +12,9 @@ author: LiuYe
 # --- List of links in the navigation bar --- #
 navbar-links:
   About Me: "aboutme"
-  My Certification: "Study/index"
+  My Study:
+    - Coursera: "Study/coursera"
+    - Deep Blue: "Study/deepblue"
   My Work:
     - UTOPA: "WorkUtopa/index"
 #  Resources:
