@@ -10,7 +10,6 @@ description: A virtual proof that I'm awesome
 author: LiuYe
 
 # --- List of links in the navigation bar --- #
-
 navbar-links:
   About Me: "aboutme"
   My Certification: "Study/index"
