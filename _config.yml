@@ -13,6 +13,7 @@ author: LiuYe
 
 navbar-links:
   About Me: "aboutme"
+  My Certification: "Study/index"
   My Work:
     - UTOPA: "WorkUtopa/index"
 #  Resources:
