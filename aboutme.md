@@ -31,7 +31,7 @@ What else do you need?
 **Coursera** My certifications could be found [here](Study/coursera). Mainly in Robotics and Deep learning.
 
 **Convex Optimization** I have followed the full courses in internet of the Stanford open classes: Linear Dynamtic System EE263 [note google drive](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing), Convex Optimziation I EE364A [note google drive](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing), and Convex Optimziation II EE364B [note google drive](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing),
-Some of my summary of some topics and my paper reads could be found [here](https://cvx-learning.readthedocs.io/en/latest/index.html)
+Some of my summary of some topics and my paper reads could be found [here](https://cvx-learning.readthedocs.io/en/latest/index.html) .
 
 **Deep Blue** My certifications could be found [here](Study/deepblue). With Visual inertial SLAM, lidar SLAM, PGM,
 point cloud processing, etc.
