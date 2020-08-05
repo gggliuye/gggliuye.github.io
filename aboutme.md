@@ -25,6 +25,10 @@ What else do you need?
 
 **Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214) Awarded China Scholarship Council’s scholarship.
 
+<div align="center">    
+<img src="images/TCF_2017.PNG" width="90%" height="50%" />
+</div>
+
 
 ## My post-School Study
 
