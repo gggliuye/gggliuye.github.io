@@ -40,6 +40,8 @@ Some of my summary of some topics and my paper reads could be found [here](https
 **Deep Blue** My certifications could be found [here](Study/deepblue). With Visual inertial SLAM, lidar SLAM, PGM,
 point cloud processing, etc.
 
+**Deep Learning** : Basic knowledges in School, and internship. PGM learned in *Deep Blue*, GNN learned in Online Open lessons CS224W [note](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html).
+
 ## Work at UTOPA-AR
 
 The abstract of my work could be found in [page](WorkUtopa/index).

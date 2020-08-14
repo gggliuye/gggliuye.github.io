@@ -26,7 +26,7 @@ My work in China.
 
 [A detailed summary](https://vio.readthedocs.io/)
 
-The three directions of my work. (updated 2020/07)
+The three directions of my work. (updated 2020/08)
 
 ## Moblie Phone Visual SLAM
 We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modification of the code to better suit our project. [videos](https://www.bilibili.com/video/BV1Xk4y1d7ap/)
@@ -101,6 +101,7 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 * We are now developping a deep learning based feature detection algorithm to deal with the illumination changing.
 * We are now developping a solid lidar based visual-lidar system to get a better and more dense result. [Using Neuvition](https://www.bilibili.com/video/BV1uJ411C74B/)
 * We are working with Deep learning based MVS methods. [articles research](https://docs.qq.com/slide/DUndnS2pwbkRiQmZM) and  [DeepMVS test](https://gitee.com/gggliuye/VIO/blob/master/DeepMVS/Result_show.ipynb)
+* We have further developped an local version of the algorithm (which could run entirely in mobile phone, will with a small loss of robustness). [Local Map](https://vio.readthedocs.io/zh_CN/latest/ServerLocalization/LocalMap.html)
 
 **Application Part**:
 
