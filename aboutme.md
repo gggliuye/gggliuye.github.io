@@ -27,7 +27,7 @@ What else do you need?
 
 ## My post-School Study
 
-[My certifications Coursera](Study/coursera), [My certifications Deep Blue](Study/deepblue).
+[My certifications Coursera](../Study/coursera), [My certifications Deep Blue](../Study/deepblue).
 
 **Convex Optimization** I have followed the full courses in internet of the Stanford open classes: [Linear Dynamtic System EE263](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing), [Convex Optimziation I EE364A](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing), and [Convex Optimziation II EE364B](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing),
 [My summary of some topics and my paper reads](https://cvx-learning.readthedocs.io/en/latest/index.html) .
@@ -40,4 +40,4 @@ What else do you need?
 
 [My home page of this work](https://vio.readthedocs.io/zh_CN/latest/index.html).
 
-* [The abstract of my work until 2020/08](WorkUtopa/index).
+* [The abstract of my work until 2020/08](../WorkUtopa/index).
