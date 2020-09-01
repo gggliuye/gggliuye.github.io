@@ -25,25 +25,19 @@ What else do you need?
 
 **Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214) Awarded China Scholarship Council’s scholarship.
 
-<div align="center">    
-<img src="images/TCF_2017.PNG" width="90%" height="50%" />
-</div>
-
-
 ## My post-School Study
 
-**Coursera** My certifications could be found [here](Study/coursera). Mainly in Robotics and Deep learning.
+[My certifications Coursera](Study/coursera), [My certifications Deep Blue](Study/deepblue).
 
-**Convex Optimization** I have followed the full courses in internet of the Stanford open classes: Linear Dynamtic System EE263 [note google drive](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing), Convex Optimziation I EE364A [note google drive](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing), and Convex Optimziation II EE364B [note google drive](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing),
-Some of my summary of some topics and my paper reads could be found [here](https://cvx-learning.readthedocs.io/en/latest/index.html) .
+**Convex Optimization** I have followed the full courses in internet of the Stanford open classes: [Linear Dynamtic System EE263](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing), [Convex Optimziation I EE364A](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing), and [Convex Optimziation II EE364B](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing),
+[My summary of some topics and my paper reads](https://cvx-learning.readthedocs.io/en/latest/index.html) .
 
-**Deep Blue** My certifications could be found [here](Study/deepblue). With Visual inertial SLAM, lidar SLAM, PGM,
-point cloud processing, etc.
+**SLAM/Robotics** : [Visual inertial SLAM](https://1drv.ms/u/s!AlcTaQw_X72KhE9bsiXSZVtZoOkI?e=j21AhG), [lidar SLAM](https://1drv.ms/u/s!AlcTaQw_X72KhEeDWvEo1rUyGLRx?e=7PwGYG), [point cloud processing](https://1drv.ms/u/s!AlcTaQw_X72KiGhjQgSxHq52ASH0?e=g4Yehp), [State Estiamte for Robotics](https://1drv.ms/u/s!AlcTaQw_X72KiFg7y8eHRLYxKrsd?e=wvlxC6), [SLAM Code Review](https://1drv.ms/u/s!AlcTaQw_X72KhEy4GseRWUtJp0ex?e=13h0Vw) etc.
 
-**Deep Learning** : Basic knowledges in School, and internship. PGM learned in *Deep Blue*, GNN learned in Online Open lessons CS224W [note](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html).
+**Deep Learning** : Basic knowledges in School, and internship. [MIT Self-Driving](https://1drv.ms/u/s!AlcTaQw_X72KhEuoFbDbF4laEwUs?e=9fdKvS), [PGM Deep Blue](https://1drv.ms/u/s!AlcTaQw_X72KhEkOxIeOlO4QcdK8?e=2VWa4v), [CS224W Machine Learning with Graphs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html).
 
 ## Work at UTOPA-AR
 
-The abstract of my work could be found in [page](WorkUtopa/index).
+[My home page of this work](https://vio.readthedocs.io/zh_CN/latest/index.html).
 
-And my [home page](https://vio.readthedocs.io/zh_CN/latest/index.html) of this work.
+* [The abstract of my work until 2020/08](WorkUtopa/index).
