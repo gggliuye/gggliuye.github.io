@@ -1,7 +1,7 @@
 ---
 layout: page
-title: My Work In Utopa
-subtitle: GuangZhou, China, 2019/02 - Now
+title: Work Utopa 2019/02 - 2020/08
+subtitle: GuangZhou, China
 ---
 
 My work in China.
