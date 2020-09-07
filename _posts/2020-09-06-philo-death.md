@@ -1,12 +1,14 @@
 ---
 layout: post
-title: Sample blog post
-subtitle: Each post also has a subtitle
-tags: [pho]
+title: Classes on Death
+subtitle: Philosophy 176
+tags: [Philosophy, death]
 comments: true
 ---
 
-## Dualism & Physicism
+Classes on Death, from Philosophy 176.
+
+## Dualism and Physicism
 
 The relationship of body and soul(mind).
 
@@ -16,7 +18,7 @@ The relationship of body and soul(mind).
 
 In the assumption of the **Dualism**:
 
-* Are bodyand soul distinct. (i.e. are there soul?)
+* Are body and soul distinct. (i.e. are there soul?)
 * If there are soul, can soul survives the death of the body?
 * If survive, how  long? Does it continue to exist forever?
 
@@ -29,6 +31,12 @@ Soul are reserved for immaterial stuff, it may not have a physics location.
 ### 1. Is there soul?
 
 Something we say exist, is that we can see, touch or feel it. How can we tell the existance of "soul" when we can't feel it.
-
 For an example "atoms", we infer the exitence of atoms, because it can explain things (physics laws).
-We infer the existence of thins we cannot see, to explain sth we can't otherwise explain.
+We infer the existence of thins we cannot see, to explain something we can't otherwise explain.
+**Inference to the best explanation** : we always choose the best explanation.
+
+For the existence of soul : *Are there things about us that the physicalist cannot explain?* could give us some reason to believe the soul. **Feature P (people)** : One aspect, the ordinary thing about us, another aspect, the super-nature things.
+
+**Ordinary things**  :
+* What animates the body? Must there be something outside the body that control the body? We are different from the robots, do we need soul to explain **free will** ?
+* The ability to think, reason, brief, desires, make strategies, etc. For example, the computer playing programmings. What grouds are there for withholding ascriptions of beliefs and desires to the computer? Are we just using asumptions to "argue" the argument? That's far from obvious. Are these just illusions? Maybe there is a **action side** and an **emotional side** of the desires (that machines don't have). Then it lead to the question : *Could a purly physics being feel emotions?*
