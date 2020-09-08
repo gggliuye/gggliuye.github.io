@@ -26,7 +26,7 @@ Soul are reserved for immaterial stuff, it may not have a physics location.
 
 **Materialist** view : people is just a material object, just a "body" (but not any old body) that can do some amazing things. For example, "smile" ( "mind" in our case here), the materialists don't deny smile. Talking about smile, is actually talking about the body ability to smile. There is mind, and talking about "The Mind", is actually talking about the body ability to do various things. Death is just the breaking down of the body, so it will not function any more.
 
-"Mind" is talking about the abilities of the body.
+"Mind" is talking about the abilities of the body. And we all admit its existence.
 
 ### 1. Is there soul?
 
@@ -39,4 +39,8 @@ For the existence of soul : *Are there things about us that the physicalist cann
 
 **Ordinary things**  :
 * What animates the body? Must there be something outside the body that control the body? We are different from the robots, do we need soul to explain **free will** ?
-* The ability to think, reason, brief, desires, make strategies, etc. For example, the computer playing programmings. What grouds are there for withholding ascriptions of beliefs and desires to the computer? Are we just using asumptions to "argue" the argument? That's far from obvious. Are these just illusions? Maybe there is a **action side** and an **emotional side** of the desires (that machines don't have). Then it lead to the question : *Could a purly physics being feel emotions?*
+* The ability to think, reason, brief, desires, make strategies, etc. For example, the computer playing programmings. What grouds are there for withholding ascriptions of beliefs and desires to the computer? Are we just using asumptions to "argue" the argument? That's far from obvious. Are these just illusions? Maybe there is a **action side** and an **emotional side** of the desires (that machines don't have). Then it lead to the question : *Could a pure physics being feel emotions?*
+
+**Emotion** : we have the behavioral aspect of feeling, and the sensation part of *what the feeling feels like* (or we call it **qualitative experiences** ) . For dualism point of view, a pure physice body cannot have the sensation part of emotion. For example, can blind people "feel" red? He have the notation of the red color, knows the apple is read, while in the mean time, he cannot actually have the feeling of feel red (as he cannot really see). The materialist may argue : we are not yet able to explain soul in physical view, is not equal to we won't possibly able to explain it (For an example, life in 14th century) .  And we don't want any explanation, we want a better explanation. So one may ask : how soul can have conciousness?  and we cannot answer it. *This is actually a tie.*
+
+**Creativity** : could there be a pyhsics object that is creative? 
