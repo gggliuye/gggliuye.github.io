@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Classes on Death - The Existence of Soul
-subtitle: Philosophy 176, Yale
+subtitle: Philosophy 176, Yale. Part 1
 tags: [Philosophy, death]
 comments: true
 ---
@@ -72,6 +72,25 @@ Physics explanation : "One room(world)" metaphom, death, go close the wall of th
 
 So far, no good reason to go beyond physicism.
 
-### 7. Imagination
+### 7. Cartesian argument
 
-**Imagination**, *we could imagine that our mind exist without the body*. If the body and the mind are the same entity, we cannot imagine such things (we cannot tell a story that the table exist while the table does not exist). If we can tell a story that A exists while B does not exist, does it follow that A and B are not the same thing ? If B is just another word to express A, it cannot happen that A exists while B doesn't exist. *So talking about my mind cannot be just talking about my body.*
+**Cartesian thought experiment**, *we could imagine that our mind exist without the body*. If the body and the mind are the same entity, we cannot imagine such things (we cannot tell a story that the table exist while the table does not exist). If we can tell a story that A exists while B does not exist, does it follow that A and B are not the same thing ? If B is just another word to express A, it cannot happen that A exists while B doesn't exist. *So talking about my mind cannot be just talking about my body?*
+
+We could consider the examples:
+
+* A : left hand, B : right hand;
+* A : body, B : smile;
+* A : nom, B : prenom;
+* A : mind, B : body;
+* <u>A : evening star, B : morning star</u>
+
+For the case of evening star and morning star, we know that they are actullay the same entity, the Venus, whether I am aware of it or not. But maybe something went wrong here, otherwise the Descartes's argument won't hold (actually the Prof think the argument doesn't work in person). Many people argues about where this statement goes wrong:
+
+* This statement may be misdescribed that the world you are imagining went wrong.
+* Imagining doesn't mean logically possible (For an example, try to imagine a round square, we will start to trying).
+* Identity is not necessary, but contingent.
+
+
+## Summary
+
+**No satisfying statement achieved.**
