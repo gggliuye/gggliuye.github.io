@@ -19,4 +19,30 @@ Plato's thought that he puts in Socrates' mouth : *what the philosopher tries to
 
 For an example, think of mathematics. When we talk about math, we are talking about numbers that the mind trying to grasp, while numbers are not physical objects. They are **Platonic abstract entities** that don't exist in space and time. Yet for all that, the mind can think about them.
 
-Based on these, Plato try to argue that the soul can be immortal.
+Based on these, Plato try to argue that the soul can be immortal. As the physical world is constantly changing, from form to form, while the mind can grasp the platonic ideas that are constant, stable and realible. If we distance the soul from the distractions of the body. we get focus on the platonic ideas and forms. If we train to separate, when we dead, our soul will go up to the platonic heaven. While if you are not trying to, your soul may reincarnate to another body. We are living in the dark, somehow mistake about our reality. 
+
+While How do we knoe that the soul won't be destoried with the death of the body? It could be that we need the body to continue thinking, we may want our body to exist to allow us to think.
+
+### Forms
+
+* <u>Ideas(Forms) are eternal/nonphysical.<\u>
+* <u>Eternal/nonphysical can only be grasped by the eternal/nonphysical.<\u> The impure cannot attain pure. *It takes one to know one.*
+* <u>So that, which grasps the Ideas(Forms) must be eternal/nonphysical.<\u> -> nonphysical: not the body; eternal : immortal.
+
+Objection: (mainly for the second argument.) It doesn't need to france to know the franch people. The biologyists can study cat without being cat. While the eteral/nonphysical objects maybe speical cases, and we only need a special case to support the argument. And we not yet see good reason to believe argument 2.
+
+### Recycling
+
+The parts of a car existed before the car is assambled. The parts existed prior to the existence of the car itself. The parts continue to exist after the car cease to. *Things coming to being composed of previously existing parts. When those things cease to have the form they had the parts get used for other purposes, they get recycled.* 
+
+Objection : some parts may continue to exist after the death of the body, but we cannot sure that soul is one of these recycling parts. Take my heart as an example, came to exist along side with my body.
+
+### Recollection
+
+The reminding of something by something else that resembles it but is not the thing it reminds you of. Looking at the photograph, even not very good, will remind us of the person.
+
+We all know about Platonic Forms, which not exist in the physical world. While various things we could found in this world, make us thinking about the Platonic Forms themselves. Ordinary objects in the world participate to a greater or lesser degree in the Platonic Forms. **These things remind us of the Platonic forms.**
+
+To allow the photograph remind me of the person, we must have already been acquainted with the person. For the round plate to remind of *perfect roundness*, we must have already met perfect roundness itself. But this cannot happen in this life, this world. So it got to happen before, the soul must be around before we are born.
+
+Objection : our acquaintance with the Platonic Forms could come about in this life for the very first time.
