@@ -46,3 +46,26 @@ We all know about Platonic Forms, which not exist in the physical world. While v
 To allow the photograph remind me of the person, we must have already been acquainted with the person. For the round plate to remind of *perfect roundness*, we must have already met perfect roundness itself. But this cannot happen in this life, this world. So it got to happen before, the soul must be around before we are born.
 
 Objection : our acquaintance with the Platonic Forms could come about in this life for the very first time.
+
+Objection : even soul could exist before body, it doesn't mean that it will exist after the death of body. Sometimes, the car destories the engines get destoried right after. We need to show the soul won't decompose/decade after the death of the body.
+
+### Simplicity
+
+*What kind of things can break, What kind of things won't break.* Composite things can be destoryed, while the Platonic  Forms cannot be destoryed (You cannot destory number, perfect circle). Because they are simple, they are not composed of anything (they have no part to take apart). Things that change are parts, things with parts can be destroyed.
+
+* <u>only composite things can be destoryed.</u>
+* <u>only changing things are composite.</u>
+* <u>invisible things don't change.</u>
+* So, <u>invisible things can't be destoryed.</u> Objection (Simmias), for an example harmony (music), harmony is to the harp as the mind is to the body [^1] . Might be a different conterexample.
+* But <u>soul is invisible.</u> Can the soul be detected (considering the definition 3 of invisible)?
+* So <u>soul can't be destoryed.</u> ("or nearly so")
+
+The harmony metaphor are often used by physicists, as they talk about the mind as a way of talking about what the body can do when it's working properly. It's dependence is just the same way as harmony is dependent upon the physical instrument.
+
+**Invisible** (Socrates' arguments turn on) :
+
+* can't be seen.
+* can't be observed (5 senses).
+* can't be detected.
+
+[^1]: Socrates argued for the inappropriate of the metaphor of the music, while he should argue that "harmony isn't invisible" or "harmony can't be destoryed". And harmony can be sensed, and not invisible, according to the border definition 2 of invisible.
