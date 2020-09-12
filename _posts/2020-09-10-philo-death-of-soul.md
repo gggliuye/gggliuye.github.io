@@ -25,9 +25,9 @@ While How do we knoe that the soul won't be destoried with the death of the body
 
 ### Forms
 
-* <u>Ideas(Forms) are eternal/nonphysical.<\u>
-* <u>Eternal/nonphysical can only be grasped by the eternal/nonphysical.<\u> The impure cannot attain pure. *It takes one to know one.*
-* <u>So that, which grasps the Ideas(Forms) must be eternal/nonphysical.<\u> -> nonphysical: not the body; eternal : immortal.
+* <u>Ideas(Forms) are eternal/nonphysical.</u>
+* <u>Eternal/nonphysical can only be grasped by the eternal/nonphysical.</u> The impure cannot attain pure. *It takes one to know one.*
+* <u>So that, which grasps the Ideas(Forms) must be eternal/nonphysical.</u> -> nonphysical: not the body; eternal : immortal.
 
 Objection: (mainly for the second argument.) It doesn't need to france to know the franch people. The biologyists can study cat without being cat. While the eteral/nonphysical objects maybe speical cases, and we only need a special case to support the argument. And we not yet see good reason to believe argument 2.
 
