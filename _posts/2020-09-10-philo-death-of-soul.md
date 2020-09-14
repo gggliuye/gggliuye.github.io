@@ -19,7 +19,7 @@ Plato's thought that he puts in Socrates' mouth : *what the philosopher tries to
 
 For an example, think of mathematics. When we talk about math, we are talking about numbers that the mind trying to grasp, while numbers are not physical objects. They are **Platonic abstract entities** that don't exist in space and time. Yet for all that, the mind can think about them.
 
-Based on these, Plato try to argue that the soul can be immortal. As the physical world is constantly changing, from form to form, while the mind can grasp the platonic ideas that are constant, stable and realible. If we distance the soul from the distractions of the body. we get focus on the platonic ideas and forms. If we train to separate, when we dead, our soul will go up to the platonic heaven. While if you are not trying to, your soul may reincarnate to another body. We are living in the dark, somehow mistake about our reality. 
+Based on these, Plato try to argue that the soul can be immortal. As the physical world is constantly changing, from form to form, while the mind can grasp the platonic ideas that are constant, stable and realible. If we distance the soul from the distractions of the body. we get focus on the platonic ideas and forms. If we train to separate, when we dead, our soul will go up to the platonic heaven. While if you are not trying to, your soul may reincarnate to another body. We are living in the dark, somehow mistake about our reality.
 
 While How do we knoe that the soul won't be destoried with the death of the body? It could be that we need the body to continue thinking, we may want our body to exist to allow us to think.
 
@@ -33,7 +33,7 @@ Objection: (mainly for the second argument.) It doesn't need to france to know t
 
 ### Recycling
 
-The parts of a car existed before the car is assambled. The parts existed prior to the existence of the car itself. The parts continue to exist after the car cease to. *Things coming to being composed of previously existing parts. When those things cease to have the form they had the parts get used for other purposes, they get recycled.* 
+The parts of a car existed before the car is assambled. The parts existed prior to the existence of the car itself. The parts continue to exist after the car cease to. *Things coming to being composed of previously existing parts. When those things cease to have the form they had the parts get used for other purposes, they get recycled.*
 
 Objection : some parts may continue to exist after the death of the body, but we cannot sure that soul is one of these recycling parts. Take my heart as an example, came to exist along side with my body.
 
@@ -62,6 +62,8 @@ Objection : even soul could exist before body, it doesn't mean that it will exis
 
 The harmony metaphor are often used by physicists, as they talk about the mind as a way of talking about what the body can do when it's working properly. It's dependence is just the same way as harmony is dependent upon the physical instrument.
 
+Soul could change. and in other arguements of Plato proposed that soul has three parts. The simplicity of the soul won't stand.
+
 **Invisible** (Socrates' arguments turn on) :
 
 * can't be seen.
@@ -69,3 +71,10 @@ The harmony metaphor are often used by physicists, as they talk about the mind a
 * can't be detected.
 
 [^1]: Socrates argued for the inappropriate of the metaphor of the music, while he should argue that "harmony isn't invisible" or "harmony can't be destoryed". And harmony can be sensed, and not invisible, according to the border definition 2 of invisible.
+
+**Harmony metaphor** :
+
+* It cannot exist before the existence of the physical instruments. Plato argue that the soul can exist previous to the body. while his arguments are not persuasive.
+* Harmony can vary. but we found mind can come in degrees.
+* Soul can be good or evil.  we say a good soul being harmonic, while we don't talk the harmony of harmony. But we can also talk about different kinds of harmonies.
+* Soul is capable of diecting the body, and opposing the body. If we talking about the physicism, talking about the soul is talking about the functional of the body.  How can the abilities of the body affect itself ? Some parts of the body can order other parts. **It's just one part of the body affecting other parts of the body.**
