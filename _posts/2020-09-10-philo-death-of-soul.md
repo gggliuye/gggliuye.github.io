@@ -78,3 +78,29 @@ Soul could change. and in other arguements of Plato proposed that soul has three
 * Harmony can vary. but we found mind can come in degrees.
 * Soul can be good or evil.  we say a good soul being harmonic, while we don't talk the harmony of harmony. But we can also talk about different kinds of harmonies.
 * Soul is capable of diecting the body, and opposing the body. If we talking about the physicism, talking about the soul is talking about the functional of the body.  How can the abilities of the body affect itself ? Some parts of the body can order other parts. **It's just one part of the body affecting other parts of the body.**
+
+### Essential Property
+
+We need to firstly distinguish between the essential property(object must have) and the contingent property(object may have).
+Plato gave an example, fire and being hot. But is there really essential property? and what are they? (but if there's no duality, there won't be any property, we won't talk about this subject here).  
+
+Soul: wherever there's a soul, it's alive (alive means : it's thinking or capable of thought). As mind has the ability to think, and it seems essential for thought. Essential property: either the fire exists and it's hot, or it is destroyed. there's not a third possibility that a cold fire. So for the soul, either you have a soul and it can think.  or the soul no longer exists. And Plato rule out the second possibility with the idea of be essentially alive.
+
+* <u>Life is an essential property of the soul.</u>
+* So <u>soul is deathless.</u>
+* So <u>soul cannot die, indestructible.</u>
+* So <u>soul cannot be destoryed.</u>
+
+However there is ambiguity in the idea of being deathless.
+
+* A : can't be that : <u>soul exists and is dead.</u> (for the first arugment)
+* B : can't be that : <u>soul was destoryed.</u> (for the arguments following)
+
+## Summary
+
+**No good enough reason to believe in souls.**
+So the prof conclues : **there is no soul**.
+
+Do we need to turn to the physicism *Give me some reason not to believe in souls?* Let's consider that, when do we need to prove that somethong doesn't exist? For an example, the dragons. To justify your skepticism about dragons, is to refute all of the arguments that might be offered on behalf of dragons.
+
+We don't need to disprove the existence of soul, instead we need to take a look at the arguments on behalf of soul. We don't need to prove the existence of soul is impossible, we just need to undermine the case for souls. We don't believe the existence of soul, while we don't argue for that it is impossible.
