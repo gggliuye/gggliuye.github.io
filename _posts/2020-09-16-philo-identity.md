@@ -16,13 +16,13 @@ What is it, for me, to survive a period? Is the person here next week, the same 
 Example : the extended-through-space train. We pointing the locomotive to identify the same train as we pointing the caboose. *Are they the same train?*
 
 [^_^]:
-  ![Train](../assets/post_image/train.jpg){: .mx-auto.d-block :}
+    ![Train](../assets/post_image/train.jpg){: .mx-auto.d-block :}
 
 <img src="../assets/post_image/train.jpg" alt="Train" class="mx-auto d-block" width="50%">
 
 What if some part of the train is blocked.
 
-![Train Blocked](../assets/post_image/train_block.jpg){: .mx-auto.d-block :}
+<img src="../assets/post_image/train_block.jpg" alt="Train Block" class="mx-auto d-block" width="50%">
 
 If we have X ray to look through the block.
 * It could be the train is seperate in the middle, there are actually two trains.
@@ -32,6 +32,8 @@ If we have X ray to look through the block.
 
 Example: the extended-through-time car. when pointing the car, we are not pointing the slice of car, but the entire extended-through-time object. The slices aren't the same, the cars are the same.
 
-![Car](../assets/post_image/car.jpg){: .mx-auto.d-block :}
+<img src="../assets/post_image/car.jpg" alt="Car" class="mx-auto d-block" width="50%">
 
 Same for the "blockage", if we lost the car in a period, then find 'the car'. If we cannot figure out what happened this period, we cannot sure if it is the same extended-through-time car, or it is another car.
+
+And we may ask : **What makes two stages, stages of the very same thing?**
