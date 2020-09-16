@@ -20,13 +20,15 @@ In the assumption of the **Dualism**:
 
 * Are body and soul distinct. (i.e. are there soul?)
 * If there are soul, can soul survives the death of the body?
-* If survive, how  long? Does it continue to exist forever?
+* If survive, how long? Does it continue to exist forever?
 
 Soul are reserved for immaterial stuff, it may not have a physics location.
 
 **Materialist** view : people is just a material object, just a "body" (but not any old body) that can do some amazing things. For example, "smile" ( "mind" in our case here), the materialists don't deny smile. Talking about smile, is actually talking about the body ability to smile. There is mind, and talking about "The Mind", is actually talking about the body ability to do various things. Death is just the breaking down of the body, so it will not function any more.
 
 "Mind" is talking about the abilities of the body. And we all admit its existence.
+
+(*Metaphysics : a division of philosophy that is concerned with the fundamental nature of reality and being and that includes ontology, cosmology, and often epistemology*)
 
 ## Is there soul?
 
