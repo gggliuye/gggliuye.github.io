@@ -39,9 +39,17 @@ And we may ask : **What makes two stages, stages of the very same thing?**. The 
 * What is the metaphysical glues for the extended-through-time car : being the same hunk of stuff (even the consistuent atoms are changed, even bigger parts).
 * How many changes of the consistuent parts can you have and still be the same hunk of stuff ?
 
-### Personal Identity
+### Personal Identity - soul
 
 Is SK 2007 the very same person as **the extend-through-time person** (*space time worm*) that you got in mind when pointing to Mr.X 2050 (we are not asking the person stages/slices). Answer : *it depends on whether the stages are glued together in the right metaphysical way.*
 ( *Can we survive the death of the body?* to answer it we need to clear about what does it take to have identity across time.)
 
 * For dualism, the key is having the same soul. Think about God takes my soul, and replace it with another soul, with all my memories, my experiences, my desires, etc , pluged in. In the dualism view, he won't be me, as he has a different soul. While there will be no way at all for him to know that. *How do we know if it happens?* (raised by John Locke) . It is not plausible. So we concludes here, even if the soul do exists, they may not be the key to personal identity.
+
+### Personal Identity - body
+
+The body theory of personal identity.  That same body means same person.  In that case(not contradict with dualism), we could still "survive" the death of the body, if we believe in body resurrection.
+* Support example, the jeweler  take down the watch then fix it.  
+* Objection, I build exact the same woldden tower (duplication) as my son did. Can the body be decomposed then be recomposed. *we don't have the every same object as we start with.* (from Van Inwagen) So even the judgement day comes, that God reassembled all the molecules, that won't be the every same body. I will have a duplicated me, but not me.
+
+Obviously we can accept some change of the body. But which changes in the body make a different body, and which changes make for the same body. Not all the parts of the body are equally important. The most important part is the brain.
