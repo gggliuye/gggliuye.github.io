@@ -62,3 +62,13 @@ Obviously we can accept some change of the body. But which changes in the body m
 The Prof thinks the best part of the body view, is the brain view. Because the brain is the house of personality. So why not say the key to person identity is the sameness of personality (instead of body): believes, desires, goals, fears, ambitions, memories, etc. Sameness of body gives the same personality, and same personality gives the same identity. Personality and body could come apart. Can same personality has different body? This theory can be accepted by both the physicism and the dualism.
 
 As our memories (and other parts of personality) are constantly changing, so the personality theory only requires **gradual overlaps (evolving)**,  accepting some changes of the elements.
+
+### Imagination experiment
+
+Imaging this is happening to you (the separation of body and personality), and ask yourself, which one do you want to (not) be tortured. This will give you some evidence that which one do you take to be "you".
+
+**Imagination "Mind transform machine".**
+* *Case 1* My mind and Linda's body, Linda's mind and body. Which one do I choose to be tortured. It seems that we are following the "personality theory" to make our decisions.
+* *Case 2* Mad scientist wants to torture me, but give me perfect amnesia before. He will drive me crazy, and delude me into thinking I am Linda, with all Linda's memories (so this won't be my personality, it will be Linda's personality that will be tortured). After he will do the same thing to Linda (fill Linda's body with my personality). However, in this expression none of these makes me feel well. It seems that we are following the "body theory" to make our decisions.
+
+They are actually the very same case, being told in different ways.
