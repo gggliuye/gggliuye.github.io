@@ -71,4 +71,4 @@ Imaging this is happening to you (the separation of body and personality), and a
 * *Case 1* My mind and Linda's body, Linda's mind and body. Which one do I choose to be tortured. It seems that we are following the "personality theory" to make our decisions.
 * *Case 2* Mad scientist wants to torture me, but give me perfect amnesia before. He will drive me crazy, and delude me into thinking I am Linda, with all Linda's memories (so this won't be my personality, it will be Linda's personality that will be tortured). After he will do the same thing to Linda (fill Linda's body with my personality). However, in this expression none of these makes me feel well. It seems that we are following the "body theory" to make our decisions.
 
-They are actually the very same case, being told in different ways.
+They are actually the very same case, being told in different ways. This method can not offer us a way to choose between body view and personality view.
