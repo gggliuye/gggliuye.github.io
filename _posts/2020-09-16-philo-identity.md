@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Classes on Death - Identity
+title: Classes on Death - Personal Identity
 subtitle: Philosophy 176, Yale. Part 3
 tags: [Philosophy, death]
 comments: true
@@ -52,7 +52,7 @@ The body theory of personal identity.  That same body means same person.  In tha
 * Support example, the jeweler  take down the watch then fix it.  
 * Objection, I build exact the same woldden tower (duplication) as my son did. Can the body be decomposed then be recomposed. *we don't have the every same object as we start with.* (from Van Inwagen) So even the judgement day comes, that God reassembled all the molecules, that won't be the every same body. I will have a duplicated me, but not me.
 
-Obviously we can accept some change of the body. But which changes in the body make a different body, and which changes make for the same body. Not all the parts of the body are equally important. The most important part is the brain.
+Obviously we can accept some change of the body. But which changes in the body make a different body, and which changes make for the same body. Not all the parts of the body are equally important. The most important part is the brain. **Enough part of the brain** to keep the personality.
 
 ### Personal Identity - Personality
 
@@ -72,3 +72,21 @@ Imaging this is happening to you (the separation of body and personality), and a
 * *Case 2* Mad scientist wants to torture me, but give me perfect amnesia before. He will drive me crazy, and delude me into thinking I am Linda, with all Linda's memories (so this won't be my personality, it will be Linda's personality that will be tortured). After he will do the same thing to Linda (fill Linda's body with my personality). However, in this expression none of these makes me feel well. It seems that we are following the "body theory" to make our decisions.
 
 They are actually the very same case, being told in different ways. This method can not offer us a way to choose between body view and personality view.
+
+**Another approach : possession** : start by raising a certain philosophical objection to the personality theory.
+
+* Somebody in an insane asylum who think he is Napoleon, but he doesn't have Napoleon's personality.
+* Assume he has Napoleon's personality (the complicate set of beliefs, memories, etc), and he has no original memories. *Is he Napoleon?*
+* If this happens to two people. There is no reason to feavor any one of the two. Or maybe Napoleon splitted into two "Napoleon". Or neither is Napoleon (with the personality theory get rejected).
+
+We may need to fix the personality thoery to deal with the splitting cases : **no-competitors clause** (no branching rule). Same personality same person as long as there's no branching. If there's branching neither of the branches is me.
+Objection , this rule is bizzard: whether I am myself depends on if there exist another "me" else-where.
+
+**Body Splitting in sci-fiction.** In this case, the body theory faces the same problem.
+Same thing happens to "Soul theory", while following Plato's theory soul cannot be splitted but we cannot say.
+
+### It dosen't really matter
+
+What matters in survival? Imagining the reincarnation of the soul (suppose it is possible), with the soul being scrubbed completely clean, like a blackboard been completely erased. This survial doesn't give me anything that matters to me. Same happens to the body theory.
+
+I want to survive with the same personality.
