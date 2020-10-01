@@ -89,4 +89,5 @@ Same thing happens to "Soul theory", while following Plato's theory soul cannot 
 
 What matters in survival? Imagining the reincarnation of the soul (suppose it is possible), with the soul being scrubbed completely clean, like a blackboard been completely erased. This survial doesn't give me anything that matters to me. Same happens to the body theory.
 
-I want to survive with the same personality.
+**I want to survive with a similar personality.**
+Even if my body, my brain or my soul couldn't survive. My personality is all what matters for me. If my personality continue to exist some where, it gives what matters to me.
