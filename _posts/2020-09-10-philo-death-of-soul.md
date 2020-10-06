@@ -2,7 +2,7 @@
 layout: post
 title: Classes on Death - Can soul survives the death of the body ?
 subtitle: Philosophy 176, Yale. Part 2
-tags: [Philosophy, death]
+tags: [Philosophy, death, Philosophy176]
 comments: true
 ---
 
