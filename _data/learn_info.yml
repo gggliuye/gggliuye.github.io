@@ -1,3 +1,5 @@
+- icon: fas fa-trophy
+  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).
 - icon: fas fa-briefcase
   content: Convex Optimization [docs](https://cvx-learning.readthedocs.io/)
 - icon: fas fa-briefcase
@@ -5,6 +7,4 @@
 - icon: fas fa-briefcase
   content: Machine Learning with Graphs [docs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html)
 - icon: fas fa-briefcase
-  content: Philosophy [docs](https://for-fun.readthedocs.io/)
-- icon: fas fa-trophy
   content: Philosophy [docs](https://for-fun.readthedocs.io/)
