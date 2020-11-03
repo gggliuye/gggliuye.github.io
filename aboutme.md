@@ -25,6 +25,7 @@ What else do you need?
 
 **Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214), Awarded the China Scholarship Council’s scholarship.
 
+<!--
 ## My post-School Study
 
 [My certifications Coursera](../Study/coursera), [My certifications Deep Blue](../Study/deepblue).
@@ -35,6 +36,8 @@ What else do you need?
 **SLAM/Robotics** : [Visual inertial SLAM](https://1drv.ms/u/s!AlcTaQw_X72KhE9bsiXSZVtZoOkI?e=j21AhG), [lidar SLAM](https://1drv.ms/u/s!AlcTaQw_X72KhEeDWvEo1rUyGLRx?e=7PwGYG), [point cloud processing](https://1drv.ms/u/s!AlcTaQw_X72KiGhjQgSxHq52ASH0?e=g4Yehp), [State Estiamte for Robotics](https://1drv.ms/u/s!AlcTaQw_X72KiFg7y8eHRLYxKrsd?e=wvlxC6), [SLAM Code Review](https://1drv.ms/u/s!AlcTaQw_X72KhEy4GseRWUtJp0ex?e=13h0Vw) etc.
 
 **Deep Learning** : Basic knowledges in School, and internship. [MIT Self-Driving](https://1drv.ms/u/s!AlcTaQw_X72KhEuoFbDbF4laEwUs?e=9fdKvS), [PGM Deep Blue](https://1drv.ms/u/s!AlcTaQw_X72KhEkOxIeOlO4QcdK8?e=2VWa4v), [CS224W Machine Learning with Graphs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html).
+
+-->
 
 ## Work at UTOPA-AR
 
