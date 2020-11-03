@@ -1,7 +1,6 @@
 ---
 layout: base
 title: gggliuye's website
-subtitle: Empty is form, form is empty
 css:
   - /assets/css/index.css
 ---
@@ -10,7 +9,7 @@ css:
 
 # Ye Liu {#title}
 
-## -- {#subtitle}
+## Empty is form, form is empty
 
 </div>
 
@@ -27,7 +26,9 @@ css:
   </div>
 </div>
 
-
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
 
 {% assign posts = paginator.posts | default: site.posts %}
 
@@ -111,3 +112,8 @@ css:
   {% endif %}
 </ul>
 {% endif %}
+
+{% include comments.html %}
+</div>
+</div>
+</div>
