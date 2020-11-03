@@ -50,7 +50,7 @@ social-network-links:
 #  twitter: daattali
   rss: true
 #  reddit: yourname
-  linkedin: https://www.linkedin.com/in/ye-liu-1699b4129/
+  #linkedin: https://www.linkedin.com/in/ye-liu-1699b4129/
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -207,7 +207,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
-  - index_md.md
 
 plugins:
   - jekyll-paginate
