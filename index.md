@@ -32,7 +32,7 @@ css:
 
 {% assign posts = paginator.posts | default: site.posts %}
 
-<div class="posts-list">
+<div class="page-section">
   {% for post in posts %}
   <article class="post-preview">
     <a href="{{ post.url | absolute_url }}">
