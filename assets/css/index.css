@@ -1,9 +1,13 @@
 body, html {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #fff;
-  color: #333;
+  color: #404040;
   margin: 0;
   padding: 0;
+  background-color: {{ site.page-col | default: "#FFFFFF" }};
+  {% if site.page-img %}
+  background-image: url({{ site.page-img | relative_url }});
+  background-attachment: fixed;
+  {% endif %}
 }
 
 p a {
