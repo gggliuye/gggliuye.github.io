@@ -28,6 +28,25 @@ css:
   </div>
 </div>
 
+<div id="portfolio-out" class="page-section">
+  <div id="portfolio">
+    <div class="section-title">
+      My Projects
+    </div>
+    <div id="shinyapps-big" data-columns>
+      {% for app in site.data.portfolio %}
+	    <div class="shinyapp">
+          <a class="applink" href="{{ app.url }}">
+            <img class="appimg" src="/assets/img/screenshots/{{ app.img }}" />
+            <div class="apptitle">{{ app.title }}</div>
+            <div class="appdesc">{{ app.description }}</div>
+          </a>
+        </div>
+	  {% endfor %}
+    </div>
+  </div>
+</div>
+
 <div id="post-section-out" class="page-section">
 <div class="container-md" role="main">
   <div class="row">

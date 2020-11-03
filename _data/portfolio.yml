@@ -1,0 +1,8 @@
+- title: Server Map AR
+  description: Achieve Android AR application with a large prebuilt visual/lidar map.
+  img: ar_indoor_tiger.PNG
+  url: https://www.bilibili.com/video/BV1aV41127bo
+- title: Marker Image AR
+  description: Achieve AR application that tracking multiple planner images. With an demo of AR piano show (use a cube object for tracking).
+  img: ar_marker.PNG
+  url: https://www.bilibili.com/video/BV1Ma4y1t7oD
