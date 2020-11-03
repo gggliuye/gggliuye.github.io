@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: base
 title: gggliuye's website
 subtitle: Empty is form, form is empty
 css:
