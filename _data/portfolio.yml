@@ -3,6 +3,10 @@
   img: ar_indoor_tiger.PNG
   url: https://www.bilibili.com/video/BV1aV41127bo
 - title: Marker Image AR
-  description: Achieve AR application that tracking multiple planner images. With an demo of AR piano show (use a cube object for tracking).
+  description: Achieve Android AR application that tracking multiple planner images. With an demo of AR piano show (use a cube object for tracking).
   img: ar_marker.PNG
   url: https://www.bilibili.com/video/BV1Ma4y1t7oD
+- title: SLAM AR
+  description: Achieve Android AR application based on ORB-SLAM2 system (modified version).
+  img: ar_slam.PNG
+  url: https://www.bilibili.com/video/BV1Xk4y1d7ap
