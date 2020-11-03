@@ -28,6 +28,7 @@ css:
   </div>
 </div>
 
+<div id="post-section-out" class="page-section">
 <div class="container-md" role="main">
   <div class="row">
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -116,6 +117,7 @@ css:
 {% endif %}
 
 {% include comments.html %}
+</div>
 </div>
 </div>
 </div>
