@@ -13,6 +13,8 @@ css:
 
 </div>
 
+<div id="main-sections" style="margin-top:-30px;">
+
 <div id="learning-section-out" class="page-section">
   <div id="learning-section">
     <div class="section-title">My Post-School Study</div>

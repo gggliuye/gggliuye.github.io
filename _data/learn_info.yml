@@ -1,2 +1,8 @@
 - icon: fas fa-briefcase
-  content: Convex Optimization [learning](https://cvx-learning.readthedocs.io/)
+  content: Convex Optimization [docs](https://cvx-learning.readthedocs.io/)
+- icon: fas fa-briefcase
+  content: Computer Vision [docs](https://vio.readthedocs.io/)
+- icon: fas fa-briefcase
+  content: Machine Learning with Graphs [docs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html)
+- icon: fas fa-briefcase
+  content: Philosophy [docs](https://for-fun.readthedocs.io/)
