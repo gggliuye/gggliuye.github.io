@@ -27,6 +27,13 @@ function CalculatePatchParam(image_ori_data, cols, topleft, radius){
 class Marker{
   constructor(){
     this.marker_width = 200;
+    this.marker_height = -1;
+  }
+  GetSize(){
+    return [this.marker_width, this.marker_height];
+  }
+  GetCenter(){
+    return this.center;
   }
 
   LoadMarker(marker_image){
@@ -34,11 +41,13 @@ class Marker{
     marker_image.copyTo(this.marker);
     cv.cvtColor(this.marker, this.marker, cv.COLOR_RGBA2GRAY, 0);
     // resize image to smaller one
-    let resize = new cv.Size(this.marker_width, this.marker.rows*this.marker_width/this.marker.cols);
+    this.marker_height = parseInt(this.marker.rows*this.marker_width/this.marker.cols);
+    let resize = new cv.Size(this.marker_width, this.marker_height);
     cv.resize(this.marker, this.marker, resize, 0, 0, cv.INTER_AREA);
 
     this.cols = this.marker.cols;
     this.rows = this.marker.rows;
+    this.center = new cv.Point(parseInt(this.marker_width/2), parseInt(this.marker_height/2));
 
     // detect good features for latter match
     let [maxCorners, qualityLevel, minDistance] = [200, 0.1, 10];

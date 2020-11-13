@@ -21,7 +21,11 @@ class MarkerTracker{
     let gray = new cv.Mat();
     cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
 
-    let [x,y,w,h] = [60, 20, 199, 199];
+    let [w,h] = this.pMarker.GetSize();
+    let radius = parseInt((Math.min(w,h)-1)/2);
+    let size = Math.min(w,h);
+
+    let [x,y] = [(320-size)/2, (240-size)/2];
     // test the NCC score of the center of the input image and the marker
     //let roiRect = new cv.Rect(x,y,w,h);
     //let roi_gray = new cv.Mat();
@@ -29,18 +33,17 @@ class MarkerTracker{
     // the step of the roi is the same as the original image, which is a bug.
     //roi_gray.step = [w, 1];
 
-    let radius = parseInt((w-1)/2);
     let image_ori_data = gray.data;
     let topleft = new cv.Point(x, y);
     let [patchmean, patch_tmp] = CalculatePatchParam(image_ori_data, gray.cols, topleft, radius);
 
-    let marker_pt = new cv.Point(100,100);
+    let marker_pt = this.pMarker.GetCenter();
     let score = this.pMarker.CalculatePatchNCC(image_ori_data, gray.cols, topleft, marker_pt, radius, patchmean, patch_tmp);
 
     let font = cv.FONT_HERSHEY_SIMPLEX;
     cv.putText(src, 'score:'+score,  new cv.Point(10, 40), font, 0.5, new cv.Scalar(0, 255, 255,255), 1, cv.LINE_4);
     let p1 = new cv.Point(x, y);
-    let p2 = new cv.Point(x+w, y+h);
+    let p2 = new cv.Point(x+size, y+size);
     let color = new cv.Scalar(255,255,255,255);
     cv.rectangle(src, p1, p2, color, 2, 8, 0);
 
