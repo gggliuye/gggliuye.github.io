@@ -165,7 +165,7 @@ function onVideoStarted() {
               total_pts = goodNew.length+newTrackPts.rows;
             }
 
-            cv.putText(src, '#Pts:'+total_pts+"/"+goodNew.length+', FPS:'+FPS,  new cv.Point(10, 20), font, 1, new cv.Scalar(0, 255, 255,255), 2, cv.LINE_4);
+            cv.putText(src, '#Pts:'+total_pts+"/"+goodNew.length+', FPS:'+FPS,  new cv.Point(10, 20), font, 0.5, new cv.Scalar(0, 255, 255,255), 1, cv.LINE_4);
             cv.imshow('canvasOutput', src);
 
             // now update the previous frame and previous points
