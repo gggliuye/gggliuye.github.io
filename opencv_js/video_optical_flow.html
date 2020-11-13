@@ -58,6 +58,7 @@ let canvasContext = canvasOutput.getContext('2d');
 startAndStop.addEventListener('click', () => {
     if (!streaming) {
         utils.clearError();
+        //check_devices_and_start_camera(utils, 'qvga', onVideoStarted, 'videoInput');
         // qvga for 320*240 , vga for 640*480
         utils.startCamera('qvga', onVideoStarted, 'videoInput');
     } else {

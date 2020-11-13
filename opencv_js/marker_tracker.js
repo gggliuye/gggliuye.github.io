@@ -45,7 +45,7 @@ class MarkerTracker{
     cv.rectangle(src, p1, p2, color, 2, 8, 0);
 
     //console.log(roi_gray.step+" "+gray.step);
-    if(score > 0.3){
+    if(score > 0.2){
       cv.putText(src, 'Found',  new cv.Point(75, src.rows/2-20), font, 2, new cv.Scalar(255, 0, 0,255), 5, cv.LINE_4);
     }
 
