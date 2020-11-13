@@ -19,10 +19,10 @@
     <table cellpadding="0" cellspacing="0" width="0" border="0">
     <tr>
         <td>
-            <video id="videoInput" width=640 height=480></video>
+            <video id="videoInput" width=320 height=240></video>
         </td>
         <td>
-            <canvas id="canvasOutput" width=640 height=480></canvas>
+            <canvas id="canvasOutput" width=320 height=240></canvas>
         </td>
         <td></td>
         <td></td>
@@ -59,7 +59,7 @@ startAndStop.addEventListener('click', () => {
     if (!streaming) {
         utils.clearError();
         // qvga for 320*240 , vga for 640*480
-        utils.startCamera('vga', onVideoStarted, 'videoInput');
+        utils.startCamera('qvga', onVideoStarted, 'videoInput');
     } else {
         utils.stopCamera();
         onVideoStopped();
@@ -97,7 +97,7 @@ function onVideoStarted() {
     cap.read(src);
     cv.cvtColor(src, prevGray, cv.COLOR_RGBA2GRAY);
     // parameters for ShiTomasi corner detection
-    let [maxCorners, qualityLevel, minDistance, blockSize] = [100, 0.2, 20, 7];
+    let [maxCorners, qualityLevel, minDistance, blockSize] = [80, 0.2, 20, 7];
     let none = new cv.Mat();
     cv.goodFeaturesToTrack(prevGray, prevTrackedPts, maxCorners, qualityLevel, minDistance, none);
 
@@ -140,18 +140,16 @@ function onVideoStarted() {
             let goodNew = [];
             let goodOld = [];
             mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
+            let currTrackedPts_data = currTrackedPts.data32F;
+            let prevTrackedPts_data = prevTrackedPts.data32F;
             for (let i = 0; i < status.rows; i++) {
               if (status.data[i] === 1) {
-                let pt = new cv.Point(currTrackedPts.data32F[i*2], currTrackedPts.data32F[i*2+1])
+                let pt = new cv.Point(currTrackedPts_data[i*2], currTrackedPts_data[i*2+1])
                 goodNew.push(pt);
-                goodOld.push(new cv.Point(prevTrackedPts.data32F[i*2], prevTrackedPts.data32F[i*2+1]));
+                goodOld.push(new cv.Point(prevTrackedPts_data[i*2], prevTrackedPts_data[i*2+1]));
                 cv.circle(mask, pt, minDistance, mask_masked, -1);
+                cv.circle(src, pt, 5, color_tracked, -1);
               }
-            }
-            //console.log("rows::" + currTrackedPts.rows + " cols::" + currTrackedPts.cols + " type::" + currTrackedPts.type() + "statue::" + status.rows);
-            // draw the tracks
-            for (let i = 0; i < goodNew.length; i++) {
-              cv.circle(src, goodNew[i], 5, color_tracked, -1);
             }
 
             // detect new feature for tracking
@@ -160,9 +158,10 @@ function onVideoStarted() {
             let n_to_detect = maxCorners - goodNew.length;
             if(n_to_detect > 0) {
               cv.goodFeaturesToTrack(currGray, newTrackPts, n_to_detect, qualityLevel, minDistance, mask);
+              let newTrackPts_data = newTrackPts.data32F;
               //console.log("rows::" + newTrackPts.rows + " cols::" + newTrackPts.cols + " type::" + newTrackPts.type());
               for (let i = 0; i < newTrackPts.rows; i++) {
-                let pt = new cv.Point(newTrackPts.data32F[i*2], newTrackPts.data32F[i*2+1])
+                let pt = new cv.Point(newTrackPts_data[i*2], newTrackPts_data[i*2+1])
                 cv.circle(src, pt, 5, color_new, -1);
               }
               total_pts = goodNew.length+newTrackPts.rows;
@@ -175,14 +174,16 @@ function onVideoStarted() {
             currGray.copyTo(prevGray);
             prevTrackedPts.delete(); prevTrackedPts = null;
             prevTrackedPts = new cv.Mat(total_pts, 1, cv.CV_32FC2);
+            prevTrackedPts_data = prevTrackedPts.data32F;
             for (let i = 0; i < goodNew.length; i++) {
-              prevTrackedPts.data32F[i*2] = goodNew[i].x;
-              prevTrackedPts.data32F[i*2+1] = goodNew[i].y;
+              prevTrackedPts_data[i*2] = goodNew[i].x;
+              prevTrackedPts_data[i*2+1] = goodNew[i].y;
             }
             if(n_to_detect > 0){
               for (let i = 0; i < newTrackPts.rows; i++) {
-                prevTrackedPts.data32F[(i+goodNew.length)*2] = newTrackPts.data32F[i*2];
-                prevTrackedPts.data32F[(i+goodNew.length)*2+1] = newTrackPts.data32F[i*2+1];
+                let tmp = (i+goodNew.length)*2;
+                prevTrackedPts_data[tmp] = newTrackPts.data32F[i*2];
+                prevTrackedPts_data[tmp+1] = newTrackPts.data32F[i*2+1];
               }
             }
 
