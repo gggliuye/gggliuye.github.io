@@ -19,10 +19,10 @@
     <table cellpadding="0" cellspacing="0" width="0" border="0">
     <tr>
         <td>
-            <video id="videoInput" width=640 height=480></video>
+            <video id="videoInput" width=320 height=240></video>
         </td>
         <td>
-            <canvas id="canvasOutput" width=640 height=480></canvas>
+            <canvas id="canvasOutput" width=320 height=240></canvas>
         </td>
         <td></td>
         <td></td>
@@ -58,7 +58,7 @@ startAndStop.addEventListener('click', () => {
     if (!streaming) {
         utils.clearError();
         // qvga for 320*240 , vga for 640*480
-        utils.startCamera('vga', onVideoStarted, 'videoInput');
+        utils.startCamera('qvga', onVideoStarted, 'videoInput');
     } else {
         utils.stopCamera();
         onVideoStopped();
@@ -113,7 +113,9 @@ function onVideoStarted() {
     let font = cv.FONT_HERSHEY_SIMPLEX;
     let mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
 
-    const FPS = 30;
+    let FPS = -1;
+    let time_accu = 0;
+    let count_fps = 0;
 
     function processVideo() {
         try {
@@ -163,7 +165,7 @@ function onVideoStarted() {
               total_pts = goodNew.length+newTrackPts.rows;
             }
 
-            cv.putText(src, '#Pts:'+total_pts+"/"+goodNew.length,  new cv.Point(50, 50), font, 1, new cv.Scalar(0, 255, 255,255), 2, cv.LINE_4);
+            cv.putText(src, '#Pts:'+total_pts+"/"+goodNew.length+', FPS:'+FPS,  new cv.Point(10, 20), font, 1, new cv.Scalar(0, 255, 255,255), 2, cv.LINE_4);
             cv.imshow('canvasOutput', src);
 
             // now update the previous frame and previous points
@@ -183,6 +185,9 @@ function onVideoStarted() {
 
             // schedule the next one.
             //let delay = 1000/FPS - (Date.now() - begin);
+            time_accu = time_accu + (Date.now() - begin)/1000;
+            count_fps = count_fps + 1;
+            FPS = parseInt(count_fps/time_accu);
             setTimeout(processVideo, 0);
         } catch (err) {
             utils.printError(err);
