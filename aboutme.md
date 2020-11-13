@@ -25,6 +25,8 @@ What else do you need?
 
 **Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214), Awarded the China Scholarship Council’s scholarship.
 
+[Test Opencv Js](https://gggliuye.github.io/opencv_js/video.html)
+
 <!--
 ## My post-School Study
 

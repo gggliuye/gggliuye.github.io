@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Video Capture Example</title>
+<link href="js_example_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h2>Video Capture Example</h2>
+<p>
+    Click <b>Start/Stop</b> button to start or stop the camera capture.<br>
+    The <b>videoInput</b> is a &lt;video&gt; element used as OpenCV.js input.
+    The <b>canvasOutput</b> is a &lt;canvas&gt; element used as OpenCv.js output.<br>
+    The code of &lt;textarea&gt; will be executed when video is started.
+    You can modify the code to investigate more.
+</p>
+<div>
+<div class="control"><button id="startAndStop" disabled>Start</button></div>
+
+</div>
+<p class="err" id="errorMessage"></p>
+<div>
+    <table cellpadding="0" cellspacing="0" width="0" border="0">
+    <tr>
+        <td>
+            <video id="videoInput" width=640 height=480></video>
+        </td>
+        <td>
+            <canvas id="canvasOutput" width=640 height=480></canvas>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <div class="caption">videoInput</div>
+        </td>
+        <td>
+            <div class="caption">canvasOutput</div>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    </table>
+</div>
+
+<script src="https://webrtc.github.io/adapter/adapter-5.0.4.js" type="text/javascript"></script>
+<script src="utils.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+let utils = new Utils('errorMessage');
+
+//utils.loadCode('codeSnippet', 'codeEditor');
+
+let streaming = false;
+let videoInput = document.getElementById('videoInput');
+let startAndStop = document.getElementById('startAndStop');
+let canvasOutput = document.getElementById('canvasOutput');
+let canvasContext = canvasOutput.getContext('2d');
+
+startAndStop.addEventListener('click', () => {
+    if (!streaming) {
+        utils.clearError();
+        // qvga for 320*240 , vga for 640*480
+        utils.startCamera('vga', onVideoStarted, 'videoInput');
+    } else {
+        utils.stopCamera();
+        onVideoStopped();
+    }
+});
+
+// let is limited to the block in which it is declared
+// while variable declared with var has the global scope.
+function onVideoStarted() {
+    streaming = true;
+    startAndStop.innerText = 'Stop';
+    videoInput.width = videoInput.videoWidth;
+    videoInput.height = videoInput.videoHeight;
+    //utils.executeCode('codeEditor');
+    let video = document.getElementById('videoInput');
+
+    let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
+    let currGray = new cv.Mat(video.height, video.width, cv.CV_8UC1);
+    let prevGray = new cv.Mat(video.height, video.width, cv.CV_8UC1);
+    let cap = new cv.VideoCapture(video);
+
+    let prevTrackedPts = new cv.Mat();
+    let currTrackedPts = new cv.Mat();
+    let status = new cv.Mat();
+    let err = new cv.Mat();
+
+    // optical flow parameters
+    let winSize = new cv.Size(15, 15);
+    let maxLevel = 2;
+    let criteria = new cv.TermCriteria(cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT, 10, 0.03);
+
+    // initialize the first frame
+    cap.read(src);
+    cv.cvtColor(src, prevGray, cv.COLOR_RGBA2GRAY);
+    // parameters for ShiTomasi corner detection
+    let [maxCorners, qualityLevel, minDistance, blockSize] = [200, 0.1, 20, 7];
+    let none = new cv.Mat();
+    cv.goodFeaturesToTrack(prevGray, prevTrackedPts, maxCorners, qualityLevel, minDistance, none);
+
+    // create some random colors
+    //let color = [];
+    //for (let i = 0; i < maxCorners; i++) {
+    //    color.push(new cv.Scalar(parseInt(Math.random()*255), parseInt(Math.random()*255),
+    //                             parseInt(Math.random()*255), 255));
+    //}
+
+    // Create a mask image for drawing purposes
+    let mask_default = new cv.Scalar(255);
+    let mask_masked = new cv.Scalar(0);
+    let color_tracked = new cv.Scalar(255,0,0,255);
+    let color_new = new cv.Scalar(0,255,0,255);
+    let mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
+
+    const FPS = 30;
+
+    function processVideo() {
+        try {
+            if (!streaming) {
+                // clean and stop.
+                src.delete(); currGray.delete(); prevGray.delete();
+                prevTrackedPts.delete(); currTrackedPts.delete(); err.delete();mask.delete();
+                return;
+            }
+            let begin = Date.now();
+            // start processing.
+            cap.read(src);
+            cv.cvtColor(src, currGray, cv.COLOR_RGBA2GRAY);
+
+            // calculate optical flow
+            cv.calcOpticalFlowPyrLK(prevGray, currGray, prevTrackedPts, currTrackedPts, status, err, winSize, maxLevel, criteria);
+
+            // select good points
+            let goodNew = [];
+            let goodOld = [];
+            for (let i = 0; i < status.rows; i++) {
+              if (status.data[i] === 1) {
+                goodNew.push(new cv.Point(currTrackedPts.data32F[i*2], currTrackedPts.data32F[i*2+1]));
+                goodOld.push(new cv.Point(prevTrackedPts.data32F[i*2], prevTrackedPts.data32F[i*2+1]));
+              }
+            }
+            //console.log("rows::" + currTrackedPts.rows + " cols::" + currTrackedPts.cols + " type::" + currTrackedPts.type() + "statue::" + status.rows);
+            // draw the tracks and make tracking mask
+            mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
+            for (let i = 0; i < goodNew.length; i++) {
+              //cv.line(mask, goodNew[i], goodOld[i], color[i], 2);
+              cv.circle(src, goodNew[i], 5, color_tracked, -1);
+              cv.circle(mask, goodNew[i], minDistance, mask_masked, -1);
+            }
+
+            // detect new feature for tracking
+            let newTrackPts = new cv.Mat();
+            cv.goodFeaturesToTrack(currGray, newTrackPts, maxCorners, qualityLevel, minDistance, mask);
+            //console.log("rows::" + newTrackPts.rows + " cols::" + newTrackPts.cols + " type::" + newTrackPts.type());
+            for (let i = 0; i < newTrackPts.rows; i++) {
+              let pt = new cv.Point(newTrackPts.data32F[i*2], newTrackPts.data32F[i*2+1])
+              cv.circle(src, pt, 5, color_new, -1);
+            }
+
+            cv.imshow('canvasOutput', src);
+
+            // now update the previous frame and previous points
+            currGray.copyTo(prevGray);
+            prevTrackedPts.delete(); prevTrackedPts = null;
+            prevTrackedPts = new cv.Mat(goodNew.length+newTrackPts.rows, 1, cv.CV_32FC2);
+            for (let i = 0; i < goodNew.length; i++) {
+              prevTrackedPts.data32F[i*2] = goodNew[i].x;
+              prevTrackedPts.data32F[i*2+1] = goodNew[i].y;
+            }
+            for (let i = 0; i < newTrackPts.rows; i++) {
+              prevTrackedPts.data32F[(i+goodNew.length)*2] = newTrackPts.data32F[i*2];
+              prevTrackedPts.data32F[(i+goodNew.length)*2+1] = newTrackPts.data32F[i*2+1];
+            }
+
+            // schedule the next one.
+            let delay = 1000/FPS - (Date.now() - begin);
+            setTimeout(processVideo, delay);
+        } catch (err) {
+            utils.printError(err);
+        }
+    };
+
+    // schedule the first one.
+    setTimeout(processVideo, 0);
+}
+
+function onVideoStopped() {
+    streaming = false;
+    canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
+    startAndStop.innerText = 'Start';
+}
+
+utils.loadOpenCv(() => {
+    startAndStop.removeAttribute('disabled');
+});
+</script>
+</body>
+</html>
