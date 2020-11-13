@@ -8,11 +8,7 @@
 <body>
 <h2>Video Capture Example</h2>
 <p>
-    Click <b>Start/Stop</b> button to start or stop the camera capture.<br>
-    The <b>videoInput</b> is a &lt;video&gt; element used as OpenCV.js input.
-    The <b>canvasOutput</b> is a &lt;canvas&gt; element used as OpenCv.js output.<br>
-    The code of &lt;textarea&gt; will be executed when video is started.
-    You can modify the code to investigate more.
+    Test Optical. Will keep to track 100 features.
 </p>
 <div>
 <div class="control"><button id="startAndStop" disabled>Start</button></div>
@@ -98,7 +94,7 @@ function onVideoStarted() {
     cap.read(src);
     cv.cvtColor(src, prevGray, cv.COLOR_RGBA2GRAY);
     // parameters for ShiTomasi corner detection
-    let [maxCorners, qualityLevel, minDistance, blockSize] = [200, 0.1, 20, 7];
+    let [maxCorners, qualityLevel, minDistance, blockSize] = [100, 0.2, 20, 7];
     let none = new cv.Mat();
     cv.goodFeaturesToTrack(prevGray, prevTrackedPts, maxCorners, qualityLevel, minDistance, none);
 
@@ -114,6 +110,7 @@ function onVideoStarted() {
     let mask_masked = new cv.Scalar(0);
     let color_tracked = new cv.Scalar(255,0,0,255);
     let color_new = new cv.Scalar(0,255,0,255);
+    let font = cv.FONT_HERSHEY_SIMPLEX;
     let mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
 
     const FPS = 30;
@@ -134,51 +131,59 @@ function onVideoStarted() {
             // calculate optical flow
             cv.calcOpticalFlowPyrLK(prevGray, currGray, prevTrackedPts, currTrackedPts, status, err, winSize, maxLevel, criteria);
 
-            // select good points
+            // select good points and make mask
             let goodNew = [];
             let goodOld = [];
+            mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
             for (let i = 0; i < status.rows; i++) {
               if (status.data[i] === 1) {
-                goodNew.push(new cv.Point(currTrackedPts.data32F[i*2], currTrackedPts.data32F[i*2+1]));
+                let pt = new cv.Point(currTrackedPts.data32F[i*2], currTrackedPts.data32F[i*2+1])
+                goodNew.push(pt);
                 goodOld.push(new cv.Point(prevTrackedPts.data32F[i*2], prevTrackedPts.data32F[i*2+1]));
+                cv.circle(mask, pt, minDistance, mask_masked, -1);
               }
             }
             //console.log("rows::" + currTrackedPts.rows + " cols::" + currTrackedPts.cols + " type::" + currTrackedPts.type() + "statue::" + status.rows);
-            // draw the tracks and make tracking mask
-            mask = new cv.Mat(video.height, video.width, cv.CV_8UC1, mask_default);
+            // draw the tracks
             for (let i = 0; i < goodNew.length; i++) {
-              //cv.line(mask, goodNew[i], goodOld[i], color[i], 2);
               cv.circle(src, goodNew[i], 5, color_tracked, -1);
-              cv.circle(mask, goodNew[i], minDistance, mask_masked, -1);
             }
 
             // detect new feature for tracking
             let newTrackPts = new cv.Mat();
-            cv.goodFeaturesToTrack(currGray, newTrackPts, maxCorners, qualityLevel, minDistance, mask);
-            //console.log("rows::" + newTrackPts.rows + " cols::" + newTrackPts.cols + " type::" + newTrackPts.type());
-            for (let i = 0; i < newTrackPts.rows; i++) {
-              let pt = new cv.Point(newTrackPts.data32F[i*2], newTrackPts.data32F[i*2+1])
-              cv.circle(src, pt, 5, color_new, -1);
+            let total_pts = goodNew.length;
+            let n_to_detect = maxCorners - goodNew.length;
+            if(n_to_detect > 0) {
+              cv.goodFeaturesToTrack(currGray, newTrackPts, n_to_detect, qualityLevel, minDistance, mask);
+              //console.log("rows::" + newTrackPts.rows + " cols::" + newTrackPts.cols + " type::" + newTrackPts.type());
+              for (let i = 0; i < newTrackPts.rows; i++) {
+                let pt = new cv.Point(newTrackPts.data32F[i*2], newTrackPts.data32F[i*2+1])
+                cv.circle(src, pt, 5, color_new, -1);
+              }
+              total_pts = goodNew.length+newTrackPts.rows;
             }
 
+            cv.putText(src, '#Pts:'+total_pts+"/"+goodNew.length,  new cv.Point(50, 50), font, 1, new cv.Scalar(0, 255, 255,255), 2, cv.LINE_4);
             cv.imshow('canvasOutput', src);
 
             // now update the previous frame and previous points
             currGray.copyTo(prevGray);
             prevTrackedPts.delete(); prevTrackedPts = null;
-            prevTrackedPts = new cv.Mat(goodNew.length+newTrackPts.rows, 1, cv.CV_32FC2);
+            prevTrackedPts = new cv.Mat(total_pts, 1, cv.CV_32FC2);
             for (let i = 0; i < goodNew.length; i++) {
               prevTrackedPts.data32F[i*2] = goodNew[i].x;
               prevTrackedPts.data32F[i*2+1] = goodNew[i].y;
             }
-            for (let i = 0; i < newTrackPts.rows; i++) {
-              prevTrackedPts.data32F[(i+goodNew.length)*2] = newTrackPts.data32F[i*2];
-              prevTrackedPts.data32F[(i+goodNew.length)*2+1] = newTrackPts.data32F[i*2+1];
+            if(n_to_detect > 0){
+              for (let i = 0; i < newTrackPts.rows; i++) {
+                prevTrackedPts.data32F[(i+goodNew.length)*2] = newTrackPts.data32F[i*2];
+                prevTrackedPts.data32F[(i+goodNew.length)*2+1] = newTrackPts.data32F[i*2+1];
+              }
             }
 
             // schedule the next one.
-            let delay = 1000/FPS - (Date.now() - begin);
-            setTimeout(processVideo, delay);
+            //let delay = 1000/FPS - (Date.now() - begin);
+            setTimeout(processVideo, 0);
         } catch (err) {
             utils.printError(err);
         }
