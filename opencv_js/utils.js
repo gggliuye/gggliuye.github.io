@@ -1,3 +1,11 @@
+function isMobileDevice() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    .test(navigator.userAgent)) {
+    return true;
+  }
+  return false;
+};
+
 function check_devices_and_start_camera(utils, resolution, callback, videoId)
 {
   const constraints = {
@@ -179,7 +187,9 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
             videoConstraint = true;
         }
 
-        videoConstraint.facingMode = "environment";
+        if(isMobileDevice()){
+            videoConstraint.facingMode = { exact: 'environment'};
+        }
         console.log(videoConstraint);
 
         navigator.mediaDevices.getUserMedia({video: videoConstraint, audio: false})
