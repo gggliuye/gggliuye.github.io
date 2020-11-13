@@ -39,11 +39,11 @@ function check_devices_and_start_camera(utils, resolution, callback, videoId)
             controls.otherCamera = device;
         }
       });
-      console.log(controls);
-      console.log(videoConstraint);
+      //console.log(controls);
+      //console.log(videoConstraint);
 
       //videoConstraint.deviceId = { exact: controls.otherCamera.deviceId };
-      console.log(controls);
+      //console.log(controls);
       utils.startCamera_withconstraint(videoConstraint, callback, videoId);
     });
 }
@@ -187,9 +187,29 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
             videoConstraint = true;
         }
 
+        let controls = {};
+        navigator.mediaDevices.enumerateDevices()
+          .then(function(devices) {
+              devices.forEach(function(device) {
+                if (device.facingMode == "environment"
+                  || device.label.indexOf("facing back") >= 0)
+                  controls.backCamera = device;
+
+                else if (device.facingMode == "user"
+                  || device.label.indexOf("facing front") >= 0)
+                  controls.frontCamera = device;
+              });
+        })
+
+        //videoConstraint.deviceId = { exact: controls.otherCamera.deviceId };
         if(isMobileDevice()){
-            videoConstraint.facingMode = { exact: 'environment'};
+            // won't work for chrome
+            // Update: facingMode is now available in Chrome for Android through the adapter.js polyfill!
+            // https://stackoverflow.com/questions/32086122/getusermedia-facingmode
+            videoConstraint.deviceId = { exact: controls.backCamera.deviceId };
+            videoConstraint.facingMode = 'environment';
         }
+
         console.log(videoConstraint);
 
         navigator.mediaDevices.getUserMedia({video: videoConstraint, audio: false})
