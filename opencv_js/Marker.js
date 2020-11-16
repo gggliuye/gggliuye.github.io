@@ -44,6 +44,9 @@ function ApplyPerspectiveTransPt(M_data, pt){
   return new cv.Point(x_t, y_t);
 }
 
+
+// TODO: here we only apply the translation and rotation of 2d image
+// to further develop the homography version
 function CalculatePerspective(matched_marker, matched_image){
   if(matched_marker.length < 4){
     let M = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
@@ -235,6 +238,7 @@ class Marker{
   }
 
   // we will warp transformation matrix (from marker to image)
+  // TODO : I forget to warp the marker image
   FindMarker(gray, init_M_im){
     let image_ori_data = gray.data;
     let Feature_data = this.featurePts.data32F;
