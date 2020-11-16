@@ -44,9 +44,6 @@ function ApplyPerspectiveTransPt(M_data, pt){
   return new cv.Point(x_t, y_t);
 }
 
-
-// TODO: here we only apply the translation and rotation of 2d image
-// to further develop the homography version
 function CalculatePerspective(matched_marker, matched_image){
   if(matched_marker.length < 4){
     let M = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
@@ -84,6 +81,16 @@ function CalculatePerspective(matched_marker, matched_image){
   return M;
 }
 
+function CalculateHomography(matched_marker, matched_image){
+  if(matched_marker.length < 4){
+    let M = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
+    return M;
+  }
+
+  // TODO
+}
+
+
 class Marker{
   constructor(){
     this.InitMatchParameters();
@@ -109,6 +116,7 @@ class Marker{
     this.rows = this.marker.rows;
     this.center = new cv.Point(parseInt(this.marker_width/2), parseInt(this.marker_height/2));
     this.marker_data = this.marker.data;
+
 
     // set the rectangle
     this.corners = []
@@ -238,8 +246,15 @@ class Marker{
   }
 
   // we will warp transformation matrix (from marker to image)
-  // TODO : I forget to warp the marker image
   FindMarker(gray, init_M_im){
+    // warp the marker image
+    let dsize = new cv.Size(gray.cols, gray.rows);
+    let dst = new cv.Mat();
+    cv.warpPerspective(this.marker, dst, init_M_im, dsize, cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+    this.marker_data = dst.data;
+    this.cols = gray.cols;
+
+
     let image_ori_data = gray.data;
     let Feature_data = this.featurePts.data32F;
     // loop for all marker points
@@ -254,6 +269,7 @@ class Marker{
       //map the marker point to image plane, to get an initial guess of match point
       let pt = new cv.Point(Feature_data[i*2], Feature_data[i*2+1]);
       let [x_t, y_t] = ApplyPerspectiveTrans(M_data, pt.x, pt.y);
+      let pt_trans = new cv.Point(x_t, y_t);
       //console.log(pt.x, pt.y, x_t, y_t);
       if(!this.InRangeBorder(x_t, y_t)){
         continue;
@@ -266,7 +282,7 @@ class Marker{
           //search the neighborhood to find the best match
           let topleft = new cv.Point(x_t+dx-this.patch_radius, y_t+dy-this.patch_radius);
           let [patchmean, patch_tmp] = CalculatePatchParam(image_ori_data, gray.cols, topleft, this.patch_radius);
-          let score = this.CalculatePatchNCC(image_ori_data, gray.cols, topleft, pt, this.patch_radius, patchmean, patch_tmp);
+          let score = this.CalculatePatchNCC(image_ori_data, gray.cols, topleft, pt_trans, this.patch_radius, patchmean, patch_tmp);
           if(score > best_score){
             best_score = score;
             best_pt = new cv.Point(x_t+dx, y_t+dy);
