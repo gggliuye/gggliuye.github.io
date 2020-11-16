@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Work Utopa 2019/02 - 2020/08
+title: Work Utopa 2019/02 - 2020/11
 subtitle: GuangZhou, China
 ---
 

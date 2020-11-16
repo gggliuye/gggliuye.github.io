@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Opencv Javascript
-subtitle: Web AR
+title: Web AR
+subtitle: -- Opencv Javascript
 ---
 
 ## Optical Flow Test

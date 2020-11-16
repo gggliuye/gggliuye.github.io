@@ -11,6 +11,6 @@
   img: ar_slam.PNG
   url: https://www.bilibili.com/video/BV1Xk4y1d7ap
 - title: Web AR
-  description: Web AR
+  description: Web AR : an optical flow test, and an image marker tracker.
   img: web_ar.PNG
   url: https://gggliuye.github.io/opencv_js/index
