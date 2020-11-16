@@ -48,9 +48,10 @@ function check_devices_and_start_camera(utils, resolution, callback, videoId)
     });
 }
 
-function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
+function Utils(errorOutputId, infoOutputId) { // eslint-disable-line no-unused-vars
     let self = this;
     this.errorOutput = document.getElementById(errorOutputId);
+    this.infoOutput = document.getElementById(infoOutputId);
 
     const OPENCV_URL = 'opencv.js';
     this.loadOpenCv = function(onloadCallback) {
@@ -187,20 +188,26 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
             videoConstraint = true;
         }
 
-        //let controls = {};
-        //navigator.mediaDevices.enumerateDevices()
-        //  .then(function(devices) {
-        //      devices.forEach(function(device) {
-        //        if (device.facingMode == "environment"
-        //          || device.label.indexOf("facing back") >= 0)
-        //          controls.backCamera = device;
+        let controls = {};
+        navigator.mediaDevices.enumerateDevices()
+          .then(function(devices) {
+              devices.forEach(function(device) {
+                //console.log(device);
+                if (device.facingMode == "environment"
+                  || device.label.indexOf("facing back") >= 0)
+                  controls.backCamera = device;
 
-        //        else if (device.facingMode == "user"
-        //          || device.label.indexOf("facing front") >= 0)
-        //          controls.frontCamera = device;
-        //      });
-        //})
+                else if (device.facingMode == "user"
+                  || device.label.indexOf("facing front") >= 0)
+                  controls.frontCamera = device;
 
+                else
+                  controls.otherCamera = device;
+              });
+        })
+
+        //console.log(controls);
+        this.infoOutput.innerHTML = (JSON.stringify(videoConstraint));
         //videoConstraint.deviceId = { exact: controls.otherCamera.deviceId };
         if(isMobileDevice()){
             // won't work for chrome
@@ -210,7 +217,7 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
             videoConstraint.facingMode = 'environment';
         }
 
-        console.log(videoConstraint);
+        //console.log(videoConstraint);
 
         navigator.mediaDevices.getUserMedia({video: videoConstraint, audio: false})
             .then(function(stream) {

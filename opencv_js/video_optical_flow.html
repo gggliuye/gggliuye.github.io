@@ -12,9 +12,9 @@
 </p>
 <div>
 <div class="control"><button id="startAndStop" disabled>Start</button></div>
-
 </div>
 <p class="err" id="errorMessage"></p>
+<p class="info" id="infoMessage"></p>
 <div>
     <table cellpadding="0" cellspacing="0" width="0" border="0">
     <tr>
@@ -45,7 +45,7 @@
 <script src="optical_flow_tracker.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-let utils = new Utils('errorMessage');
+let utils = new Utils('errorMessage', 'infoMessage');
 
 //utils.loadCode('codeSnippet', 'codeEditor');
 
@@ -145,7 +145,7 @@ function onVideoStarted() {
             let prevTrackedPts_data = prevTrackedPts.data32F;
             for (let i = 0; i < status.rows; i++) {
               if (status.data[i] === 1) {
-                let pt = new cv.Point(currTrackedPts_data[i*2], currTrackedPts_data[i*2+1])
+                let pt = new cv.Point(currTrackedPts_data[i*2], currTrackedPts_data[i*2+1]);
                 goodNew.push(pt);
                 goodOld.push(new cv.Point(prevTrackedPts_data[i*2], prevTrackedPts_data[i*2+1]));
                 cv.circle(mask, pt, minDistance, mask_masked, -1);

@@ -45,6 +45,10 @@ button[disabled] {
     color: red;
     font-weight: bold;
 }
+.info {
+    color: green;
+    font-weight: bold;
+}
 .caption {
     margin: 0;
     font-weight: bold;
