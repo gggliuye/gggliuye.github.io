@@ -44,6 +44,7 @@ function ApplyPerspectiveTransPt(M_data, pt){
   return new cv.Point(x_t, y_t);
 }
 
+// <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 function CalculatePerspective(matched_marker, matched_image){
   if(matched_marker.length < 4){
     let M = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
@@ -81,13 +82,35 @@ function CalculatePerspective(matched_marker, matched_image){
   return M;
 }
 
+// js: https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js
 function CalculateHomography(matched_marker, matched_image){
-  if(matched_marker.length < 4){
-    let M = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
-    return M;
+  if(matched_marker.length < 9){
+    let H = cv.matFromArray(3, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, 0, 0, 0 ,1]);
+    return H;
   }
 
-  // TODO
+  //  [x']    [x]   [h11 h12 h13] [x]
+  // s[y'] = H[y] = [h21 h22 h23] [y]
+  //  [z']    [z]   [h31 h32 h33] [1]
+
+  let n = matched_marker.length;
+  let A = []; // 2n * 9
+  let x, y, u, v = [0,0,0,0];
+  for(let i = 0; i < n ; i ++){
+    [x, y] = [matched_marker[i].x, matched_marker[i].y];
+    [u, v] = [matched_image[i].x, matched_image[i].y];
+    A.push([x, y, 1, 0, 0, 0, -u*x, -u*y, -u]);
+    A.push([0, 0, 0, x, y, 1, -v*x, -v*y, -v]);
+  }
+  let svd_res = numeric.svd(A);
+  let h_data = [];
+  let rescale = svd_res.V[8][8];
+  for(let i = 0; i < 9; i++){
+    h_data.push(svd_res.V[i][8]/rescale);
+  }
+  //console.log(h_data);
+  let H = cv.matFromArray(3, 3, cv.CV_64FC1, h_data);
+  return H;
 }
 
 
@@ -219,7 +242,7 @@ class Marker{
     this.marker_width = 180;
     this.marker_height = -1;
     this.neighbor_radius = 3;
-    this.patch_radius = 3;
+    this.patch_radius = 5;
     this.ncc_threshold = 0.7;
 
     this.img_cols = 320;
@@ -298,7 +321,8 @@ class Marker{
       }
     }
     //console.log(M_data, count);
-    let M_esti = CalculatePerspective(matched_marker, matched_image);
+    //let M_esti = CalculatePerspective(matched_marker, matched_image);
+    let M_esti = CalculateHomography(matched_marker, matched_image);
     return [matched_marker.length, M_esti, matched_marker, matched_image];
   }
 

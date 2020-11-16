@@ -86,9 +86,9 @@ class MarkerTracker{
     }
 
     status.delete(); err.delete(); curr_pts.delete();
-    
-    if(curr_marker_pts.length > 4){
-      return CalculatePerspective(curr_marker_pts, curr_image_pts);
+
+    if(curr_marker_pts.length > 8){
+      return CalculateHomography(curr_marker_pts, curr_image_pts);  // CalculatePerspective
     }
     return this.M_guess;
   }
