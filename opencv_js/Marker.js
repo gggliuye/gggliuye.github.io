@@ -219,7 +219,7 @@ class Marker{
     this.marker_width = 180;
     this.marker_height = -1;
     this.neighbor_radius = 3;
-    this.patch_radius = 5;
+    this.patch_radius = 3;
     this.ncc_threshold = 0.7;
 
     this.img_cols = 320;
