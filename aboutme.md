@@ -11,9 +11,6 @@ My name is Ye Liu. I have the following qualities:
 
 What else do you need?
 
-[Test Opencv Optical Flow](https://gggliuye.github.io/opencv_js/video_optical_flow.html)
-
-[Test Opencv Marker Detect](https://gggliuye.github.io/opencv_js/video_marker.html)
 
 ## Education
 
