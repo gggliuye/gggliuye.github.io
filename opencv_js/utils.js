@@ -174,14 +174,14 @@ function Utils(errorOutputId, infoOutputId) { // eslint-disable-line no-unused-v
         }
     };
 
-    this.startCamera = function(resolution, callback, videoId) {
+    this.startCamera = function(resolution, callback, video) {
         const constraints = {
             'qvga': {width: {exact: 320}, height: {exact: 240}},
             'vga': {width: {exact: 640}, height: {exact: 480}}};
-        let video = document.getElementById(videoId);
-        if (!video) {
-            video = document.createElement('video');
-        }
+        //let video = document.getElementById(videoId);
+        //if (!video) {
+        //    video = document.createElement('video');
+        //}
 
         let videoConstraint = constraints[resolution];
         if (!videoConstraint) {
@@ -207,7 +207,9 @@ function Utils(errorOutputId, infoOutputId) { // eslint-disable-line no-unused-v
         })
 
         //console.log(controls);
+        //console.log(videoConstraint);
         this.infoOutput.innerHTML = (JSON.stringify(videoConstraint));
+        //this.infoOutput.innerHTML = (JSON.stringify(controls));
         //videoConstraint.deviceId = { exact: controls.otherCamera.deviceId };
         if(isMobileDevice()){
             // won't work for chrome

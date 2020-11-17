@@ -9,7 +9,7 @@ css:
 
 # Ye Liu {#title}
 
-## Empty is form, form is empty
+## Forms are Empty, Emptiness is Form
 
 </div>
 

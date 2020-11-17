@@ -150,7 +150,7 @@ class Marker{
     this.edges = [[0,1], [1,3], [3,2], [2,0]];
 
     // detect good features for latter match
-    let [maxCorners, qualityLevel, minDistance] = [100, 0.1, 10];
+    let [maxCorners, qualityLevel, minDistance] = [80, 0.1, 10];
     let none = new cv.Mat();
     this.featurePts = new cv.Mat();
     cv.goodFeaturesToTrack(this.marker, this.featurePts, maxCorners, qualityLevel, minDistance, none);
@@ -160,8 +160,8 @@ class Marker{
     console.log("[MARKER] maker image loaded");
   }
 
-  DrawRectangle(img, M_data){
-    let color = new cv.Scalar(0,255,0,255);
+  DrawRectangle(img, M_data, color){
+    //let color = new cv.Scalar(0,255,0,255);
     let new_corners = [];
     for(let i = 0; i < this.corners.length; i++){
       let new_pt = ApplyPerspectiveTransPt(M_data, this.corners[i])
@@ -188,7 +188,31 @@ class Marker{
     return img_show;
   }
 
-  CalculatePatchNCC(image_ori_data, cols, topleft, marker_pt, radius, patchmean, patch_tmp){
+  CalculateMarkerTmp(marker_pt, radius, stride){
+    let length = 2*radius+1;
+    let total = 0;
+    let sum = 0;
+    let sqsum = 0;
+
+    let [tl_row, tl_col] = [marker_pt.y-radius,marker_pt.x-radius];
+    let pixel_m = 0;
+
+    for(let i = 0 ; i < length; i+=stride){ // row
+      let tmp_m = (tl_row + i) * this.cols;
+      for(let j = 0; j < length; j+=stride){ // col
+        pixel_m = this.marker_data[tmp_m + tl_col + j];
+        sum = sum + pixel_m;
+        sqsum = sqsum + pixel_m * pixel_m;
+        total += 1;
+      }
+    }
+
+    let mean = sum / total;
+    return [mean, sqsum];
+  }
+
+
+  CalculatePatchNCC(image_ori_data, cols, topleft, marker_pt, radius, stride, mean_m, sqsum_m){
     // patch_tmp = (patchsqsum - patchsurface*patchmean*patchmean)
 
     // image_patch is a square, with size must be an odd number
@@ -205,9 +229,11 @@ class Marker{
 
     let length = 2*radius+1;
     //console.log(length+" "+image_patch.cols+" "+image_patch.rows+" "+image_patch.channels());
-    let patchsurface = length*length;
-    let sum = 0;
-    let sqsum = 0;
+    let total = 0;
+    //let sum = 0;
+    let sum_p = 0;
+    //let sqsum = 0;
+    let sqsum_p = 0;
     let crosssum = 0;
 
     let [tl_row, tl_col] = [marker_pt.y-radius,marker_pt.x-radius];
@@ -217,33 +243,40 @@ class Marker{
     //let image_patch_data = image_patch.data;
     //let marker_data = this.marker.data;
 
-    for(let i = 0 ; i < length; i++){ // row
+    for(let i = 0 ; i < length; i+=stride){ // row
       let tmp_m = (tl_row + i) * this.cols;
       let tmp_p = (topleft.y + i) * cols;
-      for(let j = 0; j < length; j++){ // col
+      for(let j = 0; j < length; j+=stride){ // col
         pixel_p = image_ori_data[tmp_p + topleft.x + j];
         pixel_m = this.marker_data[tmp_m + tl_col + j];
-        //console.log(image_patch_data[tmp_p + j]+" "+pixel_p);
-        //console.log(marker_data[tmp_m + tl_col + j]+" "+pixel_m);
 
-        sum = sum + pixel_m;
-        sqsum = sqsum + pixel_m * pixel_m;
+        //sum = sum + pixel_m;
+        sum_p = sum_p + pixel_p;
+        //sqsum = sqsum + pixel_m * pixel_m;
+        sqsum_p = sqsum_p + pixel_p * pixel_p;
         crosssum = crosssum + pixel_m * pixel_p;
+        total += 1;
       }
     }
 
-    let mean = sum / patchsurface;
-    let a = crosssum - sum * patchmean;
-    let b = patch_tmp*(sqsum-patchsurface*mean*mean);
+    let patchmean = sum_p / total;
+    let patch_tmp = (sqsum_p - total*patchmean*patchmean)
+
+    //let mean = sum / patchsurface;
+    let sum_m = mean_m * total;
+    let a = crosssum - sum_m * patchmean;
+    let b = patch_tmp*(sqsum_m - total*mean_m*mean_m);
     return a / Math.sqrt(b);
   }
 
   InitMatchParameters(){
     this.marker_width = 180;
     this.marker_height = -1;
+
     this.neighbor_radius = 3;
-    this.patch_radius = 5;
-    this.ncc_threshold = 0.7;
+    this.patch_radius = 8;
+    this.stride = 2;
+    this.ncc_threshold = 0.6;
 
     this.img_cols = 320;
     this.img_rows = 240;
@@ -269,6 +302,90 @@ class Marker{
   }
 
   // we will warp transformation matrix (from marker to image)
+  CheckGuess(gray, guess_M_mi){
+    this.cols = this.marker.cols;
+    this.marker_data = this.marker.data;
+
+    // warp the source image
+    let dsize = new cv.Size(this.cols, this.rows);
+    let dst = new cv.Mat();
+    cv.warpPerspective(gray, dst, guess_M_mi, dsize, cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+
+    let image_data = dst.data;
+    let min_w = this.marker.cols;
+    if(this.marker.cols > this.marker.rows){
+      min_w = this.marker.rows
+    }
+    let radius = parseInt(min_w / 2) - 5; // minus a border
+    let stride = 5;
+    let [mean_m, sqsum_m] = this.CalculateMarkerTmp(this.center, radius, stride);
+    let topleft = new cv.Point(this.center.x-radius, this.center.y-radius);
+    let score = this.CalculatePatchNCC(image_data, dst.cols, topleft, this.center, radius, stride, mean_m, sqsum_m)
+    dst.delete();
+    return score;
+  }
+
+  FindMarkerInitFast(gray, init_M_im){
+    // warp the marker image
+    let dsize = new cv.Size(gray.cols, gray.rows);
+    let dst = new cv.Mat();
+    cv.warpPerspective(this.marker, dst, init_M_im, dsize, cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+    this.marker_data = dst.data;
+    this.cols = gray.cols;
+
+    let image_ori_data = gray.data;
+    let Feature_data = this.featurePts.data32F;
+    let M_data = init_M_im.data64F;
+    //console.log(M_data);
+    let matched_marker = [];
+    let matched_image = [];
+    let count = 0;
+
+    let guess_radius = 8;
+    let guess_stride = 2;
+    let guess_neighbor = 8;
+    let neighbor_stride = 2;
+    let guess_ncc_thr = 0.7;
+
+    for(let i = 0; i < this.nPts; i++){
+      //map the marker point to image plane, to get an initial guess of match point
+      let pt = new cv.Point(Feature_data[i*2], Feature_data[i*2+1]);
+      let [x_t, y_t] = ApplyPerspectiveTrans(M_data, pt.x, pt.y);
+      let pt_trans = new cv.Point(x_t, y_t);
+
+      if(!this.InRangeBorder(x_t, y_t)){
+        continue;
+      }
+
+      let [mean_m, sqsum_m] = this.CalculateMarkerTmp(pt_trans, guess_radius, guess_stride);
+      let best_pt = new cv.Point(0,0);
+      let best_score = -1;
+      for(let dx = -guess_neighbor; dx <= guess_neighbor; dx+=neighbor_stride){
+        for(let dy = -guess_neighbor; dy <= guess_neighbor; dy+=neighbor_stride){
+          //search the neighborhood to find the best match
+          let topleft = new cv.Point(x_t+dx-guess_radius, y_t+dy-guess_radius);
+          //let [patchmean, patch_tmp] = CalculatePatchParam(image_ori_data, gray.cols, topleft, this.patch_radius);
+          let score = this.CalculatePatchNCC(image_ori_data, gray.cols, topleft, pt_trans, guess_radius, guess_stride, mean_m, sqsum_m);
+          if(score > best_score){
+            best_score = score;
+            best_pt = new cv.Point(x_t+dx, y_t+dy);
+          }
+        }
+      }
+
+      if(best_score > guess_ncc_thr){
+        count = count + 1;
+        matched_marker.push(pt);
+        matched_image.push(best_pt);
+      }
+    }
+
+    let M_esti = CalculateHomography(matched_marker, matched_image);
+    dst.delete();
+    return [count, M_esti];
+  }
+
+  // we will warp transformation matrix (from marker to image)
   FindMarker(gray, init_M_im){
     // warp the marker image
     let dsize = new cv.Size(gray.cols, gray.rows);
@@ -288,6 +405,7 @@ class Marker{
     let matched_marker = [];
     let matched_image = [];
     let count = 0;
+
     for(let i = 0; i < this.nPts; i++){
       //map the marker point to image plane, to get an initial guess of match point
       let pt = new cv.Point(Feature_data[i*2], Feature_data[i*2+1]);
@@ -298,14 +416,16 @@ class Marker{
         continue;
       }
 
+      let [mean_m, sqsum_m] = this.CalculateMarkerTmp(pt_trans, this.patch_radius, this.stride);
+
       let best_pt = new cv.Point(0,0);
       let best_score = -1;
       for(let dx = -this.neighbor_radius; dx <= this.neighbor_radius; dx++){
         for(let dy = -this.neighbor_radius; dy <= this.neighbor_radius; dy++){
           //search the neighborhood to find the best match
           let topleft = new cv.Point(x_t+dx-this.patch_radius, y_t+dy-this.patch_radius);
-          let [patchmean, patch_tmp] = CalculatePatchParam(image_ori_data, gray.cols, topleft, this.patch_radius);
-          let score = this.CalculatePatchNCC(image_ori_data, gray.cols, topleft, pt_trans, this.patch_radius, patchmean, patch_tmp);
+          //let [patchmean, patch_tmp] = CalculatePatchParam(image_ori_data, gray.cols, topleft, this.patch_radius);
+          let score = this.CalculatePatchNCC(image_ori_data, gray.cols, topleft, pt_trans, this.patch_radius, this.stride, mean_m, sqsum_m);
           if(score > best_score){
             best_score = score;
             best_pt = new cv.Point(x_t+dx, y_t+dy);
@@ -323,6 +443,7 @@ class Marker{
     //console.log(M_data, count);
     //let M_esti = CalculatePerspective(matched_marker, matched_image);
     let M_esti = CalculateHomography(matched_marker, matched_image);
+    dst.delete();
     return [matched_marker.length, M_esti, matched_marker, matched_image];
   }
 

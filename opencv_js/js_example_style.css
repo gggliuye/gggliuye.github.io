@@ -8,6 +8,14 @@ td {
     padding: 10px 0px 0px 10px;
     text-align: center;
 }
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
 button {
     display: inline-block;
     color: #fff;

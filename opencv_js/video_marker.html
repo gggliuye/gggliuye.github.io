@@ -2,59 +2,39 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Video Capture Example</title>
+<title>Marker AR</title>
 <link href="js_example_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h2>Video Capture Example</h2>
-<p>
-    Test Marker Tracking.
-
-    1. Input the marker image (by uploading or by taking an photo).
-
-    2. Open camera to track (for chrome, the back camera is not supported).
-
-    3. Marker Detection is not implemented, please center the marker at the white rectangle.
-</p>
-
-<p>
-    Image Marker for detection.
-</p>
-<div class="inputoutput">
-  <canvas id="canvasOutput_marker" ></canvas>
-  <div class="caption">Marker Image</div>
-  <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
-</div>
-
-<div>
-<div class="control"><button id="startAndStop" disabled>Start</button></div>
-</div>
+<h2>Marker AR</h2>
+<hr/>
+<p>Test Marker Tracking :</p>
+<p>1. Input the marker image (by uploading or by taking an photo).</p>
+<p>2. Open camera to track (for chrome, the back camera is not supported).</p>
+<p>3. Marker Detection is not implemented, please center the marker at the white rectangle.</p>
+<hr/>
 
 <p class="err" id="errorMessage"></p>
-
 <p class="info" id="infoMessage"></p>
 
+<hr/>
 <div>
     <table cellpadding="0" cellspacing="0" width="0" border="0">
     <tr>
         <td>
-            <video id="videoInput" width=320 height=240></video>
+          <p>Image Marker for detection.</p>
+          <div class="inputoutput">
+            <canvas id="canvasOutput_marker" ></canvas>
+            <div class="caption">Marker Image</div>
+            <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
+          </div>
         </td>
         <td>
             <canvas id="canvasOutput" width=320 height=240></canvas>
+            <div>
+            <div class="control"><button id="startAndStop" disabled>Start</button></div>
+            </div>
         </td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>
-            <div class="caption">videoInput</div>
-        </td>
-        <td>
-            <div class="caption">canvasOutput</div>
-        </td>
-        <td></td>
-        <td></td>
     </tr>
     </table>
 </div>
@@ -69,11 +49,12 @@
 
 <script type="text/javascript">
 let utils = new Utils('errorMessage', 'infoMessage');
-let pMarkerTracker = new MarkerTracker();
+let pMarkerTracker = -1;
 
 // load the marker image
 let inputElement = document.getElementById('fileInput');
 inputElement.addEventListener('change', (e) => {
+  pMarkerTracker = new MarkerTracker();
   let markerElement = new Image();
   markerElement.src = URL.createObjectURL(e.target.files[0]);
   markerElement.onload = function() {
@@ -84,7 +65,9 @@ inputElement.addEventListener('change', (e) => {
 }, false);
 
 let streaming = false;
-let videoInput = document.getElementById('videoInput');
+//let videoInput = document.getElementById('videoInput');
+let videoInput = document.createElement('video');
+videoInput.id = 'videoInput';videoInput.width=320;videoInput.height=240;
 let startAndStop = document.getElementById('startAndStop');
 let canvasOutput = document.getElementById('canvasOutput');
 let canvasContext = canvasOutput.getContext('2d');
@@ -93,7 +76,7 @@ startAndStop.addEventListener('click', () => {
     if (!streaming) {
         utils.clearError();
         // qvga for 320*240 , vga for 640*480
-        utils.startCamera('qvga', onVideoStarted, 'videoInput');
+        utils.startCamera('qvga', onVideoStarted, videoInput);
     } else {
         utils.stopCamera();
         onVideoStopped();
@@ -108,7 +91,8 @@ function onVideoStarted() {
     videoInput.width = videoInput.videoWidth;
     videoInput.height = videoInput.videoHeight;
     //utils.executeCode('codeEditor');
-    let video = document.getElementById('videoInput');
+    //let video = document.getElementById('videoInput');
+    let video = videoInput;
 
     let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
     let cap = new cv.VideoCapture(video);
@@ -139,6 +123,10 @@ function onVideoStarted() {
             count_fps = count_fps + 1;
             FPS = parseInt(count_fps/time_accu);
             setTimeout(processVideo, 0);
+            if(count_fps > 50){
+              count_fps = 0;
+              time_accu = 0;
+            }
         } catch (err) {
             utils.printError(err);
         }
