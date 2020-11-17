@@ -8,9 +8,13 @@
 <body>
 <h2>Marker AR</h2>
 <hr/>
-<p>Test Marker Tracking :</p>
+<p>Test Marker Tracking. Have implemented a marker detector.
+  (While, it is not very satisfing, user should focus the marker image in the center to better process the algortihm.)
+  Using NCC as the main threshold for refining matches points, and use LK optical flow for getting a rather good initial guess.
+  Estimate the homography between the marker image and the input image.
+</p>
 <p>1. Input the marker image (by uploading or by taking an photo).</p>
-<p>2. Open camera to track (for chrome, the back camera is not supported).</p>
+<p>2. Open camera to track (the back camera is not supported for chrome).</p>
 <p>3. Marker Detection is not very efficient, please center the marker at the front.</p>
 <hr/>
 
