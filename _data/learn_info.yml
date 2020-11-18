@@ -3,6 +3,6 @@
 - icon: fas fa-briefcase
   content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Machine Learning with Graphs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html)"
 - icon: fas fa-briefcase
-  content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/)"
+  content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
 - icon: fas fa-briefcase
-  content: "**Other** [Philosophy](https://for-fun.readthedocs.io/), [CFA](https://cfa-learning.readthedocs.io/)"
+  content: "**Other** [Nature Philosophy](https://for-fun.readthedocs.io/), [CFA](https://cfa-learning.readthedocs.io/)"
