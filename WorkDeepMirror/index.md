@@ -5,6 +5,8 @@
 
 ### Platform
 
-Deep Mirror has a better platform for engineer. As the leaders of this company bring top-notch knowledges and manager skills from various huge internet companys. 
-We use [Atlassian](https://www.atlassian.com/) tools for manager our groups, [Bazel](https://bazel.build/) for build our projects (I think the main pros of bazel
-is that we only needs to build the necessary package to test our algorithm, which allow more efficient development while working as a group).
+Deep Mirror has a better platform for engineer. As the leaders of this company bring top-notch knowledges and manager skills from various huge internet companys.
+
+### Mine work
+
+I focus more on the mapping process, mainly based on visual, imu, and lidar devices.
