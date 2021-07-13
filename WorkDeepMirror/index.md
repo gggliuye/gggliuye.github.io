@@ -9,4 +9,7 @@ Deep Mirror has a better platform for engineer. As the leaders of this company b
 
 ### Mine work
 
-I focus more on the mapping process, mainly based on visual, imu, and lidar devices.
+I focus more on the mapping process, based on mulitsensors : visual, imu, lidar, gps, etc.
+
+* build and refine lidar-imu-gps slam system (based on rs-lidar).
+* build a camera-imu-gps mapping system (based on single camera direct method). 
