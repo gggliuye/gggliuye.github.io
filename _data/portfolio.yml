@@ -14,3 +14,7 @@
   description: An optical flow test, and an image marker tracker.
   img: web_ar.PNG
   url: https://gggliuye.github.io/opencv_js/index
+- title: Lidar Mapping
+  description: Lidar, IMU, GNSS fused mapping (with multiple map fusion)
+  img: lidar_mapping.png
+  url: https://gggliuye.github.io/WorkDeepMirror/index
