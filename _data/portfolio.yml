@@ -18,3 +18,7 @@
   description: Lidar, IMU, GNSS fused mapping (with multiple map fusion)
   img: lidar_mapping.png
   url: https://gggliuye.github.io/WorkDeepMirror/index
+- title: Image Mapping
+  description: Image, IMU, Chassis, GNSS fused mapping
+  img: image_mapping.png
+  url: https://gggliuye.github.io/WorkDeepMirror/index
