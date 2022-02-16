@@ -11,152 +11,207 @@
 		<script src="build/OrbitControls.js"></script>
 		<script src="build/stats.min.js"></script>
 		<script src="build/dat.gui.min.js"></script>
+		<script src="build/postprocessing/EffectComposer.js"></script>
+		<script src="build/postprocessing/RenderPass.js"></script>
+		<script src="build/postprocessing/MaskPass.js"></script>
+		<script src="build/postprocessing/ShaderPass.js"></script>
+		<script src="build/postprocessing/CopyShader.js"></script>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script>
-			var scene = new THREE.Scene();
+		function getDistortionShaderDefinition()
+		{
+		    return {
+
+		        uniforms: {
+		            "tDiffuse":         { type: "t", value: null },
+		            "dist0":            { type: "f", value: 0 },
+		            "dist1":            { type: "f", value: 0 },
+								"dist2":            { type: "f", value: 0 },
+								"dist3":            { type: "f", value: 0 },
+								"dist4":            { type: "f", value: 0 },
+								"fx":               { type: "f", value: 1366.28748 },
+								"fy":               { type: "f", value: 1366.90393 },
+								"cx":               { type: "f", value: 1007.21155 },
+								"cy":               { type: "f", value: 566.216309 },
+								"width":            { type: "f", value: 1920 },
+								"height":           { type: "f", value: 1080 },
+		        },
+
+		        vertexShader: [
+		            "uniform float dist0;",
+								"uniform float dist1;",
+								"uniform float dist2;",
+								"uniform float dist3;",
+								"uniform float dist4;",
+								"uniform float fx;",
+								"uniform float fy;",
+								"uniform float cx;",
+								"uniform float cy;",
+								"uniform float width;",
+								"uniform float height;",
+
+								"varying vec2 dist_uv;",
+
+		            "void main() {",
+		                "gl_Position = projectionMatrix * (modelViewMatrix * vec4(position, 1.0));",
+
+										"vec2 ndc_coord = gl_Position.xy / gl_Position.w;",
+										"vec2 pixel = vec2((ndc_coord.x * 0.5 + 0.5) * width, (0.5 - ndc_coord.y * 0.5) * height);",
+
+										"dist_uv = uv;",
+
+										// "vec2 pt_un = vec2((pixel.x - cx) / fx, (pixel.y - cy) / fy);",
+										//
+										// "float x_sqr = pt_un.x * pt_un.x;",
+										// "float y_sqr = pt_un.y * pt_un.y;",
+										// "float xy = pt_un.x * pt_un.y;",
+										// "float r_sqr = x_sqr + y_sqr;",
+										// "float cdist = 1.0 + ((dist4 * r_sqr + dist1) * r_sqr + dist0) * r_sqr;",
+										// "float dx = 2.0 * dist2 * xy + dist3 * (r_sqr + 2.0 * x_sqr);",
+										// "float dy = 2.0 * dist3 * xy + dist2 * (r_sqr + 2.0 * y_sqr);",
+										// "vec2 dist_pt = vec2(pt_un.x * cdist + dx, pt_un.y * cdist + dy);",
+										//
+										// "vec2 dist_pt = pt_un;",
+										//
+										// "pixel.x = dist_pt.x * fx + cx;",
+										// "pixel.y = dist_pt.y * fy + cy;",
+										//
+										// "ndc_coord.x = (pixel.x / width) * 2.0 - 1.0;",
+										// "ndc_coord.y = 1.0 - (pixel.y / height) * 2.0;",
+										//
+										// "gl_Position.xy = ndc_coord * gl_Position.w;",
+										//
+										// "dist_uv.x = 0.5 * (gl_Position.x + 1.0);",
+										// "dist_uv.y = 0.5 * (gl_Position.y + 1.0);",
+										// "dist_uv.x = (dist_pt.x * fx + cx) / width;",
+										// "dist_uv.y = 1.0 - (dist_pt.y * fy + cy) / height;",
+		            "}"
+		        ].join("\n"),
+
+		        fragmentShader: [
+		            "uniform sampler2D tDiffuse;",      // sampler of rendered scene?s render target
+								"varying vec2 dist_uv;",
+
+		            "void main() {",
+										"gl_FragColor = texture2D(tDiffuse, dist_uv);",
+		            "}"
+		        ].join("\n")
+
+		    };
+		}
+
+			var scene = initScene();
+
+			var fx = 1366.28748;
+			var fy = 1366.90393;
+			var cx = 1007.21155;
+			var cy = 566.216309;
+
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 			camera.position.z = 100;
 			camera.position.y = 50;
 			camera.rotation.x = -0.78;
-			
+			camera.fov = (Math.atan(540 / Math.pow(fy * fy + cx * cx, 1 / 2)) * 2 * 180) / Math.PI;
+			camera.updateProjectionMatrix();
+
 			var renderer = new THREE.WebGLRenderer({alpha:true});
 			renderer.setClearColor(0x000000,0);
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
-			
-			function randomColor() {
-        			var arrHex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"],
-            				strHex = "0x",
-            				index;
-        			for (var i = 0; i < 6; i++) {
-            				index = Math.round(Math.random() * 15);
-            				strHex += arrHex[index];
-        			}
-        			return strHex;
-			}
-			
-			var stats;
-			function initStats() {
-        			stats = new Stats();
-        			document.body.appendChild(stats.dom);
-    			}
-			
-			function onWindowResize() {
-        			camera.aspect = window.innerWidth / window.innerHeight;
-        			camera.updateProjectionMatrix();
-        			renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.render( scene, camera );
-    			}
-			
-			var controls;
-			function initControls() {
-				controls = new THREE.OrbitControls(camera, renderer.domElement);
-        			controls.enableDamping = true;
-			        controls.enableZoom = true;
-			        controls.autoRotate = false;
-			        controls.minDistance = 5;
-			        controls.maxDistance = 10000;
-			        controls.enablePan = true;
-    			}
-			console.log("hello world!");
-			
-			initStats();
-			
-			initControls();	
-			
-			var object = new THREE.AxesHelper(500);
-        		scene.add(object);
-			
-        		var geometry = new THREE.Geometry();
-		        var material = new THREE.PointsMaterial(
-            			{size: 0.5, vertexColors: true, color: 0xffffff}
-       		 	);
-			
-			function addpoints() {
-			for (var x = -5; x <= 5; x++) {
-            		    for (var y = -5; y <= 5; y++) {
-                		var particle = new THREE.Vector3(x * 10, y * 10, 0.1);
-                		geometry.vertices.push(particle);
-                		geometry.colors.push(new THREE.Color(+randomColor()));
-            		    }
-        		}
-			}
-			//addpoints();
 
-			var x,y,z,r,g,b;
-			var jsonFile = "../resources/fused_downsampled.json";
-			
-			//var particlesX = new Array(200);
-			//var particles = new Array(200);
-			// see more https://blog.csdn.net/weixin_39823527/article/details/80392839
-			// we cannot use this mehtod, we need synchronous method, otherwise the json file will load fail.
-			//$.getJSON (jsonFile, function(data){
-			//	var index = 0;
-			//	console.log("start load!");
-            		//	console.log("data point size ：", data.size);
-			//	$.each(data.vertex, function(i,item){
-    			//		if (i%3 == 0) x = parseInt(item*10);
-			//		else if (i%3 == 1) y = parseInt(item*10);
-			//		else if (i%3 == 2) {
-			//			z = parseInt(item*10);
-			//			var particle = new THREE.Vector3(x, y, z);
-			//			particlesX[index] = x;
-			//			particles[index] = particle;
-			//			index = index + 1;
-			//		}
-			//		if(index > 199) return false;
-  			//	});
-			//	console.log("load done!");
-			//});
+			// Create effect composer
+			composer = new THREE.EffectComposer( renderer );
+			composer.addPass(new THREE.RenderPass( scene, camera ));
 
-			$.ajax({
-                		type: "get",
-                		url: jsonFile,
-                		dataType: "json",
-                		async: false,
-                		success: function(data){
-                    			var index = 0;
-					console.log("start load!");
-            				console.log("data point size ：", data.size);
-					for(var i = 0; i < data.size; i++){
-						if (i%3 == 2) {
-							x = -data.vertex[i-2]*10;
-							y = -data.vertex[i-1]*10;
-							z = data.vertex[i]*10;
-							r = data.color[i-2]/255;
-							g = data.color[i-1]/255;
-							b = data.color[i]/255;
-							var particle = new THREE.Vector3(x, y, z);
-							geometry.vertices.push(particle);
-							geometry.colors.push(new THREE.Color(r,g,b));
-						}
-  					}
-					console.log("load done!");	
-                			}
-           		});
-			
-			//console.log(particles.length, particlesX.length);
-			//for(var i = 0; i < particles.length; i++){
-			//	console.log(particles[i], particlesX[i]);
-			//	geometry.vertices.push(particles[i]);
-			//	geometry.colors.push(new THREE.Color(+randomColor()));
-			//}
-			
-			//console.log(particles);
-			//console.log(geometry);
-			
-			var cloud2;
-			cloud2 = new THREE.Points(geometry, material);
-        		scene.add(cloud2);
-			var animate = function () {
-				controls.update();
-				stats.update();
-				
-				requestAnimationFrame( animate );
-				renderer.render( scene, camera );
-			};
+			// Add distortion effect to effect composer
+			var effect = new THREE.ShaderPass( getDistortionShaderDefinition() );
+			composer.addPass(effect);
+			effect.renderToScreen = true;
+
+			var updateDistortionEffect;
+			setupDistortionEffectAndGUI(effect);
+
+			var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 			animate();
+
+			function setupDistortionEffectAndGUI(effect) {
+				var guiParameters = {
+					dist0:  -0.444788724,
+					dist1: 	0.263831884,
+					dist2:	0.00072730373,
+					dist3:	0.002148306,
+					dist4:	-0.1032868,
+					fx:	1366.28748,
+					fy:	1366.90393,
+					cx:	1007.21155,
+					cy:	566.216309,
+					width: 1920.0,
+					height: 1080.0,
+				};
+
+				updateDistortionEffect = function( ) {
+					effect.uniforms[ "dist0" ].value = guiParameters.dist0;
+					effect.uniforms[ "dist1" ].value = guiParameters.dist1;
+					effect.uniforms[ "dist2" ].value = guiParameters.dist2;
+					effect.uniforms[ "dist3" ].value = guiParameters.dist3;
+					effect.uniforms[ "dist4" ].value = guiParameters.dist4;
+				};
+
+				updateDistortionEffect();
+
+				var gui = new dat.GUI({width:320});
+				gui.add( guiParameters, "dist0", -0.5, 0.5, 0.001 ).onChange( updateDistortionEffect );
+				gui.add( guiParameters, "dist1", -0.5, 0.5, 0.001 ).onChange( updateDistortionEffect );
+				gui.add( guiParameters, "dist2", -0.01, 0.01, 0.0001 ).onChange( updateDistortionEffect );
+				gui.add( guiParameters, "dist3", -0.01, 0.01, 0.0001 ).onChange( updateDistortionEffect );
+				gui.add( guiParameters, "dist4", -0.2, 0.2, 0.0001 ).onChange( updateDistortionEffect );
+			}
+
+			function initScene() {
+				scene = new THREE.Scene();
+
+				var object = new THREE.AxesHelper(500);
+	      scene.add(object);
+
+	      var geometry = new THREE.Geometry();
+			  var material = new THREE.PointsMaterial(
+	          {size: 0.5, vertexColors: true, color: 0xffffff}
+	      );
+				var jsonFile = "https://raw.githubusercontent.com/gggliuye/gggliuye.github.io/master/WEBGL/resources/fused_downsampled.json";
+
+				$.ajax({type: "get", url: jsonFile, dataType: "json", async: false,
+					success: function(data) {
+						console.log("start load!");
+						console.log("data point size ：", data.size);
+						for(var i = 0; i < data.size; i++){
+							if (i%3 == 2) {
+								var particle = new THREE.Vector3(-data.vertex[i-2]*10, -data.vertex[i-1]*10, data.vertex[i]*10);
+								geometry.vertices.push(particle);
+								geometry.colors.push(new THREE.Color(data.color[i-2]/255, data.color[i-1]/255, data.color[i]/255));
+							}
+							}
+						console.log("load done!");
+						}
+				 });
+				var cloud2= new THREE.Points(geometry, material);
+				scene.add(cloud2);
+				return scene;
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				composer.render();
+				controls.update();
+			};
+
+			function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.render( scene, camera );
+				updateDistortionEffect();
+    	}
 			window.onresize = onWindowResize;
 		</script>
 	</body>
