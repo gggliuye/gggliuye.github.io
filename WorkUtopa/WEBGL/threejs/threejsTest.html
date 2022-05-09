@@ -13,15 +13,12 @@
 		<script src="build/dat.gui.min.js"></script>
 		<script src="build/postprocessing/EffectComposer.js"></script>
 		<script src="build/postprocessing/RenderPass.js"></script>
-		<script src="build/postprocessing/MaskPass.js"></script>
 		<script src="build/postprocessing/ShaderPass.js"></script>
-		<script src="build/postprocessing/CopyShader.js"></script>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script>
 		function getDistortionShaderDefinition()
 		{
 		    return {
-
 		        uniforms: {
 		            "tDiffuse":         { type: "t", value: null },
 		            "dist0":            { type: "f", value: 0 },
@@ -91,7 +88,6 @@
 		        fragmentShader: [
 		            "uniform sampler2D tDiffuse;",      // sampler of rendered scene?s render target
 								"varying vec2 dist_uv;",
-
 		            "void main() {",
 										"gl_FragColor = texture2D(tDiffuse, dist_uv);",
 		            "}"
@@ -178,7 +174,7 @@
 			  var material = new THREE.PointsMaterial(
 	          {size: 0.5, vertexColors: true, color: 0xffffff}
 	      );
-				var jsonFile = "https://raw.githubusercontent.com/gggliuye/gggliuye.github.io/master/WEBGL/resources/fused_downsampled.json";
+				var jsonFile = "https://raw.githubusercontent.com/gggliuye/gggliuye.github.io/master/WorkUtopa/WEBGL/resources/fused_downsampled.json";
 
 				$.ajax({type: "get", url: jsonFile, dataType: "json", async: false,
 					success: function(data) {
