@@ -2,7 +2,7 @@
 layout: post
 title: Classes on Death - Personal Identity
 subtitle: Philosophy 176, Yale. Part 3
-tags: [Philosophy, death, Philosophy176]
+tags: [Philosophy, Death, Philosophy176]
 comments: true
 ---
 
