@@ -143,7 +143,7 @@ I am fully in charge of this part. Our system is based on Colmap SFM system, but
 (worked with my own effort)
 * First demo : use threejs to load and show a point cloud (which I encoded into json form).
 * Second demo : use threejs to show a computer vision algorithm based 3d reconstruction.
-[WebGL demo](../WEBGL/threejs)
+[WebGL demo](WEBGL/threejs)
 
 ## Other Computer Vision stuff
 
