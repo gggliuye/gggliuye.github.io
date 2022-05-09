@@ -2,7 +2,7 @@
 layout: post
 title: Classes on Death - The Existence of Soul
 subtitle: Philosophy 176, Yale. Part 1
-tags: [Philosophy, death, Philosophy176]
+tags: [Philosophy, Death, Philosophy176]
 comments: true
 ---
 

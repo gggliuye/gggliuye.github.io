@@ -2,7 +2,7 @@
 layout: post
 title: Classes on Death - Death
 subtitle: Philosophy 176, Yale. Part 4
-tags: [Philosophy, death, Philosophy176]
+tags: [Philosophy, Death, Philosophy176]
 comments: true
 ---
 

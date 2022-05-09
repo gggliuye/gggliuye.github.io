@@ -1,4 +1,0 @@
-## I love rock
-
-
-[Home](../../)
