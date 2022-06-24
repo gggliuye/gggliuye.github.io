@@ -2,44 +2,54 @@
 
 [website](https://www.deepmirror.com/)
 
-I focus mostly on the slam mapping process:
-* based on mulitsensors : image, imu, lidar, gps, etc. 
-* third party library used : opencv, eigen, ceres & pangolin.
+working on slam system.
 
 ## Mine work 2022
 
-### A. INS odometry
+### A. INS fusion
 
-ins system : 
-
+ins system (fully self-developed) :
 * based on extended error state kalman filter.
-* version 1. chassis + gps.
-* version 2. imu + gps.
+* version 1. chassis + gps. version 2. imu + gps.
+
+### B. VLIO algorithm
+
+* lidar-imu-gps extended ESKF + visual-imu-odometry, loosely coupled.
+  * vio + lio algorithm (fully self-developed)
+
+[demo video](https://www.bilibili.com/video/BV1E341137y5/)
+
+### C. visual map summarization
+
+* the map graph analysis.
+* solve the ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
+* keep 10% the points, with neglectable drop in localization benchmark accuracy.
 
 ## Mine work 2021
 
 ### A. lidar-imu-gps slam algorithm
 
-* 2 versions : based on pose graph optimization & based on extended error state kalman filter.
+* 2 versions (fully self-developed) : based on pose graph optimization (reference LIO) & based on extended error state kalman filter (reference FAST-LIO2).
 * using gravity estimation in the system as an additional constrain.
 * loop closure based on global descriptor of lidar frame.
-* using rs-lidar-16.
-* cpu only, 20 FPS on nvidia-nx.
- 
+* using rs-lidar-16. cpu only, 20 FPS on nvidia-nx.
+
+[demo video](https://www.bilibili.com/video/BV14F411a75W?spm_id_from=333.999.0.0)
+
 ### B. camera-chassis-gps slam algorithm
 
-* based on single camera semi-dense direct method.
+* single camera semi-dense direct method (reference DSO) to mapping fastly the whole city road map.
 * tightly coupled with chassis input.
 * cpu + arm refinement, 50 FPS on nvidia-nx.
 
-### C. full map fusion 
+### C. full map fusion
 
-* based on pose graph optimization.
-* loop finding : icp & global registration based on FPFH + TEASER.
+* based on pose graph optimization. (have fused a whole district)
+* loop finding : icp & global registration (based on FPFH + TEASER).
 * database based on s2 blocks for saving pose graph.
 * cut the graph to regions to optimize.
 
-### D. routing 
+### D. routing
 
 * based on OSM lane map.
 * lane level map & way point level map.
