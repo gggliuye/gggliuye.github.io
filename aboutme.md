@@ -11,6 +11,11 @@ My name is Ye Liu. I have the following qualities:
 
 What else do you need?
 
+## Hobby
+
+* Philosophy, I am a Marxist. For my notes, visit [Nature Philosophy](https://for-fun.readthedocs.io/).
+* Music, rock fans.
+* Mountains, I love outdoor.
 
 ## Education
 
@@ -18,13 +23,13 @@ What else do you need?
 <img src="/assets/img/nju.jpg"/>
 </div>
 
-**Nanjing University**, which had the best Physics department in China. In the Physics Department, National plan of basic disciplines of top-notch training (consist of the students **ranked top 30** out of about 250) with scholarship.
+**Nanjing University**, which had the best Physics department in China. In the Physics Department, National plan of basic disciplines of top-notch training (基础学科拔尖计划) (consist of the students **ranked top 30** out of about 250) with scholarship.
 
 <div align="center">    
 <img src="/assets/img/ip-paris.jpg"/>
 </div>
 
-**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214), Awarded the China Scholarship Council’s scholarship.
+**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214), Awarded the China Scholarship Council’s (CSC) scholarship.
 
 
 <!--
@@ -40,6 +45,9 @@ What else do you need?
 **Deep Learning** : Basic knowledges in School, and internship. [MIT Self-Driving](https://1drv.ms/u/s!AlcTaQw_X72KhEuoFbDbF4laEwUs?e=9fdKvS), [PGM Deep Blue](https://1drv.ms/u/s!AlcTaQw_X72KhEkOxIeOlO4QcdK8?e=2VWa4v), [CS224W Machine Learning with Graphs](https://vio.readthedocs.io/zh_CN/latest/GNN/index.html).
 
 -->
+
+## Work at DeepMirror
+[The abstract of my work until now](../WorkDeepMirror/index).
 
 ## Work at UTOPA-AR
 
