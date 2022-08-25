@@ -1,8 +1,10 @@
-- icon: fas fa-trophy
-  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).
 - icon: fas fa-briefcase
-  content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Machine Learning with Graphs](https://gnn-learning.readthedocs.io/en/latest/)"
+  content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/), [More](https://for-fun.readthedocs.io/zh_CN/latest/Math/Index.html)"
 - icon: fas fa-briefcase
   content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
 - icon: fas fa-briefcase
-  content: "**Other** [Nature Philosophy](https://for-fun.readthedocs.io/), [CFA](https://cfa-learning.readthedocs.io/)"
+  content: "**Philosophy** [Nature Philosophy](https://for-fun.readthedocs.io/)"
+- icon: fas fa-briefcase
+  content: "**Other** [CFA](https://cfa-learning.readthedocs.io/)"
+#- icon: fas fa-trophy
+#  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).
