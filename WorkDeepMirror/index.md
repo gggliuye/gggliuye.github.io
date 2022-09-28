@@ -1,8 +1,14 @@
+---
+layout: page
+title: DeepMirror 2020/11 - now
+subtitle: GuangZhou, China
+---
+
 # DeepMirror
 
 [website](https://www.deepmirror.com/)
 
-working on slam system.
+working on slam/vlp system.
 
 ## Mine work 2022
 
@@ -10,12 +16,13 @@ working on slam system.
 
 ins system (fully self-developed) :
 * based on extended error state kalman filter.
-* version 1. chassis + gps. version 2. imu + gps.
+* version 1. chassis + gps. version 2. imu + gps + chassis.
 
 ### B. VLIO algorithm
 
 * lidar-imu-gps extended ESKF + visual-imu-odometry, loosely coupled.
   * vio + lio algorithm (fully self-developed)
+* surfel mapping
 
 [demo video](https://www.bilibili.com/video/BV1E341137y5/)
 
@@ -25,7 +32,7 @@ ins system (fully self-developed) :
 * solve the ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
 * keep 10% the points, with neglectable drop in localization benchmark accuracy.
 
-## Mine work 2021
+## Mine work 2020 - 2021
 
 ### A. lidar-imu-gps slam algorithm
 

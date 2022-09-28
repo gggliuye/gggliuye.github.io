@@ -1,0 +1,42 @@
+---
+layout: base
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/main.css"
+  - /assets/css/tree.css
+---
+
+{% include header.html type="page_tree" %}
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
+
+
+<div id="tree-section">
+<ul id="my_tree">
+  <li><span class="caret">Eastern Philosophy</span>
+    <ul class="nested">
+      <li><a href="https://for-fun.readthedocs.io/zh_CN/latest/Eastern/Buddhism/Index.html">Buddhism</a></li>
+      <li><a href="https://for-fun.readthedocs.io/zh_CN/latest/Eastern/Kong/Index.html">Kong</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
