@@ -12,6 +12,7 @@ author: LiuYe
 # --- List of links in the navigation bar --- #
 navbar-links:
   About Me: "aboutme"
+  Philosophy: "Philosophy/index"
   My Work:
     - DeepMirror (current) : "WorkDeepMirror/index"
     - UTOPA (ended): "WorkUtopa/index"
