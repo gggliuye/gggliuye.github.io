@@ -8,6 +8,24 @@ common-css:
 
 {% include header.html type="page_tree" %}
 
+<div id="tree-section">
+<ul id="my_tree">
+  <li><span class="caret"><a href="{{ "Philosophy/eastern" | absolute_url }}">Eastern Philosophy</a></span>
+    <ul class="nested">
+      <li><a href="{{ "Philosophy/eastern/buddhism" | absolute_url }}">Buddhism</a></li>
+      <li><a href="{{ "Philosophy/eastern/wdf" | absolute_url }}">Talks of 王德峰</a></li>
+      <li><a href="{{ "Philosophy/eastern/fyl" | absolute_url }}">Talks of 冯友兰</a></li>
+    </ul>
+  </li>
+  <li><span class="caret"><a href="{{ "Philosophy/western" | absolute_url }}">Western Philosophy</a></span>
+    <ul class="nested">
+      <li>A</li>
+      <li>B</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
 <div class="container-md" role="main">
   <div class="row">
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -15,18 +33,6 @@ common-css:
       {% include comments.html %}
     </div>
   </div>
-</div>
-
-
-<div id="tree-section">
-<ul id="my_tree">
-  <li><span class="caret">Eastern Philosophy</span>
-    <ul class="nested">
-      <li><a href="https://for-fun.readthedocs.io/zh_CN/latest/Eastern/Buddhism/Index.html">Buddhism</a></li>
-      <li><a href="https://for-fun.readthedocs.io/zh_CN/latest/Eastern/Kong/Index.html">Kong</a></li>
-    </ul>
-  </li>
-</ul>
 </div>
 
 <script>
