@@ -1,6 +1,6 @@
 ---
 layout: page_tree
-title: 冯友兰
+title: Talks of 冯友兰
 ---
 
 # 孔子
