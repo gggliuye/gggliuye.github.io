@@ -9,12 +9,13 @@ common-css:
 {% include header.html type="page_tree" %}
 
 <div id="tree-section">
-<ul id="my_tree">
+<ul id="my_tree", class="my_tree">
   <li><span class="caret"><a href="{{ "Philosophy/eastern" | absolute_url }}">Eastern Philosophy</a></span>
     <ul class="nested">
       <li><a href="{{ "Philosophy/eastern/buddhism" | absolute_url }}">Buddhism</a></li>
       <li><a href="{{ "Philosophy/eastern/wdf" | absolute_url }}">Talks of 王德峰</a></li>
       <li><a href="{{ "Philosophy/eastern/fyl" | absolute_url }}">Talks of 冯友兰</a></li>
+      <li><a href="{{ "Philosophy/eastern/alan_watts" | absolute_url }}">Talks of Alan Watts</a></li>
     </ul>
   </li>
   <li><span class="caret"><a href="{{ "Philosophy/western" | absolute_url }}">Western Philosophy</a></span>
@@ -38,6 +39,13 @@ common-css:
 <script>
 var toggler = document.getElementsByClassName("caret");
 var i;
+
+function activate_togglers() {
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].parentElement.querySelector(".nested").classList.toggle("active");
+    toggler[i].classList.toggle("caret-down");
+  }
+}
 
 for (i = 0; i < toggler.length; i++) {
   toggler[i].addEventListener("click", function() {

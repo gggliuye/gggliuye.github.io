@@ -21,6 +21,11 @@ body {
   background-attachment: fixed;
   {% endif %}
 }
+
+/* Remove default bullets for tree */
+ul.nested {list-style-type: none;}
+ul.my_tree {list-style-type: none;}
+
 p {
   line-height: 1.5;
   margin: 1.875rem 0;
