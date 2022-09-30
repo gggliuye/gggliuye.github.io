@@ -11,7 +11,7 @@ in which he explored the growing influence of Far Eastern ways of liberation in 
 This fascinating 18-part series stands unequaled in its brilliant analysis of modern civilization.
 
 # Table of Contents
-1. [Things and Thinks](#l1)
+1. [Things and Thinks](#l2)
 2. [Time](#l3)
 3. [The Void](#l4)
 4. [Death](#l6)

@@ -8,9 +8,12 @@ common-css:
 
 {% include header.html type="page_tree" %}
 
+<button id="myBtn"><a href="#top" style="color: white">Back to Top</a></button>
+
 <div id="tree-section">
+<a href="{{ "Philosophy" | absolute_url }}">Philosophy Home</a>
 <ul id="my_tree", class="my_tree">
-  <li><span class="caret"><a href="{{ "Philosophy/eastern" | absolute_url }}">Eastern Philosophy</a></span>
+  <li><span class="caret">Eastern Philosophy</span>
     <ul class="nested">
       <li><a href="{{ "Philosophy/eastern/buddhism" | absolute_url }}">Buddhism</a></li>
       <li><a href="{{ "Philosophy/eastern/wdf" | absolute_url }}">Talks of 王德峰</a></li>
@@ -18,10 +21,18 @@ common-css:
       <li><a href="{{ "Philosophy/eastern/alan_watts" | absolute_url }}">Talks of Alan Watts</a></li>
     </ul>
   </li>
-  <li><span class="caret"><a href="{{ "Philosophy/western" | absolute_url }}">Western Philosophy</a></span>
+  <li><span class="caret">Western Philosophy</span>
     <ul class="nested">
-      <li>A</li>
-      <li>B</li>
+      <li><a href="{{ "Philosophy/western/greece" | absolute_url }}">Ancient Greece</a></li>
+    </ul>
+  </li>
+  <li><span class="caret">General/Introduction</span>
+    <ul class="nested">
+      <li><a href="{{ "Philosophy/general/wdf_philo_intro" | absolute_url }}">哲学导论（王德峰）</a></li>
+      <li><a href="{{ "Philosophy/general/political_philo" | absolute_url }}">Political Philosophy</a></li>
+      <li><a href="{{ "Philosophy/general/yale_death" | absolute_url }}">Yale Philo 176 Death</a></li>
+      <li><a href="{{ "Philosophy/general/math" | absolute_url }}">Notes Mathematics</a></li>
+      <li><a href="{{ "Philosophy/general/bio" | absolute_url }}">Notes Biology</a></li>
     </ul>
   </li>
 </ul>
