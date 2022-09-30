@@ -23,12 +23,12 @@ In the beginning is the One, and only the One is. From the One comes Two, the in
 
 ## Notes : books of Alan Watts
 
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/alan_watts.pdf" width="700" height="1000">
+<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/alan_watts.pdf" width="100%" height="500">
 
 ## Notes : books of 赖永海
 
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/laiyonghai_buddhism.pdf" width="700" height="1000">
+<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/laiyonghai_buddhism.pdf" width="100%" height="500">
 
 ## Notes : books of 梁启超
 
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/liangqichao_buddhism.pdf" width="700" height="1000">
+<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/liangqichao_buddhism.pdf" width="100%" height="500">
