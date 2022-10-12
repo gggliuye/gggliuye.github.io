@@ -3,8 +3,6 @@
 - icon: fas fa-briefcase
   content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
 - icon: fas fa-briefcase
-  content: "**Philosophy** [Nature Philosophy](https://for-fun.readthedocs.io/)"
-- icon: fas fa-briefcase
-  content: "**Other** [CFA](https://cfa-learning.readthedocs.io/)"
+  content: "**Philosophy** [Nature Philosophy](Philosophy/index)"
 #- icon: fas fa-trophy
 #  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).
