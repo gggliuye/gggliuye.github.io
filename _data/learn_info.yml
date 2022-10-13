@@ -1,7 +1,7 @@
 - icon: fas fa-briefcase
   content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/), [More](https://for-fun.readthedocs.io/zh_CN/latest/Math/Index.html)"
 - icon: fas fa-briefcase
-  content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
+  content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN), [Paper Read](Study/PaperRead/index)"
 - icon: fas fa-briefcase
   content: "**Philosophy** [Nature Philosophy](Philosophy/index)"
 #- icon: fas fa-trophy
