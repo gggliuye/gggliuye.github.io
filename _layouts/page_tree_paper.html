@@ -1,0 +1,60 @@
+---
+layout: base
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/main.css"
+  - /assets/css/tree.css
+---
+
+{% include header.html type="page_tree" %}
+
+<button id="myBtn"><a href="#top" style="color: white">Back to Top</a></button>
+
+<div id="tree-section">
+<a href="{{ "Study/PaperRead" | absolute_url }}">Paper Read Home</a>
+<ul id="my_tree", class="my_tree">
+  <li><a href="{{ "Study/PaperRead/lidar_mapping" | absolute_url }}">Lidar Mapping</a></li>
+  <li><a href="{{ "Study/PaperRead/visual_mapping" | absolute_url }}">Visual Mapping</a></li>
+  <li><a href="{{ "Study/PaperRead/sensor_fusion" | absolute_url }}">Sensor Fusion</a></li>
+  <li><a href="{{ "Study/PaperRead/subjects" | absolute_url }}">Other Specific Subjects</a></li>
+</ul>
+</div>
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
+
+<!-- http://blog.lostinmyterminal.com/webpages/2015/01/09/math-support-in-jekyll.html -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+function activate_togglers() {
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].parentElement.querySelector(".nested").classList.toggle("active");
+    toggler[i].classList.toggle("caret-down");
+  }
+}
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
