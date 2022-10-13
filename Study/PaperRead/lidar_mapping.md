@@ -14,6 +14,8 @@ title: Lidar Mapping
 
 # 2021 <a name="l2021"></a>
 
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ERASOR: Egocentric Ratio of Pseudo Occupancy-based Dynamic Object Removal for Static 3D Point Cloud Map Building](https://arxiv.org/abs/2103.04316) project map points and the new frame points into 2d gird, and compute the height range for each grid, use it to filter grid with moving object (for an example, if the range in map is 2 meter, while 10cm in new frame, it means the map gird might be moving objects). It looks very simple, while it is effective, worth adding to your own project.
+
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [MULLS: Versatile LiDAR SLAM via Multi-metric Linear Least Square](https://github.com/YuePanEdward/MULLS).
 * Lidar only slam (it doesn't addition information (e.g. imu) for undistortion.)
 * Use many kind of features (ground, facade, pillar, beam, etc) to make the system versatile. (and doesn't depends on additional info for cloud, e.g ring).
@@ -41,6 +43,12 @@ title: Lidar Mapping
 
 * EKF for imu, used to lidar undistortion.
 * ikd-Tree ([incremental kdtree](https://github.com/hku-mars/ikd-Tree)) for lidar match.
+
+my implementation, wonderful performance!
+
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=293924888&bvid=BV14F411a75W&cid=434510649&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 
 
 # 2020 <a name="l2020"></a>

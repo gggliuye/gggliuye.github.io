@@ -24,16 +24,25 @@ we normally have two types of systems :
   * project camera information to lidar pts, to form lidar pts constrain. This seems more reasonable to me.
 * camera based : lidar project to camera to offer depth
 
+**visual-lidar-imu (with vins vio odometry)**
+
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=218254323&bvid=BV1f8411t7EM&cid=839998466&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+
 **visual-lidar-imu (with direct method image odometry)**
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=431405282&bvid=BV1kG411E7ZR&cid=858032689&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-**visual-lidar-imu (with vins vio odometry)**
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 
 <div align="center">  
-<iframe src="//player.bilibili.com/player.html?aid=218254323&bvid=BV1f8411t7EM&cid=839998466&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=561599586&bvid=BV1Ye4y1v7BW&cid=860597007&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
 # 2021 <a name="l2021"></a>
