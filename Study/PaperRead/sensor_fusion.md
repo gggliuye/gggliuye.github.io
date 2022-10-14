@@ -6,7 +6,8 @@ title: Sensor Fusion
 Other subjects also has sensor fusion related content, while the papers here are more specific with multi-sensor fusion.
 
 # Table of Contents
-* [Lidar Image Summary 2021](#lliodar_image)
+* [Lidar Image Summary 2022](#lliodar_image)
+* [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
 * [2019](#l2019)
@@ -15,7 +16,7 @@ Other subjects also has sensor fusion related content, while the papers here are
 
 <p/><p/>
 
-# Lidar Image summary (2021) <a name="lliodar_image"></a>
+# Lidar Image summary (2022) <a name="lliodar_image"></a>
 
 we normally have two types of systems :
 
@@ -24,24 +25,50 @@ we normally have two types of systems :
   * project camera information to lidar pts, to form lidar pts constrain. This seems more reasonable to me.
 * camera based : lidar project to camera to offer depth
 
-**visual-lidar-imu (with direct method image odometry)**
-
-<div align="center">  
-<iframe src="//player.bilibili.com/player.html?aid=431405282&bvid=BV1kG411E7ZR&cid=858032689&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-
 **visual-lidar-imu (with vins vio odometry)**
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=218254323&bvid=BV1f8411t7EM&cid=839998466&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
+
+**visual-lidar-imu (with direct method image odometry)**
+
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=431405282&bvid=BV1kG411E7ZR&cid=858032689&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=561599586&bvid=BV1Ye4y1v7BW&cid=860597007&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+**Compare R3LIVE++, LVI-SAM and Mine:**
+
+| R3LIVE++ | LVI-SAM | Mine |
+|--------|---------|-----|
+| single system | two system | single system |
+| Optical flow tracking | Slide window VIO : VINS-MONO | Direct sparse tracking |
+| with photometric calibration | without | with photometric calibration|
+| Filter based LIO (FAST-LIO2) | Pose Graph Based LIO (LOAM) | Filter based LIO (FAST-LIO2) |
+
+# 2022 <a name="l2022"></a>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [R3LIVE++: A Robust, Real-time, Radiance reconstruction package with a tightly-coupled LiDAR-Inertial-Visual state Estimator](https://arxiv.org/abs/2209.03666), [github code](https://github.com/hku-mars/r3live)
+following R3LIVE, with the camera photometric calibration and the online estimation of camera exposure time.
+
 # 2021 <a name="l2021"></a>
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [R3LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package](https://github.com/hku-mars/r3live) FAST-LIO2 + VIO.
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [R3LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package](https://arxiv.org/abs/2109.07982). Visual-Lidar-Imu filter.
+* even though in its paper it said it has two system, it actually uses one single imu-based filter back bone. so it uses imu for filter predict, then has lidar and image measurements.
+* use lidar pointcloud for VIO tracking, VIO system won't optimize map points.
+* finally use MVS to make mesh (delaunay triangulation), 'texturing' is to update pcl color with the raw lidar map.
 
 <div align="center">    
-<img src="/assets/img/paperread/r3live.png" width="60%"/>
+<img src="/assets/img/paperread/r3live.png" width="80%"/>
 </div>
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LVI-SAM: Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping](https://github.com/TixiaoShan/LVI-SAM) (looks similar to V-LOAM + IMU) optimization with the following factors (with two system) (It is actually not so tightly coupled):
