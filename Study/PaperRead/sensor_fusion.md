@@ -65,6 +65,7 @@ following R3LIVE, with the camera photometric calibration and the online estimat
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [R3LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package](https://arxiv.org/abs/2109.07982). Visual-Lidar-Imu filter.
 * even though in its paper it said it has two system, it actually uses one single imu-based filter back bone. so it uses imu for filter predict, then has lidar and image measurements.
 * use lidar pointcloud for VIO tracking, VIO system won't optimize map points.
+* finally use MVS to make mesh (delaunay triangulation), 'texturing' is to update pcl color with the raw lidar map.
 
 <div align="center">    
 <img src="/assets/img/paperread/r3live.png" width="80%"/>

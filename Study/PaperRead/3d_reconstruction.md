@@ -5,6 +5,7 @@ title: 3D Reconstruction
 
 # Table of Contents
 * [2021](#l2021)
+* [2020](#l2020)
 * [2017](#l2017)
 * [2016](#l2016)
 * [Earlier](#learlier)
@@ -30,20 +31,29 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/vox_stru.jpg" width="80%"/>
 </div>
 
+# 2020 <a name="l2020"></a>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Point2Mesh: A Self-Prior for Deformable Meshes](https://arxiv.org/pdf/2005.11084.pdf) using DL method (Neural Self-Priors) iteratively shrink-wrap the initial mesh, leading to a watertight reconstruction (fits the point cloud).
+
 # 2017 <a name="l2017"></a>
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning](https://arxiv.org/abs/1611.03631), [github code](https://github.com/ethz-asl/voxblox). state of art, TSDF, ESDF, and meshing. **Extremely efficient!**, wonderfully engineering art. (I had been using it for several years)
 
 # 2016 <a name="l2016"></a>
 
-[A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document)
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document)
+
+
 
 # Earlier <a name="learlier"></a>
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Let There Be Color! Large-Scale Texturing of 3D Reconstructions 2014](https://download.hrz.tu-darmstadt.de/pub/FB20/GCC/paper/Waechter-2014-LTB.pdf), [github code](https://github.com/nmoehrle/mvs-texturing) view selection then project to get texture. It performs well in our image mapping mesh result (using poisson). While it has high requirement on the mesh. Tested with some lidar mapping point cloud (made with TSDF + matching cube, without further de-noise), the result mesh is terrible. I presume it is caused by loss of accuracy in TSDF, and noise in lidar data.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [GlobFit: Consistently Fitting Primitives by Discovering Global Relations 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/globFit/paper_docs/globFit_sigg11.pdf) assuming man-made engineering object, RANSAC -> Find global relationship -> alignment (merge close elements in the orientation space).
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Poisson Surface Reconstruction](https://www.cse.iitd.ac.in/~mcs112609/poission.pdf) State-of-art.
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Poisson Surface Reconstruction 2006](https://www.cse.iitd.ac.in/~mcs112609/poission.pdf) State-of-art.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A mesh reconstruction algorithm driven by an intrinsic property of a point cloud 2004](http://www.cad.zju.edu.cn/home/hwlin/pdf_files/A-mesh-reconstruction-algorithm-driven-by-an-intrinsic-property-of-a-point-cloud.pdf). It classfies meshing into the following methods :
 
