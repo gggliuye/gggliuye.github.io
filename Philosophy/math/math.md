@@ -4,6 +4,24 @@ title: Notes Mathematics
 ---
 
 
+# Convex Optimization
+
+[Notes Convex Optimization](https://cvx-learning.readthedocs.io/en/latest/) following the full courses in internet of the Stanford open classes.:
+
+* [Linear Dynamtic System EE263](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing)
+* [Convex Optimziation I EE364A](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing)
+* [Convex Optimziation II EE364B](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing)
+
+# Graph Machine Learning
+
+[Notes  Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)
+
+* This page includes CS224W Stanford [snap note page](https://snap-stanford.github.io/cs224w-notes/).
+* My notes and all documents could be found [in Baidu Cloud with code 2rlj](https://pan.baidu.com/s/18EdD8mdlIdNxADFGrmUM-w).And also in [Google Drive](https://drive.google.com/drive/folders/1woawoP5ZWkK4pktWyw_W1SeWntqYrzR9?usp=sharing).
+* [link of snap documentation](http://snap.stanford.edu/snappy/doc/reference/index-ref.html)
+* [my home works github link](https://github.com/gggliuye/VIO/tree/2df94600513dd79f6badafdcb498e292bc360fcf/MachineLearningWithGraph/HWs).
+
+
 # Lie group & lie algebra
 
 [ICTP Lie group and lie algebra](https://drive.google.com/file/d/1x74xSo8wvkoapK1O17IzUU7pXugcAo22/view?usp=sharing)

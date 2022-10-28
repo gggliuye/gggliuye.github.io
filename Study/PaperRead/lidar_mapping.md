@@ -14,6 +14,18 @@ title: Lidar Mapping
 
 # 2021 <a name="l2021"></a>
 
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Globally Consistent 3D LiDAR Mapping with GPU-accelerated GICP Matching Cost Factors](https://arxiv.org/abs/2109.07073), [nice youtube video 1](https://www.youtube.com/watch?v=AbaBp803jpo), [nice youtube video 2](https://www.youtube.com/watch?v=TarRKF_Xd2E) : minimizes matching costs (voxel data association-based GICP) between frames over the entire map using gpu.
+
+* local maps
+* global mapping : align local maps.
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Voxelized GICP for Fast and Accurate 3D Point Cloud Registration](https://staff.aist.go.jp/shuji.oishi/assets/papers/preprint/VoxelGICP_ICRA2021.pdf) voxelized generalized
+iterative closest point (VGICP) (better fit gpu).
+
+<div align="center">    
+<img src="/assets/img/paperread/vgicp.png" width="50%"/>
+</div>
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ERASOR: Egocentric Ratio of Pseudo Occupancy-based Dynamic Object Removal for Static 3D Point Cloud Map Building](https://arxiv.org/abs/2103.04316) project map points and the new frame points into 2d gird, and compute the height range for each grid, use it to filter grid with moving object (for an example, if the range in map is 2 meter, while 10cm in new frame, it means the map gird might be moving objects). It looks very simple, while it is effective, worth adding to your own project.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [MULLS: Versatile LiDAR SLAM via Multi-metric Linear Least Square](https://github.com/YuePanEdward/MULLS).
@@ -84,5 +96,20 @@ Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain.
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [OctoMap](http://www.arminhornung.de/Research/pub/hornung13auro.pdf>`_ `github project <http://octomap.github.io/). Probabilistic representation, Modeling of unmapped areas, Efficiency (octree).
 
 ## 2009
+
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Generalized-ICP](https://www.robots.ox.ac.uk/~avsegal/resources/papers/Generalized_ICP.pdf)
+
+* point-to-point ICP: $T = argmin_{T}(\sum_{i}w_{i} \| T b_{i}  - m_{i}  \|^{2})$ with $C_{i}^{B}=I$ and $C_{i}^{A} = 0$
+* point-to-plane ICP: $T = argmin_{T}(\sum_{i}w_{i} \| \eta_{i} (T b_{i}  - m_{i})  \|^{2})$ with $C_{i}^{B}=P_{i}^{-1}$ and $C_{i}^{A} = 0$
+* generalized ICP :
+
+$$
+\begin{aligned}
+T & = argmin_{T} \sum_{i} log(p(d_{i})) \\
+& = argmin_{T}\sum_{i} d_{i}^{T} (C_{i}^{B}  + T C_{i}^{A}T^{T} )^{-1}  d_{i}  \\
+\end{aligned}
+$$
+
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [On Measuring the Accuracy of SLAM Algorithms](http://www2.informatik.uni-freiburg.de/~stachnis/pdf/kuemmerle09auro.pdf). (RPE vs APE) A metric that operates only on relative geometric relations between poses along the trajectory of the robot.
