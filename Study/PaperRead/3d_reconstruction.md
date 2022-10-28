@@ -46,6 +46,7 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document). The Role of Priors :
 
 **Surface Smoothness** :
+
 * Local smoothness: finding zero set of local scalar field.
   * MLS Plannar assumption : [MLS 2003](https://graphics.stanford.edu/courses/cs468-03-fall/Papers/Levin_MovingLeastSquares.pdf), [IMLS 2004](http://graphics.berkeley.edu/papers/Shen-IAI-2004-08/Shen-IAI-2004-08.pdf), [RIMLS 2009](https://hal.inria.fr/inria-00354969/document).
   * MLS Spherical approximations : fits a gradient field of the algebraic sphere s to the input (oriented) normals. [APSS 2007](https://www.labri.fr/perso/guenneba/docs/APSS_sig07.pdf): normal difference, [Non-oriented MLS 2013](https://hal.inria.fr/hal-00857265/PDF/MLS_grad_2013.pdf) : dot product.
@@ -62,15 +63,18 @@ This paper's method contains the following steps:
   * [Robust surface reconstruction via dictionary learning 2014](http://staff.ustc.edu.cn/~juyong/Papers/Xiong.Reconstruction.2014.pdf) : each point in the input cloud is approximated by a single point on the output triangle.
 
 **Visibility**:
+
 * Scanner Visibility (ray casting from scanner), [TSDF A volumetric method for building complex models from range images 1996](https://graphics.stanford.edu/papers/volrange/volrange.pdf), <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust and efficient surface reconstruction from range data 2009](#colmapdelaunay) (uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior), <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [TV-L1 range image integration 2007](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Zach07.pdf) (use L1 norm to merge range scan)
 * Exterior Visibility (explicit information from the scanner. e.g. camera view-point). Occlusion culling, Cone carving.
 * Parity (assuming a closed surface)
 
 **Volume Smoothness** : enforce that the local shape thickness of a surface (i.e. a measurement of its local volume) varies smoothly to fill incomplete point cloud.
+
 * Skeletal regularizers. [Curve skeleton extraction from incomplete point cloud 2009](https://www.cs.princeton.edu/courses/archive/spring11/cos598A/pdfs/Tagliasacchi09.pdf) introduces ROSA (rotational symmetry axis) : the medial axis of a shape approximated by curves.
 * Man-made skeletal geometry. Medial priors. Organic skeletal geometry : Tubular components (to fit in particular trees). [Leaf venation patterns 2005](http://algorithmicbotany.org/papers/venation.sig2005.pdf), [3d tree 2010](https://dl.acm.org/doi/10.1145/1866158.1866177).
 
 **Geometric Primitives**: (scene geometry may be explained by a compact set of simple geometric shapes), good for indoor and CAD models (both have samller range).
+
 * Detecting primitives. [RANSAC shape detection 2007](http://www.hinkali.com/Education/PointCloud.pdf) : find planes, spheres, cylinders, cones, and torii though local method. [Model globally, match locally: Efficient and robust 3d object recognition 2010](https://ieeexplore.ieee.org/document/5540108/).
 * Primitive consolidation : [Surface reconstruction from fitted shape primitives 2008](https://www.researchgate.net/publication/220839033_Surface_Reconstruction_from_Fitted_Shape_Primitives) plane primitives and align and merge the boundaries of adjacent primitives. Extension of this method: [2009](https://www.researchgate.net/publication/220506388_Completion_and_Reconstruction_with_Primitive_Shapes), [2014](https://link.springer.com/chapter/10.1007/978-3-319-10590-1_40). Augmenting primitive information.
 * Volumetric primitives.
@@ -86,6 +90,7 @@ This paper's method contains the following steps:
   * Canonical building relationships. [2.5D scans 2012](#25dscan)
 
 **Data-driven priors** (semantic objects) : using a collection of known shapes to help perform reconstruction.
+
 * Scene reconstruction by rigid/non-rigid retrieval.
 * Object reconstruction by part composition.
 * Reconstruction in shape spaces.
@@ -98,6 +103,7 @@ This paper's method contains the following steps:
 # Earlier <a name="learlier"></a>
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document) automated detection and regularization of primitive shapes from unorganized point clouds. And enforcing parallel and orthogonality constraints in the detection of planes. repeating the following:
+
 * uniformly distributed seeds, region grow, detect primitive shapes.
 * regularization and adjust coplanarity.
 
@@ -108,6 +114,7 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Let There Be Color! Large-Scale Texturing of 3D Reconstructions 2014](https://download.hrz.tu-darmstadt.de/pub/FB20/GCC/paper/Waechter-2014-LTB.pdf), [github code](https://github.com/nmoehrle/mvs-texturing) view selection then project to get texture. It performs well in our image mapping mesh result (using poisson). While it has high requirement on the mesh. Tested with some lidar mapping point cloud (made with TSDF + matching cube, without further de-noise), the result mesh is terrible. I presume it is caused by loss of accuracy in TSDF, and noise in lidar data.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Surface Reconstruction through Point Set Structuring 2013](https://hal.inria.fr/hal-00822763/file/paper_hal.pdf).
+
 * structuring and resampling the planar components into planar, crease(to connect adjacent primitives), corner and clutter.
 * reconstructing the surface from both the consolidated components and the unstructured points.
 * surface is obtained through solving a graph-cut problem formulated on the 3D Delaunay triangulation ([see this part for more details](#colmapdelaunay)). Following by a Surface quality refinement and simplification.
@@ -123,6 +130,7 @@ This paper's method contains the following steps:
 
 <a name="25dscan"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [2.5D Building Modeling by Discovering Global Regularities 2012](http://qianyi.info/docs/papers/cvpr12_regularity.pdf):three fundamental type of relationships in buildings (for reconstruction from Aerial imagery):
+
 * roof-roof relationships that consist of orientation and placement equalities.
 * roof-roof boundary relationships that consist of parallelism and orthogonality relationships.
 * boundary-boundary relationships that consist of height and position equality.
@@ -151,7 +159,7 @@ $$
 <img src="/assets/img/paperread/soft_viz.png" width="70%"/>
 </div>
 
-*  Surface quality: the quality of surface triangle is evaluated as the ratio of the length of their longest edge over the length of their shortest edge (minus one). And Soft 3D β–skeleton in graph-cut algorithm.
+*  Surface quality: the quality of surface triangle is evaluated as the ratio of the length of their longest edge over the length of their shortest edge (minus one). And Soft 3D beta–skeleton in graph-cut algorithm.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Efficient multi-view reconstruction of large-scale scenes using interest points, Delaunay triangulation and graph cuts 2007](https://ieeexplore.ieee.org/document/4408892). First to consider surface visibility! [the upper paper](#colmapdelaunay) improved this method.
 
