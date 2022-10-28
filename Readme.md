@@ -25,7 +25,24 @@ bundle exec jekyll serve
 ```
 sudo apt-get install pandoc texlive-latex-base texlive-fonts-recommended texlive-extra-utils texlive-latex-extra
 ```
-* run 
+* run markdown to pdf
+
+use pandoc : https://pandoc.org/installing.html
+
 ```
 pandoc Study/PaperRead/3d_reconstruction.md -o data/3d_reconstruction.pdf
+```
+
+to include chinese, use latex kernel :
+
+```
+sudo apt-get install texlive-xetex
+pandoc -t latex --pdf-engine=xelatex Study/patent/patent_v1.md -o data/patent_v1.pdf
+```
+and add heading to markdown :
+
+```
+---
+CJKmainfont: Noto Serif CJK SC
+---
 ```
