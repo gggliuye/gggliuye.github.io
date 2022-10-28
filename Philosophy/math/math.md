@@ -3,8 +3,11 @@ layout: page_tree
 title: Notes Mathematics
 ---
 
+# Dynamic System (ICTP)
 
-# Convex Optimization
+* My notes could be found [in Baidu Cloud with code lwee](https://pan.baidu.com/s/1yFLP4XB4HAEijSWSTR3VrA)
+
+# Convex Optimization (Stanford)
 
 [Notes Convex Optimization](https://cvx-learning.readthedocs.io/en/latest/) following the full courses in internet of the Stanford open classes.:
 
@@ -12,7 +15,7 @@ title: Notes Mathematics
 * [Convex Optimziation I EE364A](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing)
 * [Convex Optimziation II EE364B](https://drive.google.com/drive/folders/1SU5fLV6qsJvj66i5uigeRdZIimZMTyVT?usp=sharing)
 
-# Graph Machine Learning
+# Graph Machine Learning (Stanford)
 
 [Notes  Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)
 
@@ -22,12 +25,12 @@ title: Notes Mathematics
 * [my home works github link](https://github.com/gggliuye/VIO/tree/2df94600513dd79f6badafdcb498e292bc360fcf/MachineLearningWithGraph/HWs).
 
 
-# Lie group & lie algebra
+# Lie group & lie algebra (ICTP)
 
 [ICTP Lie group and lie algebra](https://drive.google.com/file/d/1x74xSo8wvkoapK1O17IzUU7pXugcAo22/view?usp=sharing)
 
 
-# Topology
+# Topology (ICTP)
 
 [My Notes](https://1drv.ms/b/s!AlcTaQw_X72KmBLB6pWNawvbovyB?e=RQqXnC)
 
