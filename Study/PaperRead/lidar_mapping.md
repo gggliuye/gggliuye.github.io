@@ -7,6 +7,7 @@ title: Lidar Mapping
 * [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
+* [2019](#l2019)
 * [2018](#l2018)
 * [2017](#l2017)
 * [before](#lbefore)
@@ -15,17 +16,18 @@ title: Lidar Mapping
 
 # 2022 <a name="l2022"></a>
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Scale-Variant Robust Kernel Optimization for Non-linear Least Squares Problems](https://arxiv.org/pdf/2206.10305.pdf) (applied in LIO system to prevent outliers)
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Scale-Variant Robust Kernel Optimization for Non-linear Least Squares Problems](https://arxiv.org/pdf/2206.10305.pdf) (applied in LIO system to prevent outliers) use [Generalized loss function](#lgeneral_loss_fcn) in LIO slam system. As the paper itself said, it does not has obvious improvement on LIO system. *I had tested different robust loss functions also in FAST-LIO system, no improvement found.*
 
 LITERATURE REVIEW (robust estimation):
 
-* [M-estimators](#lmestimate) : fails into de-weighting (don’t directly remove measurements). ([connection to elliptical distributions](#lmestimate-ell)),  Student-t M-estimators.
+* Iterative Re-weighted Least Squares (IRLS) : [M-estimators](#lmestimate), fails into de-weighting (don’t directly remove measurements). ([connection to elliptical distributions](#lmestimate-ell)),  Student-t M-estimators. (M-estimation can be solved exactly like a weighted nonlinear least squares problem)
 * loop closures: [Dynamic Covariance Scaling](#ldyns), [AEROS](#lareos).
+
 
 # 2021 <a name="l2021"></a>
 
 <a name="lareos"></a>
-[AEROS: AdaptivE RObust least-Squares for Graph-Based SLAM](https://arxiv.org/pdf/2110.02018.pdf) modelled all loop closures using robust cost functions with a single adaptive parameter and improved back end optimization. Take advantage of the [Black-Rangarajan duality](lbrduality) to convert the optimization problem into an **Iteratively Reweighted Least Squares** (IRLS) problem instead (similar to [robust loss function in ceres](http://ceres-solver.org/nnls_modeling.html#lossfunction)).
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [AEROS: AdaptivE RObust least-Squares for Graph-Based SLAM](https://arxiv.org/pdf/2110.02018.pdf) modelled all loop closures using robust cost functions with a single adaptive parameter and improved back end optimization. Take advantage of the [Black-Rangarajan duality](lbrduality) to convert the optimization problem into an **Iteratively Reweighted Least Squares** (IRLS) problem instead (similar to [robust loss function in ceres](http://ceres-solver.org/nnls_modeling.html#lossfunction)).
 
 <div align="center">    
 <img src="/assets/img/paperread/sc_area.jpg" width="100%"/>
@@ -93,7 +95,18 @@ my implementation, wonderful performance!
 <img src="/assets/img/paperread/isc_test.png" width="50%"/>
 </div>
 
+# 2019 <a name="l2019"></a>
+
+<a name="lgeneral_loss_fcn"></a>
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A General and Adaptive Robust Loss Function](https://arxiv.org/abs/1701.03077) enables the training of neural networks in which the robustness of the loss auto-matically adapts itself during training.
+
+<div align="center">    
+<img src="/assets/img/paperread/general_loss_fcn.jpg" width="95%"/>
+</div>
+
 # 2018 <a name="l2018"></a>
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Efficient Surfel-Based SLAM (SuMa) using 3D Laser Range Data in Urban Environments](http://www.roboticsproceedings.org/rss14/p16.pdf) Depth image based dense direct odometry : use the projective data association between the current scan and a rendered model view from that surfel map.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [LeGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM). Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain. See [details and some comparisons](https://vio.readthedocs.io/zh_CN/latest/Other/lidarSLAM.html).
 
