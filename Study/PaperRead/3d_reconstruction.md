@@ -6,6 +6,8 @@ title: 3D Reconstruction
 # Table of Contents
 * [2021](#l2021)
 * [2020](#l2020)
+* [2019](#l2019)
+* [2018](#l2018)
 * [2017](#l2017)
 * [2016: Survey](#l2016)
 * [Earlier](#learlier)
@@ -31,11 +33,28 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/vox_stru.jpg" width="80%"/>
 </div>
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Efficiently Distributed Watertight Surface Reconstruction](https://hal.archives-ouvertes.fr/hal-03380593) the distribution of all the steps (Delaunay + graph-cut).
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Dense Surface Reconstruction from Monocular Vision and LiDAR](https://ieeexplore.ieee.org/abstract/document/8793729) LiDAR measurements are integrated into a multi-view stereo pipeline for point cloud densification and tetrahedralization. (the lidar mapping algorithm it used seems terrible, [our algorithm](https://gggliuye.github.io/Study/PaperRead/sensor_fusion/#lliodar_image) is much much better)
+
 # 2020 <a name="l2020"></a>
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Point2Mesh: A Self-Prior for Deformable Meshes](https://arxiv.org/pdf/2005.11084.pdf) using DL method (Neural Self-Priors) iteratively shrink-wrap the initial mesh, leading to a watertight reconstruction (fits the point cloud).
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A 3D Surface Reconstruction Method for Large-Scale Point Cloud Data](https://www.hindawi.com/journals/mpe/2020/8670151/) nothing new.
+
+# 2019 <a name="l2019"></a>
+
+[Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) using pipeline of [Robust and efficient surface reconstruction from range data 2009](#colmapdelaunay)
+
+# 2018 <a name="l2018"></a>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Reconstructing Thin Structures of Manifold Surfaces by Integrating Spatial Curves](https://ieeexplore.ieee.org/document/8578403). use image based 3d curve reconstruction to enhance thin structures.
+
+* compute 3D curves based on the initialize-optimize-extend strategy.
+* Curve-conformed Delaunay Refinement to preserve thin structures: make sure Delaunay has kept all the segments of curves, and close region has finer triangles. Add sepcial energy to tetrahedra belonging to the same curve.
 
 # 2017 <a name="l2017"></a>
 
