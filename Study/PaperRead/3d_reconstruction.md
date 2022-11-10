@@ -47,7 +47,8 @@ This paper's method contains the following steps:
 
 # 2019 <a name="l2019"></a>
 
-[Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) using pipeline of [Robust and efficient surface reconstruction from range data 2009](#colmapdelaunay)
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) a new Visibility Model : $(1-e^{d^{2}/2 \sigma^{2}})$.
+
 
 # 2018 <a name="l2018"></a>
 
@@ -121,6 +122,8 @@ This paper's method contains the following steps:
 
 # Earlier <a name="learlier"></a>
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/>  [Superpixel meshes for fast edge-preserving surface reconstruction 2015](https://openaccess.thecvf.com/content_cvpr_2015/papers/Bodis-Szomoru_Superpixel_Meshes_for_2015_CVPR_paper.pdf) superpixels and second-order smoothness constraints. based on Single-view 3D mesh reconstruction: 2D base mesh extraction, Depth reconstruction, then point cloud and mesh.
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document) automated detection and regularization of primitive shapes from unorganized point clouds. And enforcing parallel and orthogonality constraints in the detection of planes. repeating the following:
 
 * uniformly distributed seeds, region grow, detect primitive shapes.
@@ -159,6 +162,12 @@ finding the relationships via clustering (i.e., clustering similar angles, equal
 <a name="globfit"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [GlobFit: Consistently Fitting Primitives by Discovering Global Relations 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/globFit/paper_docs/globFit_sigg11.pdf) assuming man-made engineering object, RANSAC -> Find global relationship -> alignment (merge close elements in the orientation space).
 Starting from an initial set of detected primitives, parallel, orthogonal, angle-equality, and distance-equality relation-ships are individually detected and carefully selected so as to not cause any relationship conflicts.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Multi-view reconstruction preserving weakly-supported surfaces 2011](https://ieeexplore.ieee.org/document/5995693). Some papers refer this as state-of-art.
+
+* [baseline (the following paper)](#lcolmapdelaunay) constant point weight.
+* point weight depends on the number of observations, make a filter strategy for the initial Delaunay. (**closer to the colmap implementation**)
+* a free-space-support weight function. compute all weights in the same way as the base-line approach. Then search for all large jumps and multiply the corresponding t-edge weights. (good for noisy data, need to test)
 
 <a name="colmapdelaunay"></a>
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
