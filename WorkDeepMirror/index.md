@@ -16,17 +16,26 @@ working on slam/vlp system.
 
 ins system (fully self-developed) :
 * based on extended error state kalman filter.
-* version 1. chassis + gps. version 2. imu + gps + chassis.
+* version 1. chassis (motion model) + gps. version 2. imu (motion model) + gps + chassis.
 
 ### B. VLIO algorithm
 
-* lidar-imu-gps extended ESKF + visual-imu-odometry, loosely coupled.
-  * vio + lio algorithm (fully self-developed)
-* surfel mapping
+* lidar-imu-image, based on image direct method (fully self-developed)
 
-[demo video](https://www.bilibili.com/video/BV1E341137y5/)
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 
-### C. visual map summarization
+### C. pointcloud & mesh generation
+
+* TSDF GPU point cloud generation
+* Delaunay + ray casting + min-cut + post-processing mesh generation.
+
+<div align="center">    
+<img src="/assets/img/work/tsdf_pcl.jpg" width="95%"/>
+</div>
+
+### D. visual map summarization
 
 * the map graph analysis.
 * solve the ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
@@ -48,15 +57,21 @@ ins system (fully self-developed) :
 * single camera semi-dense direct method (reference DSO) to mapping fastly the whole city road map.
 * tightly coupled with chassis input.
 * cpu + arm refinement, 50 FPS on nvidia-nx.
+* mapped full Nansha.GuangZhou Area.
+
+<div align="center">    
+<img src="/assets/img/work/image_mapping.jpg" width="100%"/>
+</div>
 
 ### C. full map fusion
 
 * based on pose graph optimization. (have fused a whole district)
-* loop finding : icp & global registration (based on FPFH + TEASER).
+* loop finding : gicp & global registration (based on FPFH + TEASER).
 * database based on s2 blocks for saving pose graph.
 * cut the graph to regions to optimize.
+* mapped full Nansha.GuangZhou Area.
 
-### D. routing
+### D. car routing
 
 * based on OSM lane map.
 * lane level map & way point level map.
