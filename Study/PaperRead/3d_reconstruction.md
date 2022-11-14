@@ -6,6 +6,8 @@ title: 3D Reconstruction
 # Table of Contents
 * [2021](#l2021)
 * [2020](#l2020)
+* [2019](#l2019)
+* [2018](#l2018)
 * [2017](#l2017)
 * [2016: Survey](#l2016)
 * [Earlier](#learlier)
@@ -31,11 +33,29 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/vox_stru.jpg" width="80%"/>
 </div>
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Efficiently Distributed Watertight Surface Reconstruction](https://hal.archives-ouvertes.fr/hal-03380593) the distribution of all the steps (Delaunay + graph-cut).
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Dense Surface Reconstruction from Monocular Vision and LiDAR](https://ieeexplore.ieee.org/abstract/document/8793729) LiDAR measurements are integrated into a multi-view stereo pipeline for point cloud densification and tetrahedralization. (the lidar mapping algorithm it used seems terrible, [our algorithm](https://gggliuye.github.io/Study/PaperRead/sensor_fusion/#lliodar_image) is much much better)
+
 # 2020 <a name="l2020"></a>
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Point2Mesh: A Self-Prior for Deformable Meshes](https://arxiv.org/pdf/2005.11084.pdf) using DL method (Neural Self-Priors) iteratively shrink-wrap the initial mesh, leading to a watertight reconstruction (fits the point cloud).
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A 3D Surface Reconstruction Method for Large-Scale Point Cloud Data](https://www.hindawi.com/journals/mpe/2020/8670151/) nothing new.
+
+# 2019 <a name="l2019"></a>
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) a new Visibility Model : $(1-e^{d^{2}/2 \sigma^{2}})$.
+
+
+# 2018 <a name="l2018"></a>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Reconstructing Thin Structures of Manifold Surfaces by Integrating Spatial Curves](https://ieeexplore.ieee.org/document/8578403). use image based 3d curve reconstruction to enhance thin structures.
+
+* compute 3D curves based on the initialize-optimize-extend strategy.
+* Curve-conformed Delaunay Refinement to preserve thin structures: make sure Delaunay has kept all the segments of curves, and close region has finer triangles. Add sepcial energy to tetrahedra belonging to the same curve.
 
 # 2017 <a name="l2017"></a>
 
@@ -102,6 +122,8 @@ This paper's method contains the following steps:
 
 # Earlier <a name="learlier"></a>
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/>  [Superpixel meshes for fast edge-preserving surface reconstruction 2015](https://openaccess.thecvf.com/content_cvpr_2015/papers/Bodis-Szomoru_Superpixel_Meshes_for_2015_CVPR_paper.pdf) superpixels and second-order smoothness constraints. based on Single-view 3D mesh reconstruction: 2D base mesh extraction, Depth reconstruction, then point cloud and mesh.
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document) automated detection and regularization of primitive shapes from unorganized point clouds. And enforcing parallel and orthogonality constraints in the detection of planes. repeating the following:
 
 * uniformly distributed seeds, region grow, detect primitive shapes.
@@ -140,6 +162,12 @@ finding the relationships via clustering (i.e., clustering similar angles, equal
 <a name="globfit"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [GlobFit: Consistently Fitting Primitives by Discovering Global Relations 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/globFit/paper_docs/globFit_sigg11.pdf) assuming man-made engineering object, RANSAC -> Find global relationship -> alignment (merge close elements in the orientation space).
 Starting from an initial set of detected primitives, parallel, orthogonal, angle-equality, and distance-equality relation-ships are individually detected and carefully selected so as to not cause any relationship conflicts.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Multi-view reconstruction preserving weakly-supported surfaces 2011](https://ieeexplore.ieee.org/document/5995693). Some papers refer this as state-of-art.
+
+* [baseline (the following paper)](#lcolmapdelaunay) constant point weight.
+* point weight depends on the number of observations, make a filter strategy for the initial Delaunay. (**closer to the colmap implementation**)
+* a free-space-support weight function. compute all weights in the same way as the base-line approach. Then search for all large jumps and multiply the corresponding t-edge weights. (good for noisy data, need to test)
 
 <a name="colmapdelaunay"></a>
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
