@@ -1,11 +1,11 @@
 - title: City Road Mapping
   description: City level single camera based road mapping. Single camera image mapping + offline multi-collection optimization.
   img: mobili_mapping.gif
-  url: https://deepmirror.com/
+  url: https://gggliuye.github.io/WorkDeepMirror/index
 - title: LVIO Mapping
   description: Lidar, IMU, Image tightly coupled odometry
   img: lvio.png
-  url: https://www.bilibili.com/video/BV1E341137y5/
+  url: https://www.bilibili.com/video/BV1He411L7ti/
 - title: Lidar Mapping & Fusion
   description: Lidar, IMU, GNSS online mapping, multi-collection fusion & optimization.
   img: youfang_mapping.gif
