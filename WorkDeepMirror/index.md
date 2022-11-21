@@ -41,6 +41,8 @@ ins system (fully self-developed) :
 * solve the ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
 * keep 10% the points, with neglectable drop in localization benchmark accuracy.
 
+<p/><p/>
+
 ## Mine work 2020 - 2021
 
 ### A. lidar-imu-gps slam algorithm
@@ -50,7 +52,9 @@ ins system (fully self-developed) :
 * loop closure based on global descriptor of lidar frame.
 * using rs-lidar-16. cpu only, 20 FPS on nvidia-nx.
 
-[demo video](https://www.bilibili.com/video/BV14F411a75W?spm_id_from=333.999.0.0)
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=293924888&bvid=BV14F411a75W&cid=434510649&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 
 ### B. camera-chassis-gps slam algorithm
 
@@ -70,6 +74,10 @@ ins system (fully self-developed) :
 * database based on s2 blocks for saving pose graph.
 * cut the graph to regions to optimize.
 * mapped full Nansha.GuangZhou Area.
+
+<div align="center">    
+<img src="/assets/img/work/gz_mapping.jpg" width="75%"/>
+</div>
 
 ### D. car routing
 

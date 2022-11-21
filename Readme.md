@@ -1,7 +1,7 @@
 # gggliuye page
 
 
-# test locally
+# test locally (ubuntu)
 
 reference :
 
@@ -18,6 +18,21 @@ bundle install
 bundle exec jekyll serve
 ```
 
+# test locally (windows) :
+
+* download & install ruby+devkit https://rubyinstaller.org/downloads/
+* install jekyll:
+```
+gem install jekyll
+```
+* install bundle
+```
+bundle install
+```
+* start server
+```
+bundle exec jekyll serve
+```
 
 # markdown to pdf
 
