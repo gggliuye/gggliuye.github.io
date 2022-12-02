@@ -7,6 +7,7 @@ title: Other Specific Subjects
 * [ICP covariance](#l1)
 * [Point cloud generation](#l2)
 * [Line feature match](#l3)
+* [Neural Rendering](#l4)
 
 <p/><p/>
 
@@ -58,3 +59,23 @@ $$
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [impact of landmark parameterization on monocular ekf-slam with points and lines 2010](https://www.researchgate.net/publication/41182046_Impact_of_Landmark_Parametrization_on_Monocular_EKF-SLAM_with_Points_and_Lines) Project lines into camera image space.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [PL-SLAM: a Stereo SLAM System through the Combination of Points and Line Segments 2017](https://arxiv.org/abs/1705.09479). Using the orthonormal representation of lines, and 3d point representation of points, to process visual slam (basicly ORBSLAM2 structure). And the first paper to derivative the line jacobians with detail.
+
+# Neural Rendering <a name="l4"></a>
+
+[IBRNet: Learning Multi-View Image-Based Rendering 2021](https://arxiv.org/abs/2102.13090) operate without any scene-specific optimization or precomputed proxy geometry.
+
+[NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268)
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. volumn density is acculumated through the ray. Require a lengthy optimization process for each new scene.
+
+<div align="center">  
+  <pre class="mermaid">
+        graph LR
+        A[Pose] --> B[MLP encoder]
+        B --> C[FCxN]
+        C --> D[FC]
+        B --> D
+        D --> E[FCxN]
+        E --> F[RGB & sigma]
+  </pre>
+</div>
