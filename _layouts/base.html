@@ -24,17 +24,26 @@ common-js:
   <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2020 -->
   {% include head.html %}
 
+
+  <body>
+    <script type="module">
+      import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  </body>
+
+  
   <body>
 
     {% include gtm_body.html %}
-  
+
     {% include nav.html %}
 
     {{ content }}
 
     {% include footer.html %}
-  
+
     {% include footer-scripts.html %}
-  
+
   </body>
 </html>
