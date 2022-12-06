@@ -12,6 +12,15 @@ title: 3D Reconstruction
 * [2016: Survey](#l2016)
 * [Earlier](#learlier)
 
+### Point cloud generation
+
+* (local method) 3d grid (TSDF, ESDF) + matching cube. (especially [voxblox](#lvoxblox))
+* (global method) point cloud + possion reconstruction.
+* (<u>currently used in pipeline</u>) Delaunnay triangulation. (especially [Robust and efficient surface reconstruction from range data](#colmapdelaunay))
+* Deep learning method. (see more in [Deeplearning methods](/Study/PaperRead/subjects/#l3))
+   * use nerf to process rays.
+   * use implicit neural representation to solve geometry problems (SDF).
+
 <p/><p/>
 
 # 2021 <a name="l2021"></a>
@@ -59,6 +68,7 @@ This paper's method contains the following steps:
 
 # 2017 <a name="l2017"></a>
 
+<a name="lvoxblox"></a>
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning](https://arxiv.org/abs/1611.03631), [github code](https://github.com/ethz-asl/voxblox). state of art, TSDF, ESDF, and meshing. **Extremely efficient!**, wonderfully engineering art. (I had been using it for several years)
 
 # 2016 <a name="l2016"></a>
