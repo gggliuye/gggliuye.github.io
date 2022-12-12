@@ -82,6 +82,10 @@ my implementation, wonderful performance!
 <iframe src="//player.bilibili.com/player.html?aid=293924888&bvid=BV14F411a75W&cid=434510649&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ikd-Tree: An Incremental K-D Tree for Robotic Applications](https://arxiv.org/abs/2102.10808), [github](https://github.com/hku-mars/ikd-Tree). Dynamically insert/delete points, and re-balance the tree.
+
+* in my test, it is slower to search nearest then nanoflann version. while it does not require rebuild every update.
+
 
 # 2020 <a name="l2020"></a>
 
