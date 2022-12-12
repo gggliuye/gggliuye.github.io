@@ -12,12 +12,18 @@ working on slam/vlp system.
 
 ## Mine work 2022
 
+<p/><p/>
 ### A. INS fusion
 
 ins system (fully self-developed) :
 * based on extended error state kalman filter.
-* version 1. chassis (motion model) + gps. version 2. imu (motion model) + gps + chassis.
+* version 1. chassis (motion model) + gps. version 2. imu (motion model) + gps + chassis + vlp.
 
+<div align="center">    
+<img src="/assets/img/work/ins.gif" width="75%"/>
+</div>
+
+<p/><p/>
 ### B. VLIO algorithm
 
 * lidar-imu-image, based on image direct method (fully self-developed)
@@ -26,15 +32,17 @@ ins system (fully self-developed) :
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
+<p/><p/>
 ### C. pointcloud & mesh generation
 
 * TSDF GPU point cloud generation
 * Delaunay + ray casting + min-cut + post-processing mesh generation.
 
 <div align="center">    
-<img src="/assets/img/work/tsdf_pcl.jpg" width="95%"/>
+<img src="/assets/img/work/tsdf_pcl.jpg" width="90%"/>
 </div>
 
+<p/><p/>
 ### D. visual map summarization
 
 * the map graph analysis.
@@ -42,9 +50,9 @@ ins system (fully self-developed) :
 * keep 10% the points, with neglectable drop in localization benchmark accuracy.
 
 <p/><p/>
-
 ## Mine work 2020 - 2021
 
+<p/><p/>
 ### A. lidar-imu-gps slam algorithm
 
 * 2 versions (fully self-developed) : based on pose graph optimization (reference LIO) & based on extended error state kalman filter (reference FAST-LIO2).
@@ -56,6 +64,7 @@ ins system (fully self-developed) :
 <iframe src="//player.bilibili.com/player.html?aid=293924888&bvid=BV14F411a75W&cid=434510649&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
+<p/><p/>
 ### B. camera-chassis-gps slam algorithm
 
 * single camera semi-dense direct method (reference DSO) to mapping fastly the whole city road map.
@@ -67,6 +76,7 @@ ins system (fully self-developed) :
 <img src="/assets/img/work/image_mapping.jpg" width="100%"/>
 </div>
 
+<p/><p/>
 ### C. full map fusion
 
 * based on pose graph optimization. (have fused a whole district)
@@ -79,6 +89,7 @@ ins system (fully self-developed) :
 <img src="/assets/img/work/gz_mapping.jpg" width="75%"/>
 </div>
 
+<p/><p/>
 ### D. car routing
 
 * based on OSM lane map.
