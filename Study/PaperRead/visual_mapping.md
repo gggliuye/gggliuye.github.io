@@ -31,6 +31,8 @@ title: Visual Mapping
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [V-SLAM: Unconstrained Line-based SLAM Using Vanishing Points for Structural Mapping](https://arxiv.org/abs/2112.13515) Plucher coordinate line only has normal residual term, cannot fix degeneracy cases (line on epipolar plane). This paper introduces a new residual based on vanishing point measurements.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Pixel-Perfect Structure-from-Motion with Featuremetric Refinement](https://arxiv.org/abs/2108.08291). [github](github.com/cvg/pixel-perfect-sfm) (1) adjust the initial keypoint locations (use CNN dense features with direct alignment); (2) refine points and camera poses.
+
 # 2020 <a name="l2020"></a>
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/>  [hloc Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localization). [CVPR2020](https://www.visuallocalization.net/workshop/cvpr/2020/) winner.
