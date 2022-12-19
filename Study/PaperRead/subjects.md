@@ -4,9 +4,9 @@ title: Other Specific Subjects
 ---
 
 # Table of Contents
-* [1.ICP covariance](#l1)
-* [2.Line feature match](#l2)
-* [3.DL reconstruction](#l3): map from a 3D coordinate to properties of the scene at that location. The following division is only for making the doc clearer. they are actually very close to each other.
+1. [ICP covariance](#l1)
+2. [Line feature match](#l2)
+3. [DL reconstruction](#l3): map from a 3D coordinate to properties of the scene at that location. The following division is only for making the doc clearer. they are actually very close to each other.
     * [Neural Rendering](#l3.1) : the objective is mostly generating images.
     * [DL SDF](#l3.2) : the objective is the SDF (signed distance field).
     * [DL MVS](#l3.3)
