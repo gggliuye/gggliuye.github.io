@@ -81,6 +81,9 @@ $$
 * step 2. model the scene as the union of shared and image-dependent elements.
 * [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
 
+<div align="center">    
+<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="95%"/>
+</div>
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
 
