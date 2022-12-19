@@ -58,6 +58,8 @@ $$
 <a name="l3.1"></a>
 ## 3.1 Neural Rendering
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LENS: Localization enhanced by NeRF synthesis](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
 * Nerf : can cause excessive blurring and aliasing.
 * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
@@ -72,10 +74,12 @@ $$
 * step 2. [extracted features, direction] → [RGB weights, volume density]
 * <u>Cons</u>: Need additional feature extraction module. No 3d points location as input so that converting to 3d mesh is tricky.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
+<a name="lnerfw"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
 
 * step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
 * step 2. model the scene as the union of shared and image-dependent elements.
+* [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap.
 
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
