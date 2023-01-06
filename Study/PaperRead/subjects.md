@@ -4,9 +4,9 @@ title: Other Specific Subjects
 ---
 
 # Table of Contents
-* [1.ICP covariance](#l1)
-* [2.Line feature match](#l2)
-* [3.DL reconstruction](#l3): map from a 3D coordinate to properties of the scene at that location. The following division is only for making the doc clearer. they are actually very close to each other.
+1. [ICP covariance](#l1)
+2. [Line feature match](#l2)
+3. [DL reconstruction](#l3): map from a 3D coordinate to properties of the scene at that location. The following division is only for making the doc clearer. they are actually very close to each other.
     * [Neural Rendering](#l3.1) : the objective is mostly generating images.
     * [DL SDF](#l3.2) : the objective is the SDF (signed distance field).
     * [DL MVS](#l3.3)
@@ -58,6 +58,8 @@ $$
 <a name="l3.1"></a>
 ## 3.1 Neural Rendering
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LENS: Localization enhanced by NeRF synthesis](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
 * Nerf : can cause excessive blurring and aliasing.
 * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
@@ -72,11 +74,16 @@ $$
 * step 2. [extracted features, direction] → [RGB weights, volume density]
 * <u>Cons</u>: Need additional feature extraction module. No 3d points location as input so that converting to 3d mesh is tricky.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
+<a name="lnerfw"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
 
 * step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
 * step 2. model the scene as the union of shared and image-dependent elements.
+* [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
 
+<div align="center">    
+<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="95%"/>
+</div>
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
 
@@ -99,7 +106,7 @@ $$
 
 * Need times to train for each data session.
 * Train LLFF dataset (“forward-facing” scenes) in “normalized device coordinates” (NDC) space; large rotation scene in conventional 3D world coordinates.
-* [google jaxnerf implementation](https://github.com/google-research/google-research/tree/master/jaxnerf)
+* [google jaxnerf implementation](https://github.com/google-research/google-research/tree/master/jaxnerf), [see here with my tests](https://github.com/yeliu-deepmirror/nerf).
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
 
