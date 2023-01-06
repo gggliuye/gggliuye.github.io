@@ -35,7 +35,7 @@ ins system (fully self-developed) :
 * work with guangqi AR-HUD & VR. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)
 
 <div align="center">    
-<img src="/assets/img/work/gq_dm.jpg" width="75%"/>
+<img src="/assets/img/work/dm_gq.jpeg" width="75%"/>
 </div>
 
 <p/><p/>

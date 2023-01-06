@@ -13,7 +13,8 @@ title: Visual Mapping
 
 <p/><p/>
 
-# 2022 <a name="l2022"></a>
+<a name="l2022"></a>
+# 2022
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DM-VIO: Delayed Marginalization Visual-Inertial Odometry](https://arxiv.org/abs/2201.04114) DSO-IMUS
 
@@ -23,7 +24,8 @@ title: Visual Mapping
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Long-term Visual Map Sparsification with Heterogeneous GNN](https://arxiv.org/abs/2203.15182) use GNN to substitute the ILP method. compare with the result using [Keep it brief (paper)](https://ieeexplore.ieee.org/document/7353722/) , [my notes here (better take a look)](#lkeepbrief) for map summarization.
 
-# 2021 <a name="l2021"></a>
+<a name="l2021"></a>
+# 2021
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [GVINS: Tightly Coupled GNSS-Visual-Inertial Fusion for Smooth and Consistent State Estimation](https://github.com/HKUST-Aerial-Robotics/GVINS) It offers a complete model of GPS measurement. Makes fusion with GPS very solid.
 
@@ -33,7 +35,22 @@ title: Visual Mapping
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Pixel-Perfect Structure-from-Motion with Featuremetric Refinement](https://arxiv.org/abs/2108.08291). [github](github.com/cvg/pixel-perfect-sfm) (1) adjust the initial keypoint locations (use CNN dense features with direct alignment); (2) refine points and camera poses.
 
-# 2020 <a name="l2020"></a>
+<a name="l2020"></a>
+# 2020
+
+<a name="lrotationaverage"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Shonan Rotation Averaging: Global Optimality by Surfing SO(p)n](https://arxiv.org/abs/2008.02737). gives global optimal (which ordinary LM cannot give).
+
+* [SE-Sync](#lmstaircase) uses truncated-Newton Riemannian optimization on Stiefel manifold, which cannot be done in common libraries (ceres, g2o, gstam). This paper uses variables in rotation manifold, then project to Stiefel manifold. $Q=[S, V]$, $Q\in SO(p), S\in St(d, p)$. then we have $S=\pi(Q) = QP$, $P=[I_{d}; 0]$.
+* Then the problem could be re-written to :
+
+$$
+p^{*} = \min_{Q\in SO(r)^{n}} \sum_{(i, j)\in E}\kappa_{ij} tr(Q_{i}P\tilde{R}_{ij}P^{T}Q_{j}^{T})
+$$
+
+
+* used in <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [gtsfm](https://github.com/borglab/gtsfm) (along with [translation averaging](#ltranslationaverage)), a different mapping pipeline from colmap-sfm. [gstam implementation](https://github.com/borglab/gtsam/blob/a0d64a9448b2bf4deb5073b3860a39c6b9fdd4dd/gtsam/sfm/ShonanAveraging.h)
+
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/>  [hloc Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localization). [CVPR2020](https://www.visuallocalization.net/workshop/cvpr/2020/) winner.
 
@@ -66,7 +83,8 @@ title: Visual Mapping
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/>  [Attention Guided Camera Localization](https://github.com/BingCS/AtLoc). Roughly speaking, [MapNet 2018](https://github.com/NVlabs/geomapnet) with attention.
 
-# 2019 <a name="l2019"></a>
+<a name="l2019"></a>
+# 2019
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [OANet](https://github.com/zjhthu/OANet) Learning Two-View Correspondences and Geometry Using Order-Aware Network. In short, GNN based feature matches outlier rejection.
 
@@ -76,7 +94,8 @@ title: Visual Mapping
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Large-scale, real-time visual-inertial localization revisited](https://arxiv.org/abs/1907.00338) review of different methods, finally use [Keep it brief (paper)](https://ieeexplore.ieee.org/document/7353722/) , [my notes here (better take a look)](#lkeepbrief) for map summarization.
 
-# 2018 <a name="l2018"></a>
+<a name="l2018"></a>
+# 2018
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [ToDayGAN](https://arxiv.org/abs/1809.09767). Use GAN to transform night image to bright day, then use the transformed image for image retrieval task.
 
@@ -84,10 +103,60 @@ title: Visual Mapping
 * ANMS(Adaptive non-maximal suppression) based on Tree Data Structure (TDS).
 * Suppression via Square Covering (SSC)
 
-# Before <a name="lbefore"></a>
+<a name="lbefore"></a>
+# Before
 ----------------
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Keep it brief: Scalable creation of compressed localization maps](https://ieeexplore.ieee.org/document/7353722/) use ILP (integral linear programming) to solve the summerization problem. (worth try) <a name="lkeepbrief"></a>
+<a name="lmstaircase"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [SE-Sync: A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group 2017](https://arxiv.org/abs/1612.07386), [github code](https://github.com/david-m-rosen/SE-Sync).
+Produce certifiably globally optimal solutions of the special Euclidean synchronization problem, using semidefinite relaxation. **This is the mathematic basis for another way to build visual map, instead of standard COLMAP--bundle adjustment SFM.**
+
+* <u>Problem original (maximum-likelihood estimation for SE(d) synchronization)</u> the most straight forward formule of the problem:
+
+$$
+p^{*}_{MLE} = \min_{t_{i} \in R^{d}, R_{i} \in SO(d)} \sum_{(i, j) \in E} \kappa_{ij} \| R_{j} - R_{i} \tilde{R}_{ij} \|
++ \tau_{ij}\| t_{j} - t_{i} - R_{i}\tilde{t}_{ij} \|_{2}^{2}
+$$
+
+* <u>Problem (Simplified maximum-likelihood estimation)</u> simplified version of the upper problem (see the paper for $\tilde{Q}$, and if we solve [rotation average problem](#lrotationaverage), we will have $\tilde{Q} = L(\tilde{G}^{rho})$), then t could be derived directly from optimal R*:
+
+$$
+p^{*}_{MLE} = \min_{R\in SO(d)^{n}} tr(\tilde{Q}R^{T}R)
+$$
+
+* <u>Problem relaxed (Dual semidefinite relaxation for SE(d) synchronization)</u> (see [Semidefinite Programming](https://cvx-learning.readthedocs.io/en/latest/SDP/Index.html)), solve this problem, then factorize Z* to get R* (proven by theorem in paper):
+
+$$
+p^{*}_{SDP} = \min_{Z\in Sym(dn)} tr(\tilde{Q}Z), s.t. Z \succeq 0
+$$
+
+* Solve the upper relaxed problem by a further simplified <u>unconstrained</u> form:
+    * hard to solve by general interior-point methods, since Z is high dimensional.
+    * low-rank structure : solve a low-rank $T\in R^{r \times dn}$, s.t. $Z=Y^{T}Y$.
+    * in [Stiefel manifold](https://en.wikipedia.org/wiki/Stiefel_manifold) : $Y \triangleq (Y_{1}, ..., Y_{n}), Y_{i} \in St(d, r)$.
+    * decompose $\tilde{Q}$ into sparse matrices.
+
+$$
+p^{*}_{SDPLR} = \min_{Y \in St(d, r)^{n}} tr(\tilde{Q}Y^{T}Y)
+$$
+
+* Riemannian Staircase, truncated-Newton Riemannian optimization. [Global rates of convergence for nonconvex optimization on manifolds 2016](https://arxiv.org/abs/1605.08101).
+
+```
+function RiemannianStaircase(Y):
+  for r = r0, ..., dn + 1 do:
+    Starting at Y, apply a Riemannian optimization to identify
+    a second-order critical point Y* in St(d, r)^n of the problem.
+    if rank(Y*) < r then:
+      return Y*
+    else
+      Set Y = (Y*, 0^(1*dn))
+    end if
+  end for
+end function
+```
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Keep it brief: Scalable creation of compressed localization maps 2015](https://ieeexplore.ieee.org/document/7353722/) use ILP (integral linear programming) to solve the summerization problem. (worth try) <a name="lkeepbrief"></a>
 
 <div align="center">    
 <img src="/assets/img/paperread/vision_ilp.png" width="50%"/>
@@ -97,3 +166,6 @@ My test the upper method, see [an simple example usage in github with ortools](h
 * use [google ortools](https://developers.google.com/optimization) to solve the ILP problem.
 * use [SNAP](http://snap.stanford.edu/proj/snap-www/) to analysis the vision map graph.
 * tried this method in our benchmarks (keep 10% the map points, mean image observations drop from 1300 to 200), the localization result dropped within 10% (90% to 80%).
+
+<a name="ltranslationaverage"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust Global Translations with 1DSfM 2014](https://www.cs.cornell.edu/projects/1dsfm/docs/1DSfM_ECCV14.pdf)
