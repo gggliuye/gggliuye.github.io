@@ -16,16 +16,29 @@ title: Visual Mapping
 <a name="l2022"></a>
 # 2022
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DM-VIO: Delayed Marginalization Visual-Inertial Odometry](https://arxiv.org/abs/2201.04114) DSO-IMUS
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [NICE-SLAM: Neural Implicit Scalable Encoding for SLAM](https://arxiv.org/abs/2112.12130), [github](https://github.com/cvg/nice-slam). a hierarchical, grid-based neural implicit encoding, multi-resolution scalable solution akin to [iMAP](https://edgarsucar.github.io/iMAP/), intuition similar to [NERF](../subjects/#l3.1).
 
-* Multi-stage IMU initializer. Dynamic photometric weight (decrease weight for overall bad image)
-* Delayed marginalization (marginalization cannot be undone, but it can be delayed)
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DM-VIO: Delayed Marginalization Visual-Inertial Odometry](https://arxiv.org/abs/2201.04114) a better DSO-IMU, [github](https://github.com/lukasvst/dm-vio).
 
+* Multi-stage IMU initializer. Dynamic photometric weight (decrease weight for overall bad image).
+* Pose graph bundle adjustment.
+* A second factor graph for delayed marginalization (marginalization cannot be undone, but it can be delayed).
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DSOL: A Fast Direct Sparse Odometry Scheme](https://arxiv.org/abs/2203.08182), [github](https://github.com/versatran01/dsol). Algorithmic and implementation enhancements of DSO, focus on the <u>stereo version</u>.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Long-term Visual Map Sparsification with Heterogeneous GNN](https://arxiv.org/abs/2203.15182) use GNN to substitute the ILP method. compare with the result using [Keep it brief (paper)](https://ieeexplore.ieee.org/document/7353722/) , [my notes here (better take a look)](#lkeepbrief) for map summarization.
 
 <a name="l2021"></a>
 # 2021
+
+<a name="lgtsfm"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [gtsfm : Georgia Tech Structure from Motion](https://github.com/borglab/gtsfm), global SFM pipeline.
+
+* Estimate [Cycle Consistent View Graph](https://github.com/borglab/gtsfm/blob/master/gtsfm/view_graph_estimator/cycle_consistent_rotation_estimator.py#L47): remove inconsistent triplets.
+* Solve by global method :
+    * solve camera rotation using [Shonan Rotation Averaging](#lrotationaverage).
+    * solve camera translations using [Translation Averaging](#ltranslationaverage).
+* Process a full BA. then MVS.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [GVINS: Tightly Coupled GNSS-Visual-Inertial Fusion for Smooth and Consistent State Estimation](https://github.com/HKUST-Aerial-Robotics/GVINS) It offers a complete model of GPS measurement. Makes fusion with GPS very solid.
 
@@ -49,7 +62,7 @@ p^{*} = \min_{Q\in SO(r)^{n}} \sum_{(i, j)\in E}\kappa_{ij} tr(Q_{i}P\tilde{R}_{
 $$
 
 
-* used in <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [gtsfm](https://github.com/borglab/gtsfm) (along with [translation averaging](#ltranslationaverage)), a different mapping pipeline from colmap-sfm. [gstam implementation](https://github.com/borglab/gtsam/blob/a0d64a9448b2bf4deb5073b3860a39c6b9fdd4dd/gtsam/sfm/ShonanAveraging.h)
+* used in <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [gtsfm](#lgtsfm) (along with [translation averaging](#ltranslationaverage)), a different mapping pipeline from colmap-sfm. [gstam implementation](https://github.com/borglab/gtsam/blob/a0d64a9448b2bf4deb5073b3860a39c6b9fdd4dd/gtsam/sfm/ShonanAveraging.h)
 
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/>  [hloc Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localization). [CVPR2020](https://www.visuallocalization.net/workshop/cvpr/2020/) winner.
@@ -168,4 +181,17 @@ My test the upper method, see [an simple example usage in github with ortools](h
 * tried this method in our benchmarks (keep 10% the map points, mean image observations drop from 1300 to 200), the localization result dropped within 10% (90% to 80%).
 
 <a name="ltranslationaverage"></a>
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust Global Translations with 1DSfM 2014](https://www.cs.cornell.edu/projects/1dsfm/docs/1DSfM_ECCV14.pdf)
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust Global Translations with 1DSfM 2014](https://www.cs.cornell.edu/projects/1dsfm/docs/1DSfM_ECCV14.pdf), depends on the relative directions between camera poses.
+
+* <u>Problem Origin</u> (end point j could be <u>a camera or a point</u>, using squared chordal distance):
+
+$$
+{t_{k}}^{*} = \min_{t_{k} \in R^{3}} \sum_{(i, j)\in E} d_{ch}(\hat{t}_{ij}, \frac{t_{j} - t_{i}}{\|t_{j} - t_{i} \|})^{2}
+$$
+
+* Outlier removal. project the problem into 1d space (e.g. into x axis line space) -> combinatorial ordering problem - MINIMUM FEEDBACK ARC SET problem. Solve by a greedy method.
+* Solve the problem using [ceres](http://ceres-solver.org/), generally converged well.
+    * Robust loss : Huber fits better than Cauchy.
+    * Using iterative Schur with jacobi preconditioning (PCG).
+    * Reweight camera-point edge weight by ratio, to make them less influential.
+* [GTSAM implementation](https://github.com/borglab/gtsam/blob/develop/gtsam/sfm/TranslationRecovery.h), [usage in GTSFM](https://github.com/borglab/gtsfm/blob/master/gtsfm/averaging/translation/averaging_1dsfm.py)
