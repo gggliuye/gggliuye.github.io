@@ -10,6 +10,8 @@ title: Other Specific Subjects
     * [Neural Rendering](#l3.1) : the objective is mostly generating images.
     * [DL SDF](#l3.2) : the objective is the SDF (signed distance field).
     * [DL MVS](#l3.3)
+4. [Autonomous Driving](#l4)
+5. [Omnidirectional Camera](#l5)
 
 <p/><p/>
 
@@ -58,11 +60,17 @@ $$
 <a name="l3.1"></a>
 ## 3.1 Neural Rendering
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LENS: Localization enhanced by NeRF synthesis](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LENS: Localization enhanced by NeRF synthesis 2021](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
 * Nerf : can cause excessive blurring and aliasing.
 * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Depth-supervised NeRF: Fewer Views and Faster Training for Free 2021](https://www.cs.cmu.edu/~dsnerf/) with probabilisitic COLMAP depth supervision. [github loss](https://github.com/dunbar12138/DSNeRF/blob/main/loss.py):
+```
+loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * err)) * dists
+```
+(I made this update with [NERF PL](https://github.com/yeliu-deepmirror/nerf_pl), no much improvement found. But I used linear loss, since our depths are from relible lidar. **TODO**)
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
 
@@ -150,6 +158,34 @@ $$
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_DeepSDF_Learning_Continuous_Signed_Distance_Functions_for_Shape_Representation_CVPR_2019_paper.html) DeepSDF network outputs SDF value at a 3D query location. Shape completion (auto-decoding) takes considerably more time during inference. [github](https://github.com/facebookresearch/DeepSDF).
 
 <a name="l3.3"></a>
-## 3.2 DL MVS
+## 3.3 DL MVS
 
-[PatchmatchNet: Learned Multi-View Patchmatch Stereo](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_PatchmatchNet_Learned_Multi-View_Patchmatch_Stereo_CVPR_2021_paper.pdf), [github](https://github.com/FangjinhuaWang/PatchmatchNet)
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [PatchmatchNet: Learned Multi-View Patchmatch Stereo](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_PatchmatchNet_Learned_Multi-View_Patchmatch_Stereo_CVPR_2021_paper.pdf), [github](https://github.com/FangjinhuaWang/PatchmatchNet)
+
+<a name="l4"></a>
+# 4. Autonomous Driving
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [High-Definition Map Generation Technologies For Autonomous Driving 2022](https://arxiv.org/abs/2206.05400)
+
+<div align="center">    
+<img src="/assets/img/paperread/hd_map.png" width="50%"/>
+</div>
+
+* Data collection methods.
+* Point cloud map generation methods. Better see [Lidar mapping algorithm papers](../lidar_mapping).
+* Feature extraction methods for HD maps.
+    * Road Network Extraction:
+        * 2D Aerial Images : segmentation-based, iterative graph growing, and graph-generation methods.
+        * 3D Point Clouds (using segmentation).
+        * Sensor Fusion Methods : use both pcls, (aerial/car) images, GPS trajectories.
+    * Road Markings Extraction : 2D (aerial/car) images or 3D point clouds (bottom-up method and top-down method).
+    * Pole-like Objects Extraction: usually based on segmentation and classification on MLS 3D point clouds
+* Framework for HD maps:
+    * Lanelet2 : physical layer (points and lines), relational layer, and topological layer.
+    * OpenDRIVE : reference line/road (various geometric primitives), lane, and features.
+    * Apollo Maps : uses points. Road, Intersection, Traffic signal, Logical relationship & Others.
+
+<a name="l5"></a>
+# 5. Omnidirectional Camera
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/>[Single View Point Omnidirectional Camera Calibration from Planar Grids 2007](https://hal.inria.fr/hal-00767674/file/omni_calib.pdf) (opencv fisheye based on this paper).

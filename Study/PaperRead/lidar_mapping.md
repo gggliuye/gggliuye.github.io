@@ -14,7 +14,8 @@ title: Lidar Mapping
 
 <p/><p/>
 
-# 2022 <a name="l2022"></a>
+<a name="l2022"></a>
+# 2022
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Scale-Variant Robust Kernel Optimization for Non-linear Least Squares Problems](https://arxiv.org/pdf/2206.10305.pdf) (applied in LIO system to prevent outliers) use [Generalized loss function](#lgeneral_loss_fcn) in LIO slam system. As the paper itself said, it does not has obvious improvement on LIO system. *I had tested different robust loss functions also in FAST-LIO system, no improvement found.*
 
@@ -24,7 +25,15 @@ LITERATURE REVIEW (robust estimation):
 * loop closures: [Dynamic Covariance Scaling](#ldyns), [AEROS](#lareos).
 
 
-# 2021 <a name="l2021"></a>
+<a name="l2021"></a>
+# 2021
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/>[LT-mapper: A Modular Framework for LiDAR-based Lifelong Mapping](https://arxiv.org/pdf/2107.07712.pdf), [github](https://github.com/gisbi-kim/lt-mapper). multi-session mapping focus on environmental changes by alignment error.
+
+* map fusion using [Scan Context](#lisc) and radius search.
+* us [Removert](#lRemovert) for High Dynamic (HD) Points Removal & Low Dynamic (LD) Change Detection.
+* PD (positif diff) removal & ND (negatif diff) merging. (Handle long-term scene change).
+* (I think a well designed ray tracing could solve all the problems)
 
 <a name="lareos"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [AEROS: AdaptivE RObust least-Squares for Graph-Based SLAM](https://arxiv.org/pdf/2110.02018.pdf) modelled all loop closures using robust cost functions with a single adaptive parameter and improved back end optimization. Take advantage of the [Black-Rangarajan duality](lbrduality) to convert the optimization problem into an **Iteratively Reweighted Least Squares** (IRLS) problem instead (similar to [robust loss function in ceres](http://ceres-solver.org/nnls_modeling.html#lossfunction)).
@@ -86,20 +95,26 @@ my implementation, wonderful performance!
 
 * in my test, it is slower to search nearest then nanoflann version. while it does not require rebuild every update.
 
-
-# 2020 <a name="l2020"></a>
+<a name="l2020"></a>
+# 2020
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM) Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping. In short, add imu pre-integration and sliding window to LOAM.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [OverlapNet: Loop Closing for LiDAR-based SLAM](http://www.roboticsproceedings.org/rss16/p009.pdf). Top-down 2d view of lidar scan (with other info) for predict overlap rate and yaw.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ISC (Intensity Scan Context](https://arxiv.org/abs/2003.05656) Coding Intensity and Geometry Relations for Loop Closure Detection. Encode lidar frame using geometry and intensity info (project intensity into ring distributed subspaces). Simple algorithm, shows wonderful result in experiment.
+<a name="lisc"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [ISC (Intensity Scan Context](https://arxiv.org/abs/2003.05656) Coding Intensity and Geometry Relations for Loop Closure Detection. Encode lidar frame using geometry and intensity info (project intensity into ring distributed subspaces). Simple algorithm, shows wonderful result in experiment.
 
 <div align="center">    
 <img src="/assets/img/paperread/isc_test.png" width="50%"/>
 </div>
 
-# 2019 <a name="l2019"></a>
+<a name="lRemovert"></a>
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images](http://ras.papercept.net/images/temp/IROS/files/0855.pdf)
+(1) compare query and map range image to get dynamic point cloud. (2) process the division iteratively.
+
+<a name="l2019"></a>
+# 2019
 
 <a name="lgeneral_loss_fcn"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A General and Adaptive Robust Loss Function](https://arxiv.org/abs/1701.03077) enables the training of neural networks in which the robustness of the loss auto-matically adapts itself during training.
@@ -108,7 +123,8 @@ my implementation, wonderful performance!
 <img src="/assets/img/paperread/general_loss_fcn.jpg" width="95%"/>
 </div>
 
-# 2018 <a name="l2018"></a>
+<a name="l2018"></a>
+# 2018
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Efficient Surfel-Based SLAM (SuMa) using 3D Laser Range Data in Urban Environments](http://www.roboticsproceedings.org/rss14/p16.pdf) Depth image based dense direct odometry : use the projective data association between the current scan and a rendered model view from that surfel map.
 
@@ -125,8 +141,8 @@ my implementation, wonderful performance!
 <img src="/assets/img/paperread/filter_icp.png" width="60%"/>
 </div>
 
-
-# 2017 <a name="l2017"></a>
+<a name="l2017"></a>
+# 2017
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [On the performance of metrics to predict quality in point cloud representations](https://core.ac.uk/download/pdf/148032116.pdf). Using absolute category rating (ACR) and able to perceive distortions.
 
@@ -134,8 +150,8 @@ my implementation, wonderful performance!
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [2D SLAM Quality Evaluation Methods](https://arxiv.org/pdf/1708.02354.pdf). The proportion of occupied and free cells (check wall blurry). The amount of corners and enclosed areas in a map.
 
-
-# Earlier <a name="lbefore"></a>
+<a name="lbefore"></a>
+# Earlier
 
 <a name="lmestimate-ell"></a>
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Self-tuning M-estimators 2015](https://europa2.informatik.uni-freiburg.de/files/agamennoni15icra.pdf). Robust least squares is equivalent to maximum-likelihood estimation with elliptically contoured data. One of the advantages of this interpretation is that it enables us to transform the original, non-convex problem into a series of iteratively re-weighted convex sub-problems. This is accomplished via the EM algorithm (Expectation-Maximization).
