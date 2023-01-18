@@ -144,6 +144,12 @@ my implementation, wonderful performance!
 <a name="l2017"></a>
 # 2017
 
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Distributed Very Large Scale Bundle Adjustment by Global Camera Consensus](https://openaccess.thecvf.com/content_ICCV_2017/papers/Zhang_Distributed_Very_Large_ICCV_2017_paper.pdf)
+
+* [ADMM](https://cvx-learning.readthedocs.io/en/latest/ADMM/ADMM.html) consensus both on camera poses and map points.
+* self-adaption penality & over-relaxation to improve convergence rate.
+* graph cut camera-point visility graph to distribute problem.
+
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [On the performance of metrics to predict quality in point cloud representations](https://core.ac.uk/download/pdf/148032116.pdf). Using absolute category rating (ACR) and able to perceive distortions.
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [On Subjective and Objective Quality Evaluation of Point Cloud Geometry](https://ieeexplore.ieee.org/document/7965681). Point cloud quality metric using DSIS (double-stimulus impairement scale) methodology. Showing that current state-of-the-art objective metrics (point-to-point, point-to-plane or point-to-mesh) do not predict well visual quality, especially under typical distortions such as compression.

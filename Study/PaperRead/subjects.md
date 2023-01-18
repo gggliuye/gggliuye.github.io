@@ -185,7 +185,19 @@ $$
     * OpenDRIVE : reference line/road (various geometric primitives), lane, and features.
     * Apollo Maps : uses points. Road, Intersection, Traffic signal, Logical relationship & Others.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Computing Systems for Autonomous Driving: State-of-the-Art and Challenges 2020](https://arxiv.org/pdf/2009.14349.pdf). focus on hardware side.
+
+<div align="center">    
+<img src="/assets/img/paperread/car_compute_system.png" width="75%"/>
+</div>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Towards End-to-End Lane Detection: an Instance Segmentation Approach 2018](https://arxiv.org/abs/1802.05591), [github](https://github.com/MaybeShewill-CV/lanenet-lane-detection) lane segmentation.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Computer Recognition of Roads from Satellite Pictures 1976](https://www.academia.edu/36011344/Computer_Recognition_of_Roads_from_Satellite_Pictures)
+
 <a name="l5"></a>
 # 5. Omnidirectional Camera
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/>[Single View Point Omnidirectional Camera Calibration from Planar Grids 2007](https://hal.inria.fr/hal-00767674/file/omni_calib.pdf) (opencv fisheye based on this paper).
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Single View Point Omnidirectional Camera Calibration from Planar Grids 2007](https://hal.inria.fr/hal-00767674/file/omni_calib.pdf) (opencv fisheye model based on this paper).
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [A Multiple-Camera System Calibration Toolbox Using A Feature Descriptor-Based Calibration Pattern](https://people.inf.ethz.ch/pomarc/pubs/LiIROS13a.pdf) ([opencv calibration](https://docs.opencv.org/4.x/dd/d12/tutorial_omnidir_calib_main.html) based on this paper).
