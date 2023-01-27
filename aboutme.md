@@ -23,14 +23,15 @@ What else do you need?
 <img src="/assets/img/nju.jpg"/>
 </div>
 
-**Nanjing University**, which had the best Physics department in China. In the Physics Department, National plan of basic disciplines of top-notch training (基础学科拔尖计划) (consist of the students **ranked top 30** out of about 250) with scholarship.
+**Nanjing University**, in <u>the best Physics department in China</u> (at the year 2012). National plan of basic disciplines of top-notch training (基础学科拔尖计划) (consist of the students **ranked top 30** out of about 250) with scholarship.
 
 <div align="center">    
 <img src="/assets/img/ip-paris.jpg"/>
 </div>
 
-**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (University Paris Saclay), [ENSTA](http://www.ensta-paris.fr/cn/node/1214), Awarded the China Scholarship Council’s (CSC) scholarship.
+**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (best Grand Ecole in France), <u>Diplôme d'ingénieur</u> (much harder than Master’s Degree), Awarded the China Scholarship Council’s (CSC) scholarship.
 
+<!-- [ENSTA](http://www.ensta-paris.fr/cn/node/1214) -->
 
 <!--
 ## My post-School Study
