@@ -34,6 +34,7 @@ title: Visual Mapping
 <a name="lgtsfm"></a>
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [gtsfm : Georgia Tech Structure from Motion](https://github.com/borglab/gtsfm), global SFM pipeline.
 
+* [Union-Find approach](https://hal-enpc.archives-ouvertes.fr/hal-00769267/file/moulon_monasse_featureTracking_CVMP12.pdf) for feature tracking.
 * Estimate [Cycle Consistent View Graph](https://github.com/borglab/gtsfm/blob/master/gtsfm/view_graph_estimator/cycle_consistent_rotation_estimator.py#L47): remove inconsistent triplets.
 * Solve by global method :
     * solve camera rotation using [Shonan Rotation Averaging](#lrotationaverage).
@@ -168,6 +169,11 @@ function RiemannianStaircase(Y):
   end for
 end function
 ```
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Efficient Non-Consecutive Feature Tracking for Robust Structure-From-Motion 2016](https://jiaya.me/papers/sfm_tip16.pdf), [github](https://github.com/zju3dv/ENFT). during with tracking fail in video sfm: consecutive point tracking (multi-homographies match) and non-consecutive track matching.
+
+* <u>in video sfm, we better take advantage of feature tracking instead of pure descriptor based matching.</u> so we could have more long track
+* segment-based ba, to handle large problem.
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Keep it brief: Scalable creation of compressed localization maps 2015](https://ieeexplore.ieee.org/document/7353722/) use ILP (integral linear programming) to solve the summerization problem. (worth try) <a name="lkeepbrief"></a>
 

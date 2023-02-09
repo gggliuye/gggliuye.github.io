@@ -1,32 +1,36 @@
-- title: City Road Mapping
-  description: City level single camera based road mapping. Single camera image mapping + offline multi-collection optimization.
-  img: mobili_mapping.gif
-  url: https://gggliuye.github.io/WorkDeepMirror/index
+- title: Philosophy
+  description: My Philosophy learning & reading note.
+  img: philo.jpg
+  url: ./Philosophy/index
+- title: Lidar Mapping & Fusion
+  description: LVIO Mapping + offline multi-session fusion & optimization.
+  img: youfang_mapping.gif
+  url: ./WorkDeepMirror/index
 - title: LVIO Mapping
   description: Lidar, IMU, Image tightly coupled odometry
-  img: lvio.png
+  img: vlio.jpg
   url: https://www.bilibili.com/video/BV1He411L7ti/
-- title: Lidar Mapping & Fusion
-  description: Lidar, IMU, GNSS online mapping, multi-collection fusion & optimization.
-  img: youfang_mapping.gif
-  url: https://gggliuye.github.io/WorkDeepMirror/index
-- title: Single Image Mapping
-  description: Image, IMU, Chassis, GNSS fused mapping
+- title: City Level Mapping
+  description: VIG Mapping + offline multi-session fusion & optimization.
+  img: mobili_mapping.gif
+  url: ./WorkDeepMirror/index
+- title: VIG Mapping
+  description: Image, IMU, Chassis, GNSS fused mapping.
   img: image_mapping.png
   url: https://gggliuye.github.io/WorkDeepMirror/index
-- title: Server Map AR
-  description: Achieve Android AR application with a large prebuilt visual/lidar map.
-  img: ar_indoor_tiger.PNG
+- title: Server Localization AR
+  description: Localization in a large prebuilt visual/lidar map with single image & AR application.
+  img: vlp_image.jpg
   url: https://www.bilibili.com/video/BV1aV41127bo
 - title: Marker Image AR
-  description: Achieve Android AR application that tracking multiple planner images. With an demo of AR piano show (use a cube object for tracking).
+  description: Multi-marker detection and localization with single image & AR application.
   img: ar_marker.PNG
   url: https://www.bilibili.com/video/BV1Ma4y1t7oD
-- title: SLAM AR
-  description: Achieve Android AR application based on ORB-SLAM2 system (modified version).
+- title: VI-SLAM AR
+  description: On board visual-imu slam system & AR application.
   img: ar_slam.PNG
   url: https://www.bilibili.com/video/BV1Xk4y1d7ap
 - title: Web AR
-  description: An optical flow test, and an image marker tracker.
+  description: Marker detection and localization based JavaScript AR application.
   img: web_ar.PNG
   url: https://gggliuye.github.io/opencv_js/index

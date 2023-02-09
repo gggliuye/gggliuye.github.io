@@ -156,6 +156,8 @@ my implementation, wonderful performance!
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [2D SLAM Quality Evaluation Methods](https://arxiv.org/pdf/1708.02354.pdf). The proportion of occupied and free cells (check wall blurry). The amount of corners and enclosed areas in a map.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Detecting glass in simultaneous localisation and mapping](https://www.sciencedirect.com/science/article/abs/pii/S0921889015302670), used in [Cartographer glass](https://arxiv.org/pdf/2212.08633v1.pdf). The received rays’ intensity will have the highest strength when the robot is receiving laser rays from the normal incident angle.
+
 <a name="lbefore"></a>
 # Earlier
 

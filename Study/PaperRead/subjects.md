@@ -4,8 +4,8 @@ title: Other Specific Subjects
 ---
 
 # Table of Contents
-1. [ICP covariance](#l1)
-2. [Line feature match](#l2)
+1. [ICP Covariance](#l1)
+2. [Line Feature Mapping](#l2)
 3. [DL reconstruction](#l3): map from a 3D coordinate to properties of the scene at that location. The following division is only for making the doc clearer. they are actually very close to each other.
     * [Neural Rendering](#l3.1) : the objective is mostly generating images.
     * [DL SDF](#l3.2) : the objective is the SDF (signed distance field).
@@ -16,7 +16,7 @@ title: Other Specific Subjects
 <p/><p/>
 
 <a name="l1"></a>
-# 1. ICP covariance
+# 1. ICP Covariance
 
 **ICP error source**:
 
@@ -44,11 +44,12 @@ $$
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A New Approach to 3D ICP Covariance Estimation 2019](https://arxiv.org/abs/1909.05722). Add an additional term for the covariance from the initial pose estimation.
 
 <a name="l2"></a>
-# 2. Line feature match
+# 2. Line Feature Mapping
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [structure-from-motion using lines representation triangulation and bundle adjustment 2005](https://hal.archives-ouvertes.fr/hal-00092589/document) Plucker representation of the line (by two points or two planes: the direction of the line, and the moment). The paper proposed a **Orthonormal Representation** of lines, takes only 4 dof (three SO(3) and one SO(2)).
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [structure-from-motion using lines : representation triangulation and bundle adjustment 2005](https://hal.archives-ouvertes.fr/hal-00092589/document), based on [Plucker representation](https://en.wikipedia.org/wiki/Pl%C3%BCcker_coordinates) of the line (by two points or two planes: the direction of the line, and the moment). The paper proposed a **Orthonormal Representation** of lines, takes only 4 dof (three from SO(3) and one from SO(2)), make it easier for optimization.
 
-*Used this factorization in our project, it performs well.* But in actually localization applications, point feature is much more robust than this method.
+* *Used this factorization in our project, it performs well.* But in actually localization applications, point feature is much more robust than this method.
+* this should fits better for traffic lanes mapping, with fixed poses.
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [impact of landmark parameterization on monocular ekf-slam with points and lines 2010](https://www.researchgate.net/publication/41182046_Impact_of_Landmark_Parametrization_on_Monocular_EKF-SLAM_with_Points_and_Lines) Project lines into camera image space.
 
