@@ -12,6 +12,8 @@ title: Other Specific Subjects
     * [DL MVS](#l3.3)
 4. [Autonomous Driving](#l4)
 5. [Omnidirectional Camera](#l5)
+    * [Calibration](#l5.1)
+    * [Anti-Aliasing](#l5.2)
 
 <p/><p/>
 
@@ -45,6 +47,8 @@ $$
 
 <a name="l2"></a>
 # 2. Line Feature Mapping
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [UV-SLAM: Unconstrained Line-based SLAM Using Vanishing Points for Structural Mapping 2021](https://arxiv.org/abs/2112.13515). using vanishing points for structural mapping, to avoid degeneracy in Plucker representation.
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [structure-from-motion using lines : representation triangulation and bundle adjustment 2005](https://hal.archives-ouvertes.fr/hal-00092589/document), based on [Plucker representation](https://en.wikipedia.org/wiki/Pl%C3%BCcker_coordinates) of the line (by two points or two planes: the direction of the line, and the moment). The paper proposed a **Orthonormal Representation** of lines, takes only 4 dof (three from SO(3) and one from SO(2)), make it easier for optimization.
 
@@ -199,6 +203,25 @@ $$
 <a name="l5"></a>
 # 5. Omnidirectional Camera
 
+<a name="l5.1"></a>
+## 5.1 Calibration
+
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Single View Point Omnidirectional Camera Calibration from Planar Grids 2007](https://hal.inria.fr/hal-00767674/file/omni_calib.pdf) (opencv fisheye model based on this paper).
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [A Multiple-Camera System Calibration Toolbox Using A Feature Descriptor-Based Calibration Pattern](https://people.inf.ethz.ch/pomarc/pubs/LiIROS13a.pdf) ([opencv calibration](https://docs.opencv.org/4.x/dd/d12/tutorial_omnidir_calib_main.html) based on this paper).
+
+<a name="l5.2"></a>
+## 5.2 Anti-Aliasing
+
+Anti-Aliasing is important when converting panorama images to pinhole images.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Anti-aliasing techniques comparison](https://www.sapphirenation.net/anti-aliasing-comparison-performance-quality). [Spatial anti-aliasing](https://en.wikipedia.org/wiki/Spatial_anti-aliasing).
+
+* [SSAA (Supersampling anti-aliasing)](https://en.wikipedia.org/wiki/Supersampling). In the objective image, pick some pixels around, project back to the original image (panorama image for our case) to get colors, and averaging.
+* MSAA (Multisample anti-aliasing), boost over SSAA share the samples among different objective pixels.
+* Post-process anti-aliasing: FXAA, SMAA, CMAA, etc.
+* [Signal processing approach](https://en.wikipedia.org/wiki/Spatial_anti-aliasing#Signal_processing_approach_to_anti-aliasing): to greatly reduce frequencies above a certain limit, known as the Nyquist frequency.
+
+## 5.3 Reconstruction
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Egocentric Scene Reconstruction from an Omnidirectional Video](http://vclab.kaist.ac.kr/siggraph2022p2/), [github](https://github.com/KAIST-VCLAB/EgocentricReconstruction). Fuse per-frame depth estimates into a novel <u>spherical binoctree data structure</u> that is specifically designed to tolerate spherical depth estimation errors.
