@@ -20,6 +20,9 @@ title: 逻辑学导论（熊明辉）
     1. [复合命题论证](#l4.1)
     2. [真值函项](#l4.2)
     3. [形式演绎](#l4.3)
+5. [量化逻辑](#l5)
+    1. [一元量化](#l5.1)
+    2. [一般量化](#l5.2)
 
 <p></p>
 
@@ -226,4 +229,31 @@ the logic of categorical proposition, term logic。对当关系论证、直言�
 <a name="l4.3"></a>
 ## 4.3 形式演绎
 
-对论证有效性的形式证明。
+对论证有效性的形式证明。一步步分解检查证明的流程，这里进一步把基本的推理分解总结成公式。
+证明有效性的间接方法：归谬法（反证法）。证明无效性的简便证明法：寻找反例。
+
+<a name="l5"></a>
+# 5. 量化逻辑
+
+<a name="l5.1"></a>
+## 5.1 一元量化
+
+量化符号：
+* 存在量化。把特称的主词符号化为变元x，并且用存在$\exists x$描述。
+* 全称量化。把全称的主词符号化为变元x，并且用存在$\forall x$描述。
+
+直言命题符号化（其中SP是谓词）：
+* A：$(x)(Sx\to Px)$
+* E：$(x)(Sx\to \lnot Px)$
+* I：$(\exists x)(Sx \lor Px)$
+* O：$(\exists x)(Sx \lor \lnot Px)$
+
+论证的有效性证明：
+* 全程例示规则（Universal Instantiation），由全称到个例的推导，$(x)Hx \to Ha$。
+* 存在例示规则（Existential Instantiation），由存在量化命题推导出其至少一个具体事例，$(\exists x)Fx \to Fa$。
+* 量化等值规则：（1）$\lnot(x)... \to (\exists x)\lnot...$；（2）$\lnot(\exists x)... \to (x)\lnot...$；（3）全称析取式，$(x)... \leftrightarrow (x)...$；（4）存在析取式，$(\exists x)... \leftrightarrow (\exists x)...$。
+
+<a name="l5.2"></a>
+## 5.2 一般量化
+
+一元量化的拓展。
