@@ -1,9 +1,10 @@
 ---
 layout: page_tree_paper
-title: Visual Mapping
+title: Visual Mapping And Localization
 ---
 
 # Table of Contents
+* [2023](#l2023)
 * [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
@@ -12,6 +13,17 @@ title: Visual Mapping
 * [before](#lbefore)
 
 <p/><p/>
+
+<a name="l2023"></a>
+# 2023
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> Blog: [Methods for visual localization](https://europe.naverlabs.com/blog/methods-for-visual-localization/).
+
+<div align="center">    
+<img src="/assets/img/paperread/visual_localization_methods.png" width="90%"/>
+</div>
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Refinement for Absolute Pose Regression with Neural Feature Synthesis](https://arxiv.org/pdf/2303.10087.pdf)
 
 <a name="l2022"></a>
 # 2022
