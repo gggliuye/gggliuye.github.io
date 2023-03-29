@@ -44,13 +44,36 @@ title: 纯粹理性批判演讲录（邓晓芒）
 
 感性、知性、理性。现象、物自体。
 
-## 先验感性论
+## 先验感性论（数学）
 
-时间、空间：先天的直观形式。
+How is Pure Mathematics Possible?
+* how synthetic a priori judgments are affirmed in mathematical contexts.
+* how a systematic body of demonstrable knowledge comprises such judgments, allow mathematical truth to be invoked as a paradigm of the substantive yet necessary and universal truths that metaphysics hopes to achieve. (How is metaphysics possible as a science?)
+
+[Kant’s Philosophy of Mathematics](https://plato.stanford.edu/entries/kant-mathematics/)。
+
+> the business of mathematics…is that of combining and comparing given concepts of magnitudes, which are clear and certain, with a view to establishing what can be inferred from them.
+
+> The central thesis of Kant’s account of the uniqueness of mathematical reasoning is his claim that mathematical cognition derives from the “construction” of its concepts: “to construct a concept means to exhibit a priori the intuition corresponding to it”
+
+（1）数学：5+7=12是综合判断，数学是先天综合知识（Synthetic A Priori Knowledge）。（[但是黑格尔认为它是一个分析判断](https://www.quora.com/Kant-said-that-7+5-12-is-a-synthetic-proposition-but-Hegel-analytical-Who-was-right)）
+
+>  “no matter how long I analyze my concept of such a possible sum [of seven and five] I will still not find twelve in it”, and also positively, claiming that “One must go beyond these concepts [of seven and five], seeking assistance in the intuition that corresponds to one of the two, one’s five fingers, say…and one after another add the units of the five given in the intuition to the concept of seven…and thus see the number 12 arise”.
+
+（2）几何，principles of geometry thus express relations among basic geometric concepts inasmuch as these can be “exhibited in intuition” .
+
+Answer:
+* The analytic method: (in Prolegomena) arguing from the synthetic and a priori nature of mathematical judgment to the claim that space and time are the forms of human sensibility.
+* The synthetic method: arguing that the forms of human sensibility, space and time, provide the basis from which to derive synthetic and a priori mathematical judgments.
+
+先天的直观形式：时间、空间（it follows that only spatial and temporal magnitudes can be exhibited in pure intuition, i.e., constructed）
 * 是经验的条件，是我们感性感受到的现象的基础，不是概念，而是形式。
 * 不是物自体的属性，而是主体的形式。是形式因而不提供内容。
 * 经验的客观性，通过这个先天的形式，而使得经验具有了客观性（普遍、先天）—— 排除了经验主义的怀疑论。
 * 但是自在之物的客观性我们无法直接认识 —— 排除了理性主义的独断论。
+* cannot be employed outside the domain of mathematics proper for such reasoning —— is necessarily directed at objects that are “determinately given in pure intuition a priori and without any empirical data”.
+
+数学认知与哲学认知的区别：while philosophical cognition is confined to the results of an abstract conceptual analysis, mathematical cognition is the result of a “chain of inferences that is always guided by intuition”, that is, by a concrete representation of its objects. （Kant claims that it is “only the concept of magnitudes” (quantities) that can be constructed in pure intuition, since “qualities cannot be exhibited in anything but empirical intuition”）
 
 ## 先验逻辑
 
