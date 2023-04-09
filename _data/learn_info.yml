@@ -1,8 +1,13 @@
-- icon: fas fa-briefcase
-  content: "**Math** [More](Philosophy/math/math), [Convex Optimization](https://cvx-learning.readthedocs.io/), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)"
-- icon: fas fa-briefcase
-  content: "**CV** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN), [Paper Read](Study/PaperRead/index)"
-- icon: fas fa-briefcase
+# for more icons https://fontawesome.com/v4/icons/
+- icon: fas fa-building
+  content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/), [More](Philosophy/math/math)"
+- icon: fas fa-map
+  content: "**SLAM** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
+- icon: fas fa-newspaper
+  content: "**SLAM** [Paper Read](Study/PaperRead/index)"
+- icon: fas fa-book
   content: "**Philosophy** [Nature Philosophy](Philosophy/index)"
+- icon: fas fa-paint-brush
+  content: "**Art** [Art Posts](tags/#Art)"
 #- icon: fas fa-trophy
 #  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).

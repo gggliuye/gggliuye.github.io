@@ -12,6 +12,10 @@ title: Other Specific Subjects
     * [DL MVS](#l3.3)
 4. [Autonomous Driving](#l4)
 5. [Omnidirectional Camera](#l5)
+    * [Calibration](#l5.1)
+    * [Anti-Aliasing](#l5.2)
+    * [Reconstruction](#l5.3)
+6. [Infrared 6dof](#l6)
 
 <p/><p/>
 
@@ -45,6 +49,8 @@ $$
 
 <a name="l2"></a>
 # 2. Line Feature Mapping
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [UV-SLAM: Unconstrained Line-based SLAM Using Vanishing Points for Structural Mapping 2021](https://arxiv.org/abs/2112.13515). using vanishing points for structural mapping, to avoid degeneracy in Plucker representation.
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [structure-from-motion using lines : representation triangulation and bundle adjustment 2005](https://hal.archives-ouvertes.fr/hal-00092589/document), based on [Plucker representation](https://en.wikipedia.org/wiki/Pl%C3%BCcker_coordinates) of the line (by two points or two planes: the direction of the line, and the moment). The paper proposed a **Orthonormal Representation** of lines, takes only 4 dof (three from SO(3) and one from SO(2)), make it easier for optimization.
 
@@ -199,6 +205,52 @@ $$
 <a name="l5"></a>
 # 5. Omnidirectional Camera
 
+<a name="l5.1"></a>
+## 5.1 Calibration
+
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Single View Point Omnidirectional Camera Calibration from Planar Grids 2007](https://hal.inria.fr/hal-00767674/file/omni_calib.pdf) (opencv fisheye model based on this paper).
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [A Multiple-Camera System Calibration Toolbox Using A Feature Descriptor-Based Calibration Pattern](https://people.inf.ethz.ch/pomarc/pubs/LiIROS13a.pdf) ([opencv calibration](https://docs.opencv.org/4.x/dd/d12/tutorial_omnidir_calib_main.html) based on this paper).
+
+<a name="l5.2"></a>
+## 5.2 Anti-Aliasing
+
+Anti-Aliasing is important when converting panorama images to pinhole images.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Anti-aliasing techniques comparison](https://www.sapphirenation.net/anti-aliasing-comparison-performance-quality). [Spatial anti-aliasing](https://en.wikipedia.org/wiki/Spatial_anti-aliasing).
+
+* [SSAA (Supersampling anti-aliasing)](https://en.wikipedia.org/wiki/Supersampling). In the objective image, pick some pixels around, project back to the original image (panorama image for our case) to get colors, and averaging.
+* MSAA (Multisample anti-aliasing), boost over SSAA share the samples among different objective pixels.
+* Post-process anti-aliasing: FXAA, SMAA, CMAA, etc.
+* [Signal processing approach](https://en.wikipedia.org/wiki/Spatial_anti-aliasing#Signal_processing_approach_to_anti-aliasing): to greatly reduce frequencies above a certain limit, known as the Nyquist frequency.
+
+<a name="l5.3"></a>
+## 5.3 Reconstruction
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Egocentric Scene Reconstruction from an Omnidirectional Video](http://vclab.kaist.ac.kr/siggraph2022p2/), [github](https://github.com/KAIST-VCLAB/EgocentricReconstruction). Fuse per-frame depth estimates into a novel <u>spherical binoctree data structure</u> that is specifically designed to tolerate spherical depth estimation errors.
+
+<a name="l6"></a>
+# 6. Infrared 6dof
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Robust Robotic Localization using Visible Light Positioning and Inertial Fusion 2021](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/9330552). using RSE-based Optical Camera Communication to decode information in large plannar LED light.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Light-based indoor positioning systems: A review 2020](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/8950421/)
+
+* <u>LEDs based method</u>. Data packets are transmitted through the optical channel using a modulation method (e.g On-Off Keying - high frequency switching of the LEDs).
+  * Multiplexing to distinguish different LEDs - Time/Frequency/Orthogonal Frequency/Wavelength.
+  * Positioning : Proximity/Signal Strength/Angle of Arrival/Time of Arrival
+* IR
+  * Oculus Rift DK2 2014: LEDs transmit their own IDs by on-off keying as a 10-bit data packet at 60Hz.
+* Coded marker-based optical positioning systems.
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Indoor Positional Tracking Using Dual-Axis Rotating Laser Sweeps 2016](https://sci-hub.ru/https://ieeexplore.ieee.org/document/7520559). A base rotating with sync blinkers, and tracked object contains multiple photodiodes.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Low-cost vision-based 6-DOF MAV localization using IR beacons 2013](https://ieeexplore.ieee.org/abstract/document/6584225/). <u>Enumerate</u> all possible 2d-3d matches, filter by plane prior (order around the centroid is kept), then solve pose by PnP.
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Kinectrack: Agile 6-DoF Tracking Using a Projected Dot Pattern 2012](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/6402533/). plannar IR pattern: 4 points -> quads -> kites. Kites have a perspective-invariant signature, used to match and compute pose.
+
+<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A Wii remote-based infrared-optical tracking system 2010](https://sci-hub.ru/https://www.sciencedirect.com/science/article/abs/pii/S1875952110000054), multi-view camerea outside-in.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.

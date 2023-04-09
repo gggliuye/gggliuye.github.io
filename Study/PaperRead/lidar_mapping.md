@@ -4,6 +4,7 @@ title: Lidar Mapping
 ---
 
 # Table of Contents
+* [2023](#l2023)
 * [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
@@ -13,6 +14,13 @@ title: Lidar Mapping
 * [before](#lbefore)
 
 <p/><p/>
+
+<a name="l2023"></a>
+# 2023
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Point-LIO: Robust High-Bandwidth Lidar-Inertial Odometry](https://github.com/hku-mars/Point-LIO).
+* point-by-point update -> high frequency & high bandwidth.
+* stochastic process model to estimate imu -> handle aggressive motions (imu saturation).
 
 <a name="l2022"></a>
 # 2022
