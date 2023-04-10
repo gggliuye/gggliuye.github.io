@@ -11,6 +11,8 @@ title: Other Specific Subjects
     * [DL SDF](#l3.2) : the objective is the SDF (signed distance field).
     * [DL MVS](#l3.3)
 4. [Autonomous Driving](#l4)
+    * [HD-Map](#l4.1)
+    * [Learning to Drive](#l4.2)
 5. [Omnidirectional Camera](#l5)
     * [Calibration](#l5.1)
     * [Anti-Aliasing](#l5.2)
@@ -172,6 +174,9 @@ $$
 <a name="l4"></a>
 # 4. Autonomous Driving
 
+<a name="l4.1"></a>
+## 4.1 HD-Map
+
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [High-Definition Map Generation Technologies For Autonomous Driving 2022](https://arxiv.org/abs/2206.05400)
 
 <div align="center">    
@@ -201,6 +206,28 @@ $$
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Towards End-to-End Lane Detection: an Instance Segmentation Approach 2018](https://arxiv.org/abs/1802.05591), [github](https://github.com/MaybeShewill-CV/lanenet-lane-detection) lane segmentation.
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Computer Recognition of Roads from Satellite Pictures 1976](https://www.academia.edu/36011344/Computer_Recognition_of_Roads_from_Satellite_Pictures)
+
+<a name="l4.2"></a>
+## 4.2 Learning to Drive
+
+**Take advantages of [Transformers](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)).**
+* Traditional CV missions (classification, segmentation, etc) are not fit for auto-drive mission.
+* Compared to ChatGPT, these models are very small. No large model in general Computer Vision yet. Or we might not be able to dig vision data from internet as NLP did - no easy 'gt' could be found.
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [PPGeo: Policy Pre-training for Autonomous Driving via Self-supervised Geometric Modeling 2023](https://github.com/OpenDriveLab/PPGeo).
+
+* In the first stage, the geometric modeling framework generates pose and depth predictions simultaneously, with two consecutive frames as input.
+* In the second stage, the visual encoder learns driving policy representation by predicting the future ego-motion and optimizing with the photometric error based on current visual observation only.
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ACO: Learning to Drive by Watching YouTube videos: Action-Conditioned Contrastive Policy Pretraining 2022](https://github.com/metadriverse/ACO). Use 'pseudo label of action' (made by a supervised -  Inverse dynamics model) to make a model 'learn the features that matter to the output action', which could be further transformed to other tasks.
+
+* [data set list](https://docs.google.com/spreadsheets/d/1KNFFrfEE5q4d40uBR6MN9YtTggnv2o2AHRxGRZMgs3E/edit#gid=1708687592), [data set drive](https://mycuhk-my.sharepoint.com/personal/1155165194_link_cuhk_edu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F1155165194%5Flink%5Fcuhk%5Fedu%5Fhk%2FDocuments%2Fytb%5Fdriving%5Fvideos&ga=1).
+* Train with : Instance Contrastive Pair (ICP) and Action Contrastive Pair (ACP).
+* Inverse dynamics : DL Dense Optical Flow [RAFT](https://github.com/princeton-vl/RAFT).
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Video PreTraining (VPT): Learning to Act by Watching Unlabeled Online Videos 2022](https://arxiv.org/abs/2206.11795), [openai page](https://openai.com/research/vpt). Learn to act by watching Minecraft game videos. **Fun!**. gets pseudo action labels from a trained <u>Inverse Dynamics Model</u>.
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Momentum Contrast for Unsupervised Visual Representation Learning 2020](https://arxiv.org/abs/1911.05722), [github page](https://github.com/facebookresearch/moco). **Contrastive learning** creates supervisory labels via considering each image (instance) in the dataset forms a unique category and applies the learning objective of instance discrimination.
 
 <a name="l5"></a>
 # 5. Omnidirectional Camera
