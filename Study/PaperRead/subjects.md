@@ -214,6 +214,10 @@ $$
 * Traditional CV missions (classification, segmentation, etc) are not fit for auto-drive mission.
 * Compared to ChatGPT, these models are very small. No large model in general Computer Vision yet. Or we might not be able to dig vision data from internet as NLP did - no easy 'gt' could be found.
 
+**Make Large Dataset**: how to make large dataset for AutoDrive Mission.
+* video online: no calibration, vision only, on real scale.
+* mapping to get poses.
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [PPGeo: Policy Pre-training for Autonomous Driving via Self-supervised Geometric Modeling 2023](https://github.com/OpenDriveLab/PPGeo).
 
 * In the first stage, the geometric modeling framework generates pose and depth predictions simultaneously, with two consecutive frames as input.

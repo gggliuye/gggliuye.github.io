@@ -23,12 +23,20 @@ title: Visual Mapping And Localization
 <img src="/assets/img/paperread/visual_localization_methods.png" width="90%"/>
 </div>
 
+* HLOC (blue line) : point based mapping (feature extraction + match + sfm), image retrieval, PnP. The most sophisticated method, but too many algorithm modules, make the system complicated. And the development cost is large, since we need to refine each module separatly, then fused to test, all the modules are entangled to each other.
+* Retrieval Based (green line) : all based on image retrieval, which is a weak pose, cannot reach high accuracy.
+* End-to-end regression (black line) : I don't buy the idea. we cannot afford train a model for each scene.
+* Relatve pose (purple line) : Single module, pose strong. But relative pose constraints might suffer degenerated scenes.
+
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Refinement for Absolute Pose Regression with Neural Feature Synthesis](https://arxiv.org/pdf/2303.10087.pdf)
 
 <a name="l2022"></a>
 # 2022
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DiffPoseNet: Direct Differentiable Camera Pose Estimation](https://arxiv.org/pdf/2203.11174.pdf), [project page](https://prg.cs.umd.edu/DiffPoseNet).
+* Get relative pose based on dense optical flow, and image depth.
+* NFlowNet and Coarse PoseNet together to get fine pose.
+
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [NICE-SLAM: Neural Implicit Scalable Encoding for SLAM](https://arxiv.org/abs/2112.12130), [github](https://github.com/cvg/nice-slam). a hierarchical, grid-based neural implicit encoding, multi-resolution scalable solution akin to [iMAP](https://edgarsucar.github.io/iMAP/), intuition similar to [NERF](../subjects/#l3.1).
 
