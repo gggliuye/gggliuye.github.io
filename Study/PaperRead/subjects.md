@@ -18,6 +18,7 @@ title: Other Specific Subjects
     * [Anti-Aliasing](#l5.2)
     * [Reconstruction](#l5.3)
 6. [Infrared 6dof](#l6)
+7. [DL SLAM](#l7)
 
 <p/><p/>
 
@@ -285,3 +286,20 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A Wii remote-based infrared-optical tracking system 2010](https://sci-hub.ru/https://www.sciencedirect.com/science/article/abs/pii/S1875952110000054), multi-view camerea outside-in.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
+
+<a name="l7"></a>
+# 7. DL SLAM
+
+DL depth + DL flow -> scaled pose.
+* No end-to-end relative pose estimation network (using pose loss) found. Might because ML engineer cannot handle SLAM problem with out scale given.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DiffPoseNet: Direct Differentiable Camera Pose Estimation 2022](https://arxiv.org/pdf/2203.11174.pdf), [project page](https://prg.cs.umd.edu/DiffPoseNet).
+* Get relative pose based on dense optical flow, and image depth.
+* NFlowNet and Coarse PoseNet together to get fine pose.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Towards Better Generalization: Joint Depth-Pose Learning without PoseNet 2020](https://openaccess.thecvf.com/content_CVPR_2020/html/Zhao_Towards_Better_Generalization_Joint_Depth-Pose_Learning_Without_PoseNet_CVPR_2020_paper.html)
+* DeepFlow -> compute fundamental matrix. -> sparse pcl -> Rescale DeepDepth result.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Unsupervised Learning of Monocular Depth Estimation and Visual Odometry with Deep Feature Reconstruction 2018](https://arxiv.org/abs/1803.03893).
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [PoseNet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization 2015](https://paperswithcode.com/paper/posenet-a-convolutional-network-for-real-time). Learn the scene, then produce pose for an input image.

@@ -33,11 +33,6 @@ title: Visual Mapping And Localization
 <a name="l2022"></a>
 # 2022
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DiffPoseNet: Direct Differentiable Camera Pose Estimation](https://arxiv.org/pdf/2203.11174.pdf), [project page](https://prg.cs.umd.edu/DiffPoseNet).
-* Get relative pose based on dense optical flow, and image depth.
-* NFlowNet and Coarse PoseNet together to get fine pose.
-
-
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [NICE-SLAM: Neural Implicit Scalable Encoding for SLAM](https://arxiv.org/abs/2112.12130), [github](https://github.com/cvg/nice-slam). a hierarchical, grid-based neural implicit encoding, multi-resolution scalable solution akin to [iMAP](https://edgarsucar.github.io/iMAP/), intuition similar to [NERF](../subjects/#l3.1).
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DM-VIO: Delayed Marginalization Visual-Inertial Odometry](https://arxiv.org/abs/2201.04114) a better DSO-IMU, [github](https://github.com/lukasvst/dm-vio).
