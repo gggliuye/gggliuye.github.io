@@ -3,7 +3,7 @@ layout: base
 common-css:
   - "/assets/css/bootstrap-social.css"
   - "/assets/css/main.css"
-  - /assets/css/tree.css
+  - "/assets/css/tree.css"
 ---
 
 {% include header.html type="page_tree" %}
@@ -46,5 +46,43 @@ for (i = 0; i < toggler.length; i++) {
     this.parentElement.querySelector(".nested").classList.toggle("active");
     this.classList.toggle("caret-down");
   });
+}
+</script>
+
+<script>
+var chrown0 = document.getElementsByClassName("chrown0");
+for (var i = 0; i < chrown0.length; i++) {
+  chrown0[i].outerHTML = `<img src="/assets/img/paperread/chrown0.png" style="width:30px;height:auto;"/>`;
+}
+var chrown = document.getElementsByClassName("chrown");
+for (var i = 0; i < chrown.length; i++) {
+  chrown[i].outerHTML = `<img src="/assets/img/paperread/chrown.png" style="width:30px;height:auto;"/>`;
+}
+var thumbs = document.getElementsByClassName("thumbs");
+for (var i = 0; i < thumbs.length; i++) {
+  thumbs[i].outerHTML = `<img src="/assets/img/paperread/thumbs.png" style="width:30px;height:auto;"/>`;
+}
+var unhappy = document.getElementsByClassName("unhappy");
+for (var i = 0; i < unhappy.length; i++) {
+  unhappy[i].outerHTML = `<img src="/assets/img/paperread/unhappy.png" style="width:30px;height:auto;"/>`;
+}
+var question = document.getElementsByClassName("question");
+for (var i = 0; i < question.length; i++) {
+  question[i].outerHTML = `<img src="/assets/img/paperread/question.png" style="width:30px;height:auto;"/>`;
+}
+
+container = document.getElementById("pie_container");
+if (container != null) {
+  // make the pie chart
+  container.outerHTML = `
+    <pre class="mermaid">
+    pie title papers
+        "very good" : ${chrown0.length}
+        "good" : ${chrown.length}
+        "thumbs" : ${thumbs.length}
+        "unhappy" : ${unhappy.length}
+        "question" : ${question.length}
+    </pre>
+  `
 }
 </script>
