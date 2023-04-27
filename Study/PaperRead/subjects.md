@@ -213,9 +213,11 @@ $$
 
 **Take advantages of [Transformers](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)).**
 * Traditional CV missions (classification, segmentation, etc) are not fit for auto-drive mission.
-* Compared to ChatGPT, these models are very small. No large model in general Computer Vision yet. Or we might not be able to dig vision data from internet as NLP did - no easy 'gt' could be found.
+* Compared to ChatGPT, these models are very small. No large model in general Computer Vision yet.
+    * Or we might not be able to dig vision data from internet as NLP did - no easy 'gt' could be found.
+    * The driving task is still too simple, does not require high level understanding. (we need a better task to dig visual based AI)
 
-**Make Large Dataset**: how to make large dataset for AutoDrive Mission.
+**Make Large Dataset** from online videos: how to make large dataset for AutoDrive Mission.
 * video online: no calibration, vision only, on real scale.
 * mapping to get poses.
 
@@ -223,12 +225,15 @@ $$
 
 * In the first stage, the geometric modeling framework generates pose and depth predictions simultaneously, with two consecutive frames as input.
 * In the second stage, the visual encoder learns driving policy representation by predicting the future ego-motion and optimizing with the photometric error based on current visual observation only.
+* [Decision Intelligence Platform for Autonomous Driving simulation](https://github.com/opendilab/DI-drive).
 
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [ACO: Learning to Drive by Watching YouTube videos: Action-Conditioned Contrastive Policy Pretraining 2022](https://github.com/metadriverse/ACO). Use 'pseudo label of action' (made by a supervised -  Inverse dynamics model) to make a model 'learn the features that matter to the output action', which could be further transformed to other tasks.
 
 * [data set list](https://docs.google.com/spreadsheets/d/1KNFFrfEE5q4d40uBR6MN9YtTggnv2o2AHRxGRZMgs3E/edit#gid=1708687592), [data set drive](https://mycuhk-my.sharepoint.com/personal/1155165194_link_cuhk_edu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F1155165194%5Flink%5Fcuhk%5Fedu%5Fhk%2FDocuments%2Fytb%5Fdriving%5Fvideos&ga=1).
 * Train with : Instance Contrastive Pair (ICP) and Action Contrastive Pair (ACP).
 * Inverse dynamics : DL Dense Optical Flow [RAFT](https://github.com/princeton-vl/RAFT).
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [TCP - Trajectory-guided Control Prediction for End-to-end Autonomous Driving: A Simple yet Strong Baseline 2022](https://github.com/OpenPerceptionX/TCP). two branches for trajectory planning and direct control, respectively.
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Video PreTraining (VPT): Learning to Act by Watching Unlabeled Online Videos 2022](https://arxiv.org/abs/2206.11795), [openai page](https://openai.com/research/vpt). Learn to act by watching Minecraft game videos. **Fun!**. gets pseudo action labels from a trained <u>Inverse Dynamics Model</u>.
 
