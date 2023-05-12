@@ -19,17 +19,23 @@ subtitle: GuangZhou, China
 [website](https://www.deepmirror.com/)
 
 <div align="center">    
-<img src="/assets/img/work/mirrorverse-p-1600.png" width="95%"/>
+<img src="/assets/img/work/mirrorverse-p-1600.png" width="75%"/>
 </div>
 
 <a name="l2023"></a>
 # My work 2023
 
-## A. Infrared Localization Modules
+## A. Outside-in Infrared Localization Modules
 
+IR light detection, and fusion with imu measurement by kalman filter.
 * VR hand 6dof tracking.
-* Outside-in AR/VR camera localization.
+* AR/VR camera tracking in difficult scenes (e.g. inside moving cars).
 
+<div align="center">    
+<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+</div>
+
+<p/><p/>
 ## B. Panorama Video Visual Mapping
 
 Panorama video is the only input.
@@ -37,10 +43,12 @@ Panorama video is the only input.
 * extrinsics & timestamp calibration of camera-imu.
 * scale and gravity recovery of the visual map.
 
+<p/><p/>
 ## C. MVS
 
-MVS image depth recovery.
+MVS image depth recovery, both traditional cv method, and DL method.
 
+<p/><p/>
 <a name="l2022"></a>
 # My work 2022
 
@@ -57,7 +65,7 @@ ins system (fully self-developed) :
 * Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA), working on car localization (in world), and vr headset localization (in car).
 
 <div align="center">    
-<img src="/assets/img/work/dm_gq.jpeg" width="75%"/>
+<img src="/assets/img/work/dm_gq.jpeg" width="60%"/>
 </div>
 
 <p/><p/>
@@ -98,7 +106,7 @@ Designed for <u>multi-session lifelong map</u>, handle environement change.
 * **Mesh Generation** : Delaunay + ray casting + min-cut + post-processing.
 
 <div align="center">    
-<img src="/assets/img/work/tsdf_pcl.jpg" width="90%"/>
+<img src="/assets/img/work/tsdf_pcl.jpg" width="75%"/>
 </div>
 
 <p/><p/>
@@ -178,7 +186,7 @@ Single camera semi-dense direct method (reference DSO) to mapping fastly the who
 * designed pipeline, mapped full Nansha.GuangZhou Area.
 
 <div align="center">    
-<img src="/assets/img/work/image_mapping.jpg" width="100%"/>
+<img src="/assets/img/work/image_mapping.jpg" width="85%"/>
 </div>
 
 <p/><p/>
