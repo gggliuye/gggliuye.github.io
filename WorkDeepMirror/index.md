@@ -38,15 +38,16 @@ IR light detection, and fusion with imu measurement by kalman filter.
 <p/><p/>
 ## B. Panorama Video Visual Mapping
 
-Panorama video is the only input.
-* pure visual sfm mapping pipeline based on <u>Global Averaging method</u>.
-* extrinsics & timestamp calibration of camera-imu.
-* scale and gravity recovery of the visual map.
+Panorama video (insta360 & go-pro) is the only input.
+* pure visual sfm mapping pipeline based on <u>Global Averaging method</u> (shonan rotation average & 1dsfm translation average).
+* use IMU:
+    * extrinsics & timestamp calibration for camera-imu.
+    * scale and gravity recovery of the visual map.
+* MVS image depth recovery, both traditional cv method, and DL method.
 
-<p/><p/>
-## C. MVS
-
-MVS image depth recovery, both traditional cv method, and DL method.
+<div align="center">    
+<img src="/assets/img/work/pano_depth_render.jpg" width="75%"/>
+</div>
 
 <p/><p/>
 <a name="l2022"></a>
