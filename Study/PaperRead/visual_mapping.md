@@ -54,6 +54,14 @@ Has two type of understanding:
 <a name="l2023"></a>
 # 2023
 
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [DABA: Decentralized and Accelerated Large-Scale Bundle Adjustment](https://github.com/facebookresearch/DABA). Dencentralized and <u>without centrial device</u> (while [ADMM BA](#ladmmba) needs a centrial device and sensitive to prarmeter tuning). [detail notes](https://drive.google.com/file/d/1319stjgAeAOXhtL3vaH-q3_4AIriwaLA/view?usp=sharing).
+
+* Using [Majorization Minimizaion](http://yaroslavvb.com/papers/hunter-tutorial.pdf): deriving a novel surrogate function (an upper bound of the original loss function) that decouples optimization variables from different devices.
+* Reformulate the reprojection error to surrogate function.
+* <u>Nesterov’s Acceleration</u> (from [Distributed Photometric Bundle Adjustment](https://cvg.cit.tum.de/_media/spezial/bib/demmel2020distributed.pdf)) using momentum update.
+* <u>Adaptive Restart</u> to ensure convergence (problem caused by nonconvexity of BA).
+
+
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [IMAGEBIND: One Embedding Space To Bind Them All](https://imagebind.metademolab.com/) bind many input (image, text, depth, audio, imu, thermal) together.
 Can Using audio and images to retrieve related images -> Image Retrieval. (& other capabilities).
 
@@ -161,6 +169,9 @@ $$
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/>  [Attention Guided Camera Localization](https://github.com/BingCS/AtLoc). Roughly speaking, [MapNet 2018](https://github.com/NVlabs/geomapnet) with attention.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Pose Estimation for Ground Robots: On Manifold Representation, Integration, Re-Parameterization, and Optimization](https://arxiv.org/abs/1909.03423). Using wheel odometer and a monocular camera. Use mathematical representation of ground as the pose manifold.
+
+
 <a name="l2019"></a>
 # 2019
 
@@ -184,6 +195,14 @@ $$
 <a name="lbefore"></a>
 # Before
 ----------------
+
+<a name="ladmmba"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Distributed Very Large Scale Bundle Adjustment by Global Camera Consensus](https://openaccess.thecvf.com/content_ICCV_2017/papers/Zhang_Distributed_Very_Large_ICCV_2017_paper.pdf)
+
+* [ADMM](https://cvx-learning.readthedocs.io/en/latest/ADMM/ADMM.html) consensus both on camera poses and map points.
+* self-adaption penality & over-relaxation to improve convergence rate.
+* graph cut camera-point visility graph to distribute problem.
+
 
 <a name="lmstaircase"></a>
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [SE-Sync: A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group 2017](https://arxiv.org/abs/1612.07386), [github code](https://github.com/david-m-rosen/SE-Sync).

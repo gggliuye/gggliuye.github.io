@@ -27,7 +27,7 @@ subtitle: GuangZhou, China
 
 ## A. Outside-in Infrared Localization Modules
 
-IR light detection, and fusion with imu measurement by kalman filter.
+IR light detection, and fusion with imu measurement by kalman filter. Run with OpenXR & Monado.
 * VR hand 6dof tracking.
 * AR/VR camera tracking in difficult scenes (e.g. inside moving cars).
 
@@ -40,10 +40,10 @@ IR light detection, and fusion with imu measurement by kalman filter.
 
 Panorama video (insta360 & go-pro) is the only input.
 * pure visual sfm mapping pipeline based on <u>Global Averaging method</u> (shonan rotation average & 1dsfm translation average).
-* use IMU:
+* usage of IMU:
     * extrinsics & timestamp calibration for camera-imu.
     * scale and gravity recovery of the visual map.
-* MVS image depth recovery, both traditional cv method, and DL method.
+* MVS image depth recovery (both traditional cv method and DL method).
 
 <div align="center">    
 <img src="/assets/img/work/pano_depth_render.jpg" width="75%"/>
@@ -127,6 +127,10 @@ For simplification of visual localization map.
 * Vision bundle adjustment problem graph analysis. (using [SNAP](http://snap.stanford.edu/))
 * Solve ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
 * Keep 10% the points, with neglectable drop in localization benchmark accuracy.
+
+<div align="center">    
+<img src="/assets/img/work/brief.png" width="60%"/>
+</div>
 
 <p/><p/>
 
