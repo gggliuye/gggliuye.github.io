@@ -58,12 +58,9 @@ working on slam/vlp system.
 <p/><p/>
 ## A. INS fusion
 
-ins system (fully self-developed) :
-* Based on iterative extended error state kalman filter.
-* 2 version :
-    * chassis (motion model) + gps.
-    * imu (motion model) + gps + chassis + visual localization.
-* Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA), working on car localization (in world), and vr headset localization (in car).
+working on car localization (in world), and vr headset localization (in car).
+* ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
+* Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)。
 
 <div align="center">    
 <img src="/assets/img/work/dm_gq.jpeg" width="60%"/>
@@ -86,7 +83,7 @@ ins system (fully self-developed) :
 <p/><p/>
 ## B. VLIO algorithm
 
-lidar-imu-image, based on image direct method with photometric refinement (fully self-developed). (following last year's work)
+lidar-imu-image, based on image direct method with photometric refinement (based on  independent research). (following last year's work)
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

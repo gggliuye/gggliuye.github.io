@@ -13,9 +13,9 @@ What else do you need?
 
 ## Hobby
 
-* Philosophy, I am a Marxist. For my notes, visit [Nature Philosophy](https://for-fun.readthedocs.io/).
-* Music, rock fans.
-* Mountains, I love outdoor.
+* Philosophy, Marxism. 
+* Love music, a rock fan.
+* Love outdoor.
 
 ## Education
 
