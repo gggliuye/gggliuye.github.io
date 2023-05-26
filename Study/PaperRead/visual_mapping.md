@@ -4,6 +4,10 @@ title: Visual Mapping And Localization
 ---
 
 # Table of Contents
+1. [Mapping & Localization](#lvlp)
+    1. [Pipeline Design](#lvlp1)
+    2. [Global Descriptor](#lvlp2)
+
 * [2023](#l2023)
 * [2022](#l2022)
 * [2021](#l2021)
@@ -14,10 +18,13 @@ title: Visual Mapping And Localization
 
 <p/><p/>
 
-<a name="l2023"></a>
-# 2023
+<a name="lvlp"></a>
+# 1. Mapping & Localization
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> Blog: [Methods for visual localization](https://europe.naverlabs.com/blog/methods-for-visual-localization/).
+<a name="lvlp1"></a>
+## 1.1 Pipeline Design
+
+Blog: [Methods for visual localization](https://europe.naverlabs.com/blog/methods-for-visual-localization/).
 
 <div align="center">    
 <img src="/assets/img/paperread/visual_localization_methods.png" width="90%"/>
@@ -28,10 +35,58 @@ title: Visual Mapping And Localization
 * End-to-end regression (black line) : I don't buy the idea. we cannot afford train a model for each scene.
 * Relatve pose (purple line) : Single module, pose strong. But relative pose constraints might suffer degenerated scenes.
 
+<a name="lvlp2"></a>
+## 1.2 Global Descriptor
+
+Has two type of understanding:
+
+||  Visual geo-localization (VG)  |  Image Retrieval |
+|---|---------------------------|----------------------|
+| description | Image localization task, find image close in pose (6dof) space.  | Find images with similar look (not necessarily close in pose space) |
+| loss | pose space distance | image similarity, hard to define |
+| method | rich of Deep Learning methods | found only classic method |  
+| implementation | [cosplace](#lcosplace), [NetVLAD](#lnetvlad)  |   [Bag-of-Words](https://github.com/dorian3d/DBoW2), VLAD  |
+
+<u>We should make a model to do real 'Image Retrieval' task.</u>
+* choose Classification model, which is more efficient to train.
+* transform matched images to id.
+
+<a name="l2023"></a>
+# 2023
+
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [DABA: Decentralized and Accelerated Large-Scale Bundle Adjustment](https://github.com/facebookresearch/DABA). Dencentralized and <u>without centrial device</u> (while [ADMM BA](#ladmmba) needs a centrial device and sensitive to prarmeter tuning). [detail notes](https://drive.google.com/file/d/1319stjgAeAOXhtL3vaH-q3_4AIriwaLA/view?usp=sharing).
+
+* Using [Majorization Minimizaion](http://yaroslavvb.com/papers/hunter-tutorial.pdf): deriving a novel surrogate function (an upper bound of the original loss function) that decouples optimization variables from different devices.
+* Reformulate the reprojection error to surrogate function.
+* <u>Nesterov’s Acceleration</u> (from [Distributed Photometric Bundle Adjustment](https://cvg.cit.tum.de/_media/spezial/bib/demmel2020distributed.pdf)) using momentum update.
+* <u>Adaptive Restart</u> to ensure convergence (problem caused by nonconvexity of BA).
+
+
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [IMAGEBIND: One Embedding Space To Bind Them All](https://imagebind.metademolab.com/) bind many input (image, text, depth, audio, imu, thermal) together.
+Can Using audio and images to retrieve related images -> Image Retrieval. (& other capabilities).
+
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [MixVPR: Feature Mixing for Visual Place Recognition](https://arxiv.org/abs/2303.02190) take advantage of the capacity of fully connected layers to automatically aggregate features in a holistic way.
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Are Local Features All You Need for Cross-Domain Visual Place Recognition?](https://arxiv.org/abs/2304.05887) evaluate rerank methods (re-rank a set of candidates (usually through spatial verification) provided through image retrieval methods).
+
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Refinement for Absolute Pose Regression with Neural Feature Synthesis](https://arxiv.org/pdf/2303.10087.pdf)
 
 <a name="l2022"></a>
 # 2022
+
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [TransVPR: Transformer-based place recognition with multi-level attention aggregation](https://arxiv.org/abs/2201.02001)
+use <u>self-attention</u> operation in vision Transformers to implicitly select task-relevant information.
+* related work : Patch-Level Descriptors (e.g. Patch-NetVLAD).
+
+
+<a name="lcosplace"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [CosPlace: Rethinking Visual Geo-localization for Large-Scale Applications](https://github.com/gmberton/CosPlace). <u>Train as classification</u>: Use key (from pose) to train retrieval global descriptor (as used in human face recognition), to avoid the expensive mining needed by the commonly used contrastive learning (NetVLAD).
+
+* encode pose into class id. (designed for 'Visual geo-localization', while not for 'Image Retrieval')
+* divide the whole dataset into difference dataset batch (by grid), to ensure different classes are far in distance.
+* Large Margin Cosine Loss (LCML), used in [CosFace](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_CosFace_Large_Margin_CVPR_2018_paper.pdf).
+
 
 <img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [NICE-SLAM: Neural Implicit Scalable Encoding for SLAM](https://arxiv.org/abs/2112.12130), [github](https://github.com/cvg/nice-slam). a hierarchical, grid-based neural implicit encoding, multi-resolution scalable solution akin to [iMAP](https://edgarsucar.github.io/iMAP/), intuition similar to [NERF](../subjects/#l3.1).
 
@@ -114,6 +169,9 @@ $$
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/>  [Attention Guided Camera Localization](https://github.com/BingCS/AtLoc). Roughly speaking, [MapNet 2018](https://github.com/NVlabs/geomapnet) with attention.
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Pose Estimation for Ground Robots: On Manifold Representation, Integration, Re-Parameterization, and Optimization](https://arxiv.org/abs/1909.03423). Using wheel odometer and a monocular camera. Use mathematical representation of ground as the pose manifold.
+
+
 <a name="l2019"></a>
 # 2019
 
@@ -137,6 +195,14 @@ $$
 <a name="lbefore"></a>
 # Before
 ----------------
+
+<a name="ladmmba"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Distributed Very Large Scale Bundle Adjustment by Global Camera Consensus](https://openaccess.thecvf.com/content_ICCV_2017/papers/Zhang_Distributed_Very_Large_ICCV_2017_paper.pdf)
+
+* [ADMM](https://cvx-learning.readthedocs.io/en/latest/ADMM/ADMM.html) consensus both on camera poses and map points.
+* self-adaption penality & over-relaxation to improve convergence rate.
+* graph cut camera-point visility graph to distribute problem.
+
 
 <a name="lmstaircase"></a>
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [SE-Sync: A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group 2017](https://arxiv.org/abs/1612.07386), [github code](https://github.com/david-m-rosen/SE-Sync).
@@ -191,6 +257,10 @@ end function
 
 * <u>in video sfm, we better take advantage of feature tracking instead of pure descriptor based matching.</u> so we could have more long track
 * segment-based ba, to handle large problem.
+
+<a name="lnetvlad"></a>
+<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [NetVLAD: CNN architecture for weakly supervised place recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/Arandjelovic_NetVLAD_CNN_Architecture_CVPR_2016_paper.pdf).
+Triplet loss made from pose, transform the problem from 'Image Retrieval' to 'Visual geo-localization'.
 
 <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/><img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Keep it brief: Scalable creation of compressed localization maps 2015](https://ieeexplore.ieee.org/document/7353722/) use ILP (integral linear programming) to solve the summerization problem. (worth try) <a name="lkeepbrief"></a>
 

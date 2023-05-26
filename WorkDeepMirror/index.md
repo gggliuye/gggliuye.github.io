@@ -19,28 +19,37 @@ subtitle: GuangZhou, China
 [website](https://www.deepmirror.com/)
 
 <div align="center">    
-<img src="/assets/img/work/mirrorverse-p-1600.png" width="95%"/>
+<img src="/assets/img/work/mirrorverse-p-1600.png" width="75%"/>
 </div>
 
 <a name="l2023"></a>
 # My work 2023
 
-## A. Infrared Localization Modules
+## A. Outside-in Infrared Localization Modules
 
+IR light detection, and fusion with imu measurement by kalman filter. Run with OpenXR & Monado.
 * VR hand 6dof tracking.
-* Outside-in AR/VR camera localization.
+* AR/VR camera tracking in difficult scenes (e.g. inside moving cars).
 
+<div align="center">    
+<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+</div>
+
+<p/><p/>
 ## B. Panorama Video Visual Mapping
 
-Panorama video is the only input.
-* pure visual sfm mapping pipeline based on <u>Global Averaging method</u>.
-* extrinsics & timestamp calibration of camera-imu.
-* scale and gravity recovery of the visual map.
+Panorama video (insta360 & go-pro) is the only input.
+* pure visual sfm mapping pipeline based on <u>Global Averaging method</u> (shonan rotation average & 1dsfm translation average).
+* usage of IMU:
+    * extrinsics & timestamp calibration for camera-imu.
+    * scale and gravity recovery of the visual map.
+* MVS image depth recovery (both traditional cv method and DL method).
 
-## C. MVS
+<div align="center">    
+<img src="/assets/img/work/pano_depth_render.jpg" width="75%"/>
+</div>
 
-MVS image depth recovery.
-
+<p/><p/>
 <a name="l2022"></a>
 # My work 2022
 
@@ -49,15 +58,12 @@ working on slam/vlp system.
 <p/><p/>
 ## A. INS fusion
 
-ins system (fully self-developed) :
-* Based on iterative extended error state kalman filter.
-* 2 version :
-    * chassis (motion model) + gps.
-    * imu (motion model) + gps + chassis + visual localization.
-* Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA), working on car localization (in world), and vr headset localization (in car).
+working on car localization (in world), and vr headset localization (in car).
+* ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
+* Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)。
 
 <div align="center">    
-<img src="/assets/img/work/dm_gq.jpeg" width="75%"/>
+<img src="/assets/img/work/dm_gq.jpeg" width="60%"/>
 </div>
 
 <p/><p/>
@@ -77,7 +83,7 @@ ins system (fully self-developed) :
 <p/><p/>
 ## B. VLIO algorithm
 
-lidar-imu-image, based on image direct method with photometric refinement (fully self-developed). (following last year's work)
+lidar-imu-image, based on image direct method with photometric refinement (based on  independent research). (following last year's work)
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -98,7 +104,7 @@ Designed for <u>multi-session lifelong map</u>, handle environement change.
 * **Mesh Generation** : Delaunay + ray casting + min-cut + post-processing.
 
 <div align="center">    
-<img src="/assets/img/work/tsdf_pcl.jpg" width="90%"/>
+<img src="/assets/img/work/tsdf_pcl.jpg" width="75%"/>
 </div>
 
 <p/><p/>
@@ -118,6 +124,10 @@ For simplification of visual localization map.
 * Vision bundle adjustment problem graph analysis. (using [SNAP](http://snap.stanford.edu/))
 * Solve ILP (integral linear programming) problem based on [paper](https://arxiv.org/abs/1907.00338)
 * Keep 10% the points, with neglectable drop in localization benchmark accuracy.
+
+<div align="center">    
+<img src="/assets/img/work/brief.png" width="60%"/>
+</div>
 
 <p/><p/>
 
@@ -178,7 +188,7 @@ Single camera semi-dense direct method (reference DSO) to mapping fastly the who
 * designed pipeline, mapped full Nansha.GuangZhou Area.
 
 <div align="center">    
-<img src="/assets/img/work/image_mapping.jpg" width="100%"/>
+<img src="/assets/img/work/image_mapping.jpg" width="85%"/>
 </div>
 
 <p/><p/>

@@ -32,6 +32,11 @@ LITERATURE REVIEW (robust estimation):
 * Iterative Re-weighted Least Squares (IRLS) : [M-estimators](#lmestimate), fails into de-weighting (don’t directly remove measurements). ([connection to elliptical distributions](#lmestimate-ell)),  Student-t M-estimators. (M-estimation can be solved exactly like a weighted nonlinear least squares problem)
 * loop closures: [Dynamic Covariance Scaling](#ldyns), [AEROS](#lareos).
 
+<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Efficient and Consistent Bundle Adjustment on Lidar Point Clouds](https://arxiv.org/abs/2209.08854), following work of [BALM](https://ieeexplore.ieee.org/abstract/document/9366383), [github](https://github.com/hku-mars/BALM). (similar to global ICP method)
+* Formulates the lidar BA problem based on edge and plane features.
+  * reduce to pose optimization problem (since the min loss of each observation depends only on pose).
+* Summarizes all points of each scan associated to one feature by covariance (to reduce computational complexity).
+  * instead of enumerate each point separatly.
 
 <a name="l2021"></a>
 # 2021
@@ -151,12 +156,6 @@ my implementation, wonderful performance!
 
 <a name="l2017"></a>
 # 2017
-
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Distributed Very Large Scale Bundle Adjustment by Global Camera Consensus](https://openaccess.thecvf.com/content_ICCV_2017/papers/Zhang_Distributed_Very_Large_ICCV_2017_paper.pdf)
-
-* [ADMM](https://cvx-learning.readthedocs.io/en/latest/ADMM/ADMM.html) consensus both on camera poses and map points.
-* self-adaption penality & over-relaxation to improve convergence rate.
-* graph cut camera-point visility graph to distribute problem.
 
 <img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [On the performance of metrics to predict quality in point cloud representations](https://core.ac.uk/download/pdf/148032116.pdf). Using absolute category rating (ACR) and able to perceive distortions.
 
