@@ -19,6 +19,9 @@ title: Other Specific Subjects
     * [Reconstruction](#l5.3)
 6. [Infrared 6dof](#l6)
 7. [DL SLAM](#l7)
+    * [End-to-end Regression](#l7.1)
+    * [DL depth + DL flow -> Pose](#l7.2)
+    * [Match + Relative Pose](#l7.3)
 
 <p/><p/>
 
@@ -269,11 +272,11 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 <a name="l6"></a>
 # 6. Infrared 6dof
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Robust Robotic Localization using Visible Light Positioning and Inertial Fusion 2021](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/9330552). using RSE-based Optical Camera Communication to decode information in large plannar LED light.
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [Robust Robotic Localization using Visible Light Positioning and Inertial Fusion 2021](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/9330552). using RSE-based Optical Camera Communication to decode information in large plannar LED light.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Light-based indoor positioning systems: A review 2020](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/8950421/)
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Light-based indoor positioning systems: A review 2020](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/8950421/)
 
 * <u>LEDs based method</u>. Data packets are transmitted through the optical channel using a modulation method (e.g On-Off Keying - high frequency switching of the LEDs).
   * Multiplexing to distinguish different LEDs - Time/Frequency/Orthogonal Frequency/Wavelength.
@@ -282,29 +285,41 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
   * Oculus Rift DK2 2014: LEDs transmit their own IDs by on-off keying as a 10-bit data packet at 60Hz.
 * Coded marker-based optical positioning systems.
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Indoor Positional Tracking Using Dual-Axis Rotating Laser Sweeps 2016](https://sci-hub.ru/https://ieeexplore.ieee.org/document/7520559). A base rotating with sync blinkers, and tracked object contains multiple photodiodes.
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [Indoor Positional Tracking Using Dual-Axis Rotating Laser Sweeps 2016](https://sci-hub.ru/https://ieeexplore.ieee.org/document/7520559). A base rotating with sync blinkers, and tracked object contains multiple photodiodes.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Low-cost vision-based 6-DOF MAV localization using IR beacons 2013](https://ieeexplore.ieee.org/abstract/document/6584225/). <u>Enumerate</u> all possible 2d-3d matches, filter by plane prior (order around the centroid is kept), then solve pose by PnP.
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Low-cost vision-based 6-DOF MAV localization using IR beacons 2013](https://ieeexplore.ieee.org/abstract/document/6584225/). <u>Enumerate</u> all possible 2d-3d matches, filter by plane prior (order around the centroid is kept), then solve pose by PnP.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Kinectrack: Agile 6-DoF Tracking Using a Projected Dot Pattern 2012](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/6402533/). plannar IR pattern: 4 points -> quads -> kites. Kites have a perspective-invariant signature, used to match and compute pose.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Kinectrack: Agile 6-DoF Tracking Using a Projected Dot Pattern 2012](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/6402533/). plannar IR pattern: 4 points -> quads -> kites. Kites have a perspective-invariant signature, used to match and compute pose.
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A Wii remote-based infrared-optical tracking system 2010](https://sci-hub.ru/https://www.sciencedirect.com/science/article/abs/pii/S1875952110000054), multi-view camerea outside-in.
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [A Wii remote-based infrared-optical tracking system 2010](https://sci-hub.ru/https://www.sciencedirect.com/science/article/abs/pii/S1875952110000054), multi-view camerea outside-in.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
 
 <a name="l7"></a>
 # 7. DL SLAM
 
-DL depth + DL flow -> scaled pose.
-* No end-to-end relative pose estimation network (using pose loss) found. Might because ML engineer cannot handle SLAM problem with out scale given.
+<a name="l7.1"></a>
+## 7.1 End-to-end Regression
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [DiffPoseNet: Direct Differentiable Camera Pose Estimation 2022](https://arxiv.org/pdf/2203.11174.pdf), [project page](https://prg.cs.umd.edu/DiffPoseNet).
-* Get relative pose based on dense optical flow, and image depth.
-* NFlowNet and Coarse PoseNet together to get fine pose.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Accelerated Coordinate Encoding 2023](https://nianticlabs.github.io/ace/). From Niantic, small scene localization using DL method - fast and high accuracy. Fits well to Niantic's [LightShip](https://lightship.dev/docs/ardk/index.html) (small region vlp around landmarks).
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Towards Better Generalization: Joint Depth-Pose Learning without PoseNet 2020](https://openaccess.thecvf.com/content_CVPR_2020/html/Zhao_Towards_Better_Generalization_Joint_Depth-Pose_Learning_Without_PoseNet_CVPR_2020_paper.html)
-* DeepFlow -> compute fundamental matrix. -> sparse pcl -> Rescale DeepDepth result.
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [PoseNet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization 2015](https://paperswithcode.com/paper/posenet-a-convolutional-network-for-real-time). Learn the scene, then produce pose for an input image.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Unsupervised Learning of Monocular Depth Estimation and Visual Odometry with Deep Feature Reconstruction 2018](https://arxiv.org/abs/1803.03893).
+<a name="l7.2"></a>
+## 7.2 DL depth + DL flow -> Pose
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [PoseNet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization 2015](https://paperswithcode.com/paper/posenet-a-convolutional-network-for-real-time). Learn the scene, then produce pose for an input image.
+No end-to-end relative pose estimation network (using pose loss) found. Might because ML engineer cannot handle SLAM problem with out scale given.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [DiffPoseNet: Direct Differentiable Camera Pose Estimation 2022](https://arxiv.org/pdf/2203.11174.pdf), [project page](https://prg.cs.umd.edu/DiffPoseNet).
+(1) Get relative pose based on dense optical flow, and image depth.
+(2) NFlowNet and Coarse PoseNet together to get fine pose.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Towards Better Generalization: Joint Depth-Pose Learning without PoseNet 2020](https://openaccess.thecvf.com/content_CVPR_2020/html/Zhao_Towards_Better_Generalization_Joint_Depth-Pose_Learning_Without_PoseNet_CVPR_2020_paper.html). DeepFlow -> compute fundamental matrix. -> sparse pcl -> Rescale DeepDepth result.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Unsupervised Learning of Monocular Depth Estimation and Visual Odometry with Deep Feature Reconstruction 2018](https://arxiv.org/abs/1803.03893).
+
+<a name="l7.3"></a>
+## 7.3 Match + Relative Pose
+
+* Map: images with poses.
+* Query Pipeline: Retrieval + Match Features + Relative Poses + Pose Averaging -> Query Camera Pose.
