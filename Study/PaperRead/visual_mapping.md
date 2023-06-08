@@ -54,6 +54,9 @@ Has two type of understanding:
 <a name="l2023"></a>
 # 2023
 
+<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Two-view Geometry Scoring Without Correspondences](https://arxiv.org/pdf/2306.01596.pdf), [github](https://github.com/nianticlabs/scoring-without-correspondences). A fundamental matrix scoring network. Outperform MAGSAC++ in selecting best candidate. (and analysis RANSAC failures)
+
+
 <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [DABA: Decentralized and Accelerated Large-Scale Bundle Adjustment](https://github.com/facebookresearch/DABA). Dencentralized and <u>without centrial device</u> (while [ADMM BA](#ladmmba) needs a centrial device and sensitive to prarmeter tuning). [detail notes](https://drive.google.com/file/d/1319stjgAeAOXhtL3vaH-q3_4AIriwaLA/view?usp=sharing).
 
 * Using [Majorization Minimizaion](http://yaroslavvb.com/papers/hunter-tutorial.pdf): deriving a novel surrogate function (an upper bound of the original loss function) that decouples optimization variables from different devices.
