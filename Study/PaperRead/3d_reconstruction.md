@@ -25,7 +25,7 @@ title: 3D Reconstruction
 
 # 2021 <a name="l2021"></a>
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Voxel Structure-based Mesh Reconstruction from a 3D Point Cloud](https://arxiv.org/pdf/2104.10622.pdf), [github code](https://github.com/vvvwo/Parallel-Structure-for-Meshing).
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Voxel Structure-based Mesh Reconstruction from a 3D Point Cloud](https://arxiv.org/pdf/2104.10622.pdf), [github code](https://github.com/vvvwo/Parallel-Structure-for-Meshing).
 It has a classification of meshing methods:
 
 * Approcimation-based method: Poisson, MLS(moving least squares), Scale Space. Rebuild the 2-manifold mesh to fit a point cloud directly. while may loss local details.
@@ -42,26 +42,26 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/vox_stru.jpg" width="80%"/>
 </div>
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Efficiently Distributed Watertight Surface Reconstruction](https://hal.archives-ouvertes.fr/hal-03380593) the distribution of all the steps (Delaunay + graph-cut).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Efficiently Distributed Watertight Surface Reconstruction](https://hal.archives-ouvertes.fr/hal-03380593) the distribution of all the steps (Delaunay + graph-cut).
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Dense Surface Reconstruction from Monocular Vision and LiDAR](https://ieeexplore.ieee.org/abstract/document/8793729) LiDAR measurements are integrated into a multi-view stereo pipeline for point cloud densification and tetrahedralization. (the lidar mapping algorithm it used seems terrible, [our algorithm](https://gggliuye.github.io/Study/PaperRead/sensor_fusion/#lliodar_image) is much much better)
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [Dense Surface Reconstruction from Monocular Vision and LiDAR](https://ieeexplore.ieee.org/abstract/document/8793729) LiDAR measurements are integrated into a multi-view stereo pipeline for point cloud densification and tetrahedralization. (the lidar mapping algorithm it used seems terrible, [our algorithm](https://gggliuye.github.io/Study/PaperRead/sensor_fusion/#lliodar_image) is much much better)
 
 # 2020 <a name="l2020"></a>
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Point2Mesh: A Self-Prior for Deformable Meshes](https://arxiv.org/pdf/2005.11084.pdf) using DL method (Neural Self-Priors) iteratively shrink-wrap the initial mesh, leading to a watertight reconstruction (fits the point cloud).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Point2Mesh: A Self-Prior for Deformable Meshes](https://arxiv.org/pdf/2005.11084.pdf) using DL method (Neural Self-Priors) iteratively shrink-wrap the initial mesh, leading to a watertight reconstruction (fits the point cloud).
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [A 3D Surface Reconstruction Method for Large-Scale Point Cloud Data](https://www.hindawi.com/journals/mpe/2020/8670151/) nothing new.
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [A 3D Surface Reconstruction Method for Large-Scale Point Cloud Data](https://www.hindawi.com/journals/mpe/2020/8670151/) nothing new.
 
 # 2019 <a name="l2019"></a>
 
-<img src="/assets/img/paperread/unhappy.png" width="4%" height="4%"/> [Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) a new Visibility Model : $(1-e^{d^{2}/2 \sigma^{2}})$.
+<img src="/assets/img/paperread/unhappy.png" height="25"/> [Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) a new Visibility Model : $(1-e^{d^{2}/2 \sigma^{2}})$.
 
 
 # 2018 <a name="l2018"></a>
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Reconstructing Thin Structures of Manifold Surfaces by Integrating Spatial Curves](https://ieeexplore.ieee.org/document/8578403). use image based 3d curve reconstruction to enhance thin structures.
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Reconstructing Thin Structures of Manifold Surfaces by Integrating Spatial Curves](https://ieeexplore.ieee.org/document/8578403). use image based 3d curve reconstruction to enhance thin structures.
 
 * compute 3D curves based on the initialize-optimize-extend strategy.
 * Curve-conformed Delaunay Refinement to preserve thin structures: make sure Delaunay has kept all the segments of curves, and close region has finer triangles. Add sepcial energy to tetrahedra belonging to the same curve.
@@ -69,11 +69,11 @@ This paper's method contains the following steps:
 # 2017 <a name="l2017"></a>
 
 <a name="lvoxblox"></a>
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning](https://arxiv.org/abs/1611.03631), [github code](https://github.com/ethz-asl/voxblox). state of art, TSDF, ESDF, and meshing. **Extremely efficient!**, wonderfully engineering art. (I had been using it for several years)
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning](https://arxiv.org/abs/1611.03631), [github code](https://github.com/ethz-asl/voxblox). state of art, TSDF, ESDF, and meshing. **Extremely efficient!**, wonderfully engineering art. (I had been using it for several years)
 
 # 2016 <a name="l2016"></a>
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document). The Role of Priors :
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document). The Role of Priors :
 
 **Surface Smoothness** :
 
@@ -94,7 +94,7 @@ This paper's method contains the following steps:
 
 **Visibility**:
 
-* Scanner Visibility (ray casting from scanner), [TSDF A volumetric method for building complex models from range images 1996](https://graphics.stanford.edu/papers/volrange/volrange.pdf), <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust and efficient surface reconstruction from range data 2009](#colmapdelaunay) (uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior), <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [TV-L1 range image integration 2007](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Zach07.pdf) (use L1 norm to merge range scan)
+* Scanner Visibility (ray casting from scanner), [TSDF A volumetric method for building complex models from range images 1996](https://graphics.stanford.edu/papers/volrange/volrange.pdf), <img src="/assets/img/paperread/chrown.png" height="25"/> [Robust and efficient surface reconstruction from range data 2009](#colmapdelaunay) (uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior), <img src="/assets/img/paperread/chrown.png" height="25"/> [TV-L1 range image integration 2007](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Zach07.pdf) (use L1 norm to merge range scan)
 * Exterior Visibility (explicit information from the scanner. e.g. camera view-point). Occlusion culling, Cone carving.
 * Parity (assuming a closed surface)
 
@@ -108,15 +108,15 @@ This paper's method contains the following steps:
 * Detecting primitives. [RANSAC shape detection 2007](http://www.hinkali.com/Education/PointCloud.pdf) : find planes, spheres, cylinders, cones, and torii though local method. [Model globally, match locally: Efficient and robust 3d object recognition 2010](https://ieeexplore.ieee.org/document/5540108/).
 * Primitive consolidation : [Surface reconstruction from fitted shape primitives 2008](https://www.researchgate.net/publication/220839033_Surface_Reconstruction_from_Fitted_Shape_Primitives) plane primitives and align and merge the boundaries of adjacent primitives. Extension of this method: [2009](https://www.researchgate.net/publication/220506388_Completion_and_Reconstruction_with_Primitive_Shapes), [2014](https://link.springer.com/chapter/10.1007/978-3-319-10590-1_40). Augmenting primitive information.
 * Volumetric primitives.
-* Hybrid methods. <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Surface reconstruction through point set structuring 2013](https://hal.inria.fr/hal-00822763/file/paper_hal.pdf) : shape primitives are used to resample the point cloud and enforce structural constraints in the output, looks good to reconstruct buildings. <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Watertight scenes from urban lidar and planar surfaces 2013](#watertightscene)
+* Hybrid methods. <img src="/assets/img/paperread/chrown0.png" height="25"/> [Surface reconstruction through point set structuring 2013](https://hal.inria.fr/hal-00822763/file/paper_hal.pdf) : shape primitives are used to resample the point cloud and enforce structural constraints in the output, looks good to reconstruct buildings. <img src="/assets/img/paperread/chrown0.png" height="25"/> [Watertight scenes from urban lidar and planar surfaces 2013](#watertightscene)
 
-**Global Regularities** : CAD models, man-made shapes and architectural shapes – possess a certain level of regularity. <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Structure-aware shape processing 2013](http://www.vovakim.com/papers/14_SIGCourse_StructAware.pdf).
+**Global Regularities** : CAD models, man-made shapes and architectural shapes – possess a certain level of regularity. <img src="/assets/img/paperread/chrown0.png" height="25"/> [Structure-aware shape processing 2013](http://www.vovakim.com/papers/14_SIGCourse_StructAware.pdf).
 
 * Symmetry : find transformations, that map a subset of the shape onto itself. [Discovering structural regularity in 3d geometry 2008](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/structure/structure_sig_08.html), [Symmetry factored embedding and distance 2010](https://pixl.cs.princeton.edu/pubs/Lipman_2010_SFE/index.php), [Shape analysis with subspace symmetries 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/subspace_symmetry/paper_docs/subspaceSymmetry_small_eg11.pdf)
 * Structural Repetition (facades): [Non-local scan consolidation for 3d urban scenes 2010](https://dl.acm.org/doi/10.1145/1778765.1778831) (need human), [Adaptive partitioning of urban facades 2011](https://dl.acm.org/doi/10.1145/2070781.2024218) (no human needed), [2d-3d fusion for layer decomposition of urban facades 2011](https://www.cs.tau.ac.il/~dcor/articles/2011/2D-3D-Fusion.pdf) (associate RGB images) : looks good to reconstruct buildings.
 * Canonical Relationships (regularity in orientations) :
   * Manhattan-world (MW). [Automatic extraction of manhattan-world building masses from 3d laser range scans 2012](https://www.cs.purdue.edu/cgvlab/papers/aliaga/tvcg12-urban.pdf) : classifying points by shape type – wall, edge, convex corner, or concave corner – and clustering points of a similar type.
-  * Consolidating relationships. [Globfit 2011](#globfit), <img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document)(enforcing parallel and orthogonality constraints in the detection of planes), [RAPter method 2015](https://dl.acm.org/doi/10.1145/2766995) (take a user-prescribed set of angles)
+  * Consolidating relationships. [Globfit 2011](#globfit), <img src="/assets/img/paperread/chrown0.png" height="25"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document)(enforcing parallel and orthogonality constraints in the detection of planes), [RAPter method 2015](https://dl.acm.org/doi/10.1145/2766995) (take a user-prescribed set of angles)
   * Canonical building relationships. [2.5D scans 2012](#25dscan)
 
 **Data-driven priors** (semantic objects) : using a collection of known shapes to help perform reconstruction.
@@ -132,9 +132,9 @@ This paper's method contains the following steps:
 
 # Earlier <a name="learlier"></a>
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/>  [Superpixel meshes for fast edge-preserving surface reconstruction 2015](https://openaccess.thecvf.com/content_cvpr_2015/papers/Bodis-Szomoru_Superpixel_Meshes_for_2015_CVPR_paper.pdf) superpixels and second-order smoothness constraints. based on Single-view 3D mesh reconstruction: 2D base mesh extraction, Depth reconstruction, then point cloud and mesh.
+<img src="/assets/img/paperread/thumbs.png" height="25"/>  [Superpixel meshes for fast edge-preserving surface reconstruction 2015](https://openaccess.thecvf.com/content_cvpr_2015/papers/Bodis-Szomoru_Superpixel_Meshes_for_2015_CVPR_paper.pdf) superpixels and second-order smoothness constraints. based on Single-view 3D mesh reconstruction: 2D base mesh extraction, Depth reconstruction, then point cloud and mesh.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document) automated detection and regularization of primitive shapes from unorganized point clouds. And enforcing parallel and orthogonality constraints in the detection of planes. repeating the following:
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Planar Shape Detection and Regularization in Tandem 2015](https://hal.inria.fr/hal-01168394/document) automated detection and regularization of primitive shapes from unorganized point clouds. And enforcing parallel and orthogonality constraints in the detection of planes. repeating the following:
 
 * uniformly distributed seeds, region grow, detect primitive shapes.
 * regularization and adjust coplanarity.
@@ -143,25 +143,25 @@ This paper's method contains the following steps:
 <img src="/assets/img/paperread/sdp_2015.png" width="90%"/>
 </div>
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Let There Be Color! Large-Scale Texturing of 3D Reconstructions 2014](https://download.hrz.tu-darmstadt.de/pub/FB20/GCC/paper/Waechter-2014-LTB.pdf), [github code](https://github.com/nmoehrle/mvs-texturing) view selection then project to get texture. It performs well in our image mapping mesh result (using poisson). While it has high requirement on the mesh. Tested with some lidar mapping point cloud (made with TSDF + matching cube, without further de-noise), the result mesh is terrible. I presume it is caused by loss of accuracy in TSDF, and noise in lidar data.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Let There Be Color! Large-Scale Texturing of 3D Reconstructions 2014](https://download.hrz.tu-darmstadt.de/pub/FB20/GCC/paper/Waechter-2014-LTB.pdf), [github code](https://github.com/nmoehrle/mvs-texturing) view selection then project to get texture. It performs well in our image mapping mesh result (using poisson). While it has high requirement on the mesh. Tested with some lidar mapping point cloud (made with TSDF + matching cube, without further de-noise), the result mesh is terrible. I presume it is caused by loss of accuracy in TSDF, and noise in lidar data.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Surface Reconstruction through Point Set Structuring 2013](https://hal.inria.fr/hal-00822763/file/paper_hal.pdf).
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Surface Reconstruction through Point Set Structuring 2013](https://hal.inria.fr/hal-00822763/file/paper_hal.pdf).
 
 * structuring and resampling the planar components into planar, crease(to connect adjacent primitives), corner and clutter.
 * reconstructing the surface from both the consolidated components and the unstructured points.
 * surface is obtained through solving a graph-cut problem formulated on the 3D Delaunay triangulation ([see this part for more details](#colmapdelaunay)). Following by a Surface quality refinement and simplification.
 
 <a name="watertightscene"></a>
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Watertight Scenes from Urban LiDAR and Planar Surfaces 2013](https://hal.inria.fr/hal-00862747/document)
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Watertight Scenes from Urban LiDAR and Planar Surfaces 2013](https://hal.inria.fr/hal-00862747/document)
 
 * make into small region.
 * conforming constrained Delaunay tetrahedralization (CCDT) to partition 3-dimensional space into tetrahedral cells. (details to read)
 * minimum-weight graph-cut. [see more](#colmapdelaunay)
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [Real-time 3d reconstruction at scale using voxel hashing](https://niessnerlab.org/papers/2013/4hashing/niessner2013hashing.pdf).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-time 3d reconstruction at scale using voxel hashing](https://niessnerlab.org/papers/2013/4hashing/niessner2013hashing.pdf).
 
 <a name="25dscan"></a>
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [2.5D Building Modeling by Discovering Global Regularities 2012](http://qianyi.info/docs/papers/cvpr12_regularity.pdf):three fundamental type of relationships in buildings (for reconstruction from Aerial imagery):
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [2.5D Building Modeling by Discovering Global Regularities 2012](http://qianyi.info/docs/papers/cvpr12_regularity.pdf):three fundamental type of relationships in buildings (for reconstruction from Aerial imagery):
 
 * roof-roof relationships that consist of orientation and placement equalities.
 * roof-roof boundary relationships that consist of parallelism and orthogonality relationships.
@@ -170,17 +170,17 @@ This paper's method contains the following steps:
 finding the relationships via clustering (i.e., clustering similar angles, equality, etc..), they are used to inform the primitive fitting method so that the primitives simultaneously fit to the data and to the relationships.
 
 <a name="globfit"></a>
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [GlobFit: Consistently Fitting Primitives by Discovering Global Relations 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/globFit/paper_docs/globFit_sigg11.pdf) assuming man-made engineering object, RANSAC -> Find global relationship -> alignment (merge close elements in the orientation space).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [GlobFit: Consistently Fitting Primitives by Discovering Global Relations 2011](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/globFit/paper_docs/globFit_sigg11.pdf) assuming man-made engineering object, RANSAC -> Find global relationship -> alignment (merge close elements in the orientation space).
 Starting from an initial set of detected primitives, parallel, orthogonal, angle-equality, and distance-equality relation-ships are individually detected and carefully selected so as to not cause any relationship conflicts.
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Multi-view reconstruction preserving weakly-supported surfaces 2011](https://ieeexplore.ieee.org/document/5995693). Some papers refer this as state-of-art.
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Multi-view reconstruction preserving weakly-supported surfaces 2011](https://ieeexplore.ieee.org/document/5995693). Some papers refer this as state-of-art.
 
 * [baseline (the following paper)](#lcolmapdelaunay) constant point weight.
 * point weight depends on the number of observations, make a filter strategy for the initial Delaunay. (**closer to the colmap implementation**)
 * a free-space-support weight function. compute all weights in the same way as the base-line approach. Then search for all large jumps and multiply the corresponding t-edge weights. (good for noisy data, need to test)
 
 <a name="colmapdelaunay"></a>
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
 
 * minimum cuts for optimal surface reconstruction :
     * removing the edges connecting two sets of vertices, that is finding two disjoint sets S and T,
@@ -199,29 +199,29 @@ $$
 
 *  Surface quality: the quality of surface triangle is evaluated as the ratio of the length of their longest edge over the length of their shortest edge (minus one). And Soft 3D beta–skeleton in graph-cut algorithm.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Efficient multi-view reconstruction of large-scale scenes using interest points, Delaunay triangulation and graph cuts 2007](https://ieeexplore.ieee.org/document/4408892). First to consider surface visibility! [the upper paper](#colmapdelaunay) improved this method.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Efficient multi-view reconstruction of large-scale scenes using interest points, Delaunay triangulation and graph cuts 2007](https://ieeexplore.ieee.org/document/4408892). First to consider surface visibility! [the upper paper](#colmapdelaunay) improved this method.
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> <img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Poisson Surface Reconstruction 2006](https://www.cse.iitd.ac.in/~mcs112609/poission.pdf) State-of-art.
+<img src="/assets/img/paperread/chrown.png" height="25"/> <img src="/assets/img/paperread/chrown.png" height="25"/> [Poisson Surface Reconstruction 2006](https://www.cse.iitd.ac.in/~mcs112609/poission.pdf) State-of-art.
 
-<img src="/assets/img/paperread/thumbs.png" width="4%" height="4%"/> [A mesh reconstruction algorithm driven by an intrinsic property of a point cloud 2004](http://www.cad.zju.edu.cn/home/hwlin/pdf_files/A-mesh-reconstruction-algorithm-driven-by-an-intrinsic-property-of-a-point-cloud.pdf). It classfies meshing into the following methods :
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [A mesh reconstruction algorithm driven by an intrinsic property of a point cloud 2004](http://www.cad.zju.edu.cn/home/hwlin/pdf_files/A-mesh-reconstruction-algorithm-driven-by-an-intrinsic-property-of-a-point-cloud.pdf). It classfies meshing into the following methods :
 
 * sculpting-based approaches: Delaunay.
 * contour-tracing approaches: matching cube, [Hhoppe's](#lhhoppe).
 * region-growing approaches: (this paper) keep growing from inital triangulate.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Mesh Optimization 1993](https://hhoppe.com/proj/meshopt/), [paper](https://hhoppe.com/meshopt.pdf). This a very important milestone paper for 3d reconstruction. Its first section - Mesh representation - worth carefully read. It treat the problem as optimization, using a two step greedy method to solve.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Mesh Optimization 1993](https://hhoppe.com/proj/meshopt/), [paper](https://hhoppe.com/meshopt.pdf). This a very important milestone paper for 3d reconstruction. Its first section - Mesh representation - worth carefully read. It treat the problem as optimization, using a two step greedy method to solve.
 
 * Energy function is : $E = E_{distance} + E_{representation} + E_{spring}$ (see more details in the paper)
 * step 1. keep mesh structure, optimize vertices' positions to best fit points.
 * step 2. keep vertices' poitions, update mesh structure by three types of updat : edge collapse, edge split or edge swap, to simplify the mesh.
 
-<img src="/assets/img/paperread/chrown0.png" width="4%" height="4%"/> [Surface Reconstruction from Unorganized Points 1992](https://hhoppe.com/proj/recon/). This a very important milestone paper for 3d reconstruction, you can found it is the basis of many modern methods. It finds a signed distance function, and use its tangent space to generate mesh. <a name="lhhoppe"></a>
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Surface Reconstruction from Unorganized Points 1992](https://hhoppe.com/proj/recon/). This a very important milestone paper for 3d reconstruction, you can found it is the basis of many modern methods. It finds a signed distance function, and use its tangent space to generate mesh. <a name="lhhoppe"></a>
 * using a local PCA to find local planes.
 * smoothen the planes (by the smoothness of the normals).
 * define signed distance by projecting points to local plane.
 * tracing its zero set, use a modified matching cube to generate mesh.
 
-<img src="/assets/img/paperread/chrown.png" width="4%" height="4%"/> [Delaunay triangulation 1934](https://en.wikipedia.org/wiki/Delaunay_triangulation): maximize the minimum of all the angles of the triangles in the triangulation. The Delaunay triangulation of a discrete point set P in general position corresponds to the dual graph of the Voronoi diagram for P
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Delaunay triangulation 1934](https://en.wikipedia.org/wiki/Delaunay_triangulation): maximize the minimum of all the angles of the triangles in the triangulation. The Delaunay triangulation of a discrete point set P in general position corresponds to the dual graph of the Voronoi diagram for P
 
 <div align="center">    
 <img src="/assets/img/paperread/del_vor.png" width="70%"/>
