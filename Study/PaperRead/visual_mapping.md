@@ -54,7 +54,7 @@ Has two type of understanding:
 <a name="l2023"></a>
 # 2023
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Two-view Geometry Scoring Without Correspondences](https://arxiv.org/pdf/2306.01596.pdf), [github](https://github.com/nianticlabs/scoring-without-correspondences). A fundamental matrix scoring network. Outperform MAGSAC++ in selecting best candidate. (and analysis RANSAC failures)
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Two-view Geometry Scoring Without Correspondences](https://arxiv.org/pdf/2306.01596.pdf), [github](https://github.com/nianticlabs/scoring-without-correspondences). A fundamental matrix scoring network. Outperform [MAGSAC++](#lMAGSAC++) in selecting best candidate. (and analysis RANSAC failures)
 
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [DABA: Decentralized and Accelerated Large-Scale Bundle Adjustment](https://github.com/facebookresearch/DABA). Dencentralized and <u>without centrial device</u> (while [ADMM BA](#ladmmba) needs a centrial device and sensitive to prarmeter tuning). [detail notes](https://drive.google.com/file/d/1319stjgAeAOXhtL3vaH-q3_4AIriwaLA/view?usp=sharing).
@@ -177,6 +177,9 @@ $$
 
 <a name="l2019"></a>
 # 2019
+
+<a name="lMAGSAC++"></a>
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [MAGSAC++, a fast, reliable and accurate robust estimator](https://arxiv.org/abs/1912.05909), [github](https://github.com/danini/magsac).
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [OANet](https://github.com/zjhthu/OANet) Learning Two-View Correspondences and Geometry Using Order-Aware Network. In short, GNN based feature matches outlier rejection.
 
