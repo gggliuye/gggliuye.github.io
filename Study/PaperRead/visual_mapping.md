@@ -6,7 +6,10 @@ title: Visual Mapping And Localization
 # Table of Contents
 1. [Mapping & Localization](#lvlp)
     1. [Pipeline Design](#lvlp1)
-    2. [Global Descriptor](#lvlp2)
+    2. [Local Feature](#lvlp2)
+    3. [Global Descriptor](#lvlp3)
+    4. [Mapping](#lvlp4)
+    5. [Post Processing](#lvlp5)
 
 * [2023](#l2023)
 * [2022](#l2022)
@@ -36,7 +39,14 @@ Blog: [Methods for visual localization](https://europe.naverlabs.com/blog/method
 * Relatve pose (purple line) : Single module, pose strong. But relative pose constraints might suffer degenerated scenes.
 
 <a name="lvlp2"></a>
-## 1.2 Global Descriptor
+## 1.2 Local Feature
+
+* SIFT.
+* SuperPoint+SuperGlue
+* LOFTR
+
+<a name="lvlp3"></a>
+## 1.3 Global Descriptor
 
 Has two type of understanding:
 
@@ -51,12 +61,24 @@ Has two type of understanding:
 * choose Classification model, which is more efficient to train.
 * transform matched images to id.
 
+<a name="lvlp4"></a>
+## 1.4 Mapping
+
+* Bundle adjustment based mapping: [Hierarchical-Localization](#lhoc).
+* Global Averaging based mapping: [GTSFM](#lgtsfm).
+* Optimization Distribution : [DABA](#ldaba), [ADMM BA](ladmmba).
+
+<a name="lvlp5"></a>
+## 1.5 Post Processing
+
+* Map Simplification : [ILP Summarization](#lkeepbrief), [GNN Summarization](#lgnnbrief).
+
 <a name="l2023"></a>
 # 2023
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Two-view Geometry Scoring Without Correspondences](https://arxiv.org/pdf/2306.01596.pdf), [github](https://github.com/nianticlabs/scoring-without-correspondences). A fundamental matrix scoring network. Outperform [MAGSAC++](#lMAGSAC++) in selecting best candidate. (and analysis RANSAC failures)
 
-
+<a name="ldaba"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [DABA: Decentralized and Accelerated Large-Scale Bundle Adjustment](https://github.com/facebookresearch/DABA). Dencentralized and <u>without centrial device</u> (while [ADMM BA](#ladmmba) needs a centrial device and sensitive to prarmeter tuning). [detail notes](https://drive.google.com/file/d/1319stjgAeAOXhtL3vaH-q3_4AIriwaLA/view?usp=sharing).
 
 * Using [Majorization Minimizaion](http://yaroslavvb.com/papers/hunter-tutorial.pdf): deriving a novel surrogate function (an upper bound of the original loss function) that decouples optimization variables from different devices.
@@ -101,6 +123,7 @@ use <u>self-attention</u> operation in vision Transformers to implicitly select 
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [DSOL: A Fast Direct Sparse Odometry Scheme](https://arxiv.org/abs/2203.08182), [github](https://github.com/versatran01/dsol). Algorithmic and implementation enhancements of DSO, focus on the <u>stereo version</u>.
 
+<a name="lgnnbrief"></a>
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Long-term Visual Map Sparsification with Heterogeneous GNN](https://arxiv.org/abs/2203.15182) use GNN to substitute the ILP method. compare with the result using [Keep it brief (paper)](https://ieeexplore.ieee.org/document/7353722/) , [my notes here (better take a look)](#lkeepbrief) for map summarization.
 
 <a name="l2021"></a>
@@ -140,14 +163,14 @@ $$
 
 * used in <img src="/assets/img/paperread/chrown.png" height="25"/> [gtsfm](#lgtsfm) (along with [translation averaging](#ltranslationaverage)), a different mapping pipeline from colmap-sfm. [gstam implementation](https://github.com/borglab/gtsam/blob/a0d64a9448b2bf4deb5073b3860a39c6b9fdd4dd/gtsam/sfm/ShonanAveraging.h)
 
-
+<a name="lhloc"></a>
 <img src="/assets/img/paperread/chrown.png" height="25"/>  [hloc Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localization). [CVPR2020](https://www.visuallocalization.net/workshop/cvpr/2020/) winner.
 
 * [SuperPoint 2017](https://arxiv.org/abs/1712.07629), [SuperGlue](https://arxiv.org/abs/1911.11763) with [colmap 2016](https://colmap.github.io/) for building map.
 * [Hierarchical Localization 2019](https://arxiv.org/abs/1812.03506) for localization. (Roughly speaking, using [NetVLAD 2016](https://arxiv.org/abs/1511.07247) match submap with a global descriptor, then match with reference image).
 
 <div align="center">    
-<img src="/assets/img/paperread/hloc.png" width="90%"/>
+<img src="/assets/img/paperread/hloc.png" width="70%"/>
 </div>
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Online Invariance Selection for Local Feature Descriptors](https://github.com/rpautrat/LISRD) Mainly for image retrieval. A light-weight meta descriptor approach to automatically select the best invariance of the local descriptors given the context. Learning the best invariance for local descriptors.

@@ -17,11 +17,15 @@ title: Other Specific Subjects
     * [Calibration](#l5.1)
     * [Anti-Aliasing](#l5.2)
     * [Reconstruction](#l5.3)
-6. [Infrared 6dof](#l6)
-7. [DL SLAM](#l7)
+6. [XR Hand](#l6)
+    * [Meta](#l6.1)
+    * [Apple](#l6.2)
+    * [Infrared Papers](#l6.3)
+7. [DL Localization](#l7)
     * [End-to-end Regression](#l7.1)
     * [DL depth + DL flow -> Pose](#l7.2)
     * [Match + Relative Pose](#l7.3)
+8. [Continuous-Time Batch Calibration](#l8)
 
 <p/><p/>
 
@@ -270,9 +274,49 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Egocentric Scene Reconstruction from an Omnidirectional Video](http://vclab.kaist.ac.kr/siggraph2022p2/), [github](https://github.com/KAIST-VCLAB/EgocentricReconstruction). Fuse per-frame depth estimates into a novel <u>spherical binoctree data structure</u> that is specifically designed to tolerate spherical depth estimation errors.
 
 <a name="l6"></a>
-# 6. Infrared 6dof
+# 6. XR Hand
 
-<img src="/assets/img/paperread/unhappy.png" height="25"/> [Robust Robotic Localization using Visible Light Positioning and Inertial Fusion 2021](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/9330552). using RSE-based Optical Camera Communication to decode information in large plannar LED light.
+<a name="l6.1"></a>
+## 6.1 Meta
+
+<img src="/assets/img/paperread/chrown.png" height="25"/> [META blogs 2019](https://developer.oculus.com/blog/)
+* [Blob segmentation](https://developer.oculus.com/blog/increasing-fidelity-with-constellation-tracked-controllers/)
+  * Image pyramids to find blobs in different scale, not for all frames. to handle : separate merged blobs, detect faint blobs, center of a close blob.
+  * in [noisy scene : holiday lights and trees](https://developer.oculus.com/blog/optimizing-oculus-insight-controller-tracking-to-work-in-challenging-conditions-like-near-holiday-lights/):
+    * detects stationary 3D lights and reject them.
+    * use CNN to validate blobs.
+* [LED Matching](https://developer.oculus.com/blog/tracking-technology-explained-led-matching/).
+  * “brute matching” check all the hypotheses. “proximity matching” with prior information of pose.
+  * all the blobs in the four images will be collected to match.
+  * develop fewer points (1 point, 2 points) match algorithms.
+
+<div align="center">    
+<img src="/assets/img/paperread/four_image_detection.png" width="85%"/>
+</div>
+
+* No more blogs released after Dec 2019, but more hand tracking updates are available.
+* My implementation:
+
+<div align="center">    
+<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+</div>
+
+<a name="l6.2"></a>
+## 6.2 Apple
+
+[Apple Vision Pro 2023](https://www.apple.com/apple-vision-pro/)
+* [Design for spatial input 2023](https://developer.apple.com/videos/play/wwdc2023/10073/).
+  * eye tracking -> target. tap finger -> select. flick finger -> scroll.
+  * could process complete hand tracking in some cases.
+
+<div align="center">    
+<img src="/assets/img/paperread/apple-vision-pro-gestures.webp" width="35%"/>
+</div>
+
+* [Detect Body and Hand Pose with Vision 2020](https://developer.apple.com/videos/play/wwdc2020/10653/) other people's pose.
+
+<a name="l6.3"></a>
+## 6.3 Infrared Papers
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
 
@@ -285,18 +329,14 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
   * Oculus Rift DK2 2014: LEDs transmit their own IDs by on-off keying as a 10-bit data packet at 60Hz.
 * Coded marker-based optical positioning systems.
 
-<img src="/assets/img/paperread/unhappy.png" height="25"/> [Indoor Positional Tracking Using Dual-Axis Rotating Laser Sweeps 2016](https://sci-hub.ru/https://ieeexplore.ieee.org/document/7520559). A base rotating with sync blinkers, and tracked object contains multiple photodiodes.
-
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Low-cost vision-based 6-DOF MAV localization using IR beacons 2013](https://ieeexplore.ieee.org/abstract/document/6584225/). <u>Enumerate</u> all possible 2d-3d matches, filter by plane prior (order around the centroid is kept), then solve pose by PnP.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Kinectrack: Agile 6-DoF Tracking Using a Projected Dot Pattern 2012](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/6402533/). plannar IR pattern: 4 points -> quads -> kites. Kites have a perspective-invariant signature, used to match and compute pose.
 
-<img src="/assets/img/paperread/unhappy.png" height="25"/> [A Wii remote-based infrared-optical tracking system 2010](https://sci-hub.ru/https://www.sciencedirect.com/science/article/abs/pii/S1875952110000054), multi-view camerea outside-in.
-
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
 
 <a name="l7"></a>
-# 7. DL SLAM
+# 7. DL Localization
 
 <a name="l7.1"></a>
 ## 7.1 End-to-end Regression
@@ -323,3 +363,20 @@ No end-to-end relative pose estimation network (using pose loss) found. Might be
 
 * Map: images with poses.
 * Query Pipeline: Retrieval + Match Features + Relative Poses + Pose Averaging -> Query Camera Pose.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [LoFTR: Detector-Free Local Feature Matching with Transformers 2021](https://zju3dv.github.io/loftr/). directly output points matches with two input images.
+
+
+<a name="l8"></a>
+# 8. Continuous-Time Batch Calibration
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Calibrating the Extrinsics of Multiple IMUs and of Individual Axes 2016](https://timohinzmann.com/publications/icra_2016_rehder.pdf). Add multiple IMUs based on previous works.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Unified Temporal and Spatial Calibration for Multi-Sensor Systems 2013](https://ieeexplore.ieee.org/document/6696514). Add timestamp parameter based on previous work.
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Continuous-Time Batch Estimation using Temporal Basis Functions 2012](https://furgalep.github.io/bib/furgale_icra12.pdf). [My Notes](https://drive.google.com/file/d/1ljcLGqWvBsvgvK5FpLo59VX7bIvHWlq2/view?usp=sharing).
+
+Use a serial of bsplines to simulate the trajectory, since bspline is continous (if degree is high enough), the trajectory will be smooth, and could compute derivative w.r.t. time to get acceleration and angular velocity. forme the optimization problem with :
+* map point observations.
+* imu measurements : 2nd derivative of position, and 1st derivative of rotation.
+* control input constraints.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [General Matrix Representations for B-Splines 1998](https://xiaoxingchen.github.io/2020/03/02/bspline_in_so3/general_matrix_representation_for_bsplines.pdf). used in upper papers to generate bsplines.
