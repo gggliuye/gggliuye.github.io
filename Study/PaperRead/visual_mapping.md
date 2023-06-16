@@ -139,6 +139,8 @@ use <u>self-attention</u> operation in vision Transformers to implicitly select 
     * solve camera translations using [Translation Averaging](#ltranslationaverage).
 * Process a full BA. then MVS.
 
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [LoFTR: Detector-Free Local Feature Matching with Transformers](https://arxiv.org/pdf/2104.00680.pdf), [github](https://github.com/zju3dv/LoFTR). Dense feature match driectly from two input images.
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [GVINS: Tightly Coupled GNSS-Visual-Inertial Fusion for Smooth and Consistent State Estimation](https://github.com/HKUST-Aerial-Robotics/GVINS) It offers a complete model of GPS measurement. Makes fusion with GPS very solid.
 
 <img src="/assets/img/paperread/unhappy.png" height="25"/> [DSP-SLAM: Object Oriented SLAM with Deep Shape Priors](https://jingwenwang95.github.io/dsp-slam/) ORBSLAM2 + object tracking
