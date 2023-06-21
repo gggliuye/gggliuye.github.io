@@ -26,6 +26,12 @@ body {
 ul.nested {list-style-type: none;}
 ul.my_tree {list-style-type: none;}
 
+/*n :note*/
+n {
+  line-height: 1.5;
+  margin: 1.875rem 0;
+  color: green;
+}
 p {
   line-height: 1.5;
   margin: 1.875rem 0;
