@@ -41,9 +41,9 @@ Blog: [Methods for visual localization](https://europe.naverlabs.com/blog/method
 <a name="lvlp2"></a>
 ## 1.2 Local Feature
 
-* SIFT.
-* SuperPoint+SuperGlue
-* LOFTR
+* SIFT + RANSAC
+* SuperPoint + SuperGlue
+* detector-free: LOFTR
 
 <a name="lvlp3"></a>
 ## 1.3 Global Descriptor
