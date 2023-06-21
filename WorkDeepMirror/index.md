@@ -58,9 +58,9 @@ working on slam/vlp system.
 <p/><p/>
 ## A. INS fusion
 
-working on car localization (in world), and vr headset localization (in car).
-* ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
-* Working with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)。
+working on meta-verse for cars.
+* **car localization** - ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
+* **vr in-car localization** - work with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)。
 
 <div align="center">    
 <img src="/assets/img/work/dm_gq.jpeg" width="60%"/>
@@ -71,19 +71,24 @@ working on car localization (in world), and vr headset localization (in car).
 <details>
   <summary>Details</summary>
 
-<li><a>IMU为观测模型，中值/KR差值。</a></li>
-<li><a>iterative kalman filter on manifold，重构（去除boost依赖）和加速（函数的重构）。</a></li>
-<li><a>观测包括：轮速的观测、gps位置观测（带外参的优化）、视觉图像定位的观测（延迟到达的观测，使用covariance的推演）。</a></li>
-<li><a>系统状态的初始化（初始位姿、初始速度、重力、bias）。</a></li>
-<li><a>实测和调参（针对VR和AR系统中都有充分的完整的调整和测试）。</a></li>
-<li><a>车内的VR眼镜的6dof算法开发。</a></li>
+<li><a>iterative kalman filter on manifold</a>
+<ul style="list-style-type:circle">
+  <li><a>build the full algorithm library.</a></li>
+  <li><a>accelerate for imu motion model inputs.</a></li>
+  <li><a>state initialization based on imu preintegration.</a></li>
+  <li><a>besides basic measurements, we made visual localization measurements.</a></li>
+  <li><a>tested over 200h running in Guangzhou.</a></li>
+</ul>
+</li>
+<li><a>6dof localization inside car - based on imu, vision, and car state.</a></li>
+<li><a>develop of the VR in car unity SDK (supporting our applications).</a></li>
 
 </details>
 
 <p/><p/>
 ## B. VLIO algorithm
 
-lidar-imu-image, based on image direct method with photometric refinement (based on  independent research). (following last year's work)
+**lidar-imu-image slam**, based on image direct method with photometric refinement (based on  independent research). (following last year's work)
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -93,7 +98,7 @@ lidar-imu-image, based on image direct method with photometric refinement (based
 
 <details>
   <summary>Details</summary>
-<p>涉及最新成果在此保密。</p>
+<p></p>
 </details>
 
 <p/><p/>
@@ -111,9 +116,15 @@ Designed for <u>multi-session lifelong map</u>, handle environement change.
 
 <details>
   <summary>Details</summary>
-<li><a>自研的cuda，点云处理和TSDF点云融合。主要feature：由于我们处理的是城市级别的范围，我们做了点云ray的切分和并行处理。</a></li>
-<li><a>多线程：点云颜色的叠加、结合语义的过滤。</a></li>
-<li><a>Mesh的生成参考colmap的实现，(1)在Delaunay的数据结构上进行ray casting，(2)min-cut计算face， (3) mesh后处理（降面和去噪），(4)贴图和颜色的处理。</a></li>
+<li><a>TSDF point cloud generation (lidar pcl)</a>
+<ul style="list-style-type:circle">
+  <li><a>has both cuda version and cpu version.</a></li>
+  <li><a>block-level processing, fit for any scale (room/building/city).</a></li>
+  <li><a>with additional information : color, intensity, semantic label, etc.</a></li>
+  <li><a>run for all our data (whole city).</a></li>
+</ul>
+</li>
+<li><a>Mesh generation (based on lidar pcl). Delaunay - Ray Casting - Min-cut - Post-processing - Texture adding</a></li>
 </details>
 
 
@@ -133,7 +144,7 @@ For simplification of visual localization map.
 
 <details>
   <summary>Details</summary>
-<p>涉及最新成果在此保密。</p>
+<p></p>
 </details>
 
 
@@ -160,22 +171,18 @@ For simplification of visual localization map.
 <details>
   <summary>Details</summary>
 
-<p>（1）LIO-SAM。把算法完全消化成我们的代码（使用的第三方库：Eigen、Kdtree、Ceres）。</p>
-
-<li><a>把后端由gtsam换成ceres：主要工作是factor的重写，由于我司的parameterization block用了se3（历史包袱），而没有把旋转平移分开（比如vins），需要重新推倒计算。</a></li>
-
-<li><a>各个部件的优化。包括但不限于</a>
+<li><a>LIO-SAM based Lidar SLAM algorithm:</a>
 <ul style="list-style-type:circle">
-  <li><a>帧间匹配加速优化，ceres到手写gn。</a></li>
-  <li><a>IMU初始化的优化，参考vins。</a></li>
-  <li><a>去畸变、特征提取的多线程优化。</a></li>
-  <li><a>与新数据格式的适配。</a></li>
-  <li><a>室内室外各个场景的调参。</a></li>
+  <li><a>Using Ceres instead of GTSAM : write all the cost functions (without auto-diff, including imu preintegration factors).</a></li>
+  <li><a>accelerate frame-to-map ICP, using a new Gaussian Newton algorithm.</a></li>
+  <li><a>state initialization based on imu preintegration (bsaed on VINS, but remake to be better).</a></li>
+  <li><a>accelerate lidar undistortion and feature extraction (based on multi-threading, and refine memory usage).</a></li>
+  <li><a>tested in over 200h of our data.</a></li>
 </ul>
 </li>
 
-<p>（2）FAST-LIO2。涉及最新成果在此保密。</p>
-
+<li><a>FAST-LIO2 based Lidar Odometry algorithm.</a></li>
+<li><a>Our loop closing algorithm.</a></li>
 </details>
 
 
@@ -196,13 +203,13 @@ Single camera semi-dense direct method (reference DSO) to mapping fastly the who
 <details>
   <summary>Details</summary>
 
-<li><a>代码的整体重构，并增加unit test。</a></li>
-<li><a>使用NEON对更多的函数进行优化，尤其是投影的部分。</a></li>
-<li><a>调整了初始化策略：使用轮速里程计初始化。</a></li>
-<li><a>增加紧耦合的轮速里程计观测。（dso是手写的优化，使用pose error为优化变量的扰动模型）</a></li>
-<li><a>接入我们的pipeline进行建图自动化。</a></li>
-<li><a>另外IMU融合的需求做了一半（factor和后端准备就绪，还差初始化和实测），但是后来这个需求被砍了。</a></li>
-<li><a>多次采集的地图融合。通过数据库获取近邻关键帧。使用dso的深度和sift做pnp，然后使用dso的直接法匹配优化位姿。</a></li>
+<li><a>remake all the algorithm to fit our code format. add more unit tests.</a></li>
+<li><a>using NEON to accelerate more algorithm blocks.</a></li>
+<li><a>remake the initialization, to take advantage of chassis.</a></li>
+<li><a>add tightly coupled chassis observation : pose measurement, relative pose measurement.</a></li>
+<li><a>add the whole algorithm to our cloud pipeline.</a></li>
+<li><a>add imu measurements : make a VI-DSO.</a></li>
+<li><a>multi-collection fusion, using purly image. add a few image-map observations and run global bundle adjustment.</a></li>
 
 </details>
 
@@ -223,16 +230,17 @@ Single camera semi-dense direct method (reference DSO) to mapping fastly the who
 <details>
   <summary>Details</summary>
 
-<li><a>数据库格式，算法pipeline的构思定义。</a></li>
-<li><a>global registration的算法开发（我们只使用了kdtree的第三方库）。</a>
+<li><a>my first mission in DeepMirror.</a></li>
+<li><a>Define the database interface and algorithm pipeline.</a></li>
+<li><a>pointcloud global registration: (using only Kdtree and Eigen)</a>
 <ul style="list-style-type:circle">
-  <li><a>点云normal和FPFH的提取的开发。</a></li>
-  <li><a>参考teaser，但是teaser使用了PMC库(Parallel Maximum Clique)，我们不想引入太多的第三方库，于是degree number heuristic来计算maximal clique，实际结果很好。</a></li>
-  <li><a>也开发了RANSAC的版本，实测效果也很好。</a></li>
+  <li><a>point cloud normal and FPFH.</a></li>
+  <li><a>referencing TEASER. while we develop a faster 'degree number heuristic' to compute maximal clique.</a></li>
+  <li><a>made ransac version.</a></li>
 </ul>
 </li>
-<li><a>pipeline的多线程，针对数据库的算法效率优化等。</a></li>
-<li><a>各个场景的调参优化。</a></li>
+<li><a>algorithm acceleration and pipeline debug.</a></li>
+<li><a>tested on over 200h of data.</a></li>
 
 </details>
 
