@@ -26,11 +26,17 @@ body {
 ul.nested {list-style-type: none;}
 ul.my_tree {list-style-type: none;}
 
-/*n :note*/
+/*n :note  https://htmlcolorcodes.com/*/
 n {
   line-height: 1.5;
   margin: 1.875rem 0;
   color: green;
+}
+/*h :highlight*/
+h {
+  line-height: 1.5;
+  margin: 1.875rem 0;
+  color: #8E44AD;
 }
 p {
   line-height: 1.5;

@@ -218,6 +218,9 @@ $$
 <a name="l4.2"></a>
 ## 4.2 Learning to Drive
 
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Planning-oriented Autonomous Driving 2023](https://opendrivelab.github.io/UniAD/). **Large model** for auto-drive, an end-to-end paradigm unites modules in perception and prediction. Combine different models together, and jointly optimize them.
+
+
 **Take advantages of [Transformers](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)).**
 * Traditional CV missions (classification, segmentation, etc) are not fit for auto-drive mission.
 * Compared to ChatGPT, these models are very small. No large model in general Computer Vision yet.
