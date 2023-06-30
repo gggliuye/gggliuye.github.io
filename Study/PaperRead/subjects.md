@@ -49,18 +49,30 @@ $$
 <a name="l2"></a>
 # 2. Line Feature Mapping
 
-<img src="/assets/img/paperread/chrown.png" height="25"/> [3D Line Mapping Revisited 2023](https://arxiv.org/abs/2303.17504), [github](https://github.com/cvg/limap).
+<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [3D Line Mapping Revisited 2023](https://arxiv.org/abs/2303.17504), [github](https://github.com/cvg/limap). [my version with colmap interface](https://github.com/yeliu-deepmirror/limap). **ETH, <h>STATE-OF-ART</h>**. line mapping using sfm result (camera poses & world points).
+
+<div align="center">    
+<img src="/assets/img/paperread/limap.png" width="75%"/>
+</div>
+
+1. Line Proposal : line match -> <h>point-guided line triangulation</h> (to overcome degenerate cases).
+  * using [Orthonormal Representation](#lorth_line).
+  * line feature : [DeepLSD](https://github.com/cvg/DeepLSD), descriptors : [LineTR](https://github.com/yosungho/LineTR).
+  * line matcher : [GlueStick](https://github.com/cvg/GlueStick)(superglue for lines).
+2. Proposal Scoring & Track Association.
+3. Joint Optimization.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [UV-SLAM: Unconstrained Line-based SLAM Using Vanishing Points for Structural Mapping 2021](https://arxiv.org/abs/2112.13515). using vanishing points for structural mapping, to avoid degeneracy in Plucker representation.
 
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [PL-SLAM: a Stereo SLAM System through the Combination of Points and Line Segments 2017](https://arxiv.org/abs/1705.09479). Using the orthonormal representation of lines, and 3d point representation of points, to process visual slam (basicly ORBSLAM2 structure). And the first paper to derivative the line jacobians with detail.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [impact of landmark parameterization on monocular ekf-slam with points and lines 2010](https://www.researchgate.net/publication/41182046_Impact_of_Landmark_Parametrization_on_Monocular_EKF-SLAM_with_Points_and_Lines) Project lines into camera image space.
+
+<a name="lorth_line"></a>
 <img src="/assets/img/paperread/chrown.png" height="25"/> [structure-from-motion using lines : representation triangulation and bundle adjustment 2005](https://hal.archives-ouvertes.fr/hal-00092589/document), based on [Plucker representation](https://en.wikipedia.org/wiki/Pl%C3%BCcker_coordinates) of the line (by two points or two planes: the direction of the line, and the moment). The paper proposed a **Orthonormal Representation** of lines, takes only 4 dof (three from SO(3) and one from SO(2)), make it easier for optimization.
 
 * *Used this factorization in our project, it performs well.* But in actually localization applications, point feature is much more robust than this method.
 * this should fits better for traffic lanes mapping, with fixed poses.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [impact of landmark parameterization on monocular ekf-slam with points and lines 2010](https://www.researchgate.net/publication/41182046_Impact_of_Landmark_Parametrization_on_Monocular_EKF-SLAM_with_Points_and_Lines) Project lines into camera image space.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [PL-SLAM: a Stereo SLAM System through the Combination of Points and Line Segments 2017](https://arxiv.org/abs/1705.09479). Using the orthonormal representation of lines, and 3d point representation of points, to process visual slam (basicly ORBSLAM2 structure). And the first paper to derivative the line jacobians with detail.
 
 <a name="l3"></a>
 # 3. Omnidirectional Camera

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 再论中西哲学之根本差别（吴晓明）
-subtitle: 中国社会科学杂志 2023/05
+title: 再论中西哲学之根本差别
+subtitle: 中国社会科学杂志 2023/05 吴晓明
 tags: [中国社会科学, Philosophy]
 comments: true
 ---
