@@ -343,7 +343,7 @@ input image, directly return the pose (3dof/6dof).
 
 
 **dense pixel-level feature-based** (using the geometric relationship - as camera pose optimization):
-* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Beyond Cross-view Image Retrieval: Highly Accurate Vehicle Localization Using Satellite Image 2022](https://arxiv.org/abs/2204.04752). Given a coarse initial estimation, optimize pose based on **<h>the projection error</h>** of the satellite deep features to a ground viewpoint.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Beyond Cross-view Image Retrieval: Highly Accurate Vehicle Localization Using Satellite Image 2022](https://arxiv.org/abs/2204.04752), [github](https://github.com/shiyujiao/HighlyAccurate). Given a coarse initial estimation, optimize pose based on **<h>the projection error</h>** of the satellite deep features to a ground viewpoint.
   * 3d point reprojection error, using coarse-to-fine LM.
   * <u>setting all the points in ground image on ground</u> (to have 3d points).
   * pose error as the trainning loss.
