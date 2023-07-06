@@ -60,7 +60,7 @@ working on slam/vlp system.
 
 working on meta-verse for cars.
 * **car localization** - ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
-* **vr in-car localization** - work with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA)。
+* **vr in-car localization** - work with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA), **patent**: [Vehicle-mounted XR equipment](http://www.soopat.com/Patent/202211281972).
 
 <div align="center">    
 <img src="/assets/img/work/dm_gq.jpeg" width="60%"/>
@@ -88,7 +88,8 @@ working on meta-verse for cars.
 <p/><p/>
 ## B. VLIO algorithm
 
-**lidar-imu-image slam**, based on image direct method with photometric refinement (based on  independent research). (following last year's work)
+**lidar-imu-image slam**, based on image direct method with photometric refinement (following last year's work).
+**patent**: [Mapping method and system based on laser vision fusion](http://www.soopat.com/Patent/202211633054).
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
