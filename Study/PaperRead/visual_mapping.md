@@ -64,9 +64,12 @@ Has two type of understanding:
 <a name="lvlp4"></a>
 ## 1.4 Mapping
 
+**Point** based mapping:
 * Bundle adjustment based mapping: [Hierarchical-Localization](#lhoc).
 * Global Averaging based mapping: [GTSFM](#lgtsfm).
 * Optimization Distribution : [DABA](#ldaba), [ADMM BA](ladmmba).
+
+**Line** based mapping: see [page](../subjects/#l2).
 
 <a name="lvlp5"></a>
 ## 1.5 Post Processing

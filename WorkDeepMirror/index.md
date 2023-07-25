@@ -43,11 +43,16 @@ Panorama video (insta360 & go-pro) is the only input.
 * usage of IMU:
     * extrinsics & timestamp calibration for camera-imu.
     * scale and gravity recovery of the visual map.
-* MVS image depth recovery (both traditional cv method and DL method).
+* MVS image depth recovery (both [traditional cv method](/Study/PaperRead/3d_reconstruction/#lacmm) and [Deep Learning method](/Study/PaperRead/3d_reconstruction/#ldl)).
 
 <div align="center">    
 <img src="/assets/img/work/pano_depth_render.jpg" width="75%"/>
 </div>
+
+<p/><p/>
+## C. Line Mapping & Localization
+
+see [Line Mapping Page](/Study/PaperRead/subjects/#l2). and [my branch of LIMAP](https://github.com/yeliu-deepmirror/limap).
 
 <p/><p/>
 <a name="l2022"></a>
