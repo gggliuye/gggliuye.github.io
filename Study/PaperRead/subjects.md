@@ -61,7 +61,7 @@ $$
   * line matcher : [GlueStick](https://github.com/cvg/GlueStick)(superglue for lines).
 2. Proposal Scoring & Track Association.
 3. Joint Optimization.
-4. <u>Test localization in our benchmark, no improvement seen</u> ([more details in repo](https://github.com/yeliu-deepmirror/limap)).
+4. <u>Test localization in our benchmark, no improvement seen</u> ([more details in my repo](https://github.com/yeliu-deepmirror/limap)).
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [UV-SLAM: Unconstrained Line-based SLAM Using Vanishing Points for Structural Mapping 2021](https://arxiv.org/abs/2112.13515). using vanishing points for structural mapping, to avoid degeneracy in Plucker representation.
 

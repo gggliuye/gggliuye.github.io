@@ -13,8 +13,8 @@ What else do you need?
 
 ## Hobby
 
-* Philosophy, Marxism. 
-* Love music, a rock fan.
+* Philosophy, Marxism.
+* Love music, Rock fan.
 * Love outdoor.
 
 ## Education
@@ -55,3 +55,5 @@ What else do you need?
 [My home page of this work](https://vio.readthedocs.io/zh_CN/latest/index.html).
 
 * [The abstract of my work until 2020/08](../WorkUtopa/index).
+* [My certifications Coursera](../Study/certs/coursera).
+* [My certifications Deep Blue (深蓝学院)](../Study/certs/deepblue).

@@ -10,9 +10,6 @@ title: Deep Learning
     2. [VAE (variational auto-encoder)](#lvae)
     3. [GANS](#lgans)
 2. [3d Reconstruction](#l3d_recon)
-    1. [Neural Rendering](#lneural_r)
-    2. [DL SDF](#ldl_sdf)
-    3. [DL MVS](#ldl_mvs)
 3. [Autonomous Driving](#lauto_drive)
     1. [HD-Map](#lhd_map)
     2. [Learning to Drive](#llearn_drive)
@@ -102,114 +99,10 @@ $$
 <a name="l3d_recon"></a>
 # 2. 3d Reconstruction
 
-<a name="lneural_r"></a>
-## 3.1 Neural Rendering
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [LENS: Localization enhanced by NeRF synthesis 2021](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
-* Nerf : can cause excessive blurring and aliasing.
-* Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Depth-supervised NeRF: Fewer Views and Faster Training for Free 2021](https://www.cs.cmu.edu/~dsnerf/) with probabilisitic COLMAP depth supervision. [github loss](https://github.com/dunbar12138/DSNeRF/blob/main/loss.py):
-```
-loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * err)) * dists
-```
-(I made this update with [NERF PL](https://github.com/yeliu-deepmirror/nerf_pl), no much improvement found. But I used linear loss, since our depths are from relible lidar. **TODO**)
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs](https://arxiv.org/pdf/2103.13744.pdf). Instead of a single, high-capacity MLP, represents by thousands of small MLPs.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [IBRNet: Learning Multi-View Image-Based Rendering 2021](https://arxiv.org/abs/2102.13090) operate without any scene-specific optimization or precomputed proxy geometry. for each target ray:
-
-* step 1. [sample 3d points on rays, candidate images] → [features extracted on projected pixel location from candidate images]
-* step 2. [extracted features, direction] → [RGB weights, volume density]
-* <u>Cons</u>: Need additional feature extraction module. No 3d points location as input so that converting to 3d mesh is tricky.
-
-<a name="lnerfw"></a>
-<img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
-
-* step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
-* step 2. model the scene as the union of shared and image-dependent elements.
-* [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
-
-<div align="center">    
-<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="75%"/>
-</div>
-
-<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
-
-<div align="center">  
-  <pre class="mermaid">
-        graph LR
-        A[Position of point] --> B[MLP encoder]
-        B --> C[FCxN]
-        C --> D[FC]
-        B --> D
-        D --> E[FCxN]
-        E --> F
-        X[Direction of ray] --> Y[MLP encoder] --> F[FC]
-        F --> G[RGB & sigma]
-        style A fill:#f9f,stroke:#333,stroke-width:4px
-        style X fill:#f9f,stroke:#333,stroke-width:4px
-        style G fill:#bbf,stroke:#333,stroke-width:4px
-  </pre>
-</div>
-
-* Need times to train for each data session.
-* Train LLFF dataset (“forward-facing” scenes) in “normalized device coordinates” (NDC) space; large rotation scene in conventional 3D world coordinates.
-* [google jaxnerf implementation](https://github.com/google-research/google-research/tree/master/jaxnerf), [see here with my tests](https://github.com/yeliu-deepmirror/nerf).
-
-<img src="/assets/img/paperread/chrown.png" height="25"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
-
-
-<a name="ldl_sdf"></a>
-## 2.2 DL SDF
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [VolSDF: Volume Rendering of Neural Implicit Surfaces 2021](https://arxiv.org/pdf/2106.12052.pdf) define the volume density function as Laplace’s cumulative distribution function (CDF) applied to a signed distance function (SDF) representation. model the density:
-
-$$
-\sigma(x) = \alpha \Phi_{\beta}(-d_{\Omega}(x))
-$$
-
-$$
-\begin{equation}
-  \Phi_{\beta}(s) =
-    \begin{cases}
-      \frac{1}{2}exp(\frac{s}{\beta}) & \text{if $s \le 0$}\\
-      1 - \frac{1}{2}exp(-\frac{s}{\beta}) & \text{if $s > 0$}
-    \end{cases}       
-\end{equation}
-$$
-
-* MLP1. sdf d and feature z: $f_{\phi}(x) = (d(x), z(x)) \in R^{1+256}$
-* MLP2. scene’s radiance field: $L_{\phi}(x, n, v, z) \in R^{3}$
-
-
-<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [Implicit Neural Representations with Periodic Activation Functions 2020](https://arxiv.org/abs/2006.09661). <u>A continuous implicit neural representation using periodic activation functions that fits complicated signals.</u> Solve challenging boundary value problems.
-
-$$
-F(x, \Phi(x), \triangledown_{x}\Phi, \triangledown_{x}^{2}\Phi, ...) = 0
-$$
-
-* ReLU networks are piecewise linear incapable of modeling higher-order derivatives. While alternative activations are not well behaved.
-* **SIREN**: $\Phi(x) = W_{n}(\phi_{n-1} \circ \phi_{n-2} \circ ... \circ \phi_{0})(x) + b_{n}$, $x_{i} \to \phi_{i}(x_{i}) = sin(W_{i}x_{i} + b_{i})$. The activations of Siren always alternate between a standard normal distribution with standard deviation one, and an arcsine distribution.
-* $\Phi(x)$ being a FC, loss be the $\int_{\Omega} \sum_{i}I_{\Omega_{i}}(x)\|F(x)\| dx$. ($\Omega_{i}$ is a sampling)
-* Poisson Equation, SDF(+-1), Helmholtz and Wave Equation. [github](https://github.com/vsitzmann/siren).
-* Compared with NERF pose encoding in github.
-
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_DeepSDF_Learning_Continuous_Signed_Distance_Functions_for_Shape_Representation_CVPR_2019_paper.html) DeepSDF network outputs SDF value at a 3D query location. Shape completion (auto-decoding) takes considerably more time during inference. [github](https://github.com/facebookresearch/DeepSDF).
-
-<a name="ldl_mvs"></a>
-## 2.3 DL MVS
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [PatchmatchNet: Learned Multi-View Patchmatch Stereo](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_PatchmatchNet_Learned_Multi-View_Patchmatch_Stereo_CVPR_2021_paper.pdf), [github](https://github.com/FangjinhuaWang/PatchmatchNet). checked in a few scenes, and run fusion the pointcloud, not ideal.
-
-<div align="center">    
-<img src="/assets/img/paperread/dl_mvs_res.png" width="80%"/>
-</div>
+see [3d Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl)
+1. [Neural Rendering](/Study/PaperRead/3d_reconstruction/#lneural_r)
+2. [SDF](/Study/PaperRead/3d_reconstruction/#ldl_sdf)
+3. [MVS](/Study/PaperRead/3d_reconstruction/#ldl_mvs)
 
 <a name="lauto_drive"></a>
 # 3. Autonomous Driving
@@ -315,7 +208,9 @@ input image, directly return the pose (3dof/6dof).
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Unsupervised Learning of Monocular Depth Estimation and Visual Odometry with Deep Feature Reconstruction 2018](https://arxiv.org/abs/1803.03893).
 
 <a name="ldense_match"></a>
-## 4.3 Match + Relative Pose
+## 4.3 Match + (Relative) Pose
+
+### 4.3.1 Dense Image 2d Matching
 
 * Map: images with poses.
 * Query Pipeline: Retrieval + Match Features + Relative Poses + Pose Averaging -> Query Camera Pose.
@@ -323,6 +218,16 @@ input image, directly return the pose (3dof/6dof).
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [DKM: Dense Kernelized Feature Matching for Geometry Estimation 2023](https://parskatt.github.io/DKM/). directly output points matches with two input images.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [LoFTR: Detector-Free Local Feature Matching with Transformers 2021](https://zju3dv.github.io/loftr/). directly output points matches with two input images.
+
+### 4.3.2 Image-Scene 2d-3d Matching
+
+<div align="center">    
+<img src="/assets/img/paperread/learnlandmark.png" width="50%"/>
+</div>
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Learning to Detect Scene Landmarks for Camera Localization 2022](https://openaccess.thecvf.com/content/CVPR2022/papers/Do_Learning_To_Detect_Scene_Landmarks_for_Camera_Localization_CVPR_2022_paper.pdf), [github](https://github.com/microsoft/SceneLandmarkLocalization). predict 2d localization of a predefined scene landmark (predict heat map for each scene landmark).
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Visual Camera Re-Localization from RGB and RGB-D Images Using DSAC 2021](https://arxiv.org/pdf/2002.12324.pdf). predict scene coordinates, i.e. dense correspondences between the input image and 3D scene space of the environment.
 
 <a name="laerial_loc"></a>
 ## 4.4 Overhead Image localization

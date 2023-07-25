@@ -4,6 +4,12 @@ title: 3D Reconstruction
 ---
 
 # Table of Contents
+* [Summary](#lsum)
+* [Deep Learning](#ldl)
+    1. [Neural Rendering](#lneural_r)
+    2. [SDF](#ldl_sdf)
+    3. [MVS](#ldl_mvs)
+* [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
 * [2019](#l2019)
@@ -12,18 +18,144 @@ title: 3D Reconstruction
 * [2016: Survey](#l2016)
 * [Earlier](#learlier)
 
-### Point cloud generation
+<a name="lsum"></a>
+# Summary
+
+## Point cloud generation
 
 * (local method) 3d grid (TSDF, ESDF) + matching cube. (especially [voxblox](#lvoxblox))
 * (global method) point cloud + possion reconstruction.
 * (<u>currently used in pipeline</u>) Delaunnay triangulation. (especially [Robust and efficient surface reconstruction from range data](#colmapdelaunay))
-* Deep learning method. (see more in [Deeplearning methods](/Study/PaperRead/subjects/#l3))
+* Deep learning method. (see more in [Deeplearning methods](#ldl))
    * use nerf to process rays.
    * use implicit neural representation to solve geometry problems (SDF).
 
 <p/><p/>
 
-# 2021 <a name="l2021"></a>
+<a name="ldl"></a>
+# Deep Learning
+
+More Work are done with Deep Learning.
+
+[Improving neural implicit surfaces geometry with patch warping](https://arxiv.org/pdf/2112.09648.pdf), [github](https://github.com/fdarmon/NeuralWarp).
+
+
+<a name="lneural_r"></a>
+## 1. Neural Rendering
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [LENS: Localization enhanced by NeRF synthesis 2021](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
+* Nerf : can cause excessive blurring and aliasing.
+* Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Depth-supervised NeRF: Fewer Views and Faster Training for Free 2021](https://www.cs.cmu.edu/~dsnerf/) with probabilisitic COLMAP depth supervision. [github loss](https://github.com/dunbar12138/DSNeRF/blob/main/loss.py):
+```
+loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * err)) * dists
+```
+(I made this update with [NERF PL](https://github.com/yeliu-deepmirror/nerf_pl), no much improvement found. But I used linear loss, since our depths are from relible lidar. **TODO**)
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs](https://arxiv.org/pdf/2103.13744.pdf). Instead of a single, high-capacity MLP, represents by thousands of small MLPs.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [IBRNet: Learning Multi-View Image-Based Rendering 2021](https://arxiv.org/abs/2102.13090) operate without any scene-specific optimization or precomputed proxy geometry. for each target ray:
+
+* step 1. [sample 3d points on rays, candidate images] → [features extracted on projected pixel location from candidate images]
+* step 2. [extracted features, direction] → [RGB weights, volume density]
+* <u>Cons</u>: Need additional feature extraction module. No 3d points location as input so that converting to 3d mesh is tricky.
+
+<a name="lnerfw"></a>
+<img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
+
+* step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
+* step 2. model the scene as the union of shared and image-dependent elements.
+* [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
+
+<div align="center">    
+<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="75%"/>
+</div>
+
+<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
+
+<div align="center">  
+  <pre class="mermaid">
+        graph LR
+        A[Position of point] --> B[MLP encoder]
+        B --> C[FCxN]
+        C --> D[FC]
+        B --> D
+        D --> E[FCxN]
+        E --> F
+        X[Direction of ray] --> Y[MLP encoder] --> F[FC]
+        F --> G[RGB & sigma]
+        style A fill:#f9f,stroke:#333,stroke-width:4px
+        style X fill:#f9f,stroke:#333,stroke-width:4px
+        style G fill:#bbf,stroke:#333,stroke-width:4px
+  </pre>
+</div>
+
+* Need times to train for each data session.
+* Train LLFF dataset (“forward-facing” scenes) in “normalized device coordinates” (NDC) space; large rotation scene in conventional 3D world coordinates.
+* [google jaxnerf implementation](https://github.com/google-research/google-research/tree/master/jaxnerf), [see here with my tests](https://github.com/yeliu-deepmirror/nerf).
+
+<img src="/assets/img/paperread/chrown.png" height="25"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
+
+
+<a name="ldl_sdf"></a>
+## 2. SDF
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [VolSDF: Volume Rendering of Neural Implicit Surfaces 2021](https://arxiv.org/pdf/2106.12052.pdf) define the volume density function as Laplace’s cumulative distribution function (CDF) applied to a signed distance function (SDF) representation. model the density:
+
+$$
+\sigma(x) = \alpha \Phi_{\beta}(-d_{\Omega}(x))
+$$
+
+$$
+\begin{equation}
+  \Phi_{\beta}(s) =
+    \begin{cases}
+      \frac{1}{2}exp(\frac{s}{\beta}) & \text{if $s \le 0$}\\
+      1 - \frac{1}{2}exp(-\frac{s}{\beta}) & \text{if $s > 0$}
+    \end{cases}       
+\end{equation}
+$$
+
+* MLP1. sdf d and feature z: $f_{\phi}(x) = (d(x), z(x)) \in R^{1+256}$
+* MLP2. scene’s radiance field: $L_{\phi}(x, n, v, z) \in R^{3}$
+
+
+<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [Implicit Neural Representations with Periodic Activation Functions 2020](https://arxiv.org/abs/2006.09661). <u>A continuous implicit neural representation using periodic activation functions that fits complicated signals.</u> Solve challenging boundary value problems.
+
+$$
+F(x, \Phi(x), \triangledown_{x}\Phi, \triangledown_{x}^{2}\Phi, ...) = 0
+$$
+
+* ReLU networks are piecewise linear incapable of modeling higher-order derivatives. While alternative activations are not well behaved.
+* **SIREN**: $\Phi(x) = W_{n}(\phi_{n-1} \circ \phi_{n-2} \circ ... \circ \phi_{0})(x) + b_{n}$, $x_{i} \to \phi_{i}(x_{i}) = sin(W_{i}x_{i} + b_{i})$. The activations of Siren always alternate between a standard normal distribution with standard deviation one, and an arcsine distribution.
+* $\Phi(x)$ being a FC, loss be the $\int_{\Omega} \sum_{i}I_{\Omega_{i}}(x)\|F(x)\| dx$. ($\Omega_{i}$ is a sampling)
+* Poisson Equation, SDF(+-1), Helmholtz and Wave Equation. [github](https://github.com/vsitzmann/siren).
+* Compared with NERF pose encoding in github.
+
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_DeepSDF_Learning_Continuous_Signed_Distance_Functions_for_Shape_Representation_CVPR_2019_paper.html) DeepSDF network outputs SDF value at a 3D query location. Shape completion (auto-decoding) takes considerably more time during inference. [github](https://github.com/facebookresearch/DeepSDF).
+
+<a name="ldl_mvs"></a>
+## 3. MVS
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [PatchmatchNet: Learned Multi-View Patchmatch Stereo](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_PatchmatchNet_Learned_Multi-View_Patchmatch_Stereo_CVPR_2021_paper.pdf), [github](https://github.com/FangjinhuaWang/PatchmatchNet). checked in a few scenes, and run fusion the pointcloud, not ideal.
+
+<div align="center">    
+<img src="/assets/img/paperread/dl_mvs_res.png" width="80%"/>
+</div>
+
+<a name="l2022"></a>
+# 2022
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [ACMMP : Multi-Scale Geometric Consistency Guided and Planar Prior Assisted Multi-View Stereo](https://ieeexplore.ieee.org/document/9863705), following work of [ACMM](#lacmm), using planar prior.
+
+<a name="l2021"></a>
+# 2021
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Voxel Structure-based Mesh Reconstruction from a 3D Point Cloud](https://arxiv.org/pdf/2104.10622.pdf), [github code](https://github.com/vvvwo/Parallel-Structure-for-Meshing).
 It has a classification of meshing methods:
@@ -46,7 +178,8 @@ This paper's method contains the following steps:
 
 <img src="/assets/img/paperread/unhappy.png" height="25"/> [Dense Surface Reconstruction from Monocular Vision and LiDAR](https://ieeexplore.ieee.org/abstract/document/8793729) LiDAR measurements are integrated into a multi-view stereo pipeline for point cloud densification and tetrahedralization. (the lidar mapping algorithm it used seems terrible, [our algorithm](https://gggliuye.github.io/Study/PaperRead/sensor_fusion/#lliodar_image) is much much better)
 
-# 2020 <a name="l2020"></a>
+<a name="l2020"></a>
+# 2020
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Deep Local Shapes: Learning Local SDF Priors for Detailed 3D Reconstruction](https://arxiv.org/pdf/2003.10983.pdf) replace traditional signed distance function with neural network.
 
@@ -54,24 +187,37 @@ This paper's method contains the following steps:
 
 <img src="/assets/img/paperread/unhappy.png" height="25"/> [A 3D Surface Reconstruction Method for Large-Scale Point Cloud Data](https://www.hindawi.com/journals/mpe/2020/8670151/) nothing new.
 
-# 2019 <a name="l2019"></a>
+<a name="l2019"></a>
+# 2019
 
 <img src="/assets/img/paperread/unhappy.png" height="25"/> [Detail Preserved Surface Reconstruction from Point Cloud](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471080/) (noise image based point cloud) a new Visibility Model : $(1-e^{d^{2}/2 \sigma^{2}})$.
 
+<a name="lacmm"></a>
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [ACMM Multi-Scale Geometric Consistency Guided Multi-View Stereo](https://arxiv.org/abs/1904.08103), [github](https://github.com/GhiXu/ACMM).
+* multi-scalar process to handle low texture area.
+* Adaptive checkerboard propagation (~ more complicated DSO pattern).
+* used in our project, has good and fast result. <u>but poor in close repeated pattern (close ground)</u>, (might be fixed by plane prior in their following work ACMMP).
 
-# 2018 <a name="l2018"></a>
+<div align="center">    
+<img src="/assets/img/paperread/ACMM.svg" width="80%"/>
+</div>
+
+<a name="l2018"></a>
+# 2018
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Reconstructing Thin Structures of Manifold Surfaces by Integrating Spatial Curves](https://ieeexplore.ieee.org/document/8578403). use image based 3d curve reconstruction to enhance thin structures.
 
 * compute 3D curves based on the initialize-optimize-extend strategy.
 * Curve-conformed Delaunay Refinement to preserve thin structures: make sure Delaunay has kept all the segments of curves, and close region has finer triangles. Add sepcial energy to tetrahedra belonging to the same curve.
 
-# 2017 <a name="l2017"></a>
+<a name="l2017"></a>
+# 2017
 
 <a name="lvoxblox"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning](https://arxiv.org/abs/1611.03631), [github code](https://github.com/ethz-asl/voxblox). state of art, TSDF, ESDF, and meshing. **Extremely efficient!**, wonderfully engineering art. (I had been using it for several years)
 
-# 2016 <a name="l2016"></a>
+<a name="l2016"></a>
+# 2016
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [A Survey of Surface Reconstruction from Point Clouds](https://hal.inria.fr/hal-01348404v2/document). The Role of Priors :
 
@@ -129,8 +275,8 @@ This paper's method contains the following steps:
 
 **Evaluation of Surface Reconstruction**: Geometric Accuracy, Topological Accuracy, Structure Recovery, Reproducibility
 
-
-# Earlier <a name="learlier"></a>
+<a name="learlier"></a>
+# Earlier
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/>  [Superpixel meshes for fast edge-preserving surface reconstruction 2015](https://openaccess.thecvf.com/content_cvpr_2015/papers/Bodis-Szomoru_Superpixel_Meshes_for_2015_CVPR_paper.pdf) superpixels and second-order smoothness constraints. based on Single-view 3D mesh reconstruction: 2D base mesh extraction, Depth reconstruction, then point cloud and mesh.
 
