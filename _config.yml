@@ -33,6 +33,8 @@ round-avatar: true
 # then specify the following parameter
 #title-img: /path/to/image
 
+# Add a search button to the navbar
+post_search: true
 
 # --- Footer options --- #
 
