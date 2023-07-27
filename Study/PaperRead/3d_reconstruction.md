@@ -21,14 +21,10 @@ title: 3D Reconstruction
 <a name="lsum"></a>
 # Summary
 
-## Point cloud generation
-
 * (local method) 3d grid (TSDF, ESDF) + matching cube. (especially [voxblox](#lvoxblox))
 * (global method) point cloud + possion reconstruction.
 * (<u>currently used in pipeline</u>) Delaunnay triangulation. (especially [Robust and efficient surface reconstruction from range data](#colmapdelaunay))
-* Deep learning method. (see more in [Deeplearning methods](#ldl))
-   * use nerf to process rays.
-   * use implicit neural representation to solve geometry problems (SDF).
+* [Deep learning method](#ldl).
 
 <p/><p/>
 
@@ -37,8 +33,24 @@ title: 3D Reconstruction
 
 More Work are done with Deep Learning.
 
-[Improving neural implicit surfaces geometry with patch warping](https://arxiv.org/pdf/2112.09648.pdf), [github](https://github.com/fdarmon/NeuralWarp).
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [TUM AI Lecture Series - Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020](https://www.youtube.com/watch?v=F9mRv4v80w0). [cvpr talk pdf](https://www.cvlibs.net/talks/talk_cvpr_2020_implicit_scenes.pdf).
 
+<div align="center">    
+<img src="/assets/img/paperread/occ_nw.jpg" width="70%"/>
+</div>
+
+* 3d representations:
+  * Direct representation : voxels, points, meshes.
+  * Implicit representation : decision boundary of a non-linear classifier.
+* [Occupancy Network](https://avg.is.mpg.de/publications/occupancy-networks) : $L(\theta, \phi) = \sum_{j=1}^{K}BCE(f_{\theta}(p_{ij}, z_{i}), o_{ij}) + KL[q_{\phi}(z\|(p_{ij}, o_{ij}))\|p_{0}(Z)]$.
+  * Given the 3d model, we can further do : [Texture Fields 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Oechsle_Texture_Fields_Learning_Texture_Representations_in_Function_Space_ICCV_2019_paper.pdf) predicts each 3d point a color. [Occupancy Flow 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Niemeyer_Occupancy_Flow_4D_Reconstruction_by_Learning_Particle_Dynamics_ICCV_2019_paper.pdf) predicts 4d - occupancy and velocity.
+* [Differentiable Volumetric Rendering 2020](https://www.cvlibs.net/publications/Niemeyer2020CVPR.pdf)： 3d points + encoded image vector -> occupancy and color (for all points).
+  * forward pass (rendering) : find surface point along the pixel ray, and get color.
+  * backward pass : gradient based on color difference from pixel re-projection.
+* [NERF](#lneural_r): <u>integrate all the points in the ray to get color and depth</u>. (while Occupancy Network used only the occupied one)
+  * [GRAF 2020](https://proceedings.neurips.cc/paper/2020/file/e92e1b476bb5262d793fd40931e0ed53-Paper.pdf) predict without camera poses. sample rays (patch) and use discriminator.
+* [Convolutional Occupancy Networks 2020](https://arxiv.org/abs/2003.04618), uses 3d feature volume.
+  * can also use [Fourier Features 2020](https://arxiv.org/abs/2006.10739), fourier feature fits better MLP.
 
 <a name="lneural_r"></a>
 ## 1. Neural Rendering
@@ -105,7 +117,9 @@ loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * er
 <a name="ldl_sdf"></a>
 ## 2. SDF
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [VolSDF: Volume Rendering of Neural Implicit Surfaces 2021](https://arxiv.org/pdf/2106.12052.pdf) define the volume density function as Laplace’s cumulative distribution function (CDF) applied to a signed distance function (SDF) representation. model the density:
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Improving neural implicit surfaces geometry with patch warping 2022](https://arxiv.org/pdf/2112.09648.pdf), [github](https://github.com/fdarmon/NeuralWarp).
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [VolSDF: Volume Rendering of Neural Implicit Surfaces 2021](https://arxiv.org/pdf/2106.12052.pdf), [github](https://github.com/lioryariv/volsdf). define the volume density function as Laplace’s cumulative distribution function (CDF) applied to a signed distance function (SDF) representation. model the density:
 
 $$
 \sigma(x) = \alpha \Phi_{\beta}(-d_{\Omega}(x))
@@ -125,7 +139,7 @@ $$
 * MLP2. scene’s radiance field: $L_{\phi}(x, n, v, z) \in R^{3}$
 
 
-<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [Implicit Neural Representations with Periodic Activation Functions 2020](https://arxiv.org/abs/2006.09661). <u>A continuous implicit neural representation using periodic activation functions that fits complicated signals.</u> Solve challenging boundary value problems.
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Implicit Neural Representations with Periodic Activation Functions 2020](https://arxiv.org/abs/2006.09661). <u>A continuous implicit neural representation using periodic activation functions that fits complicated signals.</u> Solve challenging boundary value problems.
 
 $$
 F(x, \Phi(x), \triangledown_{x}\Phi, \triangledown_{x}^{2}\Phi, ...) = 0
@@ -286,7 +300,7 @@ This paper's method contains the following steps:
 * regularization and adjust coplanarity.
 
 <div align="center">    
-<img src="/assets/img/paperread/sdp_2015.png" width="90%"/>
+<img src="/assets/img/paperread/sdp_2015.png" width="80%"/>
 </div>
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Let There Be Color! Large-Scale Texturing of 3D Reconstructions 2014](https://download.hrz.tu-darmstadt.de/pub/FB20/GCC/paper/Waechter-2014-LTB.pdf), [github code](https://github.com/nmoehrle/mvs-texturing) view selection then project to get texture. It performs well in our image mapping mesh result (using poisson). While it has high requirement on the mesh. Tested with some lidar mapping point cloud (made with TSDF + matching cube, without further de-noise), the result mesh is terrible. I presume it is caused by loss of accuracy in TSDF, and noise in lidar data.
@@ -321,12 +335,12 @@ Starting from an initial set of detected primitives, parallel, orthogonal, angle
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Multi-view reconstruction preserving weakly-supported surfaces 2011](https://ieeexplore.ieee.org/document/5995693). Some papers refer this as state-of-art.
 
-* [baseline (the following paper)](#lcolmapdelaunay) constant point weight.
+* [baseline (the following paper)](#colmapdelaunay) constant point weight.
 * point weight depends on the number of observations, make a filter strategy for the initial Delaunay. (**closer to the colmap implementation**)
 * a free-space-support weight function. compute all weights in the same way as the base-line approach. Then search for all large jumps and multiply the corresponding t-edge weights. (good for noisy data, need to test)
 
 <a name="colmapdelaunay"></a>
-<img src="/assets/img/paperread/chrown.png" height="25"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
+<img src="/assets/img/paperread/chrown.png" height="25"/> <img src="/assets/img/paperread/chrown.png" height="25"/> [Robust and efficient surface reconstruction from range data 2009](https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Labatut09.pdf) formulates of the surface reconstruction problem as an energy minimisation problem that explicitly models the scanning process. Uses Delaunay triangulation to formulate as a graph cut problem using line of sight information: labeling interior/exterior. (colmap uses its implementation).
 
 * minimum cuts for optimal surface reconstruction :
     * removing the edges connecting two sets of vertices, that is finding two disjoint sets S and T,
@@ -340,7 +354,7 @@ $$
 * Surface visibility: soft visibility
 
 <div align="center">    
-<img src="/assets/img/paperread/soft_viz.png" width="70%"/>
+<img src="/assets/img/paperread/soft_viz.png" width="50%"/>
 </div>
 
 *  Surface quality: the quality of surface triangle is evaluated as the ratio of the length of their longest edge over the length of their shortest edge (minus one). And Soft 3D beta–skeleton in graph-cut algorithm.
@@ -370,5 +384,5 @@ $$
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Delaunay triangulation 1934](https://en.wikipedia.org/wiki/Delaunay_triangulation): maximize the minimum of all the angles of the triangles in the triangulation. The Delaunay triangulation of a discrete point set P in general position corresponds to the dual graph of the Voronoi diagram for P
 
 <div align="center">    
-<img src="/assets/img/paperread/del_vor.png" width="70%"/>
+<img src="/assets/img/paperread/del_vor.png" width="50%"/>
 </div>
