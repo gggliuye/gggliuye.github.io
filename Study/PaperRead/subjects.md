@@ -14,7 +14,8 @@ title: Other Specific Subjects
     * [Meta](#l4.1)
     * [Apple](#l4.2)
     * [Infrared Papers](#l4.3)
-6. [Continuous-Time Batch Calibration](#l5)
+5. [Continuous-Time Batch Calibration](#l5)
+6. [Image-based Rendering](#l6)
 
 <p/><p/>
 
@@ -177,3 +178,53 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 * control input constraints.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [General Matrix Representations for B-Splines 1998](https://xiaoxingchen.github.io/2020/03/02/bspline_in_so3/general_matrix_representation_for_bsplines.pdf). used in upper papers to generate bsplines.
+
+<a name="l6"></a>
+# 6. Image-based Rendering
+
+[Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
+[TUM AI Lecture Series - Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/watch?v=GNUpZAeBnZc).
+
+**Layered Representations**:
+* Depth - Interpolation of RGBD images:
+  * Apple [View Interpolation for Image Synthesis 1993](https://cseweb.ucsd.edu/~ravir/6998/papers/p279-chen.pdf), similar to image morphing.
+    * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
+    * this paper uses the camera transformation and image range data to automatically determine the correspondence.
+      * quadtree block compression of pixels for parallel processing.
+
+<img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
+
+* Multi-Plane Images (MPIs):
+  * Method [python implementation](https://github.com/google-research/google-research/blob/master/single_view_mpi/libs/mpi.py):
+    * warping : homography.
+    * compositing of layers (1 for furthest, k for closest) :
+    $$
+    I = \sum_{i=1}^{k}(c_{i}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+    $$
+    D = \sum_{i=1}^{k}(d_{i}^{-1}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+  * [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train.
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render (<n>its really not about Nerf, clout-chasing for me</n>).
+
+* Aspen Movie Map (1978)
+* Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
+
+
+**Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
+
+<img style="float: right;" src="/assets/img/paperread/lumigraph.png" width="25%"/>
+
+* [Light Field Traditional](https://wiki.davidl.me/view/Light_field) stores as a grid of images or videos - <u>Holographic Stereograms</u> 4d light field embedded in 2d sensors (~fly eyes) - [Light Fields 101 - SVVR 2016](https://www.youtube.com/watch?v=BXdKVisWAco). <u>Light Field could product better VR image than ray tracing</u>.
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [The Plenoptic Function and the Elements of Early Vision 1991](http://persci.mit.edu/pub_pdfs/elements91.pdf)
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [The Lumigraph 1996](https://dash.harvard.edu/bitstream/handle/1/2634291/Gortler_Lumigraph.pdf?sequence=2&isAllowed=y), [Light Field Rendering 1996](https://graphics.stanford.edu/papers/light/). 4D representation (since cameras sit in a plane) : (s, t) ~ position, (u, v) ~ direction.
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Dynamically Reparameterized Light Fields 2000](http://www.cs.harvard.edu/~sjg/papers/drlf.pdf), [video explain](https://www.youtube.com/watch?v=p2w1DNkITI8), [video demo](https://www.youtube.com/watch?v=msNVZT3USEM).
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Plenopticam 2019](http://www.plenoptic.info/index.html), [github](https://github.com/hahnec/plenopticam).
+  * Light Field Camera [Lytro](https://en.wikipedia.org/wiki/Lytro).
+* [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
+    * Light Field: you directly predict colors from light rays.
+    * NERF: performing volume rendering (integration along the ray).

@@ -185,8 +185,14 @@ input image, directly return the pose (3dof/6dof).
 
 **Pose Regression**:
 
-* <img src="/assets/img/paperread/chrown.png" height="25"/> [Accelerated Coordinate Encoding 2023](https://nianticlabs.github.io/ace/). From Niantic, small scene localization using DL method - fast and high accuracy. Fits well to Niantic's [LightShip](https://lightship.dev/docs/ardk/index.html) (small region vlp around landmarks).
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [PoseNet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization 2015](https://paperswithcode.com/paper/posenet-a-convolutional-network-for-real-time). Learn the scene, then produce pose for an input image.
+
+**Scene Coordinate Regression**:
+
+* <img src="/assets/img/paperread/chrown.png" height="25"/> [Accelerated Coordinate Encoding 2023](https://nianticlabs.github.io/ace/). From Niantic, small scene localization using DL method - fast and high accuracy. Fits well to Niantic's [LightShip](https://lightship.dev/docs/ardk/index.html) (small region vlp around landmarks). <n>Intuition is that each image patch corresponds to a 3d point in scene.</n>
+  * predict a 3d scene coordinate for each input image patch, then apply PNP ransac for pose estimation.
+  * accelerate the trainning loop, compare to [DSAC*](https://github.com/vislearn/dsacstar).
+  * For few-shot mapping: <n>use the encoder to get descriptors for each image patch, following by NN match + Triangulation to get 3d position. Use NN to find corresponding 3d points by descriptors.</n>
 
 **Geo-Localization as Classification** (GPS coordinate as label):
 

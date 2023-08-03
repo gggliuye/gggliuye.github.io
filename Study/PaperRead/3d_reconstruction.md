@@ -105,7 +105,7 @@ More Work are done with Deep Learning.
   * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs 2021](https://arxiv.org/pdf/2103.13744.pdf).  replaces a single large NeRF-MLP with thousands of tiny MLPs, accelerating rendering by 3 orders of magnitude.
-* <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
+* <img src="/assets/img/paperread/chrown.png" height="25"/> <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
   * key features : Trilinear Interpolation, Total Variation Regularization.
 
 <a name="ldl_sdf"></a>
