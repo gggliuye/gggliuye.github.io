@@ -8,7 +8,7 @@ title: 3D Reconstruction
 * [Deep Learning](#ldl)
     1. [Neural Rendering](#lneural_r)
     2. [SDF](#ldl_sdf)
-    3. [MVS](#ldl_mvs)
+    3. [Multi-View Geometry](#ldl_mvs)
 * [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
@@ -52,43 +52,17 @@ More Work are done with Deep Learning.
 * [Convolutional Occupancy Networks 2020](https://arxiv.org/abs/2003.04618), uses 3d feature volume.
   * can also use [Fourier Features 2020](https://arxiv.org/abs/2006.10739), fourier feature fits better MLP.
 
+<img src="/assets/img/paperread/chrown.png" height="25"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
+
+
 <a name="lneural_r"></a>
 ## 1. Neural Rendering
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [LENS: Localization enhanced by NeRF synthesis 2021](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+* [NeRF Explosion 2020](https://dellaert.github.io/NeRF/). [NeRF at ICCV 2021](https://dellaert.github.io/NeRF21/). [NeRF at CVPR 2022](https://dellaert.github.io/NeRF22/).
+* [Awesome NERF](https://github.com/awesome-NeRF/awesome-NeRF).
 
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
-* Nerf : can cause excessive blurring and aliasing.
-* Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Depth-supervised NeRF: Fewer Views and Faster Training for Free 2021](https://www.cs.cmu.edu/~dsnerf/) with probabilisitic COLMAP depth supervision. [github loss](https://github.com/dunbar12138/DSNeRF/blob/main/loss.py):
-```
-loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * err)) * dists
-```
-(I made this update with [NERF PL](https://github.com/yeliu-deepmirror/nerf_pl), no much improvement found. But I used linear loss, since our depths are from relible lidar. **TODO**)
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs](https://arxiv.org/pdf/2103.13744.pdf). Instead of a single, high-capacity MLP, represents by thousands of small MLPs.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [IBRNet: Learning Multi-View Image-Based Rendering 2021](https://arxiv.org/abs/2102.13090) operate without any scene-specific optimization or precomputed proxy geometry. for each target ray:
-
-* step 1. [sample 3d points on rays, candidate images] → [features extracted on projected pixel location from candidate images]
-* step 2. [extracted features, direction] → [RGB weights, volume density]
-* <u>Cons</u>: Need additional feature extraction module. No 3d points location as input so that converting to 3d mesh is tricky.
-
-<a name="lnerfw"></a>
-<img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination.
-
-* step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
-* step 2. model the scene as the union of shared and image-dependent elements.
-* [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
-
-<div align="center">    
-<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="75%"/>
-</div>
-
-<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
+<img src="/assets/img/paperread/chrown.png" height="25"/><img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis 2020](https://arxiv.org/abs/2003.08934). **MLP taking in a 5D coordinate and outputting density and color**. Trainning a map : $F_{\Theta}(x, d) \to (x, \sigma)$ , from the pixel ray - defined by x (optical center), d (direction), to volumn density and color. <u>Each pixel ray will be sampled to 'N_sample' points, each point run the network, then integrated to get the final value.</u>
 
 <div align="center">  
   <pre class="mermaid">
@@ -111,8 +85,28 @@ loss = -torch.log(weights) * torch.exp(-(z_vals - depths[:,None]) ** 2 / (2 * er
 * Train LLFF dataset (“forward-facing” scenes) in “normalized device coordinates” (NDC) space; large rotation scene in conventional 3D world coordinates.
 * [google jaxnerf implementation](https://github.com/google-research/google-research/tree/master/jaxnerf), [see here with my tests](https://github.com/yeliu-deepmirror/nerf).
 
-<img src="/assets/img/paperread/chrown.png" height="25"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
+**NERF Extension**:
+* Add Depth Loss: <img src="/assets/img/paperread/thumbs.png" height="25"/> [Depth-supervised NeRF: Fewer Views and Faster Training for Free 2021](https://www.cs.cmu.edu/~dsnerf/) with probabilisitic COLMAP depth supervision. [github loss](https://github.com/dunbar12138/DSNeRF/blob/main/loss.py). (I made this update with [NERF PL](https://github.com/yeliu-deepmirror/nerf_pl), no much improvement found)
+* Enable Localization: <img src="/assets/img/paperread/thumbs.png" height="25"/> [LENS: Localization enhanced by NeRF synthesis 2021](https://arxiv.org/abs/2110.06558) use [Nerf in the Wild](#lnerfw) to perform data incrementation, for trainning a pose regressor.
+* <img src="/assets/img/paperread/chrown.png" height="25"/> [NeRF in the Wild: Neural Radiance Fields for Unconstrained Photo Collections 2020](https://arxiv.org/abs/2008.02268) to address ubiquitous, real-world phenomena : moving objects or variable illumination. <a name="lnerfw"></a>
+  * step 1. model per-image appearance variations in a learned low-dimensional latent space. -> control of the appearance of output.
+  * step 2. model the scene as the union of shared and image-dependent elements.
+  * [see here for a wonderful implementation using pytorch-lightning](https://github.com/kwea123/nerf_pl/tree/nerfw), which also fits input from colmap. [see here with my tests](https://github.com/yeliu-deepmirror/nerf_pl).
 
+<div align="center">    
+<img src="https://github.com/yeliu-deepmirror/nerf_pl/raw/e4037569ad3bf6e32177cfaf0961522d1425a23d/docs/demo.gif" width="75%"/>
+</div>
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [DIVeR: Real-time and Accurate Neural Radiance Fields with Deterministic Integration for Volume Rendering](https://openaccess.thecvf.com/content/CVPR2022/papers/Wu_DIVeR_Real-Time_and_Accurate_Neural_Radiance_Fields_With_Deterministic_Integration_CVPR_2022_paper.pdf), [DIVeR](https://lwwu2.github.io/diver/) use a voxel-based representation to guide a deterministic volume rendering scheme, allowing it to render thin structures and other subtleties missed by traditional NeRF rendering. (Best Paper Finalist 2022).
+* **Large Scene** <img src="/assets/img/paperread/chrown.png" height="25"/> [Block-NeRF Scalable Large Scene Neural View Synthesis](https://openaccess.thecvf.com/content/CVPR2022/papers/Tancik_Block-NeRF_Scalable_Large_Scene_Neural_View_Synthesis_CVPR_2022_paper.pdf), [Waymo Google](https://waymo.com/intl/zh-cn/research/block-nerf/). scales NeRF to render city-scale scenes, decomposing the scene into individually trained NeRFs that are then combined to render the entire scene. Results are shown for 2.8M images.
+
+**NERF Acceleration**:
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
+  * Nerf : can cause excessive blurring and aliasing.
+  * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs 2021](https://arxiv.org/pdf/2103.13744.pdf).  replaces a single large NeRF-MLP with thousands of tiny MLPs, accelerating rendering by 3 orders of magnitude.
+* <img src="/assets/img/paperread/chrown.png" height="25"/> <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
+  * key features : Trilinear Interpolation, Total Variation Regularization.
 
 <a name="ldl_sdf"></a>
 ## 2. SDF
@@ -155,13 +149,22 @@ $$
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_DeepSDF_Learning_Continuous_Signed_Distance_Functions_for_Shape_Representation_CVPR_2019_paper.html) DeepSDF network outputs SDF value at a 3D query location. Shape completion (auto-decoding) takes considerably more time during inference. [github](https://github.com/facebookresearch/DeepSDF).
 
 <a name="ldl_mvs"></a>
-## 3. MVS
+## 3. Multi-View Geometry
+
+### Multi-View Stereo
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [PatchmatchNet: Learned Multi-View Patchmatch Stereo](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_PatchmatchNet_Learned_Multi-View_Patchmatch_Stereo_CVPR_2021_paper.pdf), [github](https://github.com/FangjinhuaWang/PatchmatchNet). checked in a few scenes, and run fusion the pointcloud, not ideal.
 
 <div align="center">    
 <img src="/assets/img/paperread/dl_mvs_res.png" width="80%"/>
 </div>
+
+### Mulit-View Interpolation
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [IBRNet: Learning Multi-View Image-Based Rendering 2021](https://arxiv.org/abs/2102.13090). Start from the target view and *interpolate nearby source images* (instead of encode the whole model - NERF) (<u>similar to traditional MVS pipeline</u>) : (1) select neighbor (source) images; (2) sample depths in each ray, project to the source images; (3) aggregate the source 2d features; (4) synthesis by a Ray Transformer. (But quality slightly worse than NERF).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Light Field Neural Rendering](https://light-field-neural-rendering.github.io/), [google post](https://ai.googleblog.com/2022/09/view-synthesis-with-transformers.html). uses a lightfield parameterization for target pixel and its epipolar segments in nearby reference views.
+
 
 <a name="l2022"></a>
 # 2022

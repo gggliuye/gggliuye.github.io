@@ -55,7 +55,7 @@ Has two type of understanding:
 | description | Image localization task, find image close in pose (6dof) space.  | Find images with similar look (not necessarily close in pose space) |
 | loss | pose space distance | image similarity, hard to define |
 | method | rich of Deep Learning methods | found only classic method |  
-| implementation | [cosplace](#lcosplace), [NetVLAD](#lnetvlad)  |   [Bag-of-Words](https://github.com/dorian3d/DBoW2), VLAD  |
+| implementation | [cosplace](#lcosplace), [NetVLAD](#lnetvlad)  |   [Bag-of-Words](https://github.com/dorian3d/DBoW2), VLAD, [AnyLoc](#lanyloc)  |
 
 <u>We should make a model to do real 'Image Retrieval' task.</u>
 * choose Classification model, which is more efficient to train.
@@ -78,6 +78,9 @@ Has two type of understanding:
 
 <a name="l2023"></a>
 # 2023
+
+<a name="lanyloc"></a>
+<img src="/assets/img/paperread/chrown.png" height="25"/> [AnyLoc: Towards Universal Visual Place Recognition](https://arxiv.org/pdf/2308.00688.pdf). use [DINOv2](https://github.com/facebookresearch/dino) vision transformer (Layer 31) (or [CLIP](https://github.com/openai/CLIP)) to extract per pixel features. then apply **VLAD** aggregation. Express State-of-Art accuracy. <n>I really like this method! use correct feature extractor with VLAD, which should fit best retrieval problem.</n>
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Two-view Geometry Scoring Without Correspondences](https://arxiv.org/pdf/2306.01596.pdf), [github](https://github.com/nianticlabs/scoring-without-correspondences). A fundamental matrix scoring network. Outperform [MAGSAC++](#lMAGSAC++) in selecting best candidate. (and analysis RANSAC failures)
 
