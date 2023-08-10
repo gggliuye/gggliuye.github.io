@@ -214,6 +214,10 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 * Aspen Movie Map (1978)
 * Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
 
+<figure align="center">
+  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
+  <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
+</figure>
 
 **Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
 

@@ -187,13 +187,6 @@ input image, directly return the pose (3dof/6dof).
 
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [PoseNet: A Convolutional Network for Real-Time 6-DOF Camera Relocalization 2015](https://paperswithcode.com/paper/posenet-a-convolutional-network-for-real-time). Learn the scene, then produce pose for an input image.
 
-**Scene Coordinate Regression**:
-
-* <img src="/assets/img/paperread/chrown.png" height="25"/> [Accelerated Coordinate Encoding 2023](https://nianticlabs.github.io/ace/). From Niantic, small scene localization using DL method - fast and high accuracy. Fits well to Niantic's [LightShip](https://lightship.dev/docs/ardk/index.html) (small region vlp around landmarks). <n>Intuition is that each image patch corresponds to a 3d point in scene.</n>
-  * predict a 3d scene coordinate for each input image patch, then apply PNP ransac for pose estimation.
-  * accelerate the trainning loop, compare to [DSAC*](https://github.com/vislearn/dsacstar).
-  * For few-shot mapping: <n>use the encoder to get descriptors for each image patch, following by NN match + Triangulation to get 3d position. Use NN to find corresponding 3d points by descriptors.</n>
-
 **Geo-Localization as Classification** (GPS coordinate as label):
 
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Where We Are and What We’re Looking At: Query Based Worldwide Image Geo-localization Using Hierarchies and Scenes 2023](https://arxiv.org/pdf/2303.04249.pdf), **world-wide** visual geo-localization.
@@ -227,11 +220,18 @@ input image, directly return the pose (3dof/6dof).
 
 ### 4.3.2 Image-Scene 2d-3d Matching
 
+**Scene Coordinate Regression**:
+
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Accelerated Coordinate Encoding 2023](https://nianticlabs.github.io/ace/). From Niantic, small scene localization using DL method - fast and high accuracy. Fits well to Niantic's [LightShip](https://lightship.dev/docs/ardk/index.html) (small region vlp around landmarks). <n>Intuition is that each image patch corresponds to a 3d point in scene.</n>
+  * predict a 3d scene coordinate for each input image patch, then apply PNP ransac for pose estimation.
+  * accelerate the trainning loop, compare to [DSAC*](https://github.com/vislearn/dsacstar).
+  * For few-shot mapping: <n>use the encoder to get descriptors for each image patch, following by NN match + Triangulation to get 3d position. Use NN to find corresponding 3d points by descriptors.</n>. [ace encoder test](https://github.com/yeliu-deepmirror/ace#encoder-test)
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Learning to Detect Scene Landmarks for Camera Localization 2022](https://openaccess.thecvf.com/content/CVPR2022/papers/Do_Learning_To_Detect_Scene_Landmarks_for_Camera_Localization_CVPR_2022_paper.pdf), [github](https://github.com/microsoft/SceneLandmarkLocalization). predict 2d localization of a predefined scene landmark (predict heat map for each scene landmark).
+
 <div align="center">    
 <img src="/assets/img/paperread/learnlandmark.png" width="50%"/>
 </div>
-
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [Learning to Detect Scene Landmarks for Camera Localization 2022](https://openaccess.thecvf.com/content/CVPR2022/papers/Do_Learning_To_Detect_Scene_Landmarks_for_Camera_Localization_CVPR_2022_paper.pdf), [github](https://github.com/microsoft/SceneLandmarkLocalization). predict 2d localization of a predefined scene landmark (predict heat map for each scene landmark).
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Visual Camera Re-Localization from RGB and RGB-D Images Using DSAC 2021](https://arxiv.org/pdf/2002.12324.pdf). predict scene coordinates, i.e. dense correspondences between the input image and 3D scene space of the environment.
 
