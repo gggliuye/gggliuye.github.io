@@ -16,6 +16,7 @@ title: Other Specific Subjects
     * [Infrared Papers](#l4.3)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering](#l6)
+7. [TUM AI Lecture Series](#l7)
 
 <p/><p/>
 
@@ -232,3 +233,40 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 * [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
     * Light Field: you directly predict colors from light rays.
     * NERF: performing volume rendering (integration along the ray).
+
+<a name="l7"></a>
+# 7. TUM AI Lecture Series
+
+[TUM AI Lecture Series 2022](https://www.youtube.com/watch?v=nmRbIbnU0IM&list=PLQ8Y4kIIbzy8kMlz7cRqz-BjbdyWsfLXt):
+
+## 7.1
+
+[New Generative Models for Images, Landscape Videos and 3D Human Avatars(Victor Lempitsky) 2021](https://www.youtube.com/live/nmRbIbnU0IM?feature=share).
+* [StyleGAN](https://github.com/NVlabs/stylegan) for Landscape *Videos*: [DeepLandscape](https://github.com/saic-mdal/deep-landscape).
+  * network feature : duplicted latents - two upsampling structures (one small one large).
+  * discriminator : unary (use the smaller one) & pairwise (use both). warp noise maps by homography transformations.
+* StyleGAN for 3D Human Avatars. [SMPL-X](https://smpl-x.is.tue.mpg.de/)
+
+## 7.2
+
+[A Future With Self-Driving Vehicles (Raquel Urtasun) 2021](https://www.youtube.com/live/efLZZigsC7c?feature=share).
+* vehicles at scale / self-driving systems / fleet operations / network/platform.
+Autonomy.
+* we want a system : **Trainable end-to-end & Interpretable for Validation**.
+  * End-to-end Approaches. Direct, but not interpretable.
+  * Autonomy Stack.
+    * HD Maps /Sensors -> Perception -> Prediction -> Planning -> Control.
+    * Interpretable, very bad productivity.
+* Joint Preception + Prediction :
+  * [Fast and Furious 2020](https://arxiv.org/abs/2012.12395) lidar object prediction.
+  * Interaction Reasoning Network. [Spatially-Aware Graph Neural Networks 2019](https://arxiv.org/abs/1910.08233):
+    * Predict considering interaction using GNN.
+    * Predicting Marginal Distributions: real world decision should be discrete - consider scenarios separately.
+  * [V2VNet 2020](https://arxiv.org/abs/2008.07519): share NN-encoded sensor data between vehicles -> then using GNN.
+Simulation.
+
+## 7.3
+
+[Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](#l6)
+
+[Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020](https://www.youtube.com/live/F9mRv4v80w0?feature=share), [Notes](/Study/PaperRead/3d_reconstruction/#ldl)
