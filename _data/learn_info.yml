@@ -1,10 +1,8 @@
 # for more icons https://fontawesome.com/v4/icons/
-- icon: fas fa-building
-  content: "**Math** [Convex Optimization](https://cvx-learning.readthedocs.io/), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/), [More](Philosophy/math/math)"
 - icon: fas fa-map
-  content: "**SLAM** [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
+  content: "**SLAM** [Paper Read](Study/PaperRead/index), [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
 - icon: fas fa-newspaper
-  content: "**SLAM** [Paper Read](Study/PaperRead/index)"
+  content: "**Math** [Convex Optimization](Math/index), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/), [More](Philosophy/math/math)"
 - icon: fas fa-book
   content: "**Philosophy** [Nature Philosophy](Philosophy/index)"
 - icon: fas fa-paint-brush
