@@ -250,20 +250,28 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 ## 7.2
 
 [A Future With Self-Driving Vehicles (Raquel Urtasun) 2021](https://www.youtube.com/live/efLZZigsC7c?feature=share).
-* vehicles at scale / self-driving systems / fleet operations / network/platform.
-Autonomy.
+
+**Autonomy**:
 * we want a system : **Trainable end-to-end & Interpretable for Validation**.
   * End-to-end Approaches. Direct, but not interpretable.
   * Autonomy Stack.
     * HD Maps /Sensors -> Perception -> Prediction -> Planning -> Control.
     * Interpretable, very bad productivity.
-* Joint Preception + Prediction :
+* Joint **Perception + Prediction** :
   * [Fast and Furious 2020](https://arxiv.org/abs/2012.12395) lidar object prediction.
   * Interaction Reasoning Network. [Spatially-Aware Graph Neural Networks 2019](https://arxiv.org/abs/1910.08233):
     * Predict considering interaction using GNN.
     * Predicting Marginal Distributions: real world decision should be discrete - consider scenarios separately.
   * [V2VNet 2020](https://arxiv.org/abs/2008.07519): share NN-encoded sensor data between vehicles -> then using GNN.
 Simulation.
+* Joint **Perception + Prediction + Planning** : [Uber ATG Vision](https://www.uber.com/us/en/atg/research-and-development/perception-and-prediction/): Interpretable Neural Motion Planer
+  1. [Neural Motion Planer 2019](https://www.uber.com/blog/research/end-to-end-interpretable-neural-motion-planner/), add a branch from the network as planner -> time & egocar position.
+  2. [DSDNet 2020](https://arxiv.org/abs/2008.06041). (1) multi-modal socially-consistent uncertainty; (2) explicitly condition on prediction; (3) use prior (human) knowledge.
+  3. [P3: Safe Motion Planning Through Interpretable Semantic Representations](http://www.cs.toronto.edu/~sergio/publication/p3/). Recurrent semantic occupancy map -> to avoid occupied regions.
+
+**Simulation**: Structured Testing, Real World Replay, Sensor Simulation.
+* Lidar simulation : [TrafficSim 2021](https://arxiv.org/abs/2101.06557), use real world data (real 3D Assets) to generate preception & prediction data.
+* Camera (multi-camera video) simulation : [GeoSim 2021](https://arxiv.org/abs/2101.06543), use real world data to generate (through multi-view mulit-sensor reconstruction network).
 
 ## 7.3
 
