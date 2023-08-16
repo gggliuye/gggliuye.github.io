@@ -1,0 +1,97 @@
+---
+layout: base
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/main.css"
+  - "/assets/css/tree.css"
+---
+
+{% include header.html type="page_tree" %}
+
+<button id="myBtn"><a href="#top" style="color: white">Back to Top</a></button>
+
+<div id="tree-section">
+<a href="{{ "Math" | absolute_url }}">Math Home</a>
+<ul id="my_tree", class="my_tree">
+  <li><span class="caret" id="cvx_opt"><a href="{{ "Math/ConvexOptimization" | absolute_url }}">Convex Optimization</a></span>
+    <ul class="nested">
+      <li><a href="{{ "Math/ConvexOptimization/sdp" | absolute_url }}">Semidefinite Programming</a></li>
+      <li><a href="{{ "Math/ConvexOptimization/ProximalAlgorithms/00index" | absolute_url }}">Proximal Algorithms</a></li>
+      <li><a href="{{ "Math/ConvexOptimization/ADMM/00index" | absolute_url }}">Alternating Direction Method of Multipliers</a></li>
+      <li><a href="{{ "Math/ConvexOptimization/PaperRead/00index" | absolute_url }}">Paper Reads</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+function activate_togglers() {
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].parentElement.querySelector(".nested").classList.toggle("active");
+    toggler[i].classList.toggle("caret-down");
+  }
+}
+
+function activate_togglers_by_id(id) {
+  var toggler = document.getElementById(id);
+  toggler.parentElement.querySelector(".nested").classList.toggle("active");
+  toggler.classList.toggle("caret-down");
+}
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+<script>
+var chrown0 = document.getElementsByClassName("chrown0");
+for (var i = 0; i < chrown0.length; i++) {
+  chrown0[i].outerHTML = `<img src="/assets/img/paperread/chrown0.png" style="width:30px;height:auto;"/>`;
+}
+var chrown = document.getElementsByClassName("chrown");
+for (var i = 0; i < chrown.length; i++) {
+  chrown[i].outerHTML = `<img src="/assets/img/paperread/chrown.png" style="width:30px;height:auto;"/>`;
+}
+var thumbs = document.getElementsByClassName("thumbs");
+for (var i = 0; i < thumbs.length; i++) {
+  thumbs[i].outerHTML = `<img src="/assets/img/paperread/thumbs.png" style="width:30px;height:auto;"/>`;
+}
+var unhappy = document.getElementsByClassName("unhappy");
+for (var i = 0; i < unhappy.length; i++) {
+  unhappy[i].outerHTML = `<img src="/assets/img/paperread/unhappy.png" style="width:30px;height:auto;"/>`;
+}
+var question = document.getElementsByClassName("question");
+for (var i = 0; i < question.length; i++) {
+  question[i].outerHTML = `<img src="/assets/img/paperread/question.png" style="width:30px;height:auto;"/>`;
+}
+
+container = document.getElementById("pie_container");
+if (container != null) {
+  // make the pie chart
+  container.outerHTML = `
+    <pre class="mermaid">
+    pie title papers
+        "very good" : ${chrown0.length}
+        "good" : ${chrown.length}
+        "thumbs" : ${thumbs.length}
+        "unhappy" : ${unhappy.length}
+        "question" : ${question.length}
+    </pre>
+  `
+}
+</script>
