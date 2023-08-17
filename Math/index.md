@@ -9,7 +9,7 @@ title: Math
 
 # Convex Optimization (Stanford)
 
-[Notes Convex Optimization](https://cvx-learning.readthedocs.io/en/latest/) following the full courses in internet of the Stanford open classes.:
+[Notes Convex Optimization](https://cvx-learning.readthedocs.io/en/latest/) following the full courses in internet of the Stanford open classes.
 
 * [Linear Dynamtic System EE263](https://drive.google.com/drive/folders/1S_vw6Vg5Hmkl6P51NnXBtmNbwARdK_QC?usp=sharing)
 * [Convex Optimziation I EE364A](https://drive.google.com/drive/folders/14uGzHKb7e3HZXlh-rJLJ9AEax7dsUg6D?usp=sharing)

@@ -16,7 +16,6 @@ title: Other Specific Subjects
     * [Infrared Papers](#l4.3)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering](#l6)
-7. [TUM AI Lecture Series](#l7)
 
 <p/><p/>
 
@@ -183,8 +182,10 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 <a name="l6"></a>
 # 6. Image-based Rendering
 
-[Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
-[TUM AI Lecture Series - Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/watch?v=GNUpZAeBnZc).
+Some References:
+* [Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
+* [TUM AI Lecture Series - Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/watch?v=GNUpZAeBnZc).
+* [TUM AI Lecture Series - Reflections on Image-Based Rendering (Richard Szeliski) 2021](https://www.youtube.com/live/0VIUbIzv_wc?feature=share)
 
 **Layered Representations**:
 * Depth - Interpolation of RGBD images:
@@ -192,6 +193,10 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
     * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
     * this paper uses the camera transformation and image range data to automatically determine the correspondence.
       * quadtree block compression of pixels for parallel processing.
+  * [Layered Depth Image 1998](https://grail.cs.washington.edu/projects/ldi/)
+  * Sprites with Depth: overlapping depth images.
+  * [Virtual Viewpoint Video 2004](https://www.youtube.com/watch?v=WYezwsFfxvE), render bullet time video.
+    * extand boundary to create better (blending) effect.
 
 <img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
 
@@ -231,50 +236,6 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Plenopticam 2019](http://www.plenoptic.info/index.html), [github](https://github.com/hahnec/plenopticam).
   * Light Field Camera [Lytro](https://en.wikipedia.org/wiki/Lytro).
 * [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
-    * Light Field: you directly predict colors from light rays.
-    * NERF: performing volume rendering (integration along the ray).
-
-<a name="l7"></a>
-# 7. TUM AI Lecture Series
-
-[TUM AI Lecture Series 2022](https://www.youtube.com/watch?v=nmRbIbnU0IM&list=PLQ8Y4kIIbzy8kMlz7cRqz-BjbdyWsfLXt):
-
-## 7.1
-
-[New Generative Models for Images, Landscape Videos and 3D Human Avatars(Victor Lempitsky) 2021](https://www.youtube.com/live/nmRbIbnU0IM?feature=share).
-* [StyleGAN](https://github.com/NVlabs/stylegan) for Landscape *Videos*: [DeepLandscape](https://github.com/saic-mdal/deep-landscape).
-  * network feature : duplicted latents - two upsampling structures (one small one large).
-  * discriminator : unary (use the smaller one) & pairwise (use both). warp noise maps by homography transformations.
-* StyleGAN for 3D Human Avatars. [SMPL-X](https://smpl-x.is.tue.mpg.de/)
-
-## 7.2
-
-[A Future With Self-Driving Vehicles (Raquel Urtasun) 2021](https://www.youtube.com/live/efLZZigsC7c?feature=share).
-
-**Autonomy**:
-* we want a system : **Trainable end-to-end & Interpretable for Validation**.
-  * End-to-end Approaches. Direct, but not interpretable.
-  * Autonomy Stack.
-    * HD Maps /Sensors -> Perception -> Prediction -> Planning -> Control.
-    * Interpretable, very bad productivity.
-* Joint **Perception + Prediction** :
-  * [Fast and Furious 2020](https://arxiv.org/abs/2012.12395) lidar object prediction.
-  * Interaction Reasoning Network. [Spatially-Aware Graph Neural Networks 2019](https://arxiv.org/abs/1910.08233):
-    * Predict considering interaction using GNN.
-    * Predicting Marginal Distributions: real world decision should be discrete - consider scenarios separately.
-  * [V2VNet 2020](https://arxiv.org/abs/2008.07519): share NN-encoded sensor data between vehicles -> then using GNN.
-Simulation.
-* Joint **Perception + Prediction + Planning** : [Uber ATG Vision](https://www.uber.com/us/en/atg/research-and-development/perception-and-prediction/): Interpretable Neural Motion Planer
-  1. [Neural Motion Planer 2019](https://www.uber.com/blog/research/end-to-end-interpretable-neural-motion-planner/), add a branch from the network as planner -> time & egocar position.
-  2. [DSDNet 2020](https://arxiv.org/abs/2008.06041). (1) multi-modal socially-consistent uncertainty; (2) explicitly condition on prediction; (3) use prior (human) knowledge.
-  3. [P3: Safe Motion Planning Through Interpretable Semantic Representations](http://www.cs.toronto.edu/~sergio/publication/p3/). Recurrent semantic occupancy map -> to avoid occupied regions.
-
-**Simulation**: Structured Testing, Real World Replay, Sensor Simulation.
-* Lidar simulation : [TrafficSim 2021](https://arxiv.org/abs/2101.06557), use real world data (real 3D Assets) to generate preception & prediction data.
-* Camera (multi-camera video) simulation : [GeoSim 2021](https://arxiv.org/abs/2101.06543), use real world data to generate (through multi-view mulit-sensor reconstruction network).
-
-## 7.3
-
-[Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](#l6)
-
-[Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020](https://www.youtube.com/live/F9mRv4v80w0?feature=share), [Notes](/Study/PaperRead/3d_reconstruction/#ldl)
+  * Light Field: you directly predict colors from light rays.
+  * NERF: performing volume rendering (integration along the ray).
+  * [Deep blending 2018](http://visual.cs.ucl.ac.uk/pubs/deepblending/), [Free View Synthesis 2020](http://vladlen.info/publications/free-view-synthesis/).
