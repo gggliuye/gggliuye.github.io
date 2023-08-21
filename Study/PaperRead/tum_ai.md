@@ -75,15 +75,15 @@ Simulation.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Reconstructing the Plenoptic Function (Noah Snavely) 2020/10](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](/Study/PaperRead/subjects/#l6).
 
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [Understanding and Extending Neural Radiance Fields (Jonathan T. Barron) 2022/10](https://www.youtube.com/live/nRyOzHpcr4Q?feature=share). See more in [My Neural Rendering Page](/Study/PaperRead/3d_reconstruction/#lneural_r), [My Deep Learning 3D Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl).
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Understanding and Extending Neural Radiance Fields (Jonathan T. Barron) 2022/10](https://www.youtube.com/live/nRyOzHpcr4Q?feature=share), [Jonathan T. Barron](https://jonbarron.info/). See more in [My Neural Rendering Page](/Study/PaperRead/3d_reconstruction/#lneural_r), [My Deep Learning 3D Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl).
 * [NeRF](https://www.matthewtancik.com/nerf).
-* **Why NeRF Work** ? [Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains](https://arxiv.org/abs/2006.10739).
+* **How NeRF Work** ? [Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains](https://arxiv.org/abs/2006.10739). [Experiments](https://github.com/tancik/fourier-feature-networks/tree/master/Experiments).
   * Toy problem : memorizing a 2d image, a network to predict color for pixel.
     * coordinate to color - (x, y) to (r, g, b). **failed**.
     * coordinate's Fourier feature (～<h>positional encoding</h>) to color. **succeed**.
-  * Neural Tangent Kernel (neural networks are kernel regression; ReLU MLPs corresponding to a 'dot product' kernel).
-    * Dot Product of Fourier Features.
-* Nerf in the Wild.
+  * Neural Tangent Kernel (neural networks are kernel regression + ReLU MLPs corresponding to a 'dot product' kernel).
+    * with Dot Product of Fourier Features. <u>MLPs are made into "convolution"</u>.
+* [Nerf in the Wild](https://nerf-w.github.io/) with appearance & transient embedding.
 
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Reflections on Image-Based Rendering (Richard Szeliski) 2021/01](https://www.youtube.com/live/0VIUbIzv_wc?feature=share). A overview.
