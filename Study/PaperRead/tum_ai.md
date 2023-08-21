@@ -5,18 +5,27 @@ title: TUM AI Lecture Series
 
 [TUM AI Lecture Series 2022](https://www.youtube.com/watch?v=nmRbIbnU0IM&list=PLQ8Y4kIIbzy8kMlz7cRqz-BjbdyWsfLXt):
 
-<a name="l1"></a>
-## 1
+# Table of Contents
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [New Generative Models for Images, Landscape Videos and 3D Human Avatars(Victor Lempitsky) 2021](https://www.youtube.com/live/nmRbIbnU0IM?feature=share).
+1. [GANs](#lgan)
+2. [Autonomous Driving](#lauto_drive)
+3. [Image-based Rendering](#libr)
+
+<a name="lgan"></a>
+# 1. GANs
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [New Generative Models for Images, Landscape Videos and 3D Human Avatars(Victor Lempitsky) 2021/02](https://www.youtube.com/live/nmRbIbnU0IM?feature=share).
 * [StyleGAN](https://github.com/NVlabs/stylegan) for Landscape *Videos*: [DeepLandscape](https://github.com/saic-mdal/deep-landscape).
   * network feature : duplicted latents - two upsampling structures (one small one large).
   * discriminator : unary (use the smaller one) & pairwise (use both). warp noise maps by homography transformations.
 * StyleGAN for 3D Human Avatars. [SMPL-X](https://smpl-x.is.tue.mpg.de/)
 
-## 2
+<a name="lauto_drive"></a>
+# 2. Autonomous Driving
 
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [A Future With Self-Driving Vehicles (Raquel Urtasun) 2021](https://www.youtube.com/live/efLZZigsC7c?feature=share).
+[Here for my paper read](/Study/PaperRead/deeplearning/#lauto_drive).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [A Future With Self-Driving Vehicles (Raquel Urtasun) 2021/02](https://www.youtube.com/live/efLZZigsC7c?feature=share).
 
 **Autonomy**:
 * we want a system : **Trainable end-to-end & Interpretable for Validation**.
@@ -40,13 +49,55 @@ Simulation.
 * Lidar simulation : [TrafficSim 2021](https://arxiv.org/abs/2101.06557), use real world data (real 3D Assets) to generate preception & prediction data.
 * Camera (multi-camera video) simulation : [GeoSim 2021](https://arxiv.org/abs/2101.06543), use real world data to generate (through multi-view mulit-sensor reconstruction network).
 
-## 7.3
+<a name="libr"></a>
+# 3. Image-based Rendering
 
-[TUM AI Lecture Series - Reflections on Image-Based Rendering (Richard Szeliski) 2021](https://www.youtube.com/live/0VIUbIzv_wc?feature=share). A overview.
+<a name="locc_net"></a>
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020/09](https://www.youtube.com/watch?v=F9mRv4v80w0). [cvpr talk pdf](https://www.cvlibs.net/talks/talk_cvpr_2020_implicit_scenes.pdf).
 
-* Multi-View Stereo. [here my notes](/Study/PaperRead/3d_reconstruction/#ldl_mvs). *Usage* : View Interpolation, View Morphing, interactive 3d scene, etc. *Idea behind*: Plane Sweep Stereo (~Patch Match).
+<div align="center">    
+<img src="/assets/img/paperread/occ_nw.jpg" width="70%"/>
+</div>
+
+* 3d representations:
+  * Direct representation : voxels, points, meshes.
+  * Implicit representation : decision boundary of a non-linear classifier.
+* [Occupancy Network](https://avg.is.mpg.de/publications/occupancy-networks) : $L(\theta, \phi) = \sum_{j=1}^{K}BCE(f_{\theta}(p_{ij}, z_{i}), o_{ij}) + KL[q_{\phi}(z\|(p_{ij}, o_{ij}))\|p_{0}(Z)]$.
+  * Given the 3d model, we can further do : [Texture Fields 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Oechsle_Texture_Fields_Learning_Texture_Representations_in_Function_Space_ICCV_2019_paper.pdf) predicts each 3d point a color. [Occupancy Flow 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Niemeyer_Occupancy_Flow_4D_Reconstruction_by_Learning_Particle_Dynamics_ICCV_2019_paper.pdf) predicts 4d - occupancy and velocity.
+* [Differentiable Volumetric Rendering 2020](https://www.cvlibs.net/publications/Niemeyer2020CVPR.pdf)： 3d points + encoded image vector -> occupancy and color (for all points).
+  * forward pass (rendering) : find surface point along the pixel ray, and get color.
+  * backward pass : gradient based on color difference from pixel re-projection.
+* [NERF](#lneural_r): <u>integrate all the points in the ray to get color and depth</u>. (while Occupancy Network used only the occupied one)
+  * [GRAF 2020](https://proceedings.neurips.cc/paper/2020/file/e92e1b476bb5262d793fd40931e0ed53-Paper.pdf) predict without camera poses. sample rays (patch) and use discriminator.
+* [Convolutional Occupancy Networks 2020](https://arxiv.org/abs/2003.04618), uses 3d feature volume.
+  * can also use [Fourier Features 2020](https://arxiv.org/abs/2006.10739), fourier feature fits better MLP.
+
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Reconstructing the Plenoptic Function (Noah Snavely) 2020/10](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](/Study/PaperRead/subjects/#l6).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Understanding and Extending Neural Radiance Fields (Jonathan T. Barron) 2022/10](https://www.youtube.com/live/nRyOzHpcr4Q?feature=share). See more in [My Neural Rendering Page](/Study/PaperRead/3d_reconstruction/#lneural_r), [My Deep Learning 3D Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl).
+* [NeRF](https://www.matthewtancik.com/nerf).
+* **Why NeRF Work** ? [Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains](https://arxiv.org/abs/2006.10739).
+  * Toy problem : memorizing a 2d image, a network to predict color for pixel.
+    * coordinate to color - (x, y) to (r, g, b). **failed**.
+    * coordinate's Fourier feature (～<h>positional encoding</h>) to color. **succeed**.
+  * Neural Tangent Kernel (neural networks are kernel regression; ReLU MLPs corresponding to a 'dot product' kernel).
+    * Dot Product of Fourier Features.
+* Nerf in the Wild.
+
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Reflections on Image-Based Rendering (Richard Szeliski) 2021/01](https://www.youtube.com/live/0VIUbIzv_wc?feature=share). A overview.
+
+* [Multi-View Stereo](/Study/PaperRead/3d_reconstruction/#ldl_mvs). *Usage* : View Interpolation, View Morphing, interactive 3d scene, etc. *Idea behind*: Plane Sweep Stereo (~Patch Match).
 * [Image-Based Rendering](/Study/PaperRead/subjects/#l6): Depth Layers, Multi-plane Images.
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](#l6)
-
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020](https://www.youtube.com/live/F9mRv4v80w0?feature=share), [Notes](/Study/PaperRead/3d_reconstruction/#ldl)
+* 360 video (panorama).
+  * 360 with <u>complete light field</u>: [Google Jump 2015](https://blog.google/products/google-ar-vr/introducing-next-generation-jump/), [Facebook Surround 360 2016](https://engineering.fb.com/2016/04/12/video-engineering/introducing-facebook-surround-360-an-open-high-quality-3d-360-video-capture-system/). Stereo with two 360 cameras.
+  * Immersive Video Stabilization by 'Spatio-Temporal MRF Stitch' : reconstruction and merge pictures.
+* Large Scale Reconstruction based: <u>cross fade between images</u> to move from one image to other: [Photo Tourism: Exploring Photo Collections in 3D](http://phototour.cs.washington.edu/Photo_Tourism.pdf), using images. [Piecewise Planar Stereo for Image-based Rendering 2009](https://www.microsoft.com/en-us/research/publication/piecewise-planar-stereo-for-image-based-rendering/), using depth layers. [Ambient Point Clouds for View Interpolation 2010](http://simonfuhrmann.de/papers/sg2010-apc.pdf), using point cloud.
+* Simgle-Image based:
+  * [Practical 3D Photography 2018](http://johanneskopf.de/publications/photo3d_practical/Practical_3D_Photography.pdf), using iphone depth sensor.
+  * Using mono-depth: [One Shot 3D Photography 2020](https://facebookresearch.github.io/one_shot_3d_photography/). And 'google photos cinematic effect'.
+* Reflections and transparency : Rear layer & normal layer. Gradient domain depth.
+* Neural Rendering.
+  * [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804). <u>predict a heuristic depth map</u>. multi-plane images with depth feature, with a decoder to generate new view.
+  * [Animating Pictures with Eulerian Motion Fields 2021](https://eulerian.cs.washington.edu/). <u>predict a heuristic motion map</u>. tracing the motion of depth features, and with a decoder to generate new view.

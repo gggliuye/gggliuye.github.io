@@ -184,8 +184,7 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 
 Some References:
 * [Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
-* [TUM AI Lecture Series - Reconstructing the Plenoptic Function (Noah Snavely) 2020](https://www.youtube.com/watch?v=GNUpZAeBnZc).
-* [TUM AI Lecture Series - Reflections on Image-Based Rendering (Richard Szeliski) 2021](https://www.youtube.com/live/0VIUbIzv_wc?feature=share)
+* [TUM AI Lecture Series - Image-based Rendering](/Study/PaperRead/tum_ai/#libr).
 
 **Layered Representations**:
 * Depth - Interpolation of RGBD images:
@@ -214,9 +213,9 @@ Some References:
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train.
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render (<n>its really not about Nerf, clout-chasing for me</n>).
-
 * Aspen Movie Map (1978)
 * Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
 
@@ -236,6 +235,5 @@ Some References:
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Plenopticam 2019](http://www.plenoptic.info/index.html), [github](https://github.com/hahnec/plenopticam).
   * Light Field Camera [Lytro](https://en.wikipedia.org/wiki/Lytro).
 * [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
-  * Light Field: you directly predict colors from light rays.
-  * NERF: performing volume rendering (integration along the ray).
-  * [Deep blending 2018](http://visual.cs.ucl.ac.uk/pubs/deepblending/), [Free View Synthesis 2020](http://vladlen.info/publications/free-view-synthesis/).
+  * Light Field: you directly predict colors from light rays. [Deep blending 2018](http://visual.cs.ucl.ac.uk/pubs/deepblending/), [Free View Synthesis 2020](http://vladlen.info/publications/free-view-synthesis/).
+  * NERF: performing volume rendering (integration along the ray). [My Neural Rendering Notes](/Study/PaperRead/3d_reconstruction/#lneural_r).
