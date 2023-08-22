@@ -10,6 +10,8 @@ title: TUM AI Lecture Series
 1. [GANs](#lgan)
 2. [Autonomous Driving](#lauto_drive)
 3. [Image-based Rendering](#libr)
+4. [Learning](#llearning)
+
 
 <a name="lgan"></a>
 # 1. GANs
@@ -101,3 +103,11 @@ Simulation.
 * Neural Rendering.
   * [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804). <u>predict a heuristic depth map</u>. multi-plane images with depth feature, with a decoder to generate new view.
   * [Animating Pictures with Eulerian Motion Fields 2021](https://eulerian.cs.washington.edu/). <u>predict a heuristic motion map</u>. tracing the motion of depth features, and with a decoder to generate new view.
+
+<a name="llearning"></a>
+# 4. Learning
+
+[On Removing Supervision from Contrastive Self-Supervised Learning (Alexei Efros) 2021/01](https://www.youtube.com/live/VBQti3kNqiI?feature=share) Self-Supervised Learning (use the tools of supervised learning, but with raw data instead of human-provided labels):
+1. Allow to get away from top-down (semantic) categorization.
+  * jump out of concrete objects, to reach **IDEE of Plato**.
+2. Enable continuous life-long learning.
