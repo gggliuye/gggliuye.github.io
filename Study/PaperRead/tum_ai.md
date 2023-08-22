@@ -107,7 +107,15 @@ Simulation.
 <a name="llearning"></a>
 # 4. Learning
 
-[On Removing Supervision from Contrastive Self-Supervised Learning (Alexei Efros) 2021/01](https://www.youtube.com/live/VBQti3kNqiI?feature=share) Self-Supervised Learning (use the tools of supervised learning, but with raw data instead of human-provided labels):
-1. Allow to get away from top-down (semantic) categorization.
-  * jump out of concrete objects, to reach **IDEE of Plato**.
-2. Enable continuous life-long learning.
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [On Removing Supervision from Contrastive Self-Supervised Learning 2021/01](https://www.youtube.com/live/VBQti3kNqiI?feature=share) by [Alexei Efros](http://people.eecs.berkeley.edu/~efros/). Self-Supervised Learning (use the tools of supervised learning, but with raw data instead of human-provided labels):
+* Self-Supervised Learning <u>Allow to get away from top-down (semantic) categorization</u>. (jump out of concrete objects, to reach **IDEE of Plato**)
+  * Per-exemplar **SVM** : [Recognition by Association via Learning Per-exemplar Distances 2008](https://www.cs.cmu.edu/~tmalisie/projects/cvpr08/), [Exemplar-SVM 2011](https://www.cs.cmu.edu/~tmalisie/projects/iccv11/), [Exemplar-CNN 2014](https://arxiv.org/abs/1406.6909).
+  * **Similarity Learning** (Constrastive Learning), learning the distances between data.
+  * **Data Augmentation** boost similarity learning. and even as supervision to learning ("leak in") - [What Should Not Be Contrastive in Contrastive Learning 2021](https://arxiv.org/abs/2008.05659).
+  * Constrastive Learning **without** Data Augmentation - <h>Time as Supervisory Signal</h>（Temporal Continutiy is important to animals）:
+    * **Video as graph**.
+    * [Contrastive Learning for Unpaired Image-to-Image Translation 2020](https://arxiv.org/abs/2007.15651): using GAN loss, close in structure space, and far in texture space.
+* Self-Supervised Learning <u>Enable continuous life-long learning</u>.
+  * we never see the same 'training data' in real life. Data augmentation encourage memorizing. -> *Online Continual Learning*. keep using new data to train.
+  * [Test-Time Training 2020](https://yueatsprograms.github.io/ttt/home.html), use self-supervised to adapt new data.
+  * （<n>实践是交互性的，机器要想更像人就也需要实践，那么仅仅单向地给它数据肯定是不够的，需要它以一种方式和客体发生作用才行。而且这种作用不能只是机械的，而且需要有“能动性”。 </n>）
