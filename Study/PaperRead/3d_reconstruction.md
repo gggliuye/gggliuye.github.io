@@ -33,24 +33,7 @@ title: 3D Reconstruction
 
 More Work are done with Deep Learning.
 
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [TUM AI Lecture Series - Neural Implicit Representations for 3D Vision (Andreas Geiger) 2020](https://www.youtube.com/watch?v=F9mRv4v80w0). [cvpr talk pdf](https://www.cvlibs.net/talks/talk_cvpr_2020_implicit_scenes.pdf).
-
-<div align="center">    
-<img src="/assets/img/paperread/occ_nw.jpg" width="70%"/>
-</div>
-
-* 3d representations:
-  * Direct representation : voxels, points, meshes.
-  * Implicit representation : decision boundary of a non-linear classifier.
-* [Occupancy Network](https://avg.is.mpg.de/publications/occupancy-networks) : $L(\theta, \phi) = \sum_{j=1}^{K}BCE(f_{\theta}(p_{ij}, z_{i}), o_{ij}) + KL[q_{\phi}(z\|(p_{ij}, o_{ij}))\|p_{0}(Z)]$.
-  * Given the 3d model, we can further do : [Texture Fields 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Oechsle_Texture_Fields_Learning_Texture_Representations_in_Function_Space_ICCV_2019_paper.pdf) predicts each 3d point a color. [Occupancy Flow 2019](https://openaccess.thecvf.com/content_ICCV_2019/papers/Niemeyer_Occupancy_Flow_4D_Reconstruction_by_Learning_Particle_Dynamics_ICCV_2019_paper.pdf) predicts 4d - occupancy and velocity.
-* [Differentiable Volumetric Rendering 2020](https://www.cvlibs.net/publications/Niemeyer2020CVPR.pdf)： 3d points + encoded image vector -> occupancy and color (for all points).
-  * forward pass (rendering) : find surface point along the pixel ray, and get color.
-  * backward pass : gradient based on color difference from pixel re-projection.
-* [NERF](#lneural_r): <u>integrate all the points in the ray to get color and depth</u>. (while Occupancy Network used only the occupied one)
-  * [GRAF 2020](https://proceedings.neurips.cc/paper/2020/file/e92e1b476bb5262d793fd40931e0ed53-Paper.pdf) predict without camera poses. sample rays (patch) and use discriminator.
-* [Convolutional Occupancy Networks 2020](https://arxiv.org/abs/2003.04618), uses 3d feature volume.
-  * can also use [Fourier Features 2020](https://arxiv.org/abs/2006.10739), fourier feature fits better MLP.
+<img src="/assets/img/paperread/chrown.png" height="25"/> [TUM AI Lecture Series - Image-based Rendering](/Study/PaperRead/tum_ai/#libr).
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [LLFF: Local Light Field Fusion: Practical View Synthesis with Prescriptive Sampling Guidelines](https://arxiv.org/abs/1905.00889), [github](https://github.com/Fyusion/LLFF)
 
@@ -110,6 +93,8 @@ More Work are done with Deep Learning.
 
 <a name="ldl_sdf"></a>
 ## 2. SDF
+
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Occupancy Network](/Study/PaperRead/tum_ai/#locc_net).
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Improving neural implicit surfaces geometry with patch warping 2022](https://arxiv.org/pdf/2112.09648.pdf), [github](https://github.com/fdarmon/NeuralWarp).
 

@@ -107,6 +107,8 @@ see [3d Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl)
 <a name="lauto_drive"></a>
 # 3. Autonomous Driving
 
+[TUM AI Lecture Series](/Study/PaperRead/tum_ai/#lauto_drive)
+
 <a name="lhd_map"></a>
 ## 3.1 HD-Map
 
