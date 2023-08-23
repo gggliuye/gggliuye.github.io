@@ -10,8 +10,8 @@ title: TUM AI Lecture Series
 1. [GANs](#lgan)
 2. [Autonomous Driving](#lauto_drive)
 3. [Image-based Rendering](#libr)
-4. [Learning](#llearning)
-
+4. [Self-Supervised Learning](#llearning)
+5. [SLAM & Geometry](#lslam)
 
 <a name="lgan"></a>
 # 1. GANs
@@ -105,7 +105,7 @@ Simulation.
   * [Animating Pictures with Eulerian Motion Fields 2021](https://eulerian.cs.washington.edu/). <u>predict a heuristic motion map</u>. tracing the motion of depth features, and with a decoder to generate new view.
 
 <a name="llearning"></a>
-# 4. Learning
+# 4. Self-Supervised Learning
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [On Removing Supervision from Contrastive Self-Supervised Learning 2021/01](https://www.youtube.com/live/VBQti3kNqiI?feature=share) by [Alexei Efros](http://people.eecs.berkeley.edu/~efros/). Self-Supervised Learning (use the tools of supervised learning, but with raw data instead of human-provided labels):
 * Self-Supervised Learning <u>Allow to get away from top-down (semantic) categorization</u>. (jump out of concrete objects, to reach **IDEE of Plato**)
@@ -118,4 +118,44 @@ Simulation.
 * Self-Supervised Learning <u>Enable continuous life-long learning</u>.
   * we never see the same 'training data' in real life. Data augmentation encourage memorizing. -> *Online Continual Learning*. keep using new data to train.
   * [Test-Time Training 2020](https://yueatsprograms.github.io/ttt/home.html), use self-supervised to adapt new data.
-  * （<n>实践是交互性的，机器要想更像人就也需要实践，那么仅仅单向地给它数据肯定是不够的，需要它以一种方式和客体发生作用才行。而且这种作用不能只是机械的，而且需要有“能动性”。 </n>）
+  * （<n>实践是交互性的，机器要想更像人就也需要实践，那么仅仅单向地给它数据肯定是不够的，需要它以一种方式和客体发生作用才行。而且这种作用不能只是机械的，而且需要有“能动性”。</n>）
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Learning Representations and Geometry from Unlabeled Videos (Andrea Vedaldi) 2021/01](https://www.youtube.com/live/fVWQGHjRzNU?feature=share). horizontal problems, vertical problems.
+**Contrastive Learning** : vector representations.
+* Video Timeshift and Inverse: [Multi-modal Self-Supervision from Generalized Data Transformations](https://openreview.net/forum?id=mgVbI13p96)
+* Video with Caption: Captioning as a modality for contrastive learning. [Support-set bottlenecks for video-text representation learning](https://arxiv.org/abs/2010.02824), using cross-captioning to be robust against wrong caption.
+* Image/Video Labelling:
+  * Clustering the representation vectors. [Deep Clustering for Unsupervised Learning of Visual Features](https://arxiv.org/abs/1807.05520) learns the clustering and the representation network.
+  * [Self-labelling via simultaneous clustering and representation learning](https://arxiv.org/abs/1911.05371), label assignment by probability.
+  * [Labelling unlabelled videos from scratch with multi-modal self-supervision](https://www.robots.ox.ac.uk/~vgg/research/selavi/)
+
+<div align="center">    
+<img src="/assets/img/paperread/video_geo_autoencoding.png" width="45%"/>
+</div>
+
+* **Video-to-Geometry**: <h>Autoencoding encode to 'shape code' (2d landmarks), then use decoder to reconstruct the original image</h>.
+  * [Learning Landmarks from Unaligned Data using Image Translation](https://openreview.net/pdf?id=xz3XULBWFE).
+  * [Exemplar Fine-Tuning for 3D Human Model Fitting](https://arxiv.org/abs/2004.03686), video to human 3d model.
+  * [C3DPO - Canonical 3D Pose Networks for Non-rigid Structure From Motion](https://github.com/facebookresearch/c3dpo_nrsfm). 2d landmarks to predict model and camera pose.
+  * [Canonical 3D Deformer Maps](https://arxiv.org/abs/2008.12709), predicts both depth maps and canonical maps.
+  *  Texture transfer, Use Symmetry as supervision.
+
+<div align="center">    
+<img src="/assets/img/paperread/C3DPO.png" width="60%"/>
+</div>
+
+
+<a name="lslam"></a>
+# 5. SLAM & Geometry
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Pushing Factor Graphs beyond SLAM (Frank Dellaert) 2020/12](https://www.youtube.com/live/OvcD6Dz2Z20?feature=share), [GTSAM](https://gtsam.org/). Factor Graph Introduction. user case : [Skydio](https://www.skydio.com/) drone, navigation, tracking and motion planning.
+* SLAM & GTSAM. Sparse Hessian Matrix - *Bayes Tree* : Incremental & Distributed (sub-trees).
+  * [iSAM 2012](https://gtsam-jlblanco-docs.readthedocs.io/en/latest/iSAM.html), ([ICE-BA 2018](https://openaccess.thecvf.com/content_cvpr_2018/papers/Liu_ICE-BA_Incremental_Consistent_CVPR_2018_paper.pdf)).
+* Structure from Motion. [GTSFM](/Study/PaperRead/visual_mapping/#lgtsfm) (<n>it is really a nice work.</n>), parallelize SFM over large clusters, using [DASK](https://www.dask.org/).
+  * DMV (Detection/Description + Matching + Verification) -> Essential Matrix.
+  * [Shonan Rotation Averaging](/Study/PaperRead/visual_mapping/#lrotationaverage)
+* Navigation and Control. IMU-preintegration factor is integrated inside GTSAM.
+* More.
+  * [Batch and Incremental Kinodynamic Motion Planning using Dynamic Factor Graphs](https://arxiv.org/abs/2005.12514). use factor graphs to encode robot dynamics and applied to kino-dynamic motion planning.
+  * Optimize control parameters for drone planning.
+  * [SwiftFusion](https://github.com/borglab/SwiftFusion) integration with TensorFlow, functions can be made differentiable automatically.
