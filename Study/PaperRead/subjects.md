@@ -14,6 +14,7 @@ title: Other Specific Subjects
     * [Meta](#l4.1)
     * [Apple](#l4.2)
     * [Infrared Papers](#l4.3)
+    * [Other Papers](#l4.4)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering](#l6)
 
@@ -161,9 +162,37 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Low-cost vision-based 6-DOF MAV localization using IR beacons 2013](https://ieeexplore.ieee.org/abstract/document/6584225/). <u>Enumerate</u> all possible 2d-3d matches, filter by plane prior (order around the centroid is kept), then solve pose by PnP.
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [PS Move API: A Cross-Platform 6DoF Tracking Framework 2013](https://publik.tuwien.ac.at/files/PubDat_218820.pdf), with a more detailed version [Cross-Platform Tracking of a 6DoF Motion Controller 2012](https://publik.tuwien.ac.at/files/PubDat_214197.pdf). developed for [PS Move Motion Controller](https://www.playstation.com/en-us/accessories/playstation-move-motion-controller/): single large LED blob tracking.
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Kinectrack: Agile 6-DoF Tracking Using a Projected Dot Pattern 2012](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/6402533/). plannar IR pattern: 4 points -> quads -> kites. Kites have a perspective-invariant signature, used to match and compute pose.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
+
+<a name="l4.4"></a>
+## 4.4 Other Papers
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Efficient 6-DoF Tracking of Handheld Objects from an Egocentric Viewpoint 2018](https://openaccess.thecvf.com/content_ECCV_2018/papers/Rohit_Pandey_Efficient_6-DoF_Tracking_ECCV_2018_paper.pdf). Image based 3d position & 6 dof pose.
+* [data set for hand hold objects](https://sites.google.com/view/hmd-controller-dataset). <n>the data set might be useful</n>.
+* Model based on Single Shot Multibox Detector (SSD). Intuition : users’ hands and arms provide excellent context.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [1 euro Filter: A Simple Speed-based Low-pass Filter for Noisy Input in Interactive Systems 2012](https://inria.hal.science/hal-00670496/document), here for an implementation [One Euro Filter](https://jaantollander.com/post/noise-filtering-using-one-euro-filter/). Lower jitter at low speed, lower lag at high speed.
+
+$$
+\alpha = \frac{1}{1 + \frac{\tau}{T_{e}}}, \tau = \frac{1}{2\pi + f_{c}}, f_{c} = f_{c_min} + \beta \| \dot{\hat{X_{i}}} \|
+$$
+
+$$
+\hat{X_{i}} = (X_{i} + \frac{\tau}{T_{e}} \hat{X_{i - 1}}) \frac{1}{1 + \frac{\tau}{T_{e}}}
+$$
+
+[Monado’s hand tracking](https://monado.freedesktop.org/handtracking), [stream app](https://store.steampowered.com/app/2317150/Monado_Hand_Tracking/):
+* [post machine learning hand pose](https://www.collabora.com/news-and-blog/blog/2021/04/20/continuous-3d-hand-pose-tracking-using-machine-learning-and-monado-openxr/), [project gitlab](https://gitlab.collabora.com/col0047/openxr-hand-tracking-example). multi-stage neural network-based solution.
+* [post Bag of freebies](https://www.collabora.com/news-and-blog/blog/2021/06/17/bag-of-freebies-xr-hand-tracking-machine-learning-openxr/), [pretrained model gitlab](https://gitlab.collabora.com/col0047/hand-detection).
+  * Data augmentation + Noisy Student Training, a semi-supervised learning approach.
+  * Architecture inspired by the YOLOv4 architecture
+* [post monado hand tracking](https://www.collabora.com/news-and-blog/blog/2022/05/31/monado-hand-tracking-hand-waving-our-way-towards-a-first-attempt/), fits with the ethos of [libsurvive](https://github.com/cntools/libsurvive). using [One Euro Filter](https://jaantollander.com/post/noise-filtering-using-one-euro-filter/). using [MediaPipe](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker).
+  * [MediaPipe samples](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker)， [MediaPipe c++](https://developers.google.com/mediapipe/framework/getting_started/hello_world_cpp.md).
+
 
 <a name="l5"></a>
 # 5. Continuous-Time Batch Calibration
@@ -216,7 +245,9 @@ Some References:
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (12-layers), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network. (<n>but makes it harder to write shader</n>)
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
+    * 192-layers, with 16 texture images, too large memory.
+    * 17 images scene took 18h to train, trainning slow, limit its use case.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-Time Neural Character Rendering with Pose-Guided Multiplane Images 2022](https://github.com/ken-ouyang/PGMPI), use image-to-image translation paradigm.
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> Apple [Generative Multiplane Images 2022](https://xiaoming-zhao.github.io/projects/gmpi/) (32-layers) but only has pre-trained model for face dataset. (<n>Apple might use this for Vision pro 3d photo</n>)
 * Aspen Movie Map (1978)

@@ -12,6 +12,8 @@ title: TUM AI Lecture Series
 3. [Image-based Rendering](#libr)
 4. [Self-Supervised Learning](#llearning)
 5. [SLAM & Geometry](#lslam)
+6. [Language](#lnlp)
+7. [AR/VR/MR](#lmr)
 
 <a name="lgan"></a>
 # 1. GANs
@@ -159,3 +161,31 @@ Simulation.
   * [Batch and Incremental Kinodynamic Motion Planning using Dynamic Factor Graphs](https://arxiv.org/abs/2005.12514). use factor graphs to encode robot dynamics and applied to kino-dynamic motion planning.
   * Optimize control parameters for drone planning.
   * [SwiftFusion](https://github.com/borglab/SwiftFusion) integration with TensorFlow, functions can be made differentiable automatically.
+
+
+<a name="lnlp"></a>
+# 6. Language
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Explainability and Compositionality for Visual Recognition (Zeynep Akata) 2021/01](https://www.youtube.com/live/wQOkyxqXNhc?si=VN-xJuG4hJRK0mPn).
+* Learning with Explanation with Minimal Supervision — Zero-Shot Learning.
+  * Image -> Image Features <-(F)-> Class Attributes <- Class Labels.
+  * Zero-Shot Learning Train the mapping F. But human made Attributes is needed.
+  * <u>Data Augmentation</u> : Text-to-Image GAN. **Text-to-ImageFeature** GAN/VAE.
+* Generating Explanations using Attributes and Natural Language — **Image-to-Text**.
+  * towards effective human-machine communication.
+* Summary, Ongoing work and future work.
+
+[Sights, Sounds, and Space: Audio-visual Learning in 3D (Kristen Grauman)](https://www.youtube.com/live/1EQ6helfvtM?si=fgFcb2G11rndOCvX)
+
+
+<a name="lmr"></a>
+# 7. AR/VR/MR
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Photorealistic Telepresence (Yaser Sheikh) 2020/12](https://www.youtube.com/live/2RuzbIS3fTY?si=e0NtJhV-NqMIvAw9), from facebook. Face-to-face social interaction in distance. True presence rather than "perceptually plausible" — Enable **Authentic** Communication in **Artificial** Reality.
+* CODEC AVATARS : [Deep Appearance Models for Face Rendering 2018](https://arxiv.org/abs/1808.00362)
+  * Encoder/Decoder structure : Human -(encoder)-> code -(decoder)-> Texture & Mesh -> Face.
+  * Training Data : Mugsy - all angle camera shot.
+  * sensors : 4 eye cameras, 3 month cameras.
+* Nerf based 3d reconstruction.
+* Hand Tracking, even very complex gestions. [Constraining Dense Hand Surface Tracking with Elasticity 2020](https://research.facebook.com/publications/constraining-dense-hand-surface-tracking-with-elasticity/).
+* Audio.
