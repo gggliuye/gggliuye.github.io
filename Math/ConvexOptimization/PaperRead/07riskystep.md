@@ -7,7 +7,7 @@ title: Risky Giant Steps Can Solve Optimization Problems Faster
 From Post : [Risky Giant Steps Can Solve Optimization Problems Faster](https://www.quantamagazine.org/risky-giant-steps-can-solve-optimization-problems-faster-20230811/)
 
 
-<img src="/assets/img/paperread/chrown.png" height="25"/> [Branch-and-Bound Performance Estimation Programming: A Unified Methodology for Constructing Optimal Optimization Methods 2022](https://arxiv.org/abs/2203.07305). Try finding the best step lengths for an algorithm restricted to running only 50 steps — a sort of meta-optimization problem. Found that the most optimal 50 <u>steps varied significantly in length</u>, with one step in the middle of the sequence reaching nearly to length 37, far above the typical cap of length 2.
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Branch-and-Bound Performance Estimation Programming: A Unified Methodology for Constructing Optimal Optimization Methods 2022](https://arxiv.org/abs/2203.07305). [github code](https://github.com/Shuvomoy/BnB-PEP-code). Try finding the best step lengths for an algorithm restricted to running only 50 steps — a sort of meta-optimization problem. Found that the most optimal 50 <u>steps varied significantly in length</u>, with one step in the middle of the sequence reaching nearly to length 37, far above the typical cap of length 2.
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Provably Faster Gradient Descent via Long Steps 2023](https://arxiv.org/abs/2307.06324). periodically long step make the convergence faster in long term.
 * The optimal step lengths would be for a sequence that could repeat, getting closer to the optimal answer with each repetition.

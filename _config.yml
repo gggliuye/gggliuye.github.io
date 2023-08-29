@@ -15,6 +15,10 @@ navbar-links:
   My Work:
     - DeepMirror (current) : "WorkDeepMirror/index"
     - UTOPA (ended): "WorkUtopa/index"
+  Documents:
+    - Philosophy : "Philosophy/index"
+    - Math : "Math/index"
+    - Work Paper Read : "Study/PaperRead/index"
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"
 #    - Learn markdown: "https://www.markdowntutorial.com/"
