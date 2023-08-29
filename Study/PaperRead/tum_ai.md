@@ -7,22 +7,35 @@ title: TUM AI Lecture Series
 
 # Table of Contents
 
-1. [GANs](#lgan)
+1. [Generation & GANs](#lgan)
 2. [Autonomous Driving](#lauto_drive)
 3. [Image-based Rendering](#libr)
 4. [Self-Supervised Learning](#llearning)
-5. [SLAM & Geometry](#lslam)
+5. [SLAM & Geometry & Robotics](#lslam)
 6. [Language](#lnlp)
 7. [AR/VR/MR](#lmr)
 
 <a name="lgan"></a>
-# 1. GANs
+# 1. Generation & GANs
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [New Generative Models for Images, Landscape Videos and 3D Human Avatars(Victor Lempitsky) 2021/02](https://www.youtube.com/live/nmRbIbnU0IM?feature=share).
 * [StyleGAN](https://github.com/NVlabs/stylegan) for Landscape *Videos*: [DeepLandscape](https://github.com/saic-mdal/deep-landscape).
   * network feature : duplicted latents - two upsampling structures (one small one large).
   * discriminator : unary (use the smaller one) & pairwise (use both). warp noise maps by homography transformations.
 * StyleGAN for 3D Human Avatars. [SMPL-X](https://smpl-x.is.tue.mpg.de/)
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Controllable Content Generation without Direct Supervision (Niloy Mitra) 2020/12](https://www.youtube.com/live/KnKLGJQBdb4?si=Z1i-on7cs6qgdyXe), [Smart Geometry Processing Group](https://geometry.cs.ucl.ac.uk/). **Adobe**.
+* Industrial Design : Ideation Sketching -> CAD Modeling -> 3D model.
+  * DL Problems : Representation, topology + geometry + material, avoid using 3d training data.
+* Learning from Rasterized Vector Data.
+  * [Discovering Pattern Structure Using Differentiable Compositing 2020](https://arxiv.org/abs/2010.08788) - Pattern Expansion - Edit in the Wild, while preserving texture structure.
+* Learning from Procedural 3D Data.
+  * [ShapeAssembly: Learning to Generate Programs for 3D Shape Structure Synthesis 2020](https://arxiv.org/abs/2009.08026).
+  * [Sketch2CAD: Sequential CAD Modeling by Sketching in Context 2020](https://geometry.cs.ucl.ac.uk/projects/2020/sketch2cad/)
+* Revisiting 'Plato's Cave' : [Escaping Plato's Cave: 3D Shape From Adversarial Rendering 2018](https://arxiv.org/abs/1811.11606).
+  * train without access to 3d data.
+  * 2d image -> 3d volume -> 2d rendered image -> 2d structured samples.
+* Learning Object-aware Scene Representations from Unlabeled Images/Videos.
 
 <a name="lauto_drive"></a>
 # 2. Autonomous Driving
@@ -148,7 +161,7 @@ Simulation.
 
 
 <a name="lslam"></a>
-# 5. SLAM & Geometry
+# 5. SLAM & Geometry & Robotics
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Pushing Factor Graphs beyond SLAM (Frank Dellaert) 2020/12](https://www.youtube.com/live/OvcD6Dz2Z20?feature=share), [GTSAM](https://gtsam.org/). Factor Graph Introduction. user case : [Skydio](https://www.skydio.com/) drone, navigation, tracking and motion planning.
 * SLAM & GTSAM. Sparse Hessian Matrix - *Bayes Tree* : Incremental & Distributed (sub-trees).
@@ -163,6 +176,29 @@ Simulation.
   * [SwiftFusion](https://github.com/borglab/SwiftFusion) integration with TensorFlow, functions can be made differentiable automatically.
 
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Sights, Sounds, and Space: Audio-visual Learning in 3D (Kristen Grauman) 2020/12](https://www.youtube.com/live/1EQ6helfvtM?si=fgFcb2G11rndOCvX). <u>Objective : indoor robot mapping & navigation.</u>
+* [SoundSpaces](https://vision.cs.utexas.edu/projects/audio_visual_navigation/) : Realistic 3D environments and simulation - with 3D sound.
+* [Audio-visual embodied Navigation 2019](https://www.researchgate.net/publication/338158203_Audio-Visual_Embodied_Navigation) : vision + audio + gps -> Critic + Actor -> Action Sampler. (Finding alert task).
+  * audio-visual waypoints.
+* [Semantic audio-visual Navigation 2020](https://arxiv.org/abs/2012.11583), put all the environmental noise together.
+* [Audio-Visual Floorplan Reconstruction 2020](https://arxiv.org/abs/2012.15470), [github](https://github.com/senthilps8/avmap), semantic room mapping. sound contains information of geometry.
+* [VisualEchoes: Spatial Image Representation Learning through Echolocation 2020](https://arxiv.org/abs/2005.01616). agent make sound, and listen the echos. Supervision from acoustically interacting with the physical world. **<n>very interesting topic!</n>**
+  * help in depth/normal estimation and navigation tasks.
+  * VisualEcho-Net + Echo-Net -> Predict Orientation. (self-supervised echo and visual results should match)
+
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Towards Graph-Based Spatial AI (Andrew Davison) 2020/10](https://www.youtube.com/live/_npGEB3kkVc?si=5tJSMbwS9I1xVzS3). SLAM evolving into **Spatial AI**.
+* [FutureMapping: The Computational Structure of Spatial AI Systems 2018](https://arxiv.org/abs/1803.11288)
+  * Representation is important (End-to-end might not be possible).
+  * There should be a generality to Spatial AI system (for various applications).
+* SLAM: [MonoSLAM 2003](https://www.doc.ic.ac.uk/~ajd/Publications/davison_etal_pami2007.pdf), [ElasticFusion 2016](https://www.roboticsproceedings.org/rss11/p01.pdf), [SemanticFusion 2017](https://arxiv.org/abs/1609.05130).
+* New Representations for Spatial AI:
+  * keyframes : [CodeSLAM 2018](https://github.com/silviutroscot/CodeSLAM), [SceneCode 2019](https://arxiv.org/abs/1903.06482), **per-frame code** for depths & semantics.
+  * Dynamic Scene Graphs. SLAM with objects : [MoreFusion 2020](https://github.com/wkentaro/morefusion), [NodeSLAM 2020](https://edgarsucar.github.io/NodeSLAM/).
+* Hardware : Event Cameras. (Code Design on) Processors.
+* **Gaussian Belief Propagation** for Spatial AI: propagate the covariance of each node, through the graph.
+  * [Bundle Adjustment on a Graph Processor 2020](https://arxiv.org/abs/2003.03134).
+
 <a name="lnlp"></a>
 # 6. Language
 
@@ -174,8 +210,6 @@ Simulation.
 * Generating Explanations using Attributes and Natural Language — **Image-to-Text**.
   * towards effective human-machine communication.
 * Summary, Ongoing work and future work.
-
-[Sights, Sounds, and Space: Audio-visual Learning in 3D (Kristen Grauman)](https://www.youtube.com/live/1EQ6helfvtM?si=fgFcb2G11rndOCvX)
 
 
 <a name="lmr"></a>
