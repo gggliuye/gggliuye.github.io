@@ -103,6 +103,14 @@ Simulation.
 * [Nerf in the Wild](https://nerf-w.github.io/) with appearance & transient embedding.
 
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Learning to Retime People in Videos (Tali Dekel) 2020/10](https://www.youtube.com/live/Ko1XxJKfQdM?si=3GKQpvojDsgf1oLO)
+* Analyzing, Visualizing and Re-rendering people in **videos**.
+  * motion visualization, depth prediction, [SpeedNet](https://speednet-cvpr20.github.io/) : adaptive speed up video
+* Change the speed of individual people within frames. [Layered Neural Rendering for Retiming People in Video](https://retiming.github.io/). <n>interesting work!</n>
+  * Key challenges : space-time correlations; occlusions/dis-occlusions.
+  * Layered Decomposition, then we can edit the video by changing the layers.
+
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Reflections on Image-Based Rendering (Richard Szeliski) 2021/01](https://www.youtube.com/live/0VIUbIzv_wc?feature=share). A overview.
 
 * [Multi-View Stereo](/Study/PaperRead/3d_reconstruction/#ldl_mvs). *Usage* : View Interpolation, View Morphing, interactive 3d scene, etc. *Idea behind*: Plane Sweep Stereo (~Patch Match).
@@ -162,6 +170,12 @@ Simulation.
 
 <a name="lslam"></a>
 # 5. SLAM & Geometry & Robotics
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [New Methods for Reconstruction and Neural Rendering (Christian Theobalt) 2020/11](https://www.youtube.com/live/cZYUXHsupCE?si=p1ciOezV5NV0uKVm)
+* Monocular reconstruction : human hand, human skeleton, human performance (surface), 3d face.
+* Nerf : Deep relightable texture. StyleRig -> pose & light.
+* [Neural Sparse Voxel Fields 2020](https://arxiv.org/abs/2007.11571).
+
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Pushing Factor Graphs beyond SLAM (Frank Dellaert) 2020/12](https://www.youtube.com/live/OvcD6Dz2Z20?feature=share), [GTSAM](https://gtsam.org/). Factor Graph Introduction. user case : [Skydio](https://www.skydio.com/) drone, navigation, tracking and motion planning.
 * SLAM & GTSAM. Sparse Hessian Matrix - *Bayes Tree* : Incremental & Distributed (sub-trees).
