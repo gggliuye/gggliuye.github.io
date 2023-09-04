@@ -14,6 +14,7 @@ title: TUM AI Lecture Series
 5. [SLAM & Geometry & Robotics](#lslam)
 6. [Language](#lnlp)
 7. [AR/VR/MR](#lmr)
+8. [Others](#lothers)
 
 <a name="lgan"></a>
 # 1. Generation & GANs
@@ -237,3 +238,19 @@ Simulation.
 * Nerf based 3d reconstruction.
 * Hand Tracking, even very complex gestions. [Constraining Dense Hand Surface Tracking with Elasticity 2020](https://research.facebook.com/publications/constraining-dense-hand-surface-tracking-with-elasticity/).
 * Audio.
+
+
+<a name="lothers"></a>
+# 8. Others
+
+<img style="float: right;" src="/assets/img/paperread/moon_camera.png" width="25%"/>
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [The Moon Camera (Bill Freeman) 2020/10](https://www.youtube.com/live/Ytkkl917paM?si=grOjwxPNKj7puE5n). attempts to photograph the Earth from space using the moon as a camera, and several Computational imaging projects resulting from those attempts.
+* Approaches 1. Measuring diffuse reflections of Earthshine from the Moon.
+  * Sphere Render : [Visual Appearance of Matte Surfaces 1995](https://www.science.org/doi/10.1126/science.7855592). Probability model : Light transport matrix + Prior Covariance + Noise.
+  * [Non-line-of-sight image](https://www.nature.com/articles/s42254-020-0174-8) research.
+* Approaches 2. Observing the fuzzy boundaries of cast shadows of Earthshine on the Moon.
+  * Crater - shadows border changes, as different amount of Earthshine is available.
+  * **Occlusion-based imaging : Corner camera**: [Turning Corners Into Cameras: Principles and Methods 2017](https://openaccess.thecvf.com/content_ICCV_2017/papers/Bouman_Turning_Corners_Into_ICCV_2017_paper.pdf). shadow edge contains information behind the wall.
+* Approaches 3. Measuring the specular reflections of modulations within sunlight.
+  * Intensity change; spectrum change; modulation spectrum change.

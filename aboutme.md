@@ -4,7 +4,7 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Ye Liu. I have the following qualities:
+My name is Ye. I have the following qualities:
 
 - I rock a great mustache
 - I'm extremely loyal to my family
@@ -13,7 +13,7 @@ What else do you need?
 
 ## Hobby
 
-* Philosophy, Marxism.
+* Philosophy, Art.
 * Love music, Rock fan.
 * Love outdoor.
 
@@ -47,6 +47,7 @@ What else do you need?
 
 -->
 
+<!--
 ## Work at DeepMirror
 [The abstract of my work until now](../WorkDeepMirror/index).
 
@@ -57,3 +58,5 @@ What else do you need?
 * [The abstract of my work until 2020/08](../WorkUtopa/index).
 * [My certifications Coursera](../Study/certs/coursera).
 * [My certifications Deep Blue (深蓝学院)](../Study/certs/deepblue).
+
+-->
