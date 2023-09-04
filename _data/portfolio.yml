@@ -5,7 +5,7 @@
 - title: Lidar Mapping & Fusion
   description: LVIO Mapping + offline multi-session fusion & optimization.
   img: youfang_mapping.gif
-  url: ./WorkDeepMirror/index
+  url: https://github.com/deepmirrorinc
 - title: LVIO Mapping
   description: Lidar, IMU, Image tightly coupled odometry
   img: vlio.jpg
@@ -13,11 +13,11 @@
 - title: City Level Mapping
   description: VIG Mapping + offline multi-session fusion & optimization.
   img: mobili_mapping.gif
-  url: ./WorkDeepMirror/index
+  url: https://youtu.be/dFknAWGbMSk?si=mgwne3tc1kE4zwuO
 - title: VIG Mapping
   description: Image, IMU, Chassis, GNSS fused mapping.
   img: image_mapping.png
-  url: https://gggliuye.github.io/WorkDeepMirror/index
+  url: https://github.com/deepmirrorinc
 - title: Server Localization AR
   description: Localization in a large prebuilt visual/lidar map with single image & AR application.
   img: vlp_image.jpg
@@ -33,4 +33,4 @@
 - title: Web AR
   description: Marker detection and localization based JavaScript AR application.
   img: web_ar.PNG
-  url: https://gggliuye.github.io/opencv_js/index
+  url: https://github.com/gggliuye/WebAr
