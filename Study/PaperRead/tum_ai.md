@@ -93,6 +93,7 @@ Simulation.
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Reconstructing the Plenoptic Function (Noah Snavely) 2020/10](https://www.youtube.com/live/GNUpZAeBnZc?feature=share), [Notes](/Study/PaperRead/subjects/#l6).
 
+<a name="lnerf_understanding"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Understanding and Extending Neural Radiance Fields (Jonathan T. Barron) 2022/10](https://www.youtube.com/live/nRyOzHpcr4Q?feature=share), [Jonathan T. Barron](https://jonbarron.info/). See more in [My Neural Rendering Page](/Study/PaperRead/3d_reconstruction/#lneural_r), [My Deep Learning 3D Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl).
 * [NeRF](https://www.matthewtancik.com/nerf).
 * **How NeRF Work** ? [Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains](https://arxiv.org/abs/2006.10739). [Experiments](https://github.com/tancik/fourier-feature-networks/tree/master/Experiments).
@@ -101,6 +102,7 @@ Simulation.
     * coordinate's Fourier feature (～<h>positional encoding</h>) to color. **succeed**.
   * Neural Tangent Kernel (neural networks are kernel regression + ReLU MLPs corresponding to a 'dot product' kernel).
     * with Dot Product of Fourier Features. <u>MLPs are made into "convolution"</u>.
+  * See [Instant Neural Graphics Primitives](/Study/PaperRead/3d_reconstruction/#linstant_gtc) for a great implementation.
 * [Nerf in the Wild](https://nerf-w.github.io/) with appearance & transient embedding.
 
 
@@ -254,3 +256,12 @@ Simulation.
   * **Occlusion-based imaging : Corner camera**: [Turning Corners Into Cameras: Principles and Methods 2017](https://openaccess.thecvf.com/content_ICCV_2017/papers/Bouman_Turning_Corners_Into_ICCV_2017_paper.pdf). shadow edge contains information behind the wall.
 * Approaches 3. Measuring the specular reflections of modulations within sunlight.
   * Intensity change; spectrum change; modulation spectrum change.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [AI for 3D Content Creation (Sanja Fidler) 2020/09](https://www.youtube.com/live/pTTxPq8uZmg?si=yVpdJHccKQVBK_F3), <img src="/assets/img/paperread/chrown0.png" height="25"/> [NVIDIA Kaolin](https://developer.nvidia.com/kaolin).
+* Manual Creation is Slow (e.g. GTA).
+* Worlds (Scene Composition) :
+  * **Scene layout** : probabilistic grammar, [Meta-Sim 2019](https://nv-tlabs.github.io/meta-sim/), [Meta-Sim2 2020](https://nv-tlabs.github.io/meta-sim-structure/): (1) encode scene with GNN; (2) distribution matching by comparing images; (3) task optimization.
+  * **Assets** : Make graphic rendering differentiable -> able to train.
+    * car generation : [StyleGANRender 2021](https://nv-tlabs.github.io/GANverse3D/).
+    * [DefTet 2020](https://nv-tlabs.github.io/DefTet/), deform Tetrahedral Meshes.
+* Other works. [GameGAN 2020](https://nv-tlabs.github.io/gameGAN/)
