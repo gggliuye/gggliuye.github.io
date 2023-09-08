@@ -90,7 +90,8 @@ More Work are done with Deep Learning.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs 2021](https://arxiv.org/pdf/2103.13744.pdf).  replaces a single large NeRF-MLP with thousands of tiny MLPs, accelerating rendering by 3 orders of magnitude.
 * <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
   * key features : Trilinear Interpolation, Total Variation Regularization.
-* <img src="/assets/img/paperread/chrown.png" height="25"/> [MobileNeRF 2023](https://mobile-nerf.github.io/): **textured triangle mesh representation**, can be rendered with the traditional polygon rasterization pipeline, which provides massive pixel-level parallelism. <h>offers demo to run in phone</h>. [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [MobileNeRF 2023](https://mobile-nerf.github.io/): **textured triangle mesh representation**, can be rendered with the traditional polygon rasterization pipeline, which provides massive pixel-level parallelism. <h>offers demo to run in phone</h>. [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://github.com/graphdeco-inria/gaussian-splatting).
 
 **A generalization of the problem**:
 
@@ -109,12 +110,18 @@ More Work are done with Deep Learning.
 * Acceleration Design :
   * Nerf render process: cut empty space, and cut ray after object.
   * Smaller MLP: memery traffic dominate -> [Fully Fused Neural Network](https://research.nvidia.com/publication/2021-06_real-time-neural-radiance-caching-path-tracing) : entire neural network implemented as single CUDA kernel.
-  * Input encoding (see [understanding of input encoding](/Study/PaperRead/tum_ai/#lnerf_understanding)): Multireslution hash encoding - pyramid structure for deep features.
+  * Input encoding (see [understanding of input encoding](/Study/PaperRead/tum_ai/#lnerf_understanding)): Multireslution hash encoding - pyramid structure for deep features (<u>use hash to avoid dimensionality exponentially as in the hyper-cubical voxel case</u>).
 * [here for my test results](https://github.com/yeliu-deepmirror/instant-ngp/blob/master/docs/nerf_dataset_tips.md#DM), run with a outdoor general data session.
-
 
 <a name="ldl_sdf"></a>
 ## 2. SDF
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [PermutoSDF: Fast Multi-View Reconstruction with Implicit Surfaces using Permutohedral Lattices 2023](https://arxiv.org/pdf/2211.12562.pdf), [github page](https://radualexandru.github.io/permuto_sdf/), [github](https://github.com/RaduAlexandru/permuto_sdf). (1) use a hashed [permutohedral encoding](https://github.com/RaduAlexandru/permutohedral_encoding)(following [Instant NGP](#linstant_gtc)) to ensure fast training; (2) a novel RGB regularizer to encourage the network to predict high-frequency geometric detail.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [NeuS2: Fast Learning of Neural Implicit Surfaces for Multi-view Reconstruction 2023](https://vcai.mpi-inf.mpg.de/projects/NeuS2/), following work of [Instant NGP](#linstant_gtc).
+* multi-resolution hash tables of learnable feature vectors.
+* an incremental learning method for learning dynamic scenes.
+
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Occupancy Network](/Study/PaperRead/tum_ai/#locc_net).
 
