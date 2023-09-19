@@ -11,6 +11,8 @@ title: Visual Mapping And Localization
     4. [Mapping](#lvlp4)
     5. [Post Processing](#lvlp5)
 
+2. [Product Analysis](#lproduct)
+
 * [2023](#l2023)
 * [2022](#l2022)
 * [2021](#l2021)
@@ -75,6 +77,19 @@ Has two type of understanding:
 ## 1.5 Post Processing
 
 * Map Simplification : [ILP Summarization](#lkeepbrief), [GNN Summarization](#lgnnbrief).
+
+<a name="lproduct"></a>
+# 2. Product Analysis
+
+<img src="/assets/img/paperread/chrown.png" height="25"/>  [Lightship AR : Product Session: Introducing Lightship 3.0](https://www.youtube.com/watch?v=zHj_Xfn83lM):
+* Unity Development:
+  * Compatible with ArFoundation feature.
+  * Playback : **Streamlined Development**. run with recording.
+* Contextual Awareness (depth, occlusion, mesh, semantic).
+* Map & Location :
+  * Lightship Maps (3d plannar low-ploy map).
+  * Visual Positioning System : (user uploaded) landmark based localization.
+  * Shared AR : multiplayers.
 
 <a name="l2023"></a>
 # 2023
