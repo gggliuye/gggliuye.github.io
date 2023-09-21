@@ -13,8 +13,9 @@ title: Other Specific Subjects
 4. [XR Hand](#l4)
     * [Meta](#l4.1)
     * [Apple](#l4.2)
-    * [Infrared Papers](#l4.3)
-    * [Other Papers](#l4.4)
+    * [PICO](#lpcio)
+    * [Infrared Papers](#lxr_irpaper)
+    * [Other Papers](#lxr_other)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering](#l6)
 
@@ -146,7 +147,17 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 
 * [Detect Body and Hand Pose with Vision 2020](https://developer.apple.com/videos/play/wwdc2020/10653/) other people's pose.
 
-<a name="l4.3"></a>
+<a name="lpcio"></a>
+# 4.3 PICO
+
+[PICO Centaur 光学追踪+裸手识别 2023](https://mp.weixin.qq.com/s/JP6ertmxXc0fF0fIPU8QMg); LED + AI HAND + IMU.
+* [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
+* [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410).
+* [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082).
+* Data [Realistic Full-Body Tracking from Sparse Observations via Joint-Level Modeling](https://arxiv.org/abs/2308.08855).
+* XR body recovery.
+
+<a name="lxr_irpaper"></a>
 ## 4.3 Infrared Papers
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
@@ -168,7 +179,7 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
 
-<a name="l4.4"></a>
+<a name="lxr_other"></a>
 ## 4.4 Other Papers
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Efficient 6-DoF Tracking of Handheld Objects from an Egocentric Viewpoint 2018](https://openaccess.thecvf.com/content_ECCV_2018/papers/Rohit_Pandey_Efficient_6-DoF_Tracking_ECCV_2018_paper.pdf). Image based 3d position & 6 dof pose.
