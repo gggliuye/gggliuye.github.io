@@ -6,7 +6,7 @@ title: Deep Learning
 # Table of Contents
 
 1. [Image Generation](#lgeneration)
-    1. [Diffusion Model](#ldiff_model)
+    1. [Physics Model](#ldiff_model)
     2. [VAE (variational auto-encoder)](#lvae)
     3. [GANS](#lgans)
 2. [3d Reconstruction](#l3d_recon)
@@ -30,7 +30,7 @@ Differences : ([GANS vs VAEs](https://ai.stackexchange.com/questions/25601/what-
 * <u>Likelihood-Based Model</u> (VAEs, Diffusion Models), short of visual sample quality (before [guided-diffusion](#lguided-diffusion)).
 
 <a name="ldiff_model"></a>
-## 1.1 Diffusion Model
+## 1.1 Physics Model
 
 Transform noise into data through an iterative diffusion process. Each iteration using model to predict noise, assuming gaussian distribution, using fixed variance.
 
@@ -45,15 +45,25 @@ p_{\theta, \phi}(x_{t}|x_{t+1},y) = Z p_{\theta}(x_{t}|x_{t+1})p_{\phi}(y|x_{t})
 $$
 
 <a name="lguided-diffusion"></a>
-**OpenAI Guided Diffusion**  [guided-diffusion](https://github.com/openai/guided-diffusion):
-
+**OpenAI Guided Diffusion**  [guided-diffusion](https://github.com/openai/guided-diffusion): <img src="/assets/img/paperread/chrown.png" height="25"/> [DALL·E 2](https://openai.com/dall-e-2).
+* [The Physics Principle That Inspired Modern AI Art](https://www.quantamagazine.org/the-physics-principle-that-inspired-modern-ai-art-20230105/) heavily inspired by nonequilibrium thermodynamics ~ the probability distribution.
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Denoising Diffusion Probabilistic Models 2020](https://arxiv.org/pdf/2006.11239.pdf), [github](https://github.com/hojonathanho/diffusion).
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Diffusion Models Beat GANs on Image Synthesis 2021](https://arxiv.org/abs/2105.05233). with <h>Classifier Guidance</h>.
 
-**Image-Text** combined with a language transformer:
+**Image-Text**, diffusion combined with a language transformer:
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Blended Diffusion for Text-driven Editing of Natural Images 2022](https://arxiv.org/abs/2111.14818), [github](https://github.com/omriav/blended-diffusion), **DDPM + [CLIP](#lclip)** (<h>guided fusion using CLIP loss gradient - instead of a classifier</h>), and combine the noised raw image to preserve the background. but very slow.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Blended Latent Diffusion 2023](https://arxiv.org/pdf/2206.02779.pdf), [github](https://github.com/omriav/blended-latent-diffusion). **DDPM + [CLIP](#lclip) + [VAE](#lvae)**, process diffusion in the latent space (<h>VAE encoded space</h>).
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation 2023](https://dreambooth.github.io/). Finetune the model to <u>bind a unique identifier(token) with that specific subject</u>. Text prompt -> SentencePiece tokenizer -> [T5-XXL](https://arxiv.org/abs/1910.10683) language model.
+
+**More Physics Models**, [The Physical Process That Powers a New Type of Generative AI](https://www.quantamagazine.org/new-physics-inspired-generative-ai-exceeds-expectations-20230919/).
+
+* **Yukawa potential**: allows you to annihilate particles or split a particle into two.
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [GenPhys: From Physical Processes to Generative Models 2023](https://arxiv.org/abs/2304.02637) the Yukawa potential, which relates to the weak nuclear force.
+* **Electrostatic Forces**:
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [PFGM++: Unlocking the Potential of Physics-Inspired Generative Models 2023](https://arxiv.org/abs/2302.04265). includes a new parameter, D - the dimensionality of the system. the electric field's laws are different for different dimensions.
+    * Low D, the model is more robust - more tolerant of the errors made in estimating the electric field.
+    * High D, the neural network becomes easier to train, requiring less data to master its artistic skills. (when there are more dimensions, the model has fewer electric fields to keep track of.)
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Poisson Flow Generative Models 2022](https://arxiv.org/abs/2209.11178). data is represented by charged particles, which combine to create an electric field whose properties depend on the distribution of the charges at any given moment.
 
 <a name="lvae"></a>
 ## 1.2 VAE (variational auto-encoder)
@@ -103,6 +113,17 @@ see [3d Reconstruction Page](/Study/PaperRead/3d_reconstruction/#ldl)
 1. [Neural Rendering](/Study/PaperRead/3d_reconstruction/#lneural_r)
 2. [SDF](/Study/PaperRead/3d_reconstruction/#ldl_sdf)
 3. [MVS](/Study/PaperRead/3d_reconstruction/#ldl_mvs)
+
+## 2.1 City Generation
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [InfiniCity: Infinite-Scale City Synthesis 2023](https://hubert0527.github.io/infinicity/)
+1. generates arbitrary-scale 2D maps from the bird’s-eye view.
+2. an octree-based voxel completion module lifts the generated 2D map to 3D octrees.
+3. a voxel-based neural rendering module texturizes the voxels and renders 2D images.
+
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [CityDreamer: Compositional Generative Model of Unbounded 3D Cities 2023](https://infinitescript.com/project/city-dreamer). handles the diversity of buildings in urban environments.
+
 
 <a name="lauto_drive"></a>
 # 3. Autonomous Driving

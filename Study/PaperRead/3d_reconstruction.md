@@ -88,11 +88,54 @@ More Work are done with Deep Learning.
   * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs 2021](https://arxiv.org/pdf/2103.13744.pdf).  replaces a single large NeRF-MLP with thousands of tiny MLPs, accelerating rendering by 3 orders of magnitude.
-* <img src="/assets/img/paperread/chrown.png" height="25"/> <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
+* (**Voxel representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
   * key features : Trilinear Interpolation, Total Variation Regularization.
+* (**Mesh representation**) <img src="/assets/img/paperread/chrown0.png" height="25"/> [MobileNeRF 2023](https://mobile-nerf.github.io/): **textured triangle mesh representation**, can be rendered with the traditional polygon rasterization pipeline, which provides massive pixel-level parallelism. <h>offers demo to run in phone</h>.
+  * [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
+  * The current **training is slow** due to NeRF’s MLP backbone.
+* (**Pointcloud representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation.
+  * Initialize with SFM sparse pcl.
+  * Properties to optimize: 3D position, opacity 𝛼, anisotropic covariance, and [spherical harmonic](https://mathworld.wolfram.com/SphericalHarmonic.html) (SH) coefficients.
+  * Point-based 𝛼-blending enable fast rendering.
+  * It produces the **<h>best Nerf Results:</h>** [test repo & result](https://github.com/yeliu-deepmirror/gaussian-splatting).
+
+<div align="center">    
+<img src="/assets/img/paperread/3d_gaussian.png" width="85%"/>
+</div>
+
+<div align="center">    
+<video src="https://github.com/yeliu-deepmirror/gaussian-splatting/raw/main/assets/3d_gaussian_test_dm_office.mp4" controls="controls" width="60%"></video>
+</div>
+
+**A generalization of the problem**:
+
+<a name="linstant_gtc"></a>
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Instant Neural Graphics Primitives 2022](https://github.com/nvlabs/instant-ngp) - An object represented by queries to a nerual network. [git page](https://nvlabs.github.io/instant-ngp/). Train & render NeRF in realtime, and enable various of GUI to interact & visualize & edit.
+
+<div align="center">    
+<img src="/assets/img/paperread/instant_gtc.png" width="55%"/>
+</div>
+
+* Examples :
+  * GigaPixel Image : 2d position X (in image) -> RGB color.
+  * SDF : 3d position X -> distance to surface.
+  * Nerf : 3d position X + view direction d -> RGB color & density.
+  * Radiance Caching : 3d position X + Extra parameters -> RGB color global illumination.
+* Acceleration Design :
+  * Nerf render process: cut empty space, and cut ray after object.
+  * Smaller MLP: memery traffic dominate -> [Fully Fused Neural Network](https://research.nvidia.com/publication/2021-06_real-time-neural-radiance-caching-path-tracing) : entire neural network implemented as single CUDA kernel.
+  * Input encoding (see [understanding of input encoding](/Study/PaperRead/tum_ai/#lnerf_understanding)): Multireslution hash encoding - pyramid structure for deep features (<u>use hash to avoid dimensionality exponentially as in the hyper-cubical voxel case</u>).
+* [here for my test results](https://github.com/yeliu-deepmirror/instant-ngp/blob/master/docs/nerf_dataset_tips.md#DM), run with a outdoor general data session.
 
 <a name="ldl_sdf"></a>
 ## 2. SDF
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [PermutoSDF: Fast Multi-View Reconstruction with Implicit Surfaces using Permutohedral Lattices 2023](https://arxiv.org/pdf/2211.12562.pdf), [github page](https://radualexandru.github.io/permuto_sdf/), [github](https://github.com/RaduAlexandru/permuto_sdf). (1) use a hashed [permutohedral encoding](https://github.com/RaduAlexandru/permutohedral_encoding)(following [Instant NGP](#linstant_gtc)) to ensure fast training; (2) a novel RGB regularizer to encourage the network to predict high-frequency geometric detail.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [NeuS2: Fast Learning of Neural Implicit Surfaces for Multi-view Reconstruction 2023](https://vcai.mpi-inf.mpg.de/projects/NeuS2/), following work of [Instant NGP](#linstant_gtc).
+* multi-resolution hash tables of learnable feature vectors.
+* an incremental learning method for learning dynamic scenes.
+
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Occupancy Network](/Study/PaperRead/tum_ai/#locc_net).
 

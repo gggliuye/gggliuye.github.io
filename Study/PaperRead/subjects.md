@@ -13,8 +13,9 @@ title: Other Specific Subjects
 4. [XR Hand](#l4)
     * [Meta](#l4.1)
     * [Apple](#l4.2)
-    * [Infrared Papers](#l4.3)
-    * [Other Papers](#l4.4)
+    * [PICO](#lpcio)
+    * [Infrared Papers](#lxr_irpaper)
+    * [Other Papers](#lxr_other)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering](#l6)
 
@@ -146,7 +147,17 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 
 * [Detect Body and Hand Pose with Vision 2020](https://developer.apple.com/videos/play/wwdc2020/10653/) other people's pose.
 
-<a name="l4.3"></a>
+<a name="lpcio"></a>
+# 4.3 PICO
+
+[PICO Centaur 光学追踪+裸手识别 2023](https://mp.weixin.qq.com/s/JP6ertmxXc0fF0fIPU8QMg); LED + AI HAND + IMU.
+* [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
+* [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410).
+* [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082).
+* Data [Realistic Full-Body Tracking from Sparse Observations via Joint-Level Modeling](https://arxiv.org/abs/2308.08855).
+* XR body recovery.
+
+<a name="lxr_irpaper"></a>
 ## 4.3 Infrared Papers
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [A comparative analysis of localization algorithms for visible light communication 2021](https://sci-hub.ru/https://link.springer.com/article/10.1007/s11082-021-02751-z).
@@ -168,7 +179,7 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Affordable infrared-optical pose-tracking for virtual and augmented reality 2007](https://www.academia.edu/download/42322622/Affordable_infrared-optical_pose-trackin20160207-26197-1usom1p.pdf). multi-view construction, then 3d model fit (maximum-clique search) to get pose.
 
-<a name="l4.4"></a>
+<a name="lxr_other"></a>
 ## 4.4 Other Papers
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Efficient 6-DoF Tracking of Handheld Objects from an Egocentric Viewpoint 2018](https://openaccess.thecvf.com/content_ECCV_2018/papers/Rohit_Pandey_Efficient_6-DoF_Tracking_ECCV_2018_paper.pdf). Image based 3d position & 6 dof pose.
@@ -244,6 +255,7 @@ Some References:
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MatryODShka: Real-time 6DoF Video View Synthesis using Multi-Sphere Images 2020](https://arxiv.org/abs/2008.06534), [github](https://github.com/brownvc/matryodshka). conert stereo 360 to MPIs.
   * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
   * <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
     * 192-layers, with 16 texture images, too large memory.
@@ -257,6 +269,24 @@ Some References:
   <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
   <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
 </figure>
+
+* **Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
+  * Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
+  * *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
+  * *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
+  * Train using single image : supervised by RGBD wrapping + Hole filling network.
+  * TODO: <n>supervision by youtube videos</n>.
+
+<figure align="center">
+  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
+  <figcaption>AdaMPI test with online image.</figcaption>
+</figure>
+
+* Implementation of a OpenGLES shared based MIP visualizer.
+
+<div align="center">    
+<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 
 **Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
 
