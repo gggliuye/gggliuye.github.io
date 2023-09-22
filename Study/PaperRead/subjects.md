@@ -270,6 +270,24 @@ Some References:
   <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
 </figure>
 
+* **Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
+  * Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
+  * *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
+  * *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
+  * Train using single image : supervised by RGBD wrapping + Hole filling network.
+  * TODO: <n>supervision by youtube videos</n>.
+
+<figure align="center">
+  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
+  <figcaption>AdaMPI test with online image.</figcaption>
+</figure>
+
+* Implementation of a OpenGLES shared based MIP visualizer.
+
+<div align="center">    
+<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
 **Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
 
 <img style="float: right;" src="/assets/img/paperread/lumigraph.png" width="25%"/>

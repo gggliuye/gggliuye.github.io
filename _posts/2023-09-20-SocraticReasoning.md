@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Socratic Reasoning in Large Language Model
+title: LLM discussion on P!=NP
+subtitle: Socratic Reasoning in Large Language Model
 tags: [Philosophy, Math, AI]
 comments: true
 ---
@@ -47,3 +48,7 @@ Construct the (CSP) problem using **Model RB** with constraint symmetry requirem
   * Define isomorphic relation $$R^{*}$$, ensure symmetry by including all permutations (e.g. (a, b, c), (b, c, a), ...).
   * G enerate random permitted set $$R_{i}$$, using bijection apply to $$R^{*}$$. (to increase complexity).
 * Adjust the instance, by applying a mapping operation (bijection ~ swap) on the permitted set $$R_{i}$$, to change the satisfiability with minimal impact (parameters and domains unchanged).
+  * Change from unsatisfiable to satisfiable.
+  * Change from satisfiable to unsatisfiable.
+    1. Set of instances with unique solution.
+    2. From one unique solution to no-solution.

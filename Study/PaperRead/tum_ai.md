@@ -11,7 +11,7 @@ title: TUM AI Lecture Series
 2. [Autonomous Driving](#lauto_drive)
 3. [Image-based Rendering](#libr)
 4. [Self-Supervised Learning](#llearning)
-5. [SLAM & Geometry & Robotics](#lslam)
+5. [SLAM & Robotics](#lslam)
 6. [Language](#lnlp)
 7. [AR/VR/MR](#lmr)
 8. [3D Objects](#l3d_obj)
@@ -173,7 +173,7 @@ Simulation.
 
 
 <a name="lslam"></a>
-# 5. SLAM & Geometry & Robotics
+# 5. SLAM & Robotics
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [New Methods for Reconstruction and Neural Rendering (Christian Theobalt) 2020/11](https://www.youtube.com/live/cZYUXHsupCE?si=p1ciOezV5NV0uKVm)
 * Monocular reconstruction : human hand, human skeleton, human performance (surface), 3d face.
@@ -231,7 +231,6 @@ Simulation.
     * camera pose -> epipolar loss.
     * differentiable matching : probability distribution (heat map).
 
-
 <a name="lnlp"></a>
 # 6. Language
 
@@ -281,6 +280,23 @@ Simulation.
   * [Neural Distance Field 2020](https://virtualhumans.mpi-inf.mpg.de/ndf/) : predict [0, 1] -> R (unsigned distance).
 * **Hybrid Model**.
   * [Unsupervised Shape and Pose Disentanglement for 3D Meshes 2020](https://virtualhumans.mpi-inf.mpg.de/unsup_shape_pose/) pose and shape to control output, with implicit code.
+
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [TUM AI Lecture Series - Making 3D Predictions with 2D Supervision (Justin Johnson) 2022/08](https://www.youtube.com/live/3ggvhJuCn8c?si=6m4zdG6tO9oyAXdt)
+* [Mesh R-CNN 2019](https://github.com/facebookresearch/meshrcnn) : Supervised Shape Prediction, single image -> 3d bbx detection with mesh.
+  * [Pixel2Mesh 2018](https://github.com/nywang16/Pixel2Mesh): Iterative mesh refinement (deformation), but has limitation on topology.
+  * this paper -> deforming 3d object *voxels* into mesh.
+* <img src="/assets/img/paperread/chrown.png" height="25"/>  [Differentiable Rendering + PyTorch3d 2020](https://arxiv.org/abs/2007.08501), differentiable render 3d geometry to 2d to make 2d loss.
+  * Traditional Pipeline: Rasterization (<u>not differentiable</u>: boundaries are not continuous) + Shading.
+  * Solution [SoftRas 2019](https://github.com/ShichenLiu/SoftRas): blur the boundary to be continuous.
+  * Refinement this paper (more efficient): K nearest faces; coarse-to-fine; move shading to pytorch; heterogenous batching.
+* **Unsupervised Shape Prediction** from single view, trained with Differentiable Rendering.
+  * Trained with a second view. Mesh predicts: <u>offset for each vertex (from template sphere mesh)</u>.
+  * Sphere GCN (graph convolution) model (out performs Shpere FC).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [SynSin : Single-Image View Synthesis 2020](https://github.com/facebookresearch/synsin), trained by images (video) only.
+  1. Predict per-pixel features + depth.
+  2. Projection by transformation (features & depth) to new view.
+  3. Generator to predict image.
 
 <a name="lothers"></a>
 # 9. Others
