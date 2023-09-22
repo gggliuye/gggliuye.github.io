@@ -44,5 +44,6 @@ Construct the (CSP) problem using **Model RB** with constraint symmetry requirem
 
 * n variables $${x_{1}, x_{2}, ..., x_{n}}$$ with same domain size.
 * m constrains randomly generated $$C_{i} = (X_{i}, R_{i})$$, $$X_{i} = {x_{i1}, x_{i2}, ..., x_{ik}}$$ and $$R_{i}$$ being the permitted set.
-  * define isomorphic relation $$R^{*}$$, ensure symmetry by including all permutations (e.g. (a, b, c), (b, c, a), ...).
-  * generate random permitted set $$R_{i}$$, using bijection apply to $$R^{*}$$. (to increase complexity)
+  * Define isomorphic relation $$R^{*}$$, ensure symmetry by including all permutations (e.g. (a, b, c), (b, c, a), ...).
+  * G enerate random permitted set $$R_{i}$$, using bijection apply to $$R^{*}$$. (to increase complexity).
+* Adjust the instance, by applying a mapping operation (bijection ~ swap) on the permitted set $$R_{i}$$, to change the satisfiability with minimal impact (parameters and domains unchanged).
