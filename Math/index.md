@@ -30,6 +30,9 @@ title: Math
 
 [Page Topology](/Math/topology)
 
+# Artificial Intelligence
+
+[Page Artificial Intelligence](/Math/ai)
 
 **Important note**: some of the images are reproduced from the cited papers, and the copyright belongs to the authors or the organization that published their papers.
 
