@@ -5,16 +5,35 @@ title: The Cambridge Handbook of Artificial Intelligence
 
 # Table of Contents
 
-1. [History, motivations, and core themes](#lhisto)
-2. [Philosophical Foundation](#lphilofond)
+1. [Part I: Foundations](#l1)
+    1. [History, motivations, and core themes](#lhisto)
+    2. [Philosophical foundation](#lphilofond)
+    3. [Philosophical challenges](#lphiloc)
+2. [Part II: Architectures](#l2)
+
+Further reading:
+* [Artificial Intelligence - A Modern Approach](https://people.engr.tamu.edu/guni/csce421/files/AI_Russell_Norvig.pdf)
+* [Artificial Intelligence - Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/artificial-intelligence/)
+* [Philosophy of Artificial Intelligence](https://philpapers.org/browse/philosophy-of-artificial-intelligence)
 
 <p></p>
+
+<a name="l1"></a>
+# Part I: Foundations
 
 <a name="lhisto"></a>
 # 1. History, motivations, and core themes
 
+Key moments:
+* McCulloch and Pitts: artificial neuron.
+* Alan Turing. Turing machine, Turing test.
+* The Dartmouth Workshop.
+* Neural net winter. Minsky's dissertation, *Perceptrons* (1969).
+* Connectionsim, Parallel Distributed Processing volumes (1986).
+* The AI winter, 1980s.
+
 <a name="lphilofond"></a>
-# 2. Philosophical Foundation
+# 2. Philosophical foundation
 
 [The Cambridge Handbook of Artificial Intelligence](https://www.academia.edu/71977270/The_Cambridge_Handbook_of_Artificial_Intelligence). I read the version pressed 2014.
 
@@ -54,9 +73,9 @@ Three levels for mechanizing deduction:
 
 ## 2.4 Computational theories of mind and the problem of mental content
 
-**Computational theory of mind (CTM)**, two cores:
+**Computational theory of mind (CTM)**, two cores (assumptions):
 
-1. **Mental Representation** of a proposition. From Russel's analysis (1940) of intentional sentences : psychological attitude towards a proposition.
+* **Mental Representation** of a proposition. From Russel's analysis (1940) of intentional sentences : psychological attitude towards a proposition.
 
 <div align="center">  
   <pre class="mermaid">
@@ -65,7 +84,7 @@ Three levels for mechanizing deduction:
   </pre>
 </div>
 
-2. **Syntactic Engine** (syntax can mirror semantics), a mental process is a sequence of tokenings of mental representations which express the propositional content of the corresponding thoughts (~ orchestrated by an algorithm).
+* **Syntactic Engine** (syntax can mirror semantics), a mental process is a sequence of tokenings of mental representations which express the propositional content of the corresponding thoughts (~ orchestrated by an algorithm).
 
 <div align="center">  
   <pre class="mermaid">
@@ -80,4 +99,39 @@ Three levels for mechanizing deduction:
 
 (example 3) Good old fashioned artificial intelligence [GOFAI](https://en.wikipedia.org/wiki/GOFAI).
 
-<u>Problem : How these primitives acquire meaning?</u>
+**Problem** : <u>How these primitives acquire meaning?</u>
+* **Information theory** : covariance. The meaning of a symbol is determined by whatever the tokenings of that symbol systematically (nomologically) covary with.
+* **Evolutionary theory** : adaption. The meaning of an intentional state is the function for which it was selected.
+* **Conceptual-role semantics** (CRS, or procedural semantics) : relation (~ functionalism). The meaning of a mentalese symbol S is fixed by the role S plays in one's cognitive life.
+  * Issue of externalism. CRS lack of a connection between mentalese and the world.
+
+## 2.5 Philosophical issues
+
+(1) <u>The critique of Hubert Dreyfus.</u> [What Computers Can't Do 1972](https://archive.org/details/whatcomputerscan00hube).
+* Empirically, AI researches has *failed* to deliver the goods.
+  * reply : not yet, AI is a young field, it has future.
+* Philosophically (from phenomenology and existentialism point of view) *"Holistic context" problem*, our ability to understand the world and other people is a non-declarative type of know-how skill that is not amenable to GOFAI-style propositional codification.
+  * reply : <n>we can develop a reinforcement learning system (as ChatGPT did) learn by "ongoing involvement with the world".</n>
+
+**Predict & Explain**, an encoding R might correctly predict behavior, but it does not necessarily explain it.
+
+(2) <u>Block's critique of machine functionalism via the "China brain" thought experiments</u>: imagine the entire population of China simulating a human mind for an hour. The system might well be isomorphic to the brain (~ programmed robot), but it would not seem to harbor any sensation, pains, itches, or beliefs and desires for that matter. <n>reply: recall deny in "Cognitive Revolution", we cannot localize these "intentional terminologies" in the mind.</n>
+
+(3) <u>Searle's "Chinese Room" thought experiment.</u> similar to [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)).
+
+* systems reply : the overall system does understand chinese.
+* robot reply : Searle is not functioning as a full-fledged robot.
+
+## 2.6 AI from below : Situated intelligence
+
+Turning the spotlight away from internal representations and processes toward external behavior and continuous interaction with the environment.
+**Situated AI**, amounted to “looking at simpler animals as a bottom-up model for building intelligence”. the “prime component of a robot’s intellect” is not to be found in reasoning but rather in “the dynamics of the interaction of the robot and its environment.”
+
+An overall trend away from statics and toward dynamics, from the abstract and decontextualized to the concrete and context-bound, from justification to discovery, from isolated contemplation to social interaction, and **from thinking to doing**.
+
+<a name="lphiloc"></a>
+# 3. Philosophical challenges
+
+
+<a name="l2"></a>
+# Part II: Architectures
