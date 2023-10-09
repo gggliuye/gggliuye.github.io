@@ -120,7 +120,7 @@ Three levels for mechanizing deduction:
 (3) <u>Searle's "Chinese Room" thought experiment.</u> similar to [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)).
 
 * systems reply : the overall system does understand chinese.
-* robot reply : Searle is not functioning as a full-fledged robot.
+* robot reply : Searle is not functioning as a full-fledged robot (need robot's causal transactions with the real world).
 
 ## 2.6 AI from below : Situated intelligence
 
@@ -132,6 +132,35 @@ An overall trend away from statics and toward dynamics, from the abstract and de
 <a name="lphiloc"></a>
 # 3. Philosophical challenges
 
+## 3.1 Concepts
+
+**Intelligence**:
+
+<div align="center">  
+  <pre class="mermaid">
+        graph LR
+        B["intelligence"] --> A["task intelligence
+        (able to carry out some tasks)"]
+        B --> C["thing intelligence
+        (the intelligence used to carry out a task)"]
+        C --> D["premium thing intelligence
+        (can enlighten how human have thing intelligence)"]
+        C --> E["regular thing intelligence
+        (cannot ...)"]
+  </pre>
+</div>
+
+**AI** (Searle 1980):
+* Strong AI : “the appropriately programmed computer really is a mind, in the sense that computers given the right programs can be literally said to understand and have other cognitive states”.
+* Weak AI : provide a useful tool for rigorous formulation and testing of hypotheses about the mind.
+
+**Turing Test**. <n>We could make some other rules to separate AI and people, while since these rules are made by human, ask human directly to "tell" is obviously more thoughtful. But something has intelligence doesn't necessarily act like a ordinary human.</n> [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)) makes the definition questionable but still highly effective.
+
+**Purpose, consciousness, intentionality**:
+* <n>Surly we have some close goals for our actions, but our life might be meaningless and nonsense.</n>
+* <n>And I think purpose (in a positive way) is not the reason for our existence, but adaption is. Since the life unable to adapt, will die.</n>
+* Purpose without **consciousness** could be counted as (thing) intelligent ?
+* **Intentionality** : possession of internal states or events that represent worldly objects and their properties. (<n>tokenings</n>)
 
 <a name="l2"></a>
 # Part II: Architectures
