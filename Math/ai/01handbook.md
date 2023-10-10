@@ -11,11 +11,6 @@ title: The Cambridge Handbook of Artificial Intelligence
     3. [Philosophical challenges](#lphiloc)
 2. [Part II: Architectures](#l2)
 
-Further reading:
-* [Artificial Intelligence - A Modern Approach](https://people.engr.tamu.edu/guni/csce421/files/AI_Russell_Norvig.pdf)
-* [Artificial Intelligence - Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/artificial-intelligence/)
-* [Philosophy of Artificial Intelligence](https://philpapers.org/browse/philosophy-of-artificial-intelligence)
-
 <p></p>
 
 <a name="l1"></a>
@@ -112,6 +107,7 @@ Three levels for mechanizing deduction:
   * reply : not yet, AI is a young field, it has future.
 * Philosophically (from phenomenology and existentialism point of view) *"Holistic context" problem*, our ability to understand the world and other people is a non-declarative type of know-how skill that is not amenable to GOFAI-style propositional codification.
   * reply : <n>we can develop a reinforcement learning system (as ChatGPT did) learn by "ongoing involvement with the world".</n>
+  * The fact that the system’s low-level activities are predetermined by various programs does not necessarily mean that its behaviors when solving a problem always follow a fixed procedure - the same problem may get different solutions (from [Pei Wang 2010](https://www.iiim.is/2010/05/questions-about-artificial-intelligence/)).
 
 **Predict & Explain**, an encoding R might correctly predict behavior, but it does not necessarily explain it.
 
@@ -119,8 +115,9 @@ Three levels for mechanizing deduction:
 
 (3) <u>Searle's "Chinese Room" thought experiment.</u> similar to [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)).
 
-* systems reply : the overall system does understand chinese.
+* systems reply : the overall system does understand chinese. It is whole persons who understand stories and questions, not their language centers or their frontal lobes.
 * robot reply : Searle is not functioning as a full-fledged robot (need robot's causal transactions with the real world).
+* <n>I think such "Chinese Room" will not be seen intelligent by the outsider (since it will always gives the same answer given the same input, while an intelligent identity will consider the real content), so the arguments based on it shall be invalid.</n>
 
 ## 2.6 AI from below : Situated intelligence
 
@@ -161,6 +158,23 @@ An overall trend away from statics and toward dynamics, from the abstract and de
 * <n>And I think purpose (in a positive way) is not the reason for our existence, but adaption is. Since the life unable to adapt, will die.</n>
 * Purpose without **consciousness** could be counted as (thing) intelligent ?
 * **Intentionality** : possession of internal states or events that represent worldly objects and their properties. (<n>tokenings</n>)
+
+**Mechanism vs. Rationality (and Free Will)**.
+* Machine cannot have ration.
+* Machine is a deterministic system, which cannot have free will.
+  * "Compatibilist" tradition disagree with it, it holds <u>free will to be present when reasoning processes have their normal effects on behavior</u>.
+
+**Gödelian arguments**, formal systems (as mechanism system is) cannot be both consistent and complete.
+* Some argue that human intelligence is, or human can prove itself to be consistent. so machine cannot have human intelligence.
+* However, both a mechanism that is represented by system, and :
+  1. We can prove that: If s in consistent, then s cannot prove $$G(s)$$.
+  2. Neither we nor the mechanism represented by s can prove that : s cannot prove $$G(s)$$.
+
+## 3.1 Classical approach
+
+Logical principles (or, rules) apply to propositions and, in general, depend on the terms and internal structure of those propositions.
+
+
 
 <a name="l2"></a>
 # Part II: Architectures
