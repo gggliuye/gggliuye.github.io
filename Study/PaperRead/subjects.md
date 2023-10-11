@@ -151,9 +151,11 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 # 4.3 PICO
 
 [PICO Centaur 光学追踪+裸手识别 2023](https://mp.weixin.qq.com/s/JP6ertmxXc0fF0fIPU8QMg); LED + AI HAND + IMU.
-* [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
-* [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410).
-* [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082).
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
+  * self-supervised from multi-view pseudo 2D labels.
+  * cross-view-network following multiple single-image-network to merge multi-view result. (Designed for VR 4-cameras system)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410), for two hands reconstruction.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082), for two hands reconstruction.
 * Data [Realistic Full-Body Tracking from Sparse Observations via Joint-Level Modeling](https://arxiv.org/abs/2308.08855).
 * XR body recovery.
 

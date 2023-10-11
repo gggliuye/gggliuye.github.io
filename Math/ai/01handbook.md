@@ -5,15 +5,22 @@ title: The Cambridge Handbook of Artificial Intelligence
 
 # Table of Contents
 
-1. [Part I: Foundations](#l1)
-    1. [History, motivations, and core themes](#lhisto)
-    2. [Philosophical foundation](#lphilofond)
-    3. [Philosophical challenges](#lphiloc)
-2. [Part II: Architectures](#l2)
+I only have access to a really old version.
+
+[Part I: Foundations](#p1)
+1. [History, motivations, and core themes](#lhisto)
+2. [Philosophical foundation](#lphilofond)
+3. [Philosophical challenges](#lphiloc)
+
+[Part II: Architectures](#p2)
+
+{:start="4"}
+4. [GOFAI](#l4)
+5. [Connectionism](#l5)
 
 <p></p>
 
-<a name="l1"></a>
+<a name="p1"></a>
 # Part I: Foundations
 
 <a name="lhisto"></a>
@@ -100,24 +107,33 @@ Three levels for mechanizing deduction:
 * **Conceptual-role semantics** (CRS, or procedural semantics) : relation (~ functionalism). The meaning of a mentalese symbol S is fixed by the role S plays in one's cognitive life.
   * Issue of externalism. CRS lack of a connection between mentalese and the world.
 
+<a name="lphiloissue"></a>
 ## 2.5 Philosophical issues
 
 (1) <u>The critique of Hubert Dreyfus.</u> [What Computers Can't Do 1972](https://archive.org/details/whatcomputerscan00hube).
 * Empirically, AI researches has *failed* to deliver the goods.
   * reply : not yet, AI is a young field, it has future.
-* Philosophically (from phenomenology and existentialism point of view) *"Holistic context" problem*, our ability to understand the world and other people is a non-declarative type of know-how skill that is not amenable to GOFAI-style propositional codification.
-  * reply : <n>we can develop a reinforcement learning system (as ChatGPT did) learn by "ongoing involvement with the world".</n>
-  * The fact that the system’s low-level activities are predetermined by various programs does not necessarily mean that its behaviors when solving a problem always follow a fixed procedure - the same problem may get different solutions (from [Pei Wang 2010](https://www.iiim.is/2010/05/questions-about-artificial-intelligence/)).
+* Philosophically (from phenomenology and existentialism point of view) *"Holistic context" problem*, our ability to understand the world and other people is a non-declarative type of know-how skill that is not amenable to *GOFAI-style* propositional codification.
+  * Intelligence requires the ability to figure out what rules to apply, and when they can be applied (**finding relevance dependence**), while machines that merely store rules do not begin to do this.
+  * reply : <n>this might be true for GOFAI, but not true for neural networks, as we can develop a reinforcement learning system (as ChatGPT did) learn by "ongoing involvement with the world".</n>
+  * from [Pei Wang 2010](https://www.iiim.is/2010/05/questions-about-artificial-intelligence/) : The fact that the system’s low-level activities are predetermined by various programs does not necessarily mean that its behaviors when solving a problem always follow a fixed procedure - the same problem may get different solutions.
 
 **Predict & Explain**, an encoding R might correctly predict behavior, but it does not necessarily explain it.
 
 (2) <u>Block's critique of machine functionalism via the "China brain" thought experiments</u>: imagine the entire population of China simulating a human mind for an hour. The system might well be isomorphic to the brain (~ programmed robot), but it would not seem to harbor any sensation, pains, itches, or beliefs and desires for that matter. <n>reply: recall deny in "Cognitive Revolution", we cannot localize these "intentional terminologies" in the mind.</n>
 
-(3) <u>Searle's "Chinese Room" thought experiment.</u> similar to [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)).
-
+(3) <u>Searle's "Chinese Room" thought experiment</u> (against GOFAI). similar to [Blockhead thought experiment](https://en.wikipedia.org/wiki/Blockhead_(thought_experiment)).
+* Searle thought the key is : <u>the causal powers of neuroprotein</u>, but how it could ground intentionality is a philosophical mystery.
 * systems reply : the overall system does understand chinese. It is whole persons who understand stories and questions, not their language centers or their frontal lobes.
 * robot reply : Searle is not functioning as a full-fledged robot (need robot's causal transactions with the real world).
 * <n>I think such "Chinese Room" will not be seen intelligent by the outsider (since it will always gives the same answer given the same input, while an intelligent identity will consider the real content), so the arguments based on it shall be invalid.</n>
+
+(4) **Gödelian arguments**, formal systems (as mechanism system is) cannot be both consistent and complete.
+* Some argue that human intelligence is, or human can prove itself to be consistent. so machine cannot have human intelligence.
+* However, both a mechanism that is represented by system, and :
+  1. We can prove that: If s in consistent, then s cannot prove $$G(s)$$.
+  2. Neither we nor the mechanism represented by s can prove that : s cannot prove $$G(s)$$.
+
 
 ## 2.6 AI from below : Situated intelligence
 
@@ -164,17 +180,105 @@ An overall trend away from statics and toward dynamics, from the abstract and de
 * Machine is a deterministic system, which cannot have free will.
   * "Compatibilist" tradition disagree with it, it holds <u>free will to be present when reasoning processes have their normal effects on behavior</u>.
 
-**Gödelian arguments**, formal systems (as mechanism system is) cannot be both consistent and complete.
-* Some argue that human intelligence is, or human can prove itself to be consistent. so machine cannot have human intelligence.
-* However, both a mechanism that is represented by system, and :
-  1. We can prove that: If s in consistent, then s cannot prove $$G(s)$$.
-  2. Neither we nor the mechanism represented by s can prove that : s cannot prove $$G(s)$$.
+**Gödelian arguments** see upper text.
 
-## 3.1 Classical approach
+## 3.2 Classical approach
 
-Logical principles (or, rules) apply to propositions and, in general, depend on the terms and internal structure of those propositions.
+GOFAI : Logical principles (or, rules) apply to propositions and, in general, depend on the terms and internal structure of those propositions.
 
+The details of the following topics are added to [2.5 Philosophical issues](#lphiloissue): (1) Searle's "Chinese Room"; (2) The critique of Hubert Dreyfus.
 
+## 3.3 Connectionism
 
-<a name="l2"></a>
+Neural Networks. Rule-like results without rules.
+
+(1) Systematicity critic, Fodor and Pylyshyn (1988; see also Fodor 2000). Natural languages are learned in systems of sentences, NN cannot yield systematicity. Reply of connectionists: some kinds of networks that will yield systematicity.
+
+(2) Psychological realism, some argue that a brain-inspired device should also be able to provide premium artificial intelligence.
+* It is not clear how a brain could apply *"backpropagation"* or *"state value update"* to the adjustment of synaptic connections among neurons.
+  * <n>Planes are inspired by birds, but not all mechanism of planes can be found in birds.</n>
+* Can reinforcement learning be scaled up to real-world problems ?
+  * <n>Sure it can.</n>
+
+(3) Distributed **Representations**. “Knowledge” of a connectionist device is also distributed across the weights of its connections.
+* black box.
+* encoder-decoder. does not have psychologically realistic examples. <n>I am sure we have now.</n>
+
+## 3.4 Dynamical systems theory
+
+Views cognition as depending on a continuous interaction of a cognitive agent with its surroundings. Intelligence arises from a design that can exploit the information present in an environment **without** first converting that information into an **internal representation**. (Robots)
+
+* What is to count as a "representation"?
+* We can offer description and explanatory mechanism to DST, while cannot be applied to Cognitive Systems. Which indicates that, they should be different.
+* Many instances of intelligence rely heavily on memory, while memory requires *representations*.
+
+<a name="p2"></a>
 # Part II: Architectures
+
+<a name="l4"></a>
+# 4. GOFAI
+
+Symbolic AI: Search, Planning & Heuristic.
+
+<div align="center">  
+  <pre class="mermaid">
+    erDiagram
+      Rules ||--o{ Possibilities : generates
+      Heuristic ||--o{ SearchSpace : guide
+      Planning {
+        FinalGoal xxx
+        SubGoal xxx
+        etc etc
+      }
+      Planning  ||--o{ SearchSpace : guide
+      Possibilities  ||--o{ SearchSpace : "offerd to"
+      SearchSpace  ||--o{ Output : gives
+  </pre>
+</div>
+
+* Strengths: Model hierarchy and sequential order, to allow for precision in problem solving, and to represent specific propositional contents.
+* Weakness:
+  * Frame problem: situation - action relationship; reasoning with incomplete knowledge; inconsistent of the logic.
+  * The definition of the task (or other concepts) might be impossible.
+* Hybrid:
+  * GOFAI + PDP.
+  * GOFAI + Robot.
+
+Philosophy:
+* Searke's Chinese Room.
+* Physical Symbol Systems (PPS), claims that the mind is a PPS.
+* "all computation is Turing computation" is it true?
+* "intentionality is grounded in our evolutionary history".
+  * "empty-program" argument.
+  * the cartesian separation of mind, body and world.
+
+In sum :
+* Considered as technology, GOFAI is a hugely impressive, though largely invisible (and therefore unrecognized), success.
+* Considered as psychology, it is partially successful but needs to be complemented by other AI methodologies.
+* Considered as philosophy, it is partly mistaken (see Chapter 3), and some (i.e., the anti-naturalists) would say that it is fundamentally on the wrong track.
+
+<a name="l5"></a>
+# 5. Connectionism
+
+Learning :
+* Supervised Learning - backpropagation. (<n>Layered NN</n>)
+  * Layered feedforward NNs have been shown to be *universal approximators*.
+  * Recurrent NNs have been shown to be *Turing-equivalent*.
+* Unsupervised Learning, requires no error signal. (<n>~Clustering, SVM, etc</n>)
+* Reinforcement Learning, requires only indication of good/bad.
+
+Representation:
+* Localist representation. Node <-> Concept.
+* Distributed representation. Set of nodes <-> Concept.
+
+Cognitive Science: for learning higher level behaviors, **simplification** is applied. <n>Classification of the abilities and define area in brain for them, while neither these definition nor the area are identifiable. The same story could be applied to NNs.</n> (recall : the theoretical legitimacy of explaining human hebavior by positing unobservable mental entities, or that intentional terminology had any place in a science of the mind.)
+
+Hybrid systems, "use the right tool for the right job".
+* Combination of
+  * symbolic models (which capture explicit knowledge).
+  * connectionist models (which capture implicit knowledge).
+* Example: **CLARION**, 4 subsystems, each consistent of a top (symbolic) layer and a bottom (connectionist) layer.
+  1. action-centered subsystem (ACS), control internal/external actions.
+  2. the non-action-centered subsystem (NACS), maintain general knowledge.
+  3. the motivational subsystem (MS), provide underlying motivations.
+  4. the metacognitive subsystem (MCS), monitor and modify the operations of the other subsystems.

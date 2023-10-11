@@ -4,7 +4,7 @@ title: NARS (Non-Axiomatic Reasoning System)
 ---
 
 Links:
-* [Open-NARS](https://www.opennars.org//):
+* [Open-NARS](https://www.opennars.org//)
 * [github](https://github.com/opennars/opennars)
 * [NARS workshop 2023](https://cis.temple.edu/tagit/events/workshop2023/workshop2023/)
 * [A General Theory of Intelligence](https://cis.temple.edu/~pwang/GTI-book/)
