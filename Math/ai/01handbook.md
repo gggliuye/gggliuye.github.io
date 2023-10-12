@@ -17,6 +17,7 @@ I only have access to a really old version.
 {:start="4"}
 4. [GOFAI](#l4)
 5. [Connectionism](#l5)
+6. [Dynamical systems and embedded cognition](#l6)
 
 <p></p>
 
@@ -282,3 +283,57 @@ Hybrid systems, "use the right tool for the right job".
   2. the non-action-centered subsystem (NACS), maintain general knowledge.
   3. the motivational subsystem (MS), provide underlying motivations.
   4. the metacognitive subsystem (MCS), monitor and modify the operations of the other subsystems.
+
+<a name="l6"></a>
+# 6. Dynamical systems and embedded cognition
+
+The situated, embodied, dynamical (SED) framework, focuses on concrete action and emphasizes the way in which an agent’s behavior arises from the dynamical interaction between its brain, its body, and its environment.
+
+## 6.1 Situated activity
+
+**Situated activity**, stresses three ideas:
+1. **Concrete Action**. other than the abstract description.
+2. **Situatedness**. The immediate environment offers : constraints, opportunities, and meaning.
+3. **Interactionism**. Actor with environment - ongoing **interaction**.
+
+Important precursors:
+* Martin Heidegger (1927/1962), ([Heideggerian terminology](https://en.wikipedia.org/wiki/Heideggerian_terminology)) the distinction he drew between objects being:
+  * **zuhanden ("ready-to-hand")**. an attitude like that of a scientist or theorist, of merely looking at or **observing** something. When a thing is revealed as present-at-hand, it stands apart from any useful set of equipment but soon loses this mode of being present-at-hand and becomes something, for example, that must be repaired or replaced.
+  * **vorhanden ("present-at-hand")**. **involved** in the world in an ordinary, and more involved, way, undertaking tasks with a view to achieving something.
+* James Gibson’s Ecological Psychology (Gibson 1979), emphasized the structure inherent in an organism’s environment and the importance of the organism/environment relation to a theory of perception.
+  * affordances – the possibilities for action that an environment presents to an agent, relative to the capabilities of a particular organism.
+* Social sciences. Lucy Suchman (1987), action must be understood as situated, in the sense that it is contingent upon the actual circumstances as they unfold. (not "action results from the execution of a plan") <n>动机 -> 后果</n>
+
+More:
+* Reactive architectures and internal representation are both important, and can fit together.
+* The **Extended Mind** : (1) agent can change the environment; (2) agent cooperate; (3) distributed phenomenon in cognition.
+
+## 6.2 Embodiment
+
+Embodiment (many aspects of cognition are shaped by the body):
+1. Physical embodiment. emphasizes physical interactions mediated by the body.
+  * Maurice Merleau-Ponty (1962), argument that how we perceive an object is shaped by the kinds of interactions with it that our body allows.
+  * Brooks (1991b), only physically instantiated AI systems will exhibit truly intelligent behavior.
+2. Biological embodiment. organism's existence.
+  * the specific characteristics of biological sensors, and the ways these sensory and motor capabilities are knitted together in human bodies fundamentally define our own particular mode of embodiment.
+  * The organization of living systems is indispensable to their cognitive capabilities.
+3. Conceptual embodiment. most abstract concepts are ultimately grounded in our bodily experiences and body-oriented metaphors.
+
+
+## 6.3 Dynamics
+
+Dynamics:
+1. Dynamical systems theory (DST). describes how the state of some system evolves over time mathematically.
+2. The dynamical framework.
+3. The dynamical hypothesis.
+
+Van Gelder (van Gelder 1995; 1998): (1) the nature hypothesis (Cognitive systems are dynamical systems) and (2) the knowledge hypothesis (only that cognitive systems are best understood using the tools of dynamical systems theory).
+
+
+## 6.4 Toward an integrated perspective
+
+An integrated theoretical framework that combines the insights from situatedness, embodiment, and dynamics.
+
+1. Brains, bodies, and environments are dynamical systems.
+2. Brain, body, and environment dynamics are coupled.
+3. The agent is subject to viability constraints.

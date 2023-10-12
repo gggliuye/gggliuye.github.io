@@ -10,10 +10,12 @@ Pages:
 * [{{item.title}}]({{item.url}})
 {% endfor %}
 
-Further reading:
-* [Artificial Intelligence - A Modern Approach, 4th US ed](https://aima.cs.berkeley.edu/), [online read](https://archive.org/details/artificial-intelligence-a-modern-approach-4th-edition/page/n1321/mode/2up).
-* [Artificial General Intelligence — A gentle introduction](https://cis.temple.edu/~pwang/AGI-Intro.html)
+Questions & Answers (of my opinion) :
+* What is intelligence ?
+* How did intelligence emerge (in human being), from evolution and growth?
 
+Further reading:
+* [Artificial General Intelligence — A gentle introduction](https://cis.temple.edu/~pwang/AGI-Intro.html)
 
 Links:
 * [Artificial General Intelligence (AGI) Conference](https://www.agi-conference.org/)
