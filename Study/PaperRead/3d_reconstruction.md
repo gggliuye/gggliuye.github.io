@@ -93,18 +93,26 @@ More Work are done with Deep Learning.
 * (**Mesh representation**) <img src="/assets/img/paperread/chrown0.png" height="25"/> [MobileNeRF 2023](https://mobile-nerf.github.io/): **textured triangle mesh representation**, can be rendered with the traditional polygon rasterization pipeline, which provides massive pixel-level parallelism. <h>offers demo to run in phone</h>.
   * [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
   * The current **training is slow** due to NeRF’s MLP backbone.
-* (**Pointcloud representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation.
+* (**Pointcloud representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation. <a name="lgs"></a>
   * Initialize with SFM sparse pcl.
   * Properties to optimize: 3D position, opacity 𝛼, anisotropic covariance, and [spherical harmonic](https://mathworld.wolfram.com/SphericalHarmonic.html) (SH) coefficients.
   * Point-based 𝛼-blending enable fast rendering.
   * It produces the **<h>best Nerf Results:</h>** [test repo & result](https://github.com/yeliu-deepmirror/gaussian-splatting).
+
+<details style="margin-left: 50px; background-color: #eeeeee;">
+<summary class="summary"> Gaussian Splatting Details </summary>
+<li><a>Anisotropic covariance: use scale vector and rotation to model (to ensure covariance being positive semi-definite).</a></li>
+<li><a>Tile-based rasterizer for feat optimization, <a href="https://github.com/graphdeco-inria/diff-gaussian-rasterization">github code</a>.</a></li>
+<li><a>D - Structural SIMilarity (SSIM) image loss (introduced in "Structural Similarity-Based Object Tracking in Video Sequences").</a></li>
+<li><a href="https://github.com/aras-p/UnityGaussianSplatting">Unity3D tool for gaussian splitting rendering.</a></li>
+</details>
 
 <div align="center">    
 <img src="/assets/img/paperread/3d_gaussian.png" width="85%"/>
 </div>
 
 <div align="center">    
-<video src="https://github.com/yeliu-deepmirror/gaussian-splatting/raw/main/assets/3d_gaussian_test_dm_office.mp4" controls="controls" width="60%"></video>
+<video src="https://github.com/yeliu-deepmirror/gaussian-splatting/raw/master/assets/3d_gaussian_test_dm_office.mp4" controls="controls" width="60%"></video>
 </div>
 
 **A generalization of the problem**:

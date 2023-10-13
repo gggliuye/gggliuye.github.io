@@ -2,35 +2,35 @@
   description: My Philosophy learning & reading note.
   img: philo.jpg
   url: ./Philosophy/index
-- title: Lidar Mapping & Fusion
-  description: LVIO Mapping + offline multi-session fusion & optimization.
-  img: youfang_mapping.gif
-  url: https://github.com/deepmirrorinc
-- title: LVIO Mapping
+- title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
   img: vlio.jpg
   url: https://www.bilibili.com/video/BV1He411L7ti/
-- title: City Level Mapping
+- title: Lidar Mapping & Fusion - 2021
+  description: LVIO Mapping + offline multi-session fusion & optimization.
+  img: youfang_mapping.gif
+  url: https://github.com/deepmirrorinc
+- title: City Level Mapping - 2021
   description: VIG Mapping + offline multi-session fusion & optimization.
   img: mobili_mapping.gif
   url: https://youtu.be/dFknAWGbMSk?si=mgwne3tc1kE4zwuO
-- title: VIG Mapping
+- title: VIG Mapping - 2021
   description: Image, IMU, Chassis, GNSS fused mapping.
   img: image_mapping.png
-  url: https://github.com/deepmirrorinc
-- title: Server Localization AR
+  url: https://youtube.com/playlist?list=PLyGifkCS0NnGanB34u1qHTom1Fg4nAjMh&si=b4Ik-ptVHc57by8C
+- title: Server Localization AR - 2020
   description: Localization in a large prebuilt visual/lidar map with single image & AR application.
   img: vlp_image.jpg
   url: https://www.bilibili.com/video/BV1aV41127bo
-- title: Marker Image AR
+- title: Marker Image AR - 2020
   description: Multi-marker detection and localization with single image & AR application.
   img: ar_marker.PNG
   url: https://www.bilibili.com/video/BV1Ma4y1t7oD
-- title: VI-SLAM AR
+- title: VI-SLAM AR - 2019
   description: On board visual-imu slam system & AR application.
   img: ar_slam.PNG
   url: https://www.bilibili.com/video/BV1Xk4y1d7ap
-- title: Web AR
+- title: Web AR - 2019
   description: Marker detection and localization based JavaScript AR application.
   img: web_ar.PNG
   url: https://github.com/gggliuye/WebAr
