@@ -5,7 +5,7 @@
 - title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
   img: vlio.jpg
-  url: https://www.bilibili.com/video/BV1He411L7ti/
+  url: ./WorkDeepMirror/lidar_mapping
 - title: Lidar Mapping & Fusion - 2021
   description: LVIO Mapping + offline multi-session fusion & optimization.
   img: youfang_mapping.gif
