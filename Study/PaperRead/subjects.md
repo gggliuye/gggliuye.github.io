@@ -17,7 +17,7 @@ title: Other Specific Subjects
     * [Infrared Papers](#lxr_irpaper)
     * [Other Papers](#lxr_other)
 5. [Continuous-Time Batch Calibration](#l5)
-6. [Image-based Rendering](#l6)
+6. [Image-based Rendering - MPIs](#l6)
 
 <p/><p/>
 
@@ -222,75 +222,13 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [General Matrix Representations for B-Splines 1998](https://xiaoxingchen.github.io/2020/03/02/bspline_in_so3/general_matrix_representation_for_bsplines.pdf). used in upper papers to generate bsplines.
 
 <a name="l6"></a>
-# 6. Image-based Rendering
+# 6. Image-based Rendering - MPIs
 
 Some References:
 * [Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
 * [TUM AI Lecture Series - Image-based Rendering](/Study/PaperRead/tum_ai/#libr).
 
-**Layered Representations**:
-* Depth - Interpolation of RGBD images:
-  * Apple [View Interpolation for Image Synthesis 1993](https://cseweb.ucsd.edu/~ravir/6998/papers/p279-chen.pdf), similar to image morphing.
-    * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
-    * this paper uses the camera transformation and image range data to automatically determine the correspondence.
-      * quadtree block compression of pixels for parallel processing.
-  * [Layered Depth Image 1998](https://grail.cs.washington.edu/projects/ldi/)
-  * Sprites with Depth: overlapping depth images.
-  * [Virtual Viewpoint Video 2004](https://www.youtube.com/watch?v=WYezwsFfxvE), render bullet time video.
-    * extand boundary to create better (blending) effect.
-
-<img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
-
-* Multi-Plane Images (MPIs):
-  * Method [python implementation](https://github.com/google-research/google-research/blob/master/single_view_mpi/libs/mpi.py):
-    * warping : homography.
-    * compositing of layers (1 for furthest, k for closest) :
-    $$
-    I = \sum_{i=1}^{k}(c_{i}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
-    $$
-    $$
-    D = \sum_{i=1}^{k}(d_{i}^{-1}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
-    $$
-  * [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MatryODShka: Real-time 6DoF Video View Synthesis using Multi-Sphere Images 2020](https://arxiv.org/abs/2008.06534), [github](https://github.com/brownvc/matryodshka). conert stereo 360 to MPIs.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
-    * 192-layers, with 16 texture images, too large memory.
-    * 17 images scene took 18h to train, trainning slow, limit its use case.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-Time Neural Character Rendering with Pose-Guided Multiplane Images 2022](https://github.com/ken-ouyang/PGMPI), use image-to-image translation paradigm.
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> Apple [Generative Multiplane Images 2022](https://xiaoming-zhao.github.io/projects/gmpi/) (32-layers) but only has pre-trained model for face dataset. (<n>Apple might use this for Vision pro 3d photo</n>)
-* Aspen Movie Map (1978)
-* Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
-
-<figure align="center">
-  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
-  <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
-</figure>
-
-* **Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
-  * Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
-  * *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
-  * *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
-  * Train using single image : supervised by RGBD wrapping + Hole filling network.
-  * TODO: <n>supervision by youtube videos</n>.
-
-<figure align="center">
-  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
-  <figcaption>AdaMPI test with online image.</figcaption>
-</figure>
-
-* Implementation of a OpenGLES shared based MIP visualizer.
-
-<div align="center">    
-<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-
-**Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
+**Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information. [My Neural Rendering Notes](/Study/PaperRead/3d_reconstruction/#lneural_r)
 
 <img style="float: right;" src="/assets/img/paperread/lumigraph.png" width="25%"/>
 
@@ -302,4 +240,70 @@ Some References:
   * Light Field Camera [Lytro](https://en.wikipedia.org/wiki/Lytro).
 * [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
   * Light Field: you directly predict colors from light rays. [Deep blending 2018](http://visual.cs.ucl.ac.uk/pubs/deepblending/), [Free View Synthesis 2020](http://vladlen.info/publications/free-view-synthesis/).
-  * NERF: performing volume rendering (integration along the ray). [My Neural Rendering Notes](/Study/PaperRead/3d_reconstruction/#lneural_r).
+  * NERF: performing volume rendering (integration along the ray).
+
+
+**Layered Representations**:
+* Depth - Interpolation of RGBD images:
+  * Apple [View Interpolation for Image Synthesis 1993](https://cseweb.ucsd.edu/~ravir/6998/papers/p279-chen.pdf), similar to image morphing.
+    * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
+    * this paper uses the camera transformation and image range data to automatically determine the correspondence.
+      * quadtree block compression of pixels for parallel processing.
+  * [Layered Depth Image 1998](https://grail.cs.washington.edu/projects/ldi/)
+  * Sprites with Depth: overlapping depth images.
+  * [Virtual Viewpoint Video 2004](https://www.youtube.com/watch?v=WYezwsFfxvE), render bullet time video.
+    * extand boundary to create better (blending) effect.
+* Aspen Movie Map (1978)
+* Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
+
+<img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
+
+**Multi-Plane Images (MPIs)**:
+* Method [python implementation](https://github.com/google-research/google-research/blob/master/single_view_mpi/libs/mpi.py):
+  * warping : homography.
+  * compositing of layers (1 for furthest, k for closest) :
+    $$
+    I = \sum_{i=1}^{k}(c_{i}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+    $$
+    D = \sum_{i=1}^{k}(d_{i}^{-1}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+* [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. <img src="/assets/img/paperread/chrown.png" height="25"/> [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
+
+<figure align="center">
+  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
+  <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
+</figure>
+
+<figure align="center">
+  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
+  <figcaption>AdaMPI test with online image.</figcaption>
+</figure>
+
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [MatryODShka: Real-time 6DoF Video View Synthesis using Multi-Sphere Images 2020](https://arxiv.org/abs/2008.06534), [github](https://github.com/brownvc/matryodshka). conert stereo 360 to MPIs.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
+  * 192-layers, with 16 texture images, too large memory.
+  * 17 images scene took 18h to train, trainning slow, limit its use case.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-Time Neural Character Rendering with Pose-Guided Multiplane Images 2022](https://github.com/ken-ouyang/PGMPI), use image-to-image translation paradigm.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> Apple [Generative Multiplane Images 2022](https://xiaoming-zhao.github.io/projects/gmpi/) (32-layers) but only has pre-trained model for face dataset. (<n>Apple might use this for Vision pro 3d photo</n>)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Structural Multiplane Image 2023](https://github.com/mf-zhang/Structural-MPI), planes made based on planar 3D reconstruction of the scene.
+  * since planes could intersect, need to order the render sequence for each pixel - **slow**.
+
+**MPIs Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
+* Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
+* *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
+* *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
+* Train using single image : supervised by RGBD wrapping + Hole filling network.
+* TODO: <n>supervision by youtube videos</n>.
+* TODO: <n>single view 3D gaussian splitting might help?</n>.
+* Implementation (Phone version & Pico version) of a OpenGLES shared based MIP visualizer.
+
+<div align="center">    
+<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" width="50%" height="300" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>

@@ -131,6 +131,15 @@ Simulation.
   * [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804). <u>predict a heuristic depth map</u>. multi-plane images with depth feature, with a decoder to generate new view.
   * [Animating Pictures with Eulerian Motion Fields 2021](https://eulerian.cs.washington.edu/). <u>predict a heuristic motion map</u>. tracing the motion of depth features, and with a decoder to generate new view.
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Neural Fields Beyond Novel View Synthesis (Andrea Tagliasacchi) 2023/01](https://www.youtube.com/live/nRCOsBHt97E?si=fZKl2gvehRpfBtNj): View understanding, Camera knowledge, Overfitting regime. NeRF : geometry + appearance.
+* [Learn from One Look 2022](https://blog.research.google/2022/09/lolnerf-learn-from-one-look.html), conditioned NeRF model. *hard surface loss* to remove smoke effect.
+* Fast NeRF Rendering, **Nerual Textured Mesh**. [MobileNeRF 2022](https://mobile-nerf.github.io/).
+  * previous works : fast train (instant-ngp), fast rendering (different representation : NVDiffRec, Nerual-PIL, hardware limitation : FastNerf, DONeRF, KilNerf, SNeRG).
+  * Scene is a (nerual) textured mesh. And small MLP to rasterize.
+* [Neural Semantic Field 2022](https://nesf3d.github.io/): **field-to-field** translation network.
+  * Neighbor analysis the field, then generate new field.
+* [nerf2nerf: Pairwise Registration of Neural Radiance Fields 2023](https://nerf2nerf.github.io/), **pairwise alignment** of neural fields.
+
 <a name="llearning"></a>
 # 4. Self-Supervised Learning
 
@@ -231,6 +240,20 @@ Simulation.
     * camera pose -> epipolar loss.
     * differentiable matching : probability distribution (heat map).
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Learning to Walk with Vision and Proprioception (Jitendra Malik) 2022/01](https://www.youtube.com/live/zjsdCiOAjNA?si=f0qtnC1L7aTKePHy). "we see in order to move and we move in order to see". "Anaxogaras: It is because of his being armed with hands that man is the most intelligent animal". [Rapid Motor Adaptation for Legged Robots 2021](https://ashish-kmr.github.io/rma-legged-robots/)
+1.  Walking in simulation.
+  * Pervious Works: Animal Gaits. Computational Gaits - Central Pattern Generators. Real People Gaits.
+  * RL: **Environmental Factor Encoder** + State & Old Action -> *Base Policy* -> Action. While minimize work and ground impact.
+2. Walking in real world (blindly) via rapid motor adaption.
+  * Some of the environment variables are unavailable. **Adaptation Module** : Use history action&state to estimate the environment variables.
+  * *Adaptation Module* can be pre-trained in simulation by *Environmental Factor Encoder*.
+3. Walking at different linear and angular velocities in the real world (*change target speed*): [Minimizing Energy Consumption Leads to the Emergence of Gaits in Legged Robots 2021](https://arxiv.org/abs/2111.01674).
+  * Robots shows different gaits at different speed.
+4. Navigation to a point goal with vision and proprioception: [Coupling Vision and Proprioception for Navigation of Legged Robots 2021](https://navigation-locomotion.github.io/), robot with RGBD camera.
+  * Occupancy Map & Cost Map -> Velocity Command Generator.
+5. Epliogue : Layered Sensorimotor Architectures meet Deep RL.
+
+
 <a name="lnlp"></a>
 # 6. Language
 
@@ -282,7 +305,14 @@ Simulation.
   * [Unsupervised Shape and Pose Disentanglement for 3D Meshes 2020](https://virtualhumans.mpi-inf.mpg.de/unsup_shape_pose/) pose and shape to control output, with implicit code.
 
 
-<img src="/assets/img/paperread/chrown0.png" height="25"/> [TUM AI Lecture Series - Making 3D Predictions with 2D Supervision (Justin Johnson) 2022/08](https://www.youtube.com/live/3ggvhJuCn8c?si=6m4zdG6tO9oyAXdt)
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Joint Learning Over Visual and Geometric Data (Leonidas Guibas) 2021/08](https://www.youtube.com/live/Be8vI6IseS0?si=h3zqnpDv996di74s).
+* Multi-Modal 3D object Detection.
+* SE3 equivalent networks.
+* Category-Level Object Pose Estimation.
+* Latent Spatio-Temporal Representations.
+* Exploiting Consistency among Learning Tasks.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Making 3D Predictions with 2D Supervision (Justin Johnson) 2022/08](https://www.youtube.com/live/3ggvhJuCn8c?si=6m4zdG6tO9oyAXdt)
 * [Mesh R-CNN 2019](https://github.com/facebookresearch/meshrcnn) : Supervised Shape Prediction, single image -> 3d bbx detection with mesh.
   * [Pixel2Mesh 2018](https://github.com/nywang16/Pixel2Mesh): Iterative mesh refinement (deformation), but has limitation on topology.
   * this paper -> deforming 3d object *voxels* into mesh.

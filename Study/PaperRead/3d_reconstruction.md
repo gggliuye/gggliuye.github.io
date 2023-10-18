@@ -86,7 +86,7 @@ More Work are done with Deep Learning.
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields 2021](https://jonbarron.info/mipnerf/), [paper](https://arxiv.org/pdf/2103.13415.pdf), [github](https://github.com/google/mipnerf).
   * Nerf : can cause excessive blurring and aliasing.
   * Mip-NeRF: casting a **cone** from each pixel. <u>integrated positional encoding (IPE)</u> by each conical frustum (instead of position in Nerf).
-* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
+* <img src="/assets/img/paperread/thumbs.png" height="25"> [Baking Neural Radiance Fields for Real-Time View Synthesis 2021](https://arxiv.org/pdf/2103.14645.pdf), [github](https://github.com/google-research/google-research/tree/master/snerg). Sparse Neural Radiance Grid (SNeRG, sparse 3D voxel grid data structure storing a pre-trained NeRF model), accelerates rendering procedure.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs 2021](https://arxiv.org/pdf/2103.13744.pdf).  replaces a single large NeRF-MLP with thousands of tiny MLPs, accelerating rendering by 3 orders of magnitude.
 * (**Voxel representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131), [github](https://github.com/sxyu/svox2). **<h>foregoes MLPs altogether</h>** and optimizes opacity and view-dependent color (using spherical harmonics) directly on a 3D voxel grid.
   * key features : Trilinear Interpolation, Total Variation Regularization.
@@ -101,9 +101,10 @@ More Work are done with Deep Learning.
 
 <details style="margin-left: 50px; background-color: #eeeeee;">
 <summary class="summary"> Gaussian Splatting Details </summary>
-<li><a>Anisotropic covariance: use scale vector and rotation to model (to ensure covariance being positive semi-definite).</a></li>
-<li><a>Tile-based rasterizer for feat optimization, <a href="https://github.com/graphdeco-inria/diff-gaussian-rasterization">github code</a>.</a></li>
-<li><a>D - Structural SIMilarity (SSIM) image loss (introduced in "Structural Similarity-Based Object Tracking in Video Sequences").</a></li>
+<li>Anisotropic covariance: use scale vector and rotation to model (to ensure covariance being positive semi-definite).</li>
+<li>Tile-based rasterizer for feat optimization, <a href="https://github.com/graphdeco-inria/diff-gaussian-rasterization">github code</a>. Following <a href="https://arxiv.org/abs/2004.07484">previous work : Pulsar</a>.</li>
+<li>Other work : <a href="https://repo-sam.inria.fr/fungraph/differentiable-multi-view/">point-based neural rendering</a> (who project neighbor views and use NN to optimize the fused MVS view).</li>
+<li>D - Structural SIMilarity (SSIM) image loss (introduced in "Structural Similarity-Based Object Tracking in Video Sequences").</li>
 <li><a href="https://github.com/aras-p/UnityGaussianSplatting">Unity3D tool for gaussian splitting rendering.</a></li>
 </details>
 
