@@ -75,7 +75,10 @@ working on slam/vlp system.
 
 working on meta-verse for cars.
 * **car localization** - ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
-* **vr in-car localization** - work with guangqi for **AR-HUD & VR**. [广汽ADiGO SPACE升级沉浸式智能座舱体验](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA), **patent**: [Vehicle-mounted XR equipment](http://www.soopat.com/Patent/202211281972).
+* **vr in-car localization** - work with guangqi for **AR-HUD & VR**.
+  * [广汽ADiGO SPACE升级沉浸式智能座舱体验 2022](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA).
+  * **patent**: [Vehicle-mounted XR equipment](http://www.soopat.com/Patent/202211281972).
+  * [DeepMirror在宝马汽车元宇宙比赛中荣获第一名 2023](https://mp.weixin.qq.com/s/8SFkmZQhMmpXe-6Yj9VkRA). First place in the "Vehicle Readiness" category was secured by Chinese start-up DeepMirror Inc.
 
 <div align="center">    
 <img src="/assets/img/work/dm_gq.jpeg" width="60%"/>

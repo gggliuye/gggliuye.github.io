@@ -9,6 +9,8 @@ comments: true
 [Large Language Model for Science: A Study on P vs. NP](https://arxiv.org/pdf/2309.05689.pdf), [LLM4Science](https://github.com/microsoft/LMOps/tree/main/LLM4Science). ([GPT-4在97轮对话中探索世界难题，给出P≠NP结论](https://mp.weixin.qq.com/s/BTePI71LOq7kwjMwzdtypw)).
 LLMs have successfully interpolated existing knowledge, it remains open **whether they can extrapolate novel knowledge from the vast solution space.**
 
+[See more about ChatGPT in my page](/Math/chatgpt).
+
 Problem-solving patterns in **Socratic Reason**:
 
 | Patterns | Decription |
@@ -30,7 +32,7 @@ Problem-solving patterns in **Socratic Reason**:
 
 ## Proof by contradiction (of P!=NP)
 
-framework:
+framework (find a NP problem cannot be solved in polynomial time):
 
 1. From a well known NP-complete problem : [Boolean Satisfiability Problem](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem)
   * Def: whether the variables of a given Boolean formula can be consistently replaced by the values TRUE or FALSE in such a way that the formula evaluates to TRUE. If this is the case, the formula is called satisfiable.

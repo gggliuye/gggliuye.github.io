@@ -17,7 +17,8 @@ title: Other Specific Subjects
     * [Infrared Papers](#lxr_irpaper)
     * [Other Papers](#lxr_other)
 5. [Continuous-Time Batch Calibration](#l5)
-6. [Image-based Rendering](#l6)
+6. [Image-based Rendering - MPIs](#l6)
+7. [ICCV 23](#liccv23)
 
 <p/><p/>
 
@@ -151,9 +152,11 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 # 4.3 PICO
 
 [PICO Centaur 光学追踪+裸手识别 2023](https://mp.weixin.qq.com/s/JP6ertmxXc0fF0fIPU8QMg); LED + AI HAND + IMU.
-* [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
-* [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410).
-* [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082).
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [HaMuCo hand tracking 2023](https://zxz267.github.io/HaMuCo/).
+  * self-supervised from multi-view pseudo 2D labels.
+  * cross-view-network following multiple single-image-network to merge multi-view result. (Designed for VR 4-cameras system)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image 2023](https://arxiv.org/abs/2302.02410), for two hands reconstruction.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Reconstructing Interacting Hands with Interaction Prior from Monocular Images 2023](https://arxiv.org/abs/2308.14082), for two hands reconstruction.
 * Data [Realistic Full-Body Tracking from Sparse Observations via Joint-Level Modeling](https://arxiv.org/abs/2308.08855).
 * XR body recovery.
 
@@ -220,75 +223,13 @@ Use a serial of bsplines to simulate the trajectory, since bspline is continous 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [General Matrix Representations for B-Splines 1998](https://xiaoxingchen.github.io/2020/03/02/bspline_in_so3/general_matrix_representation_for_bsplines.pdf). used in upper papers to generate bsplines.
 
 <a name="l6"></a>
-# 6. Image-based Rendering
+# 6. Image-based Rendering - MPIs
 
 Some References:
 * [Image-based Rendering](https://wiki.davidl.me/view/Image-based_rendering).
 * [TUM AI Lecture Series - Image-based Rendering](/Study/PaperRead/tum_ai/#libr).
 
-**Layered Representations**:
-* Depth - Interpolation of RGBD images:
-  * Apple [View Interpolation for Image Synthesis 1993](https://cseweb.ucsd.edu/~ravir/6998/papers/p279-chen.pdf), similar to image morphing.
-    * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
-    * this paper uses the camera transformation and image range data to automatically determine the correspondence.
-      * quadtree block compression of pixels for parallel processing.
-  * [Layered Depth Image 1998](https://grail.cs.washington.edu/projects/ldi/)
-  * Sprites with Depth: overlapping depth images.
-  * [Virtual Viewpoint Video 2004](https://www.youtube.com/watch?v=WYezwsFfxvE), render bullet time video.
-    * extand boundary to create better (blending) effect.
-
-<img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
-
-* Multi-Plane Images (MPIs):
-  * Method [python implementation](https://github.com/google-research/google-research/blob/master/single_view_mpi/libs/mpi.py):
-    * warping : homography.
-    * compositing of layers (1 for furthest, k for closest) :
-    $$
-    I = \sum_{i=1}^{k}(c_{i}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
-    $$
-    $$
-    D = \sum_{i=1}^{k}(d_{i}^{-1}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
-    $$
-  * [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MatryODShka: Real-time 6DoF Video View Synthesis using Multi-Sphere Images 2020](https://arxiv.org/abs/2008.06534), [github](https://github.com/brownvc/matryodshka). conert stereo 360 to MPIs.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
-    * 192-layers, with 16 texture images, too large memory.
-    * 17 images scene took 18h to train, trainning slow, limit its use case.
-  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-Time Neural Character Rendering with Pose-Guided Multiplane Images 2022](https://github.com/ken-ouyang/PGMPI), use image-to-image translation paradigm.
-  * <img src="/assets/img/paperread/chrown0.png" height="25"/> Apple [Generative Multiplane Images 2022](https://xiaoming-zhao.github.io/projects/gmpi/) (32-layers) but only has pre-trained model for face dataset. (<n>Apple might use this for Vision pro 3d photo</n>)
-* Aspen Movie Map (1978)
-* Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
-
-<figure align="center">
-  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
-  <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
-</figure>
-
-* **Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
-  * Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
-  * *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
-  * *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
-  * Train using single image : supervised by RGBD wrapping + Hole filling network.
-  * TODO: <n>supervision by youtube videos</n>.
-
-<figure align="center">
-  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
-  <figcaption>AdaMPI test with online image.</figcaption>
-</figure>
-
-* Implementation of a OpenGLES shared based MIP visualizer.
-
-<div align="center">    
-<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-
-**Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information.
+**Implicit Representations (Light Field - Plenoptic Function)** - using position & direction of each pixel (5-dim), to get its color, depth and other meta-information. [My Neural Rendering Notes](/Study/PaperRead/3d_reconstruction/#lneural_r)
 
 <img style="float: right;" src="/assets/img/paperread/lumigraph.png" width="25%"/>
 
@@ -300,4 +241,133 @@ Some References:
   * Light Field Camera [Lytro](https://en.wikipedia.org/wiki/Lytro).
 * [Light Field Networks & NERF](/Study/PaperRead/3d_reconstruction/#lneural_r) method to render new views.
   * Light Field: you directly predict colors from light rays. [Deep blending 2018](http://visual.cs.ucl.ac.uk/pubs/deepblending/), [Free View Synthesis 2020](http://vladlen.info/publications/free-view-synthesis/).
-  * NERF: performing volume rendering (integration along the ray). [My Neural Rendering Notes](/Study/PaperRead/3d_reconstruction/#lneural_r).
+  * NERF: performing volume rendering (integration along the ray).
+
+
+**Layered Representations**:
+* Depth - Interpolation of RGBD images:
+  * Apple [View Interpolation for Image Synthesis 1993](https://cseweb.ucsd.edu/~ravir/6998/papers/p279-chen.pdf), similar to image morphing.
+    * (1) <u>establishes the correspondence between two images</u> (hard part); (2) use the mapping to interpolate the shape of each image toward the other (~ cv::remap).
+    * this paper uses the camera transformation and image range data to automatically determine the correspondence.
+      * quadtree block compression of pixels for parallel processing.
+  * [Layered Depth Image 1998](https://grail.cs.washington.edu/projects/ldi/)
+  * Sprites with Depth: overlapping depth images.
+  * [Virtual Viewpoint Video 2004](https://www.youtube.com/watch?v=WYezwsFfxvE), render bullet time video.
+    * extand boundary to create better (blending) effect.
+* Aspen Movie Map (1978)
+* Apple [QuickTime VR – An Image-Based Approach to Virtual Environment Navigation 1995](https://cseweb.ucsd.edu/~ravir/6998/papers/p29-chen.pdf), 360 video based image walkthrough, while the viewpoint is fixed.
+
+<img style="float: right;" src="/assets/img/paperread/mpis_inv.jpg" width="30%"/>
+
+**Multi-Plane Images (MPIs)**:
+* Method [python implementation](https://github.com/google-research/google-research/blob/master/single_view_mpi/libs/mpi.py):
+  * warping : homography.
+  * compositing of layers (1 for furthest, k for closest) :
+    $$
+    I = \sum_{i=1}^{k}(c_{i}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+    $$
+    D = \sum_{i=1}^{k}(d_{i}^{-1}\alpha_{i}\prod_{j=i+1}^{k}(1-\alpha_{j}))
+    $$
+* [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. <img src="/assets/img/paperread/chrown.png" height="25"/> [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
+
+<figure align="center">
+  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
+  <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
+</figure>
+
+<figure align="center">
+  <img src="https://github.com/yeliu-deepmirror/AdaMPI/raw/master/images/adampi.gif" width="50%"/>
+  <figcaption>AdaMPI test with online image.</figcaption>
+</figure>
+
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [SynSin: End-to-end View Synthesis from a Single Image 2019](https://arxiv.org/abs/1912.08804) with depth feature, and network to merge images.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [DeepView View Synthesis with Learned Gradient Descent 2019](https://augmentedperception.github.io/deepview/), multi-view to MPIs, <n>too hard to train, hanged by Google</n>.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [MatryODShka: Real-time 6DoF Video View Synthesis using Multi-Sphere Images 2020](https://arxiv.org/abs/2008.06534), [github](https://github.com/brownvc/matryodshka). conert stereo 360 to MPIs.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis 2021](https://vincentfung13.github.io/projects/mine/), multi-plane volume render.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [NeX: Real-time View Synthesis with Neural Basis Expansion 2021](https://github.com/nex-mpi/nex-code) (192-layers, with 16 texture images), parameterizing each pixel as a linear combination of basis functions (based on view angle) learned from a neural network.
+  * 192-layers, with 16 texture images, too large memory.
+  * 17 images scene took 18h to train, trainning slow, limit its use case.
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Real-Time Neural Character Rendering with Pose-Guided Multiplane Images 2022](https://github.com/ken-ouyang/PGMPI), use image-to-image translation paradigm.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> Apple [Generative Multiplane Images 2022](https://xiaoming-zhao.github.io/projects/gmpi/) (32-layers) but only has pre-trained model for face dataset. (<n>Apple might use this for Vision pro 3d photo</n>)
+* <img src="/assets/img/paperread/thumbs.png" height="25"/> [Structural Multiplane Image 2023](https://github.com/mf-zhang/Structural-MPI), planes made based on planar 3D reconstruction of the scene.
+  * since planes could intersect, need to order the render sequence for each pixel - **slow**.
+
+**MPIs Final choice** : [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI), [our version](https://github.com/yeliu-deepmirror/AdaMPI), (Single-view view synthesis with rgbd trained on COCO). Could run on VR & Phone.
+* Use rbgd as input, predict density 𝜎 for each plane instead of alpha 𝛼 .
+* *Plane Adjustment Network*. arranging each MPI plane at an appropriate (pre-defined) depth to represent the scene.
+* *Radiance Prediction Network*. predicts the color 𝑐 𝑖 and density 𝜎 𝑖 for each plane at 𝑑 𝑖 .
+* Train using single image : supervised by RGBD wrapping + Hole filling network.
+* TODO: <n>supervision by youtube videos</n>.
+* TODO: <n>single view 3D gaussian splitting might help?</n>.
+* Implementation (Phone version & Pico version) of a OpenGLES shared based MIP visualizer.
+
+<div align="center">    
+<iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" width="50%" height="300" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+<a name="liccv23"></a>
+# 7. ICCV 23
+
+[ICCV'23 Robot Learning & SLAM Workshop](https://www.youtube.com/playlist?list=PLLUUYtjRHf8NkQ03nLP6V16iPiEm7atmu)
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Marc Pollefeys: Visual Localization and Mapping From Classical to Modern](https://youtu.be/15U8qwFcL24?si=m3mylnIPg6-AeHni) SFM & Visual Localization. [3DV 2024](https://3dvconf.github.io/2024/).
+* Point Features:
+  * [PixLoc 2021](https://github.com/cvg/pixloc) end-to-end learn from pose loss.
+  * [Pixel-Perfect SFM 2021](https://github.com/cvg/pixel-perfect-sfm) refine 2d feature position by dense NN descriptor.
+  * [LightGlue 2023](https://github.com/cvg/LightGlue)
+* Privacy-Preserving Geometric Computer Vision.
+* Line Features: [DeepLSD 2023](https://github.com/cvg/DeepLSD), [GlueSticks 2023](https://github.com/cvg/GlueStick) -> [LiMap 2023](https://github.com/cvg/limap).
+* [LaMAR 2022](https://lamar.ethz.ch/) AR Benchmarking.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Maurice Fallon: Robust Multi-Sensor SLAM with Learning and Sensor Fusion](https://youtu.be/hRs4a1wqnUE?si=JJQI9kVSs6dzkAmx). 3 camera + lidar system.
+* **Lidar-Visual Odometry**:
+  * [VILENS 2021](https://arxiv.org/abs/2107.07243), joint optimization of lidar & visual & imu resiudals.
+  * [Hilti-Oxford SLAM Dataset 2023](https://hilti-challenge.com/index.html).
+* [InstaLoc 2023](https://arxiv.org/abs/2305.09552) through *dense lidar* semantic instances matching.
+* [NavLive 2022](https://www.navlive.co.uk/)
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> **Lidar Vision NeRF**.
+  * Lidar-Camera Calibration - [Extrinsic Calibration of Camera to LIDAR using a **Differentiable Checkerboard Model** 2023].
+  * [SiLVR : Scalable Lidar-Visual Reconstruction with Neural Radiance Fields 2023] nerf + lidar depth + lidar normal.
+* **SLAM + LLMs** : [Language-EXtended Indoor SLAM (LEXIS) 2023](https://arxiv.org/abs/2309.15065) building semantically rich visual maps with LLMs, based on [CLIP](https://github.com/openai/CLIP).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Luca Carlone: From SLAM to Spatial Perception](https://youtu.be/jDume0pA2-Q?si=ASxhNdJt9P7mSyPk). hierarchical representations, certifiable algorithms, and self-supervised learning.
+* Scene Map : [Kimera: Real-time Metric-Semantic SLAM 2021](https://github.com/MIT-SPARK/Kimera). 3D scene underestanding : semantics (**objects, agents, sounds, etc**), relations. [Kimera-Multi 2023](https://github.com/MIT-SPARK/Kimera-Multi), multi-robots.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> Robustness : **Certifiable algorithms** compute an estimate and either certify its optimality, or detect failure. [Kimera-RPGO](https://github.com/MIT-SPARK/Kimera-RPGO)
+  * [ROBIN 2023](https://github.com/MIT-SPARK/ROBIN) based on graph theory to find large sets of compatible measurements and prune gross outliers (used in [TEASER++ 2020](https://github.com/MIT-SPARK/TEASER-plusplus)).
+  * [GNC + ADAPT 2021](https://github.com/MIT-SPARK/GNC-and-ADAPT) graduated non-convexity (to reduce non-convexity of the optimization).
+  * [Certifiable Outlier-Robust Geometric Perception 2022](https://github.com/MIT-SPARK/CertifiablyRobustPerception) semidefinite moment relaxations.
+  * Self-supervised Learning for Certification.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Chen Wang: Imperative SLAM and PyPose Library for Robot Learning](https://youtu.be/_j5tJFC-Gbk?si=LT7GsrC-LnZ-ngJU), [Imperative SLAM 2023](https://sairlab.org/iSLAM/). Take back-end optimization as a supervision signal for the front-end. [PyPose](https://pypose.org/).
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Andrew Davison: Distributed Estimation and Learning for Robotics](https://youtu.be/1pw8xGlWkqI?si=hqQE_grS56dbofqW), [see here for related lecture](/Study/PaperRead/tum_ai/#lAndrew).
+* Reason for the thoughts: (1) Hardware: map the algorithm blocks to hardware; (2) Multi-robot systems.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Gaussian Belief Propagation](https://gaussianbp.github.io/).
+* Robot Web.
+  * Multi-robot localization using Gaussian Belief Propagation.
+  * Multi-robot planning using Gaussian Belief Propagation.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Daniel Cremers: From Monocular SLAM to 3D Dynamic Scene Understanding](https://youtu.be/qQakQ0SZ5wI?si=WpOxk35u2apaS3aZ).
+* Novel Bundle Adjustment. [Super Root BA 2021](https://arxiv.org/abs/2103.01843), [Power BA 2023](https://arxiv.org/abs/2204.12834), [github](https://github.com/NikolausDemmel/rootba).
+* Direct SLAM. LSD-SLAM, DSO, DMVIO, D3VO.
+* Single Image Dense Reconstruction. [MonoRec 2021](https://github.com/Brummi/MonoRec), [Density Fields for Single View 2023](https://fwmb.github.io/bts/).
+* Dynamic 3D scene understanding.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Tim Barfoot: Learning Perception Components for Long Term Path Following](https://youtu.be/G8ic5IMwV_c?si=w187ubEY_h-Y9c0S).
+
+<a name="lrelpose"></a>
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Shubham Tulsiani: Probabilistic Pose Prediction](https://youtu.be/gpQuEVcbog8?si=Y_8jHDkkS-MuBd6K). Objective : 3D object reconstruction. Pose Estimation from few views. **SFM (e.g. Colmap) not robust under sparse-views**. <u>Data-driven learning method.</u>
+* Direct Pose Prediction (end-to-end) try : **failed !**  <n>I think the problem might be with the pose representation, see </n> [Why NeRF work ?](/Study/PaperRead/tum_ai/#lnerf_understanding).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [RelPose++ 2023](https://amyxlase.github.io/relpose-plus-plus/). Probabilistic Pose Prediction: predict the distribution of poses though energy-based model.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Ayoung Kim: Advancing SLAM with Learning](https://youtu.be/iIxQkmfok5Q?si=Mcy_UtRwBVhA7Ycz). (1) Lines. Line Descriptor: [LineRT 2021](https://github.com/yosungho/LineTR); (2) DL + Graph SLAM. Object SLAM : 6dof object pose estimation; (3) Thermal cameras.
+
+[Michael Kaess: Learning for Sonar and Radar SLAM](https://youtu.be/xZn_y7TM1O8?si=dNLG-xo5JAhEg1W6). Camera fails in under-water environments.
+* **Sonar** : projection without elevation. Acoustic SFM. **Epipolar contour**. **Acoustic Bundle Adjustment**.
+  * Sonar Image Correspondence. DL method.
+  * Imaging Sonar Dense Reconstruction.
+* Radar SLAM, provide Doppler velocity also.

@@ -94,6 +94,8 @@ Has two type of understanding:
 <a name="l2023"></a>
 # 2023
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [RelPose++: Recovering 6D Poses from Sparse-view Observations](https://amyxlase.github.io/relpose-plus-plus/). <n>It made what I want to do (in a simplified way).</n> see also [this talk](/Study/PaperRead/subjects/#lrelpose).
+
 <a name="lanyloc"></a>
 <img src="/assets/img/paperread/chrown.png" height="25"/> [AnyLoc: Towards Universal Visual Place Recognition](https://arxiv.org/pdf/2308.00688.pdf). use [DINOv2](https://github.com/facebookresearch/dino) vision transformer (Layer 31) (or [CLIP](https://github.com/openai/CLIP)) to extract per pixel features. then apply **VLAD** aggregation. Express State-of-Art accuracy. <n>I really like this method! use correct feature extractor with VLAD, which should fit best retrieval problem.</n>
 
