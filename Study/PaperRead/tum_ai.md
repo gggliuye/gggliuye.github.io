@@ -213,7 +213,7 @@ Simulation.
   * help in depth/normal estimation and navigation tasks.
   * VisualEcho-Net + Echo-Net -> Predict Orientation. (self-supervised echo and visual results should match)
 
-
+<a name="lAndrew"></a>
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Towards Graph-Based Spatial AI (Andrew Davison) 2020/10](https://www.youtube.com/live/_npGEB3kkVc?si=5tJSMbwS9I1xVzS3). SLAM evolving into **Spatial AI**.
 * [FutureMapping: The Computational Structure of Spatial AI Systems 2018](https://arxiv.org/abs/1803.11288)
   * Representation is important (End-to-end might not be possible).

@@ -93,9 +93,11 @@ More Work are done with Deep Learning.
 * (**Mesh representation**) <img src="/assets/img/paperread/chrown0.png" height="25"/> [MobileNeRF 2023](https://mobile-nerf.github.io/): **textured triangle mesh representation**, can be rendered with the traditional polygon rasterization pipeline, which provides massive pixel-level parallelism. <h>offers demo to run in phone</h>.
   * [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
   * The current **training is slow** due to NeRF’s MLP backbone.
-* (**Pointcloud representation**) <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation. <a name="lgs"></a>
+
+**Pointcloud representation:**
+* <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering 2023](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation. <a name="lgs"></a>
   * Initialize with SFM sparse pcl.
-  * Properties to optimize: 3D position, opacity 𝛼, anisotropic covariance, and [spherical harmonic](https://mathworld.wolfram.com/SphericalHarmonic.html) (SH) coefficients.
+  * Properties to optimize: 3D position, opacity 𝛼, anisotropic covariance, and [spherical harmonic](https://patapom.com/blog/SHPortal/) (SH) coefficients following [PlenOctrees](https://arxiv.org/abs/2103.14024) to encode color. (see [Spherical Harmonic Lighting: The Gritty Details](https://www.cse.chalmers.se/~uffe/xjobb/Readings/GlobalIllumination/Spherical%20Harmonic%20Lighting%20-%20the%20gritty%20details.pdf) to learn more about SH).
   * Point-based 𝛼-blending enable fast rendering.
   * It produces the **<h>best Nerf Results:</h>** [test repo & result](https://github.com/yeliu-deepmirror/gaussian-splatting).
 
@@ -105,16 +107,26 @@ More Work are done with Deep Learning.
 <li>Tile-based rasterizer for feat optimization, <a href="https://github.com/graphdeco-inria/diff-gaussian-rasterization">github code</a>. Following <a href="https://arxiv.org/abs/2004.07484">previous work : Pulsar</a>.</li>
 <li>Other work : <a href="https://repo-sam.inria.fr/fungraph/differentiable-multi-view/">point-based neural rendering</a> (who project neighbor views and use NN to optimize the fused MVS view).</li>
 <li>D - Structural SIMilarity (SSIM) image loss (introduced in "Structural Similarity-Based Object Tracking in Video Sequences").</li>
-<li><a href="https://github.com/aras-p/UnityGaussianSplatting">Unity3D tool for gaussian splitting rendering.</a></li>
+<li>Use degree 3 SH, while PlenOctrees uses degree 2. and from the tests, SH requires lost of parameters, while produce little improvement.</li>
+<li><img src="/assets/img/paperread/chrown.png" height="25"/> <a href="https://github.com/aras-p/UnityGaussianSplatting">Unity3D tool for gaussian splitting rendering.</a>, it also simplifies the SH to reduce memory consumption.</li>
+<li><a href="https://github.com/antimatter15/splat">Web visualization.</a></li>
 </details>
 
 <div align="center">    
 <img src="/assets/img/paperread/3d_gaussian.png" width="85%"/>
 </div>
 
-<div align="center">    
-<video src="https://github.com/yeliu-deepmirror/gaussian-splatting/raw/master/assets/3d_gaussian_test_dm_office.mp4" controls="controls" width="60%"></video>
+<div align="center">  
+<iframe src="//player.bilibili.com/player.html?aid=277312350&bvid=BV1jw411w7xy&cid=1304194095&p=1" width="70%" height="350" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
+
+* <img src="/assets/img/paperread/thumbs.png" height="25"> [4D Gaussian Splatting](https://guanjunwu.github.io/4dgs/). Add MLP for each point along with time, to produce video. 3DGS is completely explicit, while this paper make it partly implicit, <n>I don't like this degrade</n>.
+* <img src="/assets/img/paperread/thumbs.png" height="25"> [4D4K 2023](https://github.com/zju3dv/4K4D). 4D grids representations. <n>I think a 4D pcl represented GS will be simply better.</n>
+  * initialized by space-caving for each timestamp from multi-view images.
+  * geometry: radius, density, position.  (<n>isotropic version of 3DGS</n>)
+  * color: blending model + MLP SH. (<n>Need MLP for each point.</n>)
+  * render: (for each pixel) take k nearest points and merge by density. (<n>No alpha blending.</n>)
+
 
 **A generalization of the problem**:
 

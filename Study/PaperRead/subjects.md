@@ -18,6 +18,7 @@ title: Other Specific Subjects
     * [Other Papers](#lxr_other)
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering - MPIs](#l6)
+7. [ICCV 23](#liccv23)
 
 <p/><p/>
 
@@ -307,3 +308,66 @@ Some References:
 <div align="center">    
 <iframe src="//player.bilibili.com/player.html?aid=321195337&bvid=BV1Dw411e7QE&cid=1272450395&p=1" width="50%" height="300" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
+
+<a name="liccv23"></a>
+# 7. ICCV 23
+
+[ICCV'23 Robot Learning & SLAM Workshop](https://www.youtube.com/playlist?list=PLLUUYtjRHf8NkQ03nLP6V16iPiEm7atmu)
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Marc Pollefeys: Visual Localization and Mapping From Classical to Modern](https://youtu.be/15U8qwFcL24?si=m3mylnIPg6-AeHni) SFM & Visual Localization. [3DV 2024](https://3dvconf.github.io/2024/).
+* Point Features:
+  * [PixLoc 2021](https://github.com/cvg/pixloc) end-to-end learn from pose loss.
+  * [Pixel-Perfect SFM 2021](https://github.com/cvg/pixel-perfect-sfm) refine 2d feature position by dense NN descriptor.
+  * [LightGlue 2023](https://github.com/cvg/LightGlue)
+* Privacy-Preserving Geometric Computer Vision.
+* Line Features: [DeepLSD 2023](https://github.com/cvg/DeepLSD), [GlueSticks 2023](https://github.com/cvg/GlueStick) -> [LiMap 2023](https://github.com/cvg/limap).
+* [LaMAR 2022](https://lamar.ethz.ch/) AR Benchmarking.
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Maurice Fallon: Robust Multi-Sensor SLAM with Learning and Sensor Fusion](https://youtu.be/hRs4a1wqnUE?si=JJQI9kVSs6dzkAmx). 3 camera + lidar system.
+* **Lidar-Visual Odometry**:
+  * [VILENS 2021](https://arxiv.org/abs/2107.07243), joint optimization of lidar & visual & imu resiudals.
+  * [Hilti-Oxford SLAM Dataset 2023](https://hilti-challenge.com/index.html).
+* [InstaLoc 2023](https://arxiv.org/abs/2305.09552) through *dense lidar* semantic instances matching.
+* [NavLive 2022](https://www.navlive.co.uk/)
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> **Lidar Vision NeRF**.
+  * Lidar-Camera Calibration - [Extrinsic Calibration of Camera to LIDAR using a **Differentiable Checkerboard Model** 2023].
+  * [SiLVR : Scalable Lidar-Visual Reconstruction with Neural Radiance Fields 2023] nerf + lidar depth + lidar normal.
+* **SLAM + LLMs** : [Language-EXtended Indoor SLAM (LEXIS) 2023](https://arxiv.org/abs/2309.15065) building semantically rich visual maps with LLMs, based on [CLIP](https://github.com/openai/CLIP).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Luca Carlone: From SLAM to Spatial Perception](https://youtu.be/jDume0pA2-Q?si=ASxhNdJt9P7mSyPk). hierarchical representations, certifiable algorithms, and self-supervised learning.
+* Scene Map : [Kimera: Real-time Metric-Semantic SLAM 2021](https://github.com/MIT-SPARK/Kimera). 3D scene underestanding : semantics (**objects, agents, sounds, etc**), relations. [Kimera-Multi 2023](https://github.com/MIT-SPARK/Kimera-Multi), multi-robots.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> Robustness : **Certifiable algorithms** compute an estimate and either certify its optimality, or detect failure. [Kimera-RPGO](https://github.com/MIT-SPARK/Kimera-RPGO)
+  * [ROBIN 2023](https://github.com/MIT-SPARK/ROBIN) based on graph theory to find large sets of compatible measurements and prune gross outliers (used in [TEASER++ 2020](https://github.com/MIT-SPARK/TEASER-plusplus)).
+  * [GNC + ADAPT 2021](https://github.com/MIT-SPARK/GNC-and-ADAPT) graduated non-convexity (to reduce non-convexity of the optimization).
+  * [Certifiable Outlier-Robust Geometric Perception 2022](https://github.com/MIT-SPARK/CertifiablyRobustPerception) semidefinite moment relaxations.
+  * Self-supervised Learning for Certification.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Chen Wang: Imperative SLAM and PyPose Library for Robot Learning](https://youtu.be/_j5tJFC-Gbk?si=LT7GsrC-LnZ-ngJU), [Imperative SLAM 2023](https://sairlab.org/iSLAM/). Take back-end optimization as a supervision signal for the front-end. [PyPose](https://pypose.org/).
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Andrew Davison: Distributed Estimation and Learning for Robotics](https://youtu.be/1pw8xGlWkqI?si=hqQE_grS56dbofqW), [see here for related lecture](/Study/PaperRead/tum_ai/#lAndrew).
+* Reason for the thoughts: (1) Hardware: map the algorithm blocks to hardware; (2) Multi-robot systems.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Gaussian Belief Propagation](https://gaussianbp.github.io/).
+* Robot Web.
+  * Multi-robot localization using Gaussian Belief Propagation.
+  * Multi-robot planning using Gaussian Belief Propagation.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Daniel Cremers: From Monocular SLAM to 3D Dynamic Scene Understanding](https://youtu.be/qQakQ0SZ5wI?si=WpOxk35u2apaS3aZ).
+* Novel Bundle Adjustment. [Super Root BA 2021](https://arxiv.org/abs/2103.01843), [Power BA 2023](https://arxiv.org/abs/2204.12834), [github](https://github.com/NikolausDemmel/rootba).
+* Direct SLAM. LSD-SLAM, DSO, DMVIO, D3VO.
+* Single Image Dense Reconstruction. [MonoRec 2021](https://github.com/Brummi/MonoRec), [Density Fields for Single View 2023](https://fwmb.github.io/bts/).
+* Dynamic 3D scene understanding.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Tim Barfoot: Learning Perception Components for Long Term Path Following](https://youtu.be/G8ic5IMwV_c?si=w187ubEY_h-Y9c0S).
+
+<a name="lrelpose"></a>
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Shubham Tulsiani: Probabilistic Pose Prediction](https://youtu.be/gpQuEVcbog8?si=Y_8jHDkkS-MuBd6K). Objective : 3D object reconstruction. Pose Estimation from few views. **SFM (e.g. Colmap) not robust under sparse-views**. <u>Data-driven learning method.</u>
+* Direct Pose Prediction (end-to-end) try : **failed !**  <n>I think the problem might be with the pose representation, see </n> [Why NeRF work ?](/Study/PaperRead/tum_ai/#lnerf_understanding).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [RelPose++ 2023](https://amyxlase.github.io/relpose-plus-plus/). Probabilistic Pose Prediction: predict the distribution of poses though energy-based model.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Ayoung Kim: Advancing SLAM with Learning](https://youtu.be/iIxQkmfok5Q?si=Mcy_UtRwBVhA7Ycz). (1) Lines. Line Descriptor: [LineRT 2021](https://github.com/yosungho/LineTR); (2) DL + Graph SLAM. Object SLAM : 6dof object pose estimation; (3) Thermal cameras.
+
+[Michael Kaess: Learning for Sonar and Radar SLAM](https://youtu.be/xZn_y7TM1O8?si=dNLG-xo5JAhEg1W6). Camera fails in under-water environments.
+* **Sonar** : projection without elevation. Acoustic SFM. **Epipolar contour**. **Acoustic Bundle Adjustment**.
+  * Sonar Image Correspondence. DL method.
+  * Imaging Sonar Dense Reconstruction.
+* Radar SLAM, provide Doppler velocity also.
