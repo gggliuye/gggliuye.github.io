@@ -126,7 +126,8 @@ More Work are done with Deep Learning.
   * geometry: radius, density, position.  (<n>isotropic version of 3DGS</n>)
   * color: blending model + MLP SH. (<n>Need MLP for each point.</n>)
   * render: (for each pixel) take k nearest points and merge by density. (<n>No alpha blending.</n>)
-
+* <img src="/assets/img/paperread/chrown0.png" height="25"> [Dynamic 3D Gaussians: Tracking by Persistent Dynamic View Synthesis](https://dynamic3dgaussians.github.io/), save point positions & rotations for each timestamp (while scale, and render parameters are shared) - rigid point motion.
+  * **problems** : <n>need simultaneously multi-view collection, and save pcl for each timestamp is memory consuming.</n>
 
 **A generalization of the problem**:
 

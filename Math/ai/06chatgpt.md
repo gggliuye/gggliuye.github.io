@@ -1,18 +1,19 @@
 ---
 layout: page_tree_math
-title: ChatGPT
+title: LLM algorithms
 ---
 
 [link of a port to use ChatGPT](https://www.min2k.com/)
 
 # Table of Contents
 
-1. [Higher Level Discussions](#lhld)
+1. [ChatGPT - Higher Level Discussions](#lhld)
+2. [Algorithm Papers](#papers)
 
 <p></p>
 
 <a name="lhld"></a>
-# 1. Higher Level Discussions
+# 1. ChatGPT - Higher Level Discussions
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [An era of ChatGPT as a significant futuristic support tool: A study on features, abilities, and challenges 2022](https://www.sciencedirect.com/science/article/pii/S2772485923000066)
 
@@ -41,3 +42,8 @@ title: ChatGPT
 * AI-to-AI bridge. [Socratic Models](https://socraticmodels.github.io/), [Wolfram-Alpha & ChatGPT](https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/).
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Large Language Model for Science: A Study on P vs. NP](/2023-09-20-SocraticReasoning/).
+
+<a name="papers"></a>
+# 2. Algorithm Papers
+
+<img src="/assets/img/paperread/chrown.png" height="25"/> [LLaVA: Large Language and Vision Assistant 2023](https://llava-vl.github.io/), Open source LLM, work better for **visual instruction**.

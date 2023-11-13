@@ -18,7 +18,7 @@ title: Math
 
 # [Topology](/Math/topology)
 
-# [Artificial Intelligence](/Math/ai)
+# [Artificial Intelligence](/Math/ai/00index)
 
 # Smooth Manifolds
 
