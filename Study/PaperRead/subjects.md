@@ -399,8 +399,7 @@ Some References:
     * Foreground/Background : color histogram.
     * Sparse probabilistic model : <u>corresponding lines</u> following gaussian distribution.
     * Optimization using second-order Newton optimization with Tikhonov regularization.
-  * [SRT3D: A Sparse Region-Based 3D Object Tracking Approach for the Real World 2021](https://arxiv.org/abs/2110.12715), [github](https://github.com/DLR-RM/3DObjectTracking/tree/master/SRT3D).
-    * A pre-rendered sparse viewpoint model to create a joint posterior probability for the object pose.
+  * [SRT3D: A Sparse Region-Based 3D Object Tracking Approach for the Real World 2021](https://arxiv.org/abs/2110.12715), [github](https://github.com/DLR-RM/3DObjectTracking/tree/master/SRT3D). Add a global local optimization.
   * [ICG - Iterative Corresponding Geometry: Fusing Region and Depth for Highly Efficient 3D Tracking of Textureless Objects 2022](https://arxiv.org/abs/2203.05334): merged region-based and depth-based method. (100Hz in CPU)
     * Sparse Viewpoint Model: contour points and surface points from pre-rendered view point.
     * Region Modality : following previous methods.
@@ -420,15 +419,15 @@ Some References:
 
 **Edge-based method**
 * **Pros & Cons**:
-  * Cons: Cannot handle image blur.
+  * Cons: Cannot handle image blur. Struggle with texture and background clutter.
 * [Combining 3D Model Contour Energy and Keypoints for Object Tracking 2018](https://arxiv.org/abs/2002.01379), (1) initial pose from Kanade–Lucas–Tomasi (KLT) tracker; (2) refine pose using contour energy function (with Basin-Hopping stochastic algorithm), maximizing the image gradient along the projected contours (outer-contours & sharp edges).
 * [Pixel-Wise Weighted Region-Based 3D Object Tracking using Contour Constraints 2021](https://ieeexplore.ieee.org/document/9445817), [github](https://github.com/huanghone/SLCT). project contour by initial pose, and check the foreground-background probability along the normal.
 
 **Direct method**
 * **Pros & Cons**:
-  * Cons: Need Texture. Need perfect 3d model.
+  * Cons: Need Texture. Need perfect 3d model. Have a smaller basin of convergence and less robust to illumination changes.
 * [A Direct Method for Robust Model-Based 3D Object Tracking from a Monocular RGB Image 2016](https://www.semanticscholar.org/paper/A-Direct-Method-for-Robust-Model-Based-3D-Object-a-Seo-Wuest/d4b1db788da22a2e07abcea154f44ff5322ae7ba). directly align image intensity.
-* [DSO 2018](https://github.com/JakobEngel/dso).
+* [DSO 2018](https://github.com/JakobEngel/dso).                  
 
 
 ## 8.2 Deep Learning Methods
