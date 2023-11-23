@@ -2,6 +2,14 @@
   description: My Philosophy learning & reading note.
   img: philo.jpg
   url: ./Philosophy/index
+- title: 3D Object Tracking - 2023
+  description: Monocular 3d object tracking
+  img: object_tracking.gif
+  url: ./Study/PaperRead/subjects/#l3dobjtrack
+- title: Infra-Red State Estimate - 2023
+  description: Infra-Red IMU fusion state estimation
+  img: hand6dof.gif
+  url: ./Study/PaperRead/subjects/#l4
 - title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
   img: vlio.jpg

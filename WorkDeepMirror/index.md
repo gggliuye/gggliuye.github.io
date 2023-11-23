@@ -32,7 +32,7 @@ IR light detection, and fusion with imu measurement by kalman filter. Run with O
 * AR/VR camera tracking in difficult scenes (e.g. inside moving cars).
 
 <div align="center">    
-<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+<img src="/assets/img/screenshots/hand6dof.gif" width="60%"/>
 </div>
 
 <p/><p/>

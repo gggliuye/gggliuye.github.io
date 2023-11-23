@@ -132,7 +132,7 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 * My implementation:
 
 <div align="center">    
-<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+<img src="/assets/img/screenshots/hand6dof.gif" width="60%"/>
 </div>
 
 <a name="l4.2"></a>
