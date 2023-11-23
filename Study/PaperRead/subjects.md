@@ -280,7 +280,7 @@ Some References:
     * Suboptimal depth problem : apply inter-plane interaction.
 
 <figure align="center">
-  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
+  <img src="/assets/img/screenshots/mpi_view_test.gif" width="50%"/>
   <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
 </figure>
 

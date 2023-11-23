@@ -6,14 +6,26 @@
   description: Monocular 3d object tracking
   img: object_tracking.gif
   url: ./Study/PaperRead/subjects/#l3dobjtrack
+- title: AR GLASS in Car - 2023
+  description: Ar glass metaverse application in car.
+  img: ar_glass_car.gif
+  url:
 - title: Infra-Red State Estimate - 2023
   description: Infra-Red IMU fusion state estimation
   img: hand6dof.gif
   url: ./Study/PaperRead/subjects/#l4
+- title: Mulitplane-Images based Spacial Video - 2023
+  description: multi-plane-images based spacial video application (in Phone and VR).
+  img: mpi_view_test.gif
+  url: /Study/PaperRead/subjects/#l6
 - title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
-  img: vlio.jpg
+  img: vlio.gif
   url: ./WorkDeepMirror/lidar_mapping
+- title: AR HUD in Car - 2022
+  description: Ar-hud application in car.
+  img: ar_hud.gif
+  url:
 - title: Lidar Mapping & Fusion - 2021
   description: LVIO Mapping + offline multi-session fusion & optimization.
   img: youfang_mapping.gif
