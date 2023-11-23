@@ -37,7 +37,7 @@
 - title: VIG Mapping - 2021
   description: Image, IMU, Chassis, GNSS fused mapping.
   img: image_mapping.png
-  url: https://youtube.com/playlist?list=PLyGifkCS0NnGanB34u1qHTom1Fg4nAjMh&si=b4Ik-ptVHc57by8C
+  url: ./WorkDeepMirror/lidar_mapping
 - title: Server Localization AR - 2020
   description: Localization in a large prebuilt visual/lidar map with single image & AR application.
   img: vlp_image.jpg
