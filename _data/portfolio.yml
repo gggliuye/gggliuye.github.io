@@ -2,10 +2,30 @@
   description: My Philosophy learning & reading note.
   img: philo.jpg
   url: ./Philosophy/index
+- title: 3D Object Tracking - 2023
+  description: Monocular 3d object tracking
+  img: object_tracking.gif
+  url: ./Study/PaperRead/subjects/#l3dobjtrack
+- title: AR GLASS in Car - 2023
+  description: Ar glass metaverse application in car.
+  img: ar_glass_car.gif
+  url:
+- title: Infra-Red State Estimate - 2023
+  description: Infra-Red IMU fusion state estimation
+  img: hand6dof.gif
+  url: ./Study/PaperRead/subjects/#l4
+- title: Mulitplane-Images based Spatial Video - 2023
+  description: multi-plane-images based spatial video application (in Phone and VR).
+  img: mpi_view_test.gif
+  url: /Study/PaperRead/subjects/#l6
 - title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
-  img: vlio.jpg
+  img: vlio.gif
   url: ./WorkDeepMirror/lidar_mapping
+- title: AR HUD in Car - 2022
+  description: Ar-hud application in car.
+  img: ar_hud.gif
+  url:
 - title: Lidar Mapping & Fusion - 2021
   description: LVIO Mapping + offline multi-session fusion & optimization.
   img: youfang_mapping.gif
@@ -17,7 +37,7 @@
 - title: VIG Mapping - 2021
   description: Image, IMU, Chassis, GNSS fused mapping.
   img: image_mapping.png
-  url: https://youtube.com/playlist?list=PLyGifkCS0NnGanB34u1qHTom1Fg4nAjMh&si=b4Ik-ptVHc57by8C
+  url: ./WorkDeepMirror/lidar_mapping
 - title: Server Localization AR - 2020
   description: Localization in a large prebuilt visual/lidar map with single image & AR application.
   img: vlp_image.jpg

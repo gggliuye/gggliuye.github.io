@@ -19,6 +19,7 @@ title: Other Specific Subjects
 5. [Continuous-Time Batch Calibration](#l5)
 6. [Image-based Rendering - MPIs](#l6)
 7. [ICCV 23](#liccv23)
+8. [3D Object Tracking](#l3dobjtrack)
 
 <p/><p/>
 
@@ -131,7 +132,7 @@ Anti-Aliasing is important when converting panorama images to pinhole images.
 * My implementation:
 
 <div align="center">    
-<video src="/assets/video/work/hand6dof_0512.mp4" controls="controls" width="60%"></video>
+<img src="/assets/img/screenshots/hand6dof.gif" width="60%"/>
 </div>
 
 <a name="l4.2"></a>
@@ -272,10 +273,14 @@ Some References:
 * [Multiplane Camera 1937](https://en.wikipedia.org/wiki/Multiplane_camera)
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Matching with Transparency and Matting 1998](https://szeliski.org/papers/Szeliski_StereoTransparencyMatting_IJCV99.pdf)
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Crowdsampling The Plenoptic Function 2020](https://research.cs.cornell.edu/crowdplenoptic/), Deep Multi-plane Images. RGBA, and learnable latent feature vector (for time). render is fast. Produce more stable compare to [Nerf-Wild](/Study/PaperRead/3d_reconstruction/#lneural_r).
-* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input. [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train. <img src="/assets/img/paperread/chrown.png" height="25"/> [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [Stereo Magnification: Learning View Synthesis using Multiplane Images 2018](https://tinghuiz.github.io/projects/mpi/), MPIs with stereo input.
+  * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Single-view view synthesis with multiplane images 2020](https://single-view-mpi.github.io/) (32-layers), [github](https://github.com/google-research/google-research/tree/master/single_view_mpi), predict the mutli-plane images from single image. using colmap sparse point cloud and target image (from online videos) to train.
+  * <img src="/assets/img/paperread/chrown.png" height="25"/> [Single-View View Synthesis in the Wild with Learned Adaptive Multiplane Images 2022](https://github.com/yxuhan/AdaMPI) (8-64 layers, <h>pretrained 32&64 are available</h>). trained in wild dataset (COCO) (by mono-depth wrapped images).
+    * MPI over-parameterization problem : use encoder-decoder architecture.
+    * Suboptimal depth problem : apply inter-plane interaction.
 
 <figure align="center">
-  <img src="/assets/img/paperread/mpi_view_test.gif" width="50%"/>
+  <img src="/assets/img/screenshots/mpi_view_test.gif" width="50%"/>
   <figcaption>Single-view view synthesis test with deepmirror office.</figcaption>
 </figure>
 
@@ -349,7 +354,7 @@ Some References:
 * <img src="/assets/img/paperread/chrown0.png" height="25"/> [Gaussian Belief Propagation](https://gaussianbp.github.io/).
 * Robot Web.
   * Multi-robot localization using Gaussian Belief Propagation.
-  * Multi-robot planning using Gaussian Belief Propagation.
+  * Multi-robot planning using Gaus sian Belief Propagation.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Daniel Cremers: From Monocular SLAM to 3D Dynamic Scene Understanding](https://youtu.be/qQakQ0SZ5wI?si=WpOxk35u2apaS3aZ).
 * Novel Bundle Adjustment. [Super Root BA 2021](https://arxiv.org/abs/2103.01843), [Power BA 2023](https://arxiv.org/abs/2204.12834), [github](https://github.com/NikolausDemmel/rootba).
@@ -368,6 +373,73 @@ Some References:
 
 [Michael Kaess: Learning for Sonar and Radar SLAM](https://youtu.be/xZn_y7TM1O8?si=dNLG-xo5JAhEg1W6). Camera fails in under-water environments.
 * **Sonar** : projection without elevation. Acoustic SFM. **Epipolar contour**. **Acoustic Bundle Adjustment**.
-  * Sonar Image Correspondence. DL method.
+  *  Sonar Image Correspondence. DL method.
   * Imaging Sonar Dense Reconstruction.
 * Radar SLAM, provide Doppler velocity also.
+
+<a name="l3dobjtrack"></a>
+# 8. 3D Object Tracking
+
+## 8.1 Traditional Methods
+
+**Region-based method**: <u>region segmentation + optimization.</u> Use color statistics to model the probability that a pixel belongs to the object or to the background. The object pose is then optimized to best explain the segmentation of the image.
+* **Pros & Cons**:
+  * Pros: work for textureless objects. more robust.
+  * Cons: mostly expensive. assuming objects are distinguishable from the background.
+* Two-stage method. (1) segmentation finding the contour; (2) contour points to rays (plucker representation), match the rays with 3d object.
+* **One-stage method**. <img src="/assets/img/paperread/chrown0.png" height="25"/> [PWP3D: Real-time Segmentation and Tracking of 3D Objects 2012](https://www.robots.ox.ac.uk/~victor/pdfs/prisacariu_reid_ijcv2012_draft.pdf): optimization of the pose, based on the fore-back-ground field (using SDF). (similar to a direct method but works on SDF field)
+  * problem define: maximizing the energy function, w.r.t. pose, $$E(\Phi) = - \sum_{x\in \Omega} log(H_{e}(\Phi)P_{f} + (1- H_{e}(\Phi))P_{b}) $$, with $$\Phi$$ the SDF from the projected object.
+  * optimization. (<u>with great evaluation of different choices</u>)
+    * gradient descent. use small step (to avoid jump over minima). <u>Final choice</u>.
+    * conjugate gradient, (1) use Hessian as preconditional matrix; (2) evaluate the energy sometime, to check if steepest descent is needed to reset. a bit fast for translation, but slow for rotation (compared to gradient descent).
+
+
+* <img src="/assets/img/paperread/chrown.png" height="25"/> **Sparse method** & [3DObjectTracking : DLR-RM](https://github.com/DLR-RM/3DObjectTracking):
+  * [RBGT: A Sparse Gaussian Approach to Region-Based 6DoF Object Tracking 2020](https://github.com/DLR-RM/3DObjectTracking/tree/master/RBGT).
+    * Foreground/Background : color histogram.
+    * Sparse probabilistic model : <u>corresponding lines</u> following gaussian distribution.
+    * Optimization using second-order Newton optimization with Tikhonov regularization.
+  * [SRT3D: A Sparse Region-Based 3D Object Tracking Approach for the Real World 2021](https://arxiv.org/abs/2110.12715), [github](https://github.com/DLR-RM/3DObjectTracking/tree/master/SRT3D). Add a global local optimization.
+  * [ICG - Iterative Corresponding Geometry: Fusing Region and Depth for Highly Efficient 3D Tracking of Textureless Objects 2022](https://arxiv.org/abs/2203.05334): merged region-based and depth-based method. (100Hz in CPU)
+    * Sparse Viewpoint Model: contour points and surface points from pre-rendered view point.
+    * Region Modality : following previous methods.
+    * Depth Modality : point-to-plane ICP.
+  * [ICG+ - Fusing Visual Appearance and Geometry for Multi-modality 6DoF Object Tracking 2023](https://arxiv.org/abs/2302.11458). Add texture information to previous version : minimize reprojection errors between points from the current image and keyframes.
+  * [Mb-ICG -  A Multi-body Tracking Framework - From Rigid Objects to Kinematic Structures 2023](https://arxiv.org/abs/2208.01502), multi-body (jointly connected robot) tracking using ICG+, <u>an optimization framework combining Netwon optimization with body jacobiabns</u>.
+
+**Depth-based method**: minimize the distance between the surface of a 3D model and measurements from a depth camera.
+* **Pros & Cons**:
+  * Cons: Depth sensor is required.
+* (1) point-to-plane ICP based. (2) SDF based. (3) Particle filter, Gaussian filters.
+
+**Keypoint-based method** image feature extraction and match.
+* **Pros & Cons**:
+  * Cons: Need Texture. Heavy.
+* SIFT, BRISK, LIFT, SuperGlue, etc.
+
+**Edge-based method**
+* **Pros & Cons**:
+  * Cons: Cannot handle image blur. Struggle with texture and background clutter.
+* [Combining 3D Model Contour Energy and Keypoints for Object Tracking 2018](https://arxiv.org/abs/2002.01379), (1) initial pose from Kanade–Lucas–Tomasi (KLT) tracker; (2) refine pose using contour energy function (with Basin-Hopping stochastic algorithm), maximizing the image gradient along the projected contours (outer-contours & sharp edges).
+* [Pixel-Wise Weighted Region-Based 3D Object Tracking using Contour Constraints 2021](https://ieeexplore.ieee.org/document/9445817), [github](https://github.com/huanghone/SLCT). project contour by initial pose, and check the foreground-background probability along the normal.
+
+**Direct method**
+* **Pros & Cons**:
+  * Cons: Need Texture. Need perfect 3d model. Have a smaller basin of convergence and less robust to illumination changes.
+* [A Direct Method for Robust Model-Based 3D Object Tracking from a Monocular RGB Image 2016](https://www.semanticscholar.org/paper/A-Direct-Method-for-Robust-Model-Based-3D-Object-a-Seo-Wuest/d4b1db788da22a2e07abcea154f44ff5322ae7ba). directly align image intensity.
+* [DSO 2018](https://github.com/JakobEngel/dso).                  
+
+
+## 8.2 Deep Learning Methods
+
+6DoF Pose Estimation.
+* [DenseFusion: 6D Object Pose Estimation by Iterative Dense Fusion 2019](https://github.com/j96w/DenseFusion). *RGBD* based combined with PointNet.
+* [6-PACK: Category-level 6D Pose Tracker with Anchor-Based Keypoints 2019](https://sites.google.com/view/6packtracking), *RGBD* 3D keypoints tracking.
+* [CenterPose: Single-Stage Keypoint-based Category-level Object Pose Estimation from an RGB Image 2022](https://sites.google.com/view/centerpose) (*NVIDIA*). Point based structrue representation (similar to 3D bounding box). using ConvGRU feature association.
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [OnePose++: Keypoint-Free One-Shot Object Pose Estimation without CAD Models 2022](https://zju3dv.github.io/onepose_plus_plus/) (**object-SfM**). (1) Extaction of 3d feature points from object (built with SfM); (2) 2D-3D dense feature match GNN, for feature matching. (3) PnP pose estimation.
+
+With Tracking.
+* [se(3)-TrackNet: Data-driven 6D Pose Tracking by Calibrating Image Residuals in Synthetic Domains 2020](https://arxiv.org/abs/2007.13866) (pure tracking). predict the relative pose between object renderings and subsequent images.
+* [PoseRBPF: A Rao-Blackwellized Particle Filter for 6D Object Pose Tracking 2020](https://github.com/NVlabs/PoseRBPF) (*NVIDIA*).
+* <img src="/assets/img/paperread/chrown0.png" height="25"/> [CenterPoseTrack: Keypoint-Based Category-Level Object Pose Tracking from an RGB Sequence with Uncertainty Estimation 2022](https://sites.google.com/view/centerposetrack) (*NVIDIA*). Predction of CenterPose are rendered + Previous result -> Kalman filter + Bayesian Filter -> Verify (with a network).
+* [BundleSDF: Neural 6-DoF Tracking and 3D Reconstruction of Unknown Objects 2023](https://bundlesdf.github.io/) (*NVIDIA*). Neural SFM + Neural SDF.
