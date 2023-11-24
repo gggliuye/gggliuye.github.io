@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Looking at the Lorenz Attractor</title>
+      <style>
+        body { margin: 0; }
+        .label {
+          font-family:      Helvetica, sans-serif;
+          font-size:        12px;
+          padding-top:      3px;
+          padding-left:     3px;
+        }
+        .inputBox {
+          border-width:     thin;
+          border-color:     #000;
+          border-style:     solid;
+          border-radius:    5px;
+          margin-top:       0px;
+          margin-bottom:    0px;
+          background-color: #ddd;
+          width:            190px;
+        }
+        .button {
+          height:           15px;
+          padding-top:      3px;
+          width:            88px;
+          text-align:       center;
+        }
+      </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" integrity="sha512-/WaZCC76Yn6MLEoK6b9np9yiLBet/RngBS33X1P0SHuag6j2E0e5rT7jbA2CvXCydN6+FkDYNx8FBM+vkzsthw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="LorenzEquations.js"></script>
+<script src="LorenzEquations_UI.js"></script>
+<script src="LorenzEquations_InitCond.js"></script>
+
+<script>
+// Add a wide left margin so that the contents seem centered
+function CenterContents () {
+  var leftMargin = (window.innerWidth - 650) / 2;
+  if (leftMargin > 0) {
+    var contents = document.getElementById ('contents');
+    contents.style.marginLeft = leftMargin + 'px';
+  }
+}
+
+// Also re-center the contents when the page was resized...
+window.addEventListener ('resize', CenterContents);
+
+window.addEventListener ('load', function()
+{
+    CenterContents ();
+
+    // Set the callbacks...
+    document.getElementById ('startBtn').addEventListener ('click', OnStartBtnClickCB);
+    document.getElementById ('startBtn').addEventListener ('mouseenter', OnStartBtnEnterCB);
+    document.getElementById ('startBtn').addEventListener ('mouseleave', OnStartBtnLeaveCB);
+
+    document.getElementById ('resetBtn').addEventListener ('click', OnResetBtnClickCB);
+    document.getElementById ('resetBtn').addEventListener ('mouseenter', OnResetBtnEnterCB);
+    document.getElementById ('resetBtn').addEventListener ('mouseleave', OnResetBtnLeaveCB);
+
+    document.getElementById ('pntGeomList').addEventListener ('change', OnPntGeomListCB);
+
+    document.getElementById ('numPntList').addEventListener ('change', OnNumPntListCB);
+
+    document.getElementById ('pntSpacingSlider').addEventListener ('change', OnPntSpacingSliderCB);
+    document.getElementById ('pntSpacingSlider').addEventListener ('input', OnPntSpacingSliderCB);
+
+    document.getElementById ('xInitPosSlider').addEventListener ('change', OnInitPosSliderCB);
+    document.getElementById ('xInitPosSlider').addEventListener ('input', OnInitPosSliderCB);
+    document.getElementById ('yInitPosSlider').addEventListener ('change', OnInitPosSliderCB);
+    document.getElementById ('yInitPosSlider').addEventListener ('input', OnInitPosSliderCB);
+    document.getElementById ('zInitPosSlider').addEventListener ('change', OnInitPosSliderCB);
+    document.getElementById ('zInitPosSlider').addEventListener ('input', OnInitPosSliderCB);
+
+    document.getElementById ('showCriticalPntsChkBox').addEventListener ('click', OnShowCriticalPntsChkBoxCB);
+    document.getElementById ('curveLengthList').addEventListener ('change', OnCurveLengthListCB);
+    document.getElementById ('compRateList').addEventListener ('change', OnCompRateListCB);
+    document.getElementById ('compRateList').addEventListener ('input', OnCompRateListCB);
+    document.getElementById ('rotSpeedSlider').addEventListener ('change', OnRotSpeedSliderCB);
+    document.getElementById ('rotSpeedSlider').addEventListener ('input', OnRotSpeedSliderCB);
+
+    // Initialize... Make the 3D elements
+    init ();
+});
+</script>
+
+  </head>
+  <body>
+    <div id='contents'>
+      <div style='height:3pt'></div>
+      <div id='controls' style='float:left;margin-right:7px;margin-left:3px'>
+      <div>
+        <div id='startBtn' class='inputBox label button' style='float:left;margin-right:3px;color:#fff;background-color:#009933'>Start</div>
+        <div id='resetBtn' class='inputBox label button' style='float:right;color:#fff;background-color:#0080ff'>Reset</div>
+      </div>
+      <div style='height:3pt;clear:both'></div>
+
+      <div class='inputBox' style='height:45px;padding-top:3px'>
+          <div class='label' style='float: left'>Equation parameters: </div>
+          <div class='label' style='float:left;padding-top:10px'>
+              <span style='margin-left:10px;margin-top:1px'>&sigma; = 10 </span>
+              <span style='margin-left:20px;'>&beta; = 8/3</span>
+              <span style='margin-left:20px;'>&rho; = 28</span>
+          </div>
+      </div>
+      <div style='height:3pt;clear:both'></div>
+
+      <div class='inputBox' style='height:85px;padding-top:3px'>
+          <div>
+              <div class='label' style='float:left'>Point geometry:</div>
+              <select class='label' id='pntGeomList' name='pntGeomList' style='width:90px;float:right;margin-right:3px'>
+                  <option value='1' selected> Along x axis</option>
+                  <option value='2'> Along y axis</option>
+                  <option value='3'> Along z axis</option>
+              </select>
+          </div>
+          <div style='height:3px;clear:both'></div>
+          <div>
+              <div class='label' style='float:left'>Number points:</div>
+              <select class='label' id='numPntList' name='numPntList' style='width:90px;float:right;margin-right:3px'>
+                  <option value='1'> 1 </option>
+                  <option value='2'> 2 </option>
+                  <option value='3' selected> 3 </option>
+                  <option value='4'> 4 </option>
+                  <option value='5'> 5 </option>
+              </select>
+          </div>
+          <div style='height:3px;clear:both'></div>
+          <div>
+              <div class='label' style='float:left'>Point spacing: </div>
+              <output id='pntSpacingOutput' class='label' style='width:40px;float:right;text-align:center;'>0.5</output>
+              <input id='pntSpacingSlider' style='width:175px' type='range' min='-5' max='5' step='0.01' value='0.5'/>
+          </div>
+      </div>
+
+      <div style='height:3pt'></div>
+
+      <div class='inputBox' style='height:80px;padding-top:3px'>
+          <div>
+              <div class='label' style='float:left'>Initial position: </div>
+              <output id='initPosOutput' class='label' style='width:100px;float:right;text-align:center;'>(1.0, 2.0, 3.0)</output>
+          </div>
+          <div style='clear:both'></div>
+          <div>
+              <div class='label' style='float:left;margin-left:10px'>x:</div>
+              <input id='xInitPosSlider' style='width:155px;float:right' type='range' min='-30' max='30' step='0.1' value='1.0'/>
+          </div>
+          <div style='clear:both'></div>
+          <div>
+              <div class='label' style='float:left;margin-left:10px'>y:</div>
+              <input id='yInitPosSlider' style='width:155px;float:right' type='range' min='-30' max='30' step='0.1' value='2.0'/>
+          </div>
+          <div style='clear:both'></div>
+          <div>
+              <div class='label' style='float:left;margin-left:10px'>z:</div>
+              <input id='zInitPosSlider' style='width:155px;float:right' type='range' min='-30' max='30' step='0.1' value='3.0'/>
+          </div>
+      </div>
+
+      <div style='height:8pt'></div>
+
+      <div class='inputBox' style='height:20px'>
+          <div class='label' style='float:left'>Show Critical Points: </div>
+          <input type='checkbox' id='showCriticalPntsChkBox' style='float:right;margin-right:5px'>
+      </div>
+
+      <div style='height:3pt'></div>
+
+      <div class='inputBox' style='height:40px;padding-top:3px'>
+          <div class='label' style='float:left'>Rotation Speed: </div>
+          <output id='rotSpeedOutput' class='label' style='width:30px;float:right;text-align:center;'>3</output>
+          <input id='rotSpeedSlider' style='width:175px' type='range' min='-10' max='10' step='1' value='3'/>
+      </div>
+
+      <div style='height:3pt'></div>
+
+      <div class='inputBox' style='height:25px;padding-top:3px'>
+          <div class='label' style='float:left'>Computation Rate: </div>
+          <select class='label' id='compRateList' name='compRateList' style='width:70px;float:right;margin-right:3px'>
+              <option value='-5'> 5 frames per step </option>
+              <option value='-2'> 2 frames per step </option>
+              <option value='1' selected> 1 step per frame</option>
+              <option value='2'> 2 steps per frame</option>
+              <option value='5'> 5 steps per frame</option>
+          </select>
+      </div>
+
+      <div style='height:3pt'></div>
+
+      <div class='inputBox' style='height:25px;padding-top:3px'>
+          <div class='label' style='float:left'>Curve Length: </div>
+          <select class='label' id='curveLengthList' name='curveLengthList' style='width:70px;float:right;margin-right:3px'>
+              <option value='25'> 25 </option>
+              <option value='100'> 100 </option>
+              <option value='1000'> 1000 </option>
+              <option value='2000' selected> 2000 </option>
+              <option value='5000'> 5000 </option>
+          </select>
+      </div>
+
+    </div>
+    <div style='float:left; position:relative;display:inline-block;border-width:thin;border-color:#000;border-style:solid'>
+        <div id='drawingArea'> </div>
+    </div>
+  </div>
+  </body>
+
+</html>
