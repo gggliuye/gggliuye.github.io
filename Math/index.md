@@ -24,9 +24,7 @@ title: Math
 
 * Berkeley MA214, [Book Smooth Manifolds](https://math.berkeley.edu/~jchaidez/materials/reu/lee_smooth_manifolds.pdf), [My Notes](https://drive.google.com/drive/folders/1KE0TUxWXaeIlvXJ7faiJi4rmUDG_W4Vc?usp=sharing).
 
-# Dynamical Systems
-
-* [ICTP](https://mediacore.ictp.it/categories/differential-equations-and-dynamical-systems/latest), [Dynamical Systems - Stefano Luzzatto](https://www.youtube.com/watch?v=stbpUXA6Mow&list=PLLq_gUfXAnkmC-VWIJ_HW8cdOZLEtHfXJ), [My Notes](https://drive.google.com/file/d/1UcKqtNIxhNVbjkpccYxVHoh3lrEIUxvX/view?usp=sharing).
+# [Dynamical Systems](/Math/NDS)
 
 <p/><p/>
 
