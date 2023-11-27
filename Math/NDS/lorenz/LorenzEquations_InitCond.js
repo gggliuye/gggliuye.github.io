@@ -308,11 +308,59 @@ function updatePositions() {
   }
 }
 
+function plot2d() {
+
+  const idxs = [];
+  for (let x = 0; x <= _xValues[0].length; x += 1) {
+    idxs.push(x);
+  }
+
+  let plot_datas = [] for (var j = 0; j < _nMaxCurves; j++) {
+    if (j < _nNumInitPoints) {
+      plot_datas.push({
+        x : idxs,
+        y : _xValues[j],
+        mode : "lines",
+        name : "x_axis",
+        xaxis : 'id',
+        yaxis : 'y1'
+      });
+      plot_datas.push({
+        x : idxs,
+        y : _yValues[j],
+        mode : "lines",
+        name : "y_axis",
+        xaxis : 'id',
+        yaxis : 'y2'
+      });
+      plot_datas.push({
+        x : idxs,
+        y : _zValues[j],
+        mode : "lines",
+        name : "z_axis",
+        xaxis : 'id',
+        yaxis : 'y3'
+      });
+    }
+  }
+
+  Plotly.purge('myPlot');
+
+  const layout = {
+    title : "plot the axis values",
+    yaxis1 : {domain : [ 0, 0.3 ], anchor : 'y'},
+    yaxis2 : {domain : [ 0.35, 0.65 ], anchor : 'y'},
+    yaxis3 : {domain : [ 0.7, 1.0 ], anchor : 'y'},
+  };
+  Plotly.newPlot("myPlot", plot_datas, layout);
+}
+
 //
 // render: Force an update of the scene
 //
 function render() {
   _3DRenderer.render(_3DScene, _3DCamera);
+  plot2d();
 }
 
 //

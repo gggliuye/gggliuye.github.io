@@ -30,6 +30,7 @@
         }
       </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" integrity="sha512-/WaZCC76Yn6MLEoK6b9np9yiLBet/RngBS33X1P0SHuag6j2E0e5rT7jbA2CvXCydN6+FkDYNx8FBM+vkzsthw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="LorenzEquations.js"></script>
 <script src="LorenzEquations_UI.js"></script>
 <script src="LorenzEquations_InitCond.js"></script>
@@ -37,11 +38,11 @@
 <script>
 // Add a wide left margin so that the contents seem centered
 function CenterContents () {
-  var leftMargin = (window.innerWidth - 500) / 2;
-  if (leftMargin > 0) {
-    var contents = document.getElementById ('contents');
-    contents.style.marginLeft = leftMargin + 'px';
-  }
+  // var leftMargin = (window.innerWidth - 500) / 2;
+  // if (leftMargin > 0) {
+  //   var contents = document.getElementById ('contents');
+  //   contents.style.marginLeft = leftMargin + 'px';
+  // }
 }
 
 // Also re-center the contents when the page was resized...
@@ -178,9 +179,9 @@ window.addEventListener ('load', function()
       <div class='inputBox' style='height:25px;padding-top:3px'>
           <div class='label' style='float:left'>Computation Rate: </div>
           <select class='label' id='compRateList' name='compRateList' style='width:70px;float:right;margin-right:3px'>
-              <option value='1' selected> 1 step per frame</option>
-              <option value='2'> 2 steps per frame</option>
-              <option value='5'> 5 steps per frame</option>
+              <option value='1'> 1 step per frame</option>
+              <option value='3' selected> 3 steps per frame</option>
+              <option value='8'> 8 steps per frame</option>
           </select>
       </div>
 
@@ -201,6 +202,10 @@ window.addEventListener ('load', function()
     <div style='float:left; position:relative;display:inline-block;border-width:thin;border-color:#000;border-style:solid'>
         <div id='drawingArea'> </div>
     </div>
+    <div style='float:left; position:relative;display:inline-block;border-width:thin;border-color:#000;border-style:solid; margin-left:7px'>
+        <div id="myPlot" style="width:30%;max-width:500px"></div>
+    </div>
+
   </div>
   </body>
 
