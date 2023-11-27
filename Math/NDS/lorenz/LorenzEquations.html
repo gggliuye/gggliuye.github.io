@@ -37,7 +37,7 @@
 <script>
 // Add a wide left margin so that the contents seem centered
 function CenterContents () {
-  var leftMargin = (window.innerWidth - 650) / 2;
+  var leftMargin = (window.innerWidth - 500) / 2;
   if (leftMargin > 0) {
     var contents = document.getElementById ('contents');
     contents.style.marginLeft = leftMargin + 'px';
@@ -85,8 +85,7 @@ window.addEventListener ('load', function()
     init ();
 });
 </script>
-
-  </head>
+</head>
   <body>
     <div id='contents'>
       <div style='height:3pt'></div>
@@ -179,8 +178,6 @@ window.addEventListener ('load', function()
       <div class='inputBox' style='height:25px;padding-top:3px'>
           <div class='label' style='float:left'>Computation Rate: </div>
           <select class='label' id='compRateList' name='compRateList' style='width:70px;float:right;margin-right:3px'>
-              <option value='-5'> 5 frames per step </option>
-              <option value='-2'> 2 frames per step </option>
               <option value='1' selected> 1 step per frame</option>
               <option value='2'> 2 steps per frame</option>
               <option value='5'> 5 steps per frame</option>

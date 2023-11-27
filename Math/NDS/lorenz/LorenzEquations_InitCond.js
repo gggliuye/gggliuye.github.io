@@ -11,7 +11,8 @@
 // Instead of using the entire window, use a fixed size since we have
 // performance issues from using an older machine that doesn't have decent 3D
 // capabilities
-const _CanvasSize = 450;
+const _CanvasWidth = 300;
+const _CanvasHeight = 450;
 
 const _nMaxCurves = 5;
 
@@ -210,14 +211,14 @@ function init() {
 
   // camera
   _3DCamera = new THREE.PerspectiveCamera(
-      75, window.innerWidth / window.innerHeight, 0.1, 300);
+      75, _CanvasWidth / _CanvasHeight, 0.1, 300);
   _3DCamera.position.set(_CamView[0], _CamView[1], _CamView[2]);
 
   // renderer
   _3DRenderer = new THREE.WebGLRenderer({antialias : true});
   _3DRenderer.setClearColor(_BackGroundColour);
   _3DRenderer.setPixelRatio(window.devicePixelRatio);
-  _3DRenderer.setSize(_CanvasSize, _CanvasSize);
+  _3DRenderer.setSize(_CanvasWidth, _CanvasHeight);
 
   // append the renderer to the html document
   document.getElementById('drawingArea').appendChild(_3DRenderer.domElement);
@@ -310,7 +311,9 @@ function updatePositions() {
 //
 // render: Force an update of the scene
 //
-function render() { _3DRenderer.render(_3DScene, _3DCamera); }
+function render() {
+  _3DRenderer.render(_3DScene, _3DCamera);
+}
 
 //
 // animate: used to handle each update... basically, recompute the solution,
