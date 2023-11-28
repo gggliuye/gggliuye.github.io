@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Looking at the Infinite-period Bifurcation</title>
+      <style>
+        body { margin: 0; }
+      </style>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+// Add a wide left margin so that the contents seem centered
+function CenterContents () {
+  var leftMargin = (window.innerWidth - 700) / 2;
+  if (leftMargin > 0) {
+    var contents = document.getElementById ('contents');
+    contents.style.marginLeft = leftMargin + 'px';
+  }
+}
+
+function plot2d() {
+  const idxs = [];
+  const values_x = [];
+  const values_y = [];
+
+  let r = 0.5;
+  let theta = 0;
+  let mu = 1.01;
+  let dt = 0.1;
+  for (let t = 0; t <= 200; t += dt) {
+    idxs.push(t);
+    r = r + dt * r * (1 - r * r);
+    theta = theta + dt * (mu - Math.sin(theta));
+    values_x.push(r * Math.cos(theta));
+    values_y.push(r * Math.sin(theta));
+  }
+
+  let plot_datas = [];
+  plot_datas.push({
+    x : idxs,
+    y : values_x,
+    mode : "lines",
+    name : "x_axis",
+    xaxis : 'x1',
+    yaxis : 'y1'
+  });
+  plot_datas.push({
+    x : idxs,
+    y : values_y,
+    mode : "lines",
+    name : "y_axis",
+    xaxis : 'x2',
+    yaxis : 'y2'
+  });
+
+  const layout = {
+    title : "plot the axis values, with μ = " + mu,
+    xaxis1 : {domain : [ 0, 0.45 ], anchor : 'x'},
+    xaxis2 : {domain : [ 0.55, 1.0 ], anchor : 'x'},
+    margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
+  };
+  Plotly.newPlot("myPlot", plot_datas, layout);
+}
+
+// Also re-center the contents when the page was resized...
+window.addEventListener ('resize', CenterContents);
+
+window.addEventListener ('load', function() {
+  plot2d();
+  CenterContents();
+});
+
+
+</script>
+</head>
+  <body>
+    <div id='contents'>
+      <div id="myPlot" style="width:700px;height:265px;"></div>
+    </div>
+  </body>
+
+</html>

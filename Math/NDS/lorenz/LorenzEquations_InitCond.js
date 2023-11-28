@@ -275,7 +275,7 @@ function init() {
   ResetSolution();
 
   // Force redraw...
-  render();
+  render(true);
 }
 
 //
@@ -308,14 +308,19 @@ function updatePositions() {
   }
 }
 
-function plot2d() {
+let _cntPlot2d = 0;
+function plot2d(force_update) {
+  _cntPlot2d += 1;
+  if (!force_update && _cntPlot2d % 2)
+    return; // update 2d in lower frequence
 
   const idxs = [];
   for (let x = 0; x <= _xValues[0].length; x += 1) {
     idxs.push(x);
   }
 
-  let plot_datas = [] for (var j = 0; j < _nMaxCurves; j++) {
+  let plot_datas = [];
+  for (var j = 0; j < _nMaxCurves; j++) {
     if (j < _nNumInitPoints) {
       plot_datas.push({
         x : idxs,
@@ -351,6 +356,7 @@ function plot2d() {
     yaxis1 : {domain : [ 0, 0.3 ], anchor : 'y'},
     yaxis2 : {domain : [ 0.35, 0.65 ], anchor : 'y'},
     yaxis3 : {domain : [ 0.7, 1.0 ], anchor : 'y'},
+    margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
   };
   Plotly.newPlot("myPlot", plot_datas, layout);
 }
@@ -358,9 +364,9 @@ function plot2d() {
 //
 // render: Force an update of the scene
 //
-function render() {
+function render(force_update = false) {
   _3DRenderer.render(_3DScene, _3DCamera);
-  plot2d();
+  plot2d(force_update);
 }
 
 //

@@ -77,7 +77,7 @@ function OnResetBtnClickCB() {
     ResetSolution();
     updatePositions();
 
-    render();
+    render(true);
   }
 }
 
