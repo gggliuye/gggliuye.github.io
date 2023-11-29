@@ -31,6 +31,7 @@ const _PntColours = [ '#0070e0', '#7000e0', '#e00070', '#e07000', '#458a00' ];
 // Default positions used for the camera and the geometry
 const _CamView = [ 0, 0, 60 ];
 const _GeomPos = [ 0, -20, 0 ];
+const _RotationRadius = [ 0, -100, -1000 ];
 
 // Used when drawing the critical points.  The point sizes are computed based on
 // these values.
@@ -44,7 +45,7 @@ const _Default_PntSpacing = 0.5;
 const _Default_XInitPos = 1.0;
 const _Default_YInitPos = 2.0;
 const _Default_ZInitPos = 3.0;
-const _Default_nCurrRho = 3;
+const _Default_nCurrRho = 4;
 //
 // Variables...
 //
@@ -63,8 +64,8 @@ var _geomCont;
 // Sigma, Beta, and Rho... the parameters to the Lorenz equation
 const _dSigma = 10;
 const _dBeta = 8 / 3;
-const _dRho = [ 0.5, 13, 22.3, 28, 99.65, 100.75 ];
-var _nCurrRho = 3;
+const _dRho = [ 0.5, 13, 22.3, 24.5, 28, 99.65, 100.75, 350 ];
+var _nCurrRho = 4;
 
 var _IsPlaying = _PlayMode_STOPPED;
 var _AnimFrameId;
@@ -210,8 +211,8 @@ function init() {
   _3DScene = new THREE.Scene();
 
   // camera
-  _3DCamera = new THREE.PerspectiveCamera(
-      75, _CanvasWidth / _CanvasHeight, 0.1, 300);
+  _3DCamera =
+      new THREE.PerspectiveCamera(75, _CanvasWidth / _CanvasHeight, 0.1, 10000);
   _3DCamera.position.set(_CamView[0], _CamView[1], _CamView[2]);
 
   // renderer

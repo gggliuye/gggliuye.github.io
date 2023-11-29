@@ -79,9 +79,8 @@ window.addEventListener ('load', function()
     document.getElementById ('showCriticalPntsChkBox').addEventListener ('click', OnShowCriticalPntsChkBoxCB);
     document.getElementById ('curveLengthList').addEventListener ('change', OnCurveLengthListCB);
     document.getElementById ('compRateList').addEventListener ('change', OnCompRateListCB);
-    document.getElementById ('compRateList').addEventListener ('input', OnCompRateListCB);
     document.getElementById ('rotSpeedSlider').addEventListener ('change', OnRotSpeedSliderCB);
-    document.getElementById ('rotSpeedSlider').addEventListener ('input', OnRotSpeedSliderCB);
+    document.getElementById ('rotRadiusList').addEventListener ('change', OnRotRadiusListCB);
 
     // Initialize... Make the 3D elements
     init ();
@@ -108,9 +107,11 @@ window.addEventListener ('load', function()
                 <option value='0'> 0.5 </option>
                 <option value='1'> 13  </option>
                 <option value='2'> 22.3 </option>
-                <option value='3' selected> 28 </option>
-                <option value='4'> 99.65 </option>
-                <option value='5'> 100.75 </option>
+                <option value='3'> 24.5 </option>
+                <option value='4' selected> 28 </option>
+                <option value='5'> 99.65 </option>
+                <option value='6'> 100.75 </option>
+                <option value='7'> 350 </option>
             </select>
           </div>
       </div>
@@ -177,10 +178,16 @@ window.addEventListener ('load', function()
 
       <div style='height:3pt'></div>
 
-      <div class='inputBox' style='height:40px;padding-top:3px'>
+      <div class='inputBox' style='height:60px;padding-top:3px'>
           <div class='label' style='float:left'>Rotation Speed: </div>
           <output id='rotSpeedOutput' class='label' style='width:30px;float:right;text-align:center;'>3</output>
           <input id='rotSpeedSlider' style='width:175px' type='range' min='-10' max='10' step='1' value='3'/>
+          <div class='label' style='float:left'>Rotation Radius: </div>
+          <select class='label' id='rotRadiusList' name='rotRadiusList' style='width:60px;float:right;padding-top:0px'>
+              <option value='0' selected> 0 </option>
+              <option value='1'> 100  </option>
+              <option value='2'> 1000 </option>
+          </select>
       </div>
 
       <div style='height:3pt'></div>

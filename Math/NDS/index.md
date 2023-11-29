@@ -31,10 +31,13 @@ One commonly used set of constants is a = 10, b = 28, c = 8 / 3. Another is a = 
 
 * $ 0 < \rho \le 1$ : 0 is the asymptotically stable critical point - the system converges to zero.
 * $ 1 < \rho < 13.926 $ : Depending on the initial values, the solution will quickly converge to one of the critical points.
-* $ 13.926<\rho<24.74 $ : Depending on the size of ρ, the system will ‘dance’ around the critical points for a while, and then eventually will converge to one of the critical points.
-* $ \rho > 24.74 $ : The famous Lorenz attractor!
+* $ \rho = 13.926 $ : **homoclinic explosions**. a complicated invariant set is born.
+* $ 13.926<\rho<24.06 $ : **transient chaos**, the system is not "chaotic", because long-term behavior is not aperiodic. On the other hand the dynamics do exhibit sensitive dependence on initial conditions.
+* $ 24.06<\rho<24.74 $ :  **two types of attractors** : fixed points and a strange attractor. (large perturbation can knock from one to another).
+* $ \rho > 24.74 $ : The famous **Lorenz attractor**!
 * $ \rho ≈ 99.65 $ : There is a stable 6-period orbit in the form $a^{2}ba^{2}b$.
 * $ \rho ≈ 100.75 $ : There is a stable 3-period orbit $a^{2}b$, that is it spirals around one critical point once and the other twice.
+* $ \rho > 313 $ : has a globally attraction limit cycle.
 
 <!-- iframe plugin v.4.5 wordpress.org/plugins/iframe/ -->
 <iframe src="lorenz/LorenzEquations.html" height="465px" width="100%" scrolling="yes" class="iframe-class" frameborder="0"></iframe>

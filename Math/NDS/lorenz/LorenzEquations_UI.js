@@ -119,8 +119,6 @@ function OnRhoValueListCB() {
   _nCurrStep = 0;
   _CurrCamView = _3DCamera.position;
   _CurrGeomPos = _geomCont.position;
-  _NewCamView = _CamView[_nCurrRho];
-  _NewGeomPos = _GeomPos[_nCurrRho];
 }
 
 //
@@ -220,6 +218,13 @@ function OnRotSpeedSliderCB() {
   document.getElementById('rotSpeedOutput').value = value;
 
   _nRotationSpeedMult = value;
+}
+
+function OnRotRadiusListCB() {
+  var value = +document.getElementById('rotRadiusList').value;
+
+  console.log("OnRotRadiusListCB", _RotationRadius[value]);
+  _geomCont.position.set(_GeomPos[0], _GeomPos[1], _RotationRadius[value]);
 }
 
 //
