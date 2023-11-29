@@ -61,6 +61,7 @@ window.addEventListener ('load', function()
     document.getElementById ('resetBtn').addEventListener ('mouseenter', OnResetBtnEnterCB);
     document.getElementById ('resetBtn').addEventListener ('mouseleave', OnResetBtnLeaveCB);
 
+    document.getElementById ('rhoValueList').addEventListener ('change', OnRhoValueListCB);
     document.getElementById ('pntGeomList').addEventListener ('change', OnPntGeomListCB);
 
     document.getElementById ('numPntList').addEventListener ('change', OnNumPntListCB);
@@ -100,9 +101,17 @@ window.addEventListener ('load', function()
       <div class='inputBox' style='height:45px;padding-top:3px'>
           <div class='label' style='float: left'>Equation parameters: </div>
           <div class='label' style='float:left;padding-top:10px'>
-              <span style='margin-left:10px;margin-top:1px'>&sigma; = 10 </span>
-              <span style='margin-left:20px;'>&beta; = 8/3</span>
-              <span style='margin-left:20px;'>&rho; = 28</span>
+            <span style='margin-left:10px;margin-top:10px'>&sigma; = 10</span>
+            <span style='margin-left:5px;'>&beta; = 8/3</span>
+            <span style='margin-left:5px;margin-right:3px'>&rho; = </span>
+            <select class='label' id='rhoValueList' name='rhoValueList' style='width:60px;float:right;padding-top:0px'>
+                <option value='0'> 0.5 </option>
+                <option value='1'> 13  </option>
+                <option value='2'> 22.3 </option>
+                <option value='3' selected> 28 </option>
+                <option value='4'> 99.65 </option>
+                <option value='5'> 100.75 </option>
+            </select>
           </div>
       </div>
       <div style='height:3pt;clear:both'></div>

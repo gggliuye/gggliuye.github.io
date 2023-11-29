@@ -44,7 +44,7 @@ const _Default_PntSpacing = 0.5;
 const _Default_XInitPos = 1.0;
 const _Default_YInitPos = 2.0;
 const _Default_ZInitPos = 3.0;
-
+const _Default_nCurrRho = 3;
 //
 // Variables...
 //

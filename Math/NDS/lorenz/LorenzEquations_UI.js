@@ -58,6 +58,9 @@ function OnResetBtnClickCB() {
     _nNumInitPoints = _Default_NumPoints;
     document.getElementById('numPntList').value = _nNumInitPoints;
 
+    _nCurrRho = _Default_nCurrRho;
+    document.getElementById('rhoValueList').value = _nCurrRho;
+
     _dInitPntDelta = _Default_PntSpacing;
     document.getElementById('pntSpacingOutput').value = _dInitPntDelta;
     document.getElementById('pntSpacingSlider').value = _dInitPntDelta;
@@ -95,6 +98,29 @@ function OnResetBtnEnterCB() {
 function OnResetBtnLeaveCB() {
   if (_IsPlaying == _PlayMode_STOPPED)
     document.getElementById('resetBtn').style.backgroundColor = '#0080ff';
+}
+
+//
+// OnRhoValueListCB: callback to handle the rho value update drop down list
+//
+function OnRhoValueListCB() {
+  // update rho
+  _nCurrRho = +document.getElementById('rhoValueList').value;
+  _CurrInitPos = 0;
+
+  // reset everything... null out the curves, change the initial positions,
+  // update the text in the window
+  ResetSolution();
+
+  // recompute critical points
+  ComputeCriticalPointPositions(true);
+
+  // update view point / zoom
+  _nCurrStep = 0;
+  _CurrCamView = _3DCamera.position;
+  _CurrGeomPos = _geomCont.position;
+  _NewCamView = _CamView[_nCurrRho];
+  _NewGeomPos = _GeomPos[_nCurrRho];
 }
 
 //
