@@ -38,11 +38,11 @@
 <script>
 // Add a wide left margin so that the contents seem centered
 function CenterContents () {
-  // var leftMargin = (window.innerWidth - 500) / 2;
-  // if (leftMargin > 0) {
-  //   var contents = document.getElementById ('contents');
-  //   contents.style.marginLeft = leftMargin + 'px';
-  // }
+  var leftMargin = (window.innerWidth - 1000) / 2;
+  if (leftMargin > 0) {
+    var contents = document.getElementById ('contents');
+    contents.style.marginLeft = leftMargin + 'px';
+  }
 }
 
 // Also re-center the contents when the page was resized...
@@ -106,12 +106,13 @@ window.addEventListener ('load', function()
             <select class='label' id='rhoValueList' name='rhoValueList' style='width:60px;float:right;padding-top:0px'>
                 <option value='0'> 0.5 </option>
                 <option value='1'> 13  </option>
-                <option value='2'> 22.3 </option>
-                <option value='3'> 24.5 </option>
-                <option value='4' selected> 28 </option>
-                <option value='5'> 99.65 </option>
-                <option value='6'> 100.75 </option>
-                <option value='7'> 350 </option>
+                <option value='2'> 13.926  </option>
+                <option value='3'> 22.3 </option>
+                <option value='4'> 24.5 </option>
+                <option value='5' selected> 28 </option>
+                <option value='6'> 99.65 </option>
+                <option value='7'> 100.75 </option>
+                <option value='9'> 350 </option>
             </select>
           </div>
       </div>

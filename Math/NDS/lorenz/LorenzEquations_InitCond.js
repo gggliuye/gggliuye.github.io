@@ -45,7 +45,7 @@ const _Default_PntSpacing = 0.5;
 const _Default_XInitPos = 1.0;
 const _Default_YInitPos = 2.0;
 const _Default_ZInitPos = 3.0;
-const _Default_nCurrRho = 4;
+const _Default_nCurrRho = 5;
 //
 // Variables...
 //
@@ -64,8 +64,8 @@ var _geomCont;
 // Sigma, Beta, and Rho... the parameters to the Lorenz equation
 const _dSigma = 10;
 const _dBeta = 8 / 3;
-const _dRho = [ 0.5, 13, 22.3, 24.5, 28, 99.65, 100.75, 350 ];
-var _nCurrRho = 4;
+const _dRho = [ 0.5, 13, 13.926, 22.3, 24.5, 28, 99.65, 100.75, 350 ];
+var _nCurrRho = 5;
 
 var _IsPlaying = _PlayMode_STOPPED;
 var _AnimFrameId;
