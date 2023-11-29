@@ -11,7 +11,7 @@
 // Instead of using the entire window, use a fixed size since we have
 // performance issues from using an older machine that doesn't have decent 3D
 // capabilities
-const _CanvasWidth = 300;
+const _CanvasWidth = 500;
 const _CanvasHeight = 450;
 
 const _nMaxCurves = 5;
@@ -77,6 +77,11 @@ var _dCurrZ = [];
 var _xValues = [];
 var _yValues = [];
 var _zValues = [];
+
+var _ZnUpDated = true;
+var _currentZn = null;
+var _lorenzMap_zn = [];
+var _lorenzMap_zn_1 = [];
 
 // Used to keep track of the critial points
 var _CriticalPntPositions = [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ];
@@ -251,9 +256,6 @@ function init() {
   _geomCritPnts.visible = false;
   _geomCont.add(_geomCritPnts);
 
-  //_geomInitPnt = MakeInitialPnts ();
-  //_geomCont.add (_geomInitPnt);
-
   // add some lights...
   var light = new THREE.PointLight(0xffffff, 1, 500);
   light.position.set(10, 0, 25);
@@ -279,10 +281,8 @@ function init() {
   render(true);
 }
 
-//
 // updatePositions: update the solution curve with the current state of the
 // calculations
-//
 function updatePositions() {
   for (var j = 0; j < _nMaxCurves; j++) {
     if (j < _nNumInitPoints) {
@@ -363,20 +363,33 @@ function plot2d(force_update) {
     margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
   };
   Plotly.newPlot("myPlot", plot_datas, layout);
+
+  // plot z(n+1) z(n+1)
+  if (_ZnUpDated) {
+    Plotly.purge('myPlot2');
+
+    let plot_datas_2 = [ {
+      x : _lorenzMap_zn,
+      y : _lorenzMap_zn_1,
+      mode : "markers",
+    } ];
+    const layout_2 = {
+      title : "Lorenz Map",
+      margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
+    };
+    Plotly.newPlot("myPlot2", plot_datas_2, layout_2);
+    _ZnUpDated = false;
+  }
 }
 
-//
 // render: Force an update of the scene
-//
 function render(force_update = false) {
   _3DRenderer.render(_3DScene, _3DCamera);
   plot2d(force_update);
 }
 
-//
 // animate: used to handle each update... basically, recompute the solution,
 //          update the solution curve geometry, and adjust the viewpoint
-//
 function animate() {
   // From mozilla.org... the window.requestAnimationFrame() method tells the
   // browser that you wish to perform an animation and requests that the browser
@@ -410,10 +423,8 @@ function animate() {
   render();
 }
 
-//
 // ResetSolution: Reset the solution... null out any previously saved values,
 //                reset the initial position...
-//
 function ResetSolution() {
   // reset the starting position
   _dCurrX = [];
@@ -422,6 +433,10 @@ function ResetSolution() {
   _xValues = [];
   _yValues = [];
   _zValues = [];
+  _ZnUpDated = true;
+  _currentZn = null;
+  _lorenzMap_zn = [];
+  _lorenzMap_zn_1 = [];
 
   for (var i = 0; i < _nNumInitPoints; i++) {
     _dCurrX.push(_InitPos[i][0]);
@@ -435,9 +450,7 @@ function ResetSolution() {
   }
 }
 
-//
 // ComputeCriticalPointPositions: recompute the critical point positions
-//
 function ComputeCriticalPointPositions(updateGeom = false) {
   // Note that (0, 0, 0) is always a fixed point so no need to recompute it
 
@@ -466,9 +479,7 @@ function ComputeCriticalPointPositions(updateGeom = false) {
   }
 }
 
-//
 // ComputeInitialPoints... Modify the initial positions for the starting points
-//
 function ComputeInitialPoints() {
   _InitPos = [];
 
@@ -486,10 +497,8 @@ function ComputeInitialPoints() {
   }
 }
 
-//
 // UpdateColours... update the colours of the solution line and point
 // visualization
-//
 function UpdateColours() {
   for (var i = 0; i < _nNumInitPoints; i++) {
     _geomSolPnts[i].material.color = new THREE.Color(_PntColours[i]);
@@ -497,9 +506,7 @@ function UpdateColours() {
   }
 }
 
-//
 // UpdatePointVisibility... toggle solution point visibility
-//
 function UpdatePointVisibility() {
   for (var i = 0; i < _nMaxCurves; i++) {
     if (i < _nNumInitPoints)

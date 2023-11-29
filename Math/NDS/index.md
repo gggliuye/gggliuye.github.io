@@ -40,7 +40,7 @@ One commonly used set of constants is a = 10, b = 28, c = 8 / 3. Another is a = 
 * $ \rho > 313 $ : has a globally attraction limit cycle.
 
 <!-- iframe plugin v.4.5 wordpress.org/plugins/iframe/ -->
-<iframe src="lorenz/LorenzEquations.html" height="465px" width="100%" scrolling="yes" class="iframe-class" frameborder="0"></iframe>
+<iframe src="lorenz/LorenzEquations.html" height="1200px" width="100%" scrolling="yes" class="iframe-class" frameborder="0"></iframe>
 
 
 # Infinite-period Bifurcation

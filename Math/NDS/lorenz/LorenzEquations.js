@@ -47,9 +47,31 @@ function RK4_step(iStateVec) {
 // UpdateSolutionList: compute the next step in the Lorenz equation and update
 // the
 //                     history of points... list version
+var _lastStepz = -1;
+
 function UpdateSolutionList() {
+  // var _currentZn = -1;
+  // var _lorenzMap_zn = [];
+  // var _lorenzMap_zn_1 = [];
+  //
   for (var i = 0; i < _nNumInitPoints; i++) {
     var simStepResults = RK4_step([ _dCurrX[i], _dCurrY[i], _dCurrZ[i] ]);
+
+    if (i == 0) { // only compute for the first trajectory
+      if (_lastStepz > 0 && simStepResults[2] < 0) { // reach the turning point
+        if (_currentZn != null) {
+          _lorenzMap_zn.push(_currentZn);
+          _lorenzMap_zn_1.push(_dCurrZ[i]);
+          _ZnUpDated = true;
+        }
+        _currentZn = _dCurrZ[i];
+        while (_lorenzMap_zn.length > _nMaxCurveLength) {
+          _lorenzMap_zn.shift();
+          _lorenzMap_zn_1.shift();
+        }
+      }
+      _lastStepz = simStepResults[2];
+    }
 
     // Update the current position
     _dCurrX[i] += simStepResults[0];
