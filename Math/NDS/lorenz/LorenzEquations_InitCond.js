@@ -328,7 +328,8 @@ function plot2d(force_update) {
         mode : "lines",
         name : "x_axis",
         xaxis : 'id',
-        yaxis : 'y1'
+        yaxis : 'y1',
+        line : {color : _PntColours[j]},
       });
       plot_datas.push({
         x : idxs,
@@ -336,7 +337,8 @@ function plot2d(force_update) {
         mode : "lines",
         name : "y_axis",
         xaxis : 'id',
-        yaxis : 'y2'
+        yaxis : 'y2',
+        line : {color : _PntColours[j]},
       });
       plot_datas.push({
         x : idxs,
@@ -344,7 +346,8 @@ function plot2d(force_update) {
         mode : "lines",
         name : "z_axis",
         xaxis : 'id',
-        yaxis : 'y3'
+        yaxis : 'y3',
+        line : {color : _PntColours[j]},
       });
     }
   }

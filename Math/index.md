@@ -24,7 +24,7 @@ title: Math
 
 * Berkeley MA214, [Book Smooth Manifolds](https://math.berkeley.edu/~jchaidez/materials/reu/lee_smooth_manifolds.pdf), [My Notes](https://drive.google.com/drive/folders/1KE0TUxWXaeIlvXJ7faiJi4rmUDG_W4Vc?usp=sharing).
 
-# [Dynamical Systems](/Math/NDS)
+# [Nonlinear Dynamical Systems](/Math/NDS)
 
 <p/><p/>
 
