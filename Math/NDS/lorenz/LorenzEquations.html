@@ -30,6 +30,7 @@
         }
       </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" integrity="sha512-/WaZCC76Yn6MLEoK6b9np9yiLBet/RngBS33X1P0SHuag6j2E0e5rT7jbA2CvXCydN6+FkDYNx8FBM+vkzsthw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="LorenzEquations.js"></script>
 <script src="LorenzEquations_UI.js"></script>
 <script src="LorenzEquations_InitCond.js"></script>
@@ -37,7 +38,7 @@
 <script>
 // Add a wide left margin so that the contents seem centered
 function CenterContents () {
-  var leftMargin = (window.innerWidth - 650) / 2;
+  var leftMargin = (window.innerWidth - (_CanvasWidth + 200)) / 2;
   if (leftMargin > 0) {
     var contents = document.getElementById ('contents');
     contents.style.marginLeft = leftMargin + 'px';
@@ -60,6 +61,7 @@ window.addEventListener ('load', function()
     document.getElementById ('resetBtn').addEventListener ('mouseenter', OnResetBtnEnterCB);
     document.getElementById ('resetBtn').addEventListener ('mouseleave', OnResetBtnLeaveCB);
 
+    document.getElementById ('rhoValueList').addEventListener ('change', OnRhoValueListCB);
     document.getElementById ('pntGeomList').addEventListener ('change', OnPntGeomListCB);
 
     document.getElementById ('numPntList').addEventListener ('change', OnNumPntListCB);
@@ -77,16 +79,14 @@ window.addEventListener ('load', function()
     document.getElementById ('showCriticalPntsChkBox').addEventListener ('click', OnShowCriticalPntsChkBoxCB);
     document.getElementById ('curveLengthList').addEventListener ('change', OnCurveLengthListCB);
     document.getElementById ('compRateList').addEventListener ('change', OnCompRateListCB);
-    document.getElementById ('compRateList').addEventListener ('input', OnCompRateListCB);
     document.getElementById ('rotSpeedSlider').addEventListener ('change', OnRotSpeedSliderCB);
-    document.getElementById ('rotSpeedSlider').addEventListener ('input', OnRotSpeedSliderCB);
+    document.getElementById ('rotRadiusList').addEventListener ('change', OnRotRadiusListCB);
 
     // Initialize... Make the 3D elements
     init ();
 });
 </script>
-
-  </head>
+</head>
   <body>
     <div id='contents'>
       <div style='height:3pt'></div>
@@ -100,9 +100,20 @@ window.addEventListener ('load', function()
       <div class='inputBox' style='height:45px;padding-top:3px'>
           <div class='label' style='float: left'>Equation parameters: </div>
           <div class='label' style='float:left;padding-top:10px'>
-              <span style='margin-left:10px;margin-top:1px'>&sigma; = 10 </span>
-              <span style='margin-left:20px;'>&beta; = 8/3</span>
-              <span style='margin-left:20px;'>&rho; = 28</span>
+            <span style='margin-left:10px;margin-top:10px'>&sigma; = 10</span>
+            <span style='margin-left:5px;'>&beta; = 8/3</span>
+            <span style='margin-left:5px;margin-right:3px'>&rho; = </span>
+            <select class='label' id='rhoValueList' name='rhoValueList' style='width:60px;float:right;padding-top:0px'>
+                <option value='0'> 0.5 </option>
+                <option value='1'> 13  </option>
+                <option value='2'> 13.926  </option>
+                <option value='3'> 22.3 </option>
+                <option value='4'> 24.5 </option>
+                <option value='5' selected> 28 </option>
+                <option value='6'> 99.65 </option>
+                <option value='7'> 100.75 </option>
+                <option value='9'> 350 </option>
+            </select>
           </div>
       </div>
       <div style='height:3pt;clear:both'></div>
@@ -168,10 +179,16 @@ window.addEventListener ('load', function()
 
       <div style='height:3pt'></div>
 
-      <div class='inputBox' style='height:40px;padding-top:3px'>
+      <div class='inputBox' style='height:60px;padding-top:3px'>
           <div class='label' style='float:left'>Rotation Speed: </div>
           <output id='rotSpeedOutput' class='label' style='width:30px;float:right;text-align:center;'>3</output>
           <input id='rotSpeedSlider' style='width:175px' type='range' min='-10' max='10' step='1' value='3'/>
+          <div class='label' style='float:left'>Rotation Radius: </div>
+          <select class='label' id='rotRadiusList' name='rotRadiusList' style='width:60px;float:right;padding-top:0px'>
+              <option value='0' selected> 0 </option>
+              <option value='1'> 100  </option>
+              <option value='2'> 1000 </option>
+          </select>
       </div>
 
       <div style='height:3pt'></div>
@@ -179,11 +196,9 @@ window.addEventListener ('load', function()
       <div class='inputBox' style='height:25px;padding-top:3px'>
           <div class='label' style='float:left'>Computation Rate: </div>
           <select class='label' id='compRateList' name='compRateList' style='width:70px;float:right;margin-right:3px'>
-              <option value='-5'> 5 frames per step </option>
-              <option value='-2'> 2 frames per step </option>
-              <option value='1' selected> 1 step per frame</option>
-              <option value='2'> 2 steps per frame</option>
-              <option value='5'> 5 steps per frame</option>
+              <option value='1'> 1 step per frame</option>
+              <option value='3' selected> 3 steps per frame</option>
+              <option value='8'> 8 steps per frame</option>
           </select>
       </div>
 
@@ -205,6 +220,12 @@ window.addEventListener ('load', function()
         <div id='drawingArea'> </div>
     </div>
   </div>
+
+  <div align="center">
+      <div id="myPlot" style="width:80%;height:300px;margin-top:470px"></div>
+      <div id="myPlot2" style="width:80%;height:300px;"></div>
+  </div>
+
   </body>
 
 </html>
