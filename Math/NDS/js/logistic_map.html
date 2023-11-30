@@ -8,98 +8,118 @@
         body { margin: 0; }
       </style>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.js"></script>
 
 <script>
-// Add a wide left margin so that the contents seem centered
-function CenterContents () {
-  // var leftMargin = (window.innerWidth - 700) / 2;
-  // if (leftMargin > 0) {
-  //   var contents = document.getElementById ('contents');
-  //   contents.style.marginLeft = leftMargin + 'px';
-  // }
-}
+let _InitR = 2.8;
+let _EndR = 4.0;
+let _NumIterations = 300;
+let _NumSamples = 100;
+let _CurrentR = _InitR;
+let _IntevalR = 0.01;
 
-// https://plotly.com/javascript/line-charts/
+let _ValuesR = [];
+let _ValuesX = [];
+
 function plot2d() {
-  const idxs = [];
-  const values_x = [];
-  const values_y = [];
+  Plotly.purge('myPlot');
 
-  let r = 0.5;
-  let theta = 0;
-  let mu = 1.01;
-  let dt = 0.1;
-  for (let t = 0; t <= 200; t += dt) {
-    idxs.push(t);
-    r = r + dt * r * (1 - r * r);
-    theta = theta + dt * (mu - Math.sin(theta));
-    values_x.push(r * Math.cos(theta));
-    values_y.push(r * Math.sin(theta));
-  }
-
-  let plot_datas = [];
-  plot_datas.push({
-    x : idxs,
-    y : values_x,
-    mode : "lines",
-    name : "x_axis",
-    xaxis : 'x1',
-    yaxis : 'y1'
-  });
-  plot_datas.push({
-    x : idxs,
-    y : values_y,
-    mode : "lines",
-    name : "y_axis",
-    xaxis : 'x2',
-    yaxis : 'y2'
-  });
-
+  let plot_datas = [ {
+    x : _ValuesR,
+    y : _ValuesX,
+    mode : "markers",
+    marker: {
+        size: 3,
+    },
+  } ];
   const layout = {
-    title : "plot the axis values, with μ = " + mu,
-    xaxis1 : {domain : [ 0, 0.45 ], anchor : 'x'},
-    xaxis2 : {domain : [ 0.55, 1.0 ], anchor : 'x'},
+    title : "Logisitic Map",
     margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
   };
   Plotly.newPlot("myPlot", plot_datas, layout);
 }
 
+
+function runSampleIteration() {
+  let values = [];
+  let num_sample = _NumSamples;
+  if (_CurrentR < 3.5) {
+    num_sample = _NumSamples * 0.1;
+  }
+
+  for (let i = 0; i < num_sample; i++) {
+    values.push(Math.random());
+  }
+
+  for (let i = 0; i < _NumIterations; i++) {
+    let values_t = math.subtract(1, values);
+    values = math.dotMultiply(values, values_t);
+    values = math.multiply(values, _CurrentR);
+  }
+
+  for (let i = 0; i < values.length; i++) {
+    _ValuesR.push(_CurrentR);
+    _ValuesX.push(values[i]);
+  }
+}
+
+var _AnimFrameId;
+function animate() {
+  _AnimFrameId = requestAnimationFrame(animate);
+
+  // update the function and draw for a new r
+  runSampleIteration();
+  plot2d();
+
+  _CurrentR = _CurrentR + _IntevalR;
+  if (_CurrentR >= _EndR) {
+    cancelAnimationFrame(_AnimFrameId);
+  }
+}
+
+
 function startFcn() {
-  console.log ("startFcn");
+  animate();
 }
 
 function resetFcn() {
-  console.log ("resetFcn");
+  cancelAnimationFrame(_AnimFrameId);
+  Plotly.purge('myPlot');
+
+  _CurrentR = _InitR;
+  _ValuesR = [];
+  _ValuesX = [];
+  plot2d();
+}
+
+function OnIntevalSliderCB() {
+  var order = document.getElementById('intevalSlider').value;
+  _IntevalR = Math.pow(10, -order)
+  resetFcn();
+
+  document.getElementById('intevalSliderOut').value = 'Interval order ' + order;
 }
 
 // Also re-center the contents when the page was resized...
-window.addEventListener ('resize', CenterContents);
+window.addEventListener ('resize', plot2d);
 
 window.addEventListener ('load', function() {
+  // document.getElementById ('intevalSlider').addEventListener ('change', OnIntevalSliderCB);
   plot2d();
-  CenterContents();
 });
-
 
 </script>
 </head>
   <body>
     <div style='margin-left:10%;'>
+      <!-- <output id='intevalSliderOut' style='float:left'>Interval order 2</output>
+      <input id='intevalSlider' type='range' min='1' max='5' step='1' value='2'/> -->
       <button onclick="startFcn()">Start</button>
       <button onclick="resetFcn()">Reset</button>
     </div>
     <div align="center">
       <div id="myPlot" style="width:80%;height:265px;"></div>
     </div>
-    <!-- <div id='contents'>
-      <div id='controls'>
-      <div>
-        <div id='startBtn' class='inputBox label button' style='float:left;margin-right:3px;color:#fff;background-color:#009933'>Start</div>
-        <div id='resetBtn' class='inputBox label button' style='float:right;color:#fff;background-color:#0080ff'>Reset</div>
-      </div>
-
-      <div id="myPlot" style="width:700px;height:265px;"></div>
-    </div> -->
   </body>
 
 </html>
