@@ -1,8 +1,10 @@
 ---
 layout: page_tree_math
-title: Lorenz Attractor
+title: Chaos Simulations
 ---
 
+
+**Chaos is aperiodic long-term behavior in a deterministic system that exhibits sensitive dependence on initial conditions.**
 
 # Infinite-period Bifurcation
 
@@ -49,3 +51,21 @@ One commonly used set of constants is a = 10, b = 28, c = 8 / 3. Another is a = 
 
 <!-- iframe plugin v.4.5 wordpress.org/plugins/iframe/ -->
 <iframe src="/Math/NDS/js/LorenzEquations.html" height="1200px" width="100%" scrolling="yes" class="iframe-class" frameborder="0"></iframe>
+
+# Logisitic Map
+
+
+$$
+x_{n+1} = rx_{n}(1 - x_{n})
+$$
+
+<iframe src="/Math/NDS/js/logistic_map.html" height="300px" width="100%" scrolling="no" class="iframe-class" frameborder="0"></iframe>
+
+
+If the system's Lorenz map is nearly one-dimensional and unimodal, then the *universality theory* applies.
+
+# Fractal
+
+1. C has structure at arbitrarily small scales.
+2. C is self-similar.
+3. The dimension of C is not an integer.
