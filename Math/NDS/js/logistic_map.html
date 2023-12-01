@@ -92,28 +92,112 @@ function resetFcn() {
   plot2d();
 }
 
-function OnIntevalSliderCB() {
-  var order = document.getElementById('intevalSlider').value;
-  _IntevalR = Math.pow(10, -order)
-  resetFcn();
 
-  document.getElementById('intevalSliderOut').value = 'Interval order ' + order;
+var _EvalR = 3.4;
+var _CurrentId = 0;
+var _CurrentValue = 0.0;
+var _EvalPerStep = 1;
+var _nMaxCurveLength = 100;
+
+var _EvalCnt = [];
+var _EvalValues = [];
+var _Running = false;
+var _AnimFrameEvalId;
+function animateEval() {
+  _AnimFrameEvalId = requestAnimationFrame(animateEval);
+
+  // update the current x value and plot
+  for (let i = 0; i < _EvalPerStep; i++) {
+    _CurrentValue = _EvalR * _CurrentValue * (1.0 - _CurrentValue);
+    _CurrentId += 1;
+    _EvalCnt.push(_CurrentId);
+    _EvalValues.push(_CurrentValue);
+
+    if (_EvalValues.length > _nMaxCurveLength) {
+      _EvalCnt.shift();
+      _EvalValues.shift();
+    }
+  }
+
+  plot2dEval();
+}
+
+
+function plot2dEval() {
+  Plotly.purge('myPlotEval');
+
+  let plot_datas = [ {
+    x : _EvalCnt,
+    y : _EvalValues,
+    mode : "lines",
+  } ];
+  const layout = {
+    title : "Evaluation of Logisitc Map",
+    yaxis: {
+        range: [0, 1.0],
+        type: 'linear'
+    },
+    margin : {l : 30, r : 30, b : 30, t : 30, pad : 4},
+  };
+  Plotly.newPlot("myPlotEval", plot_datas, layout);
+}
+
+
+function startFcnEval() {
+  if (_Running) return;
+  animateEval();
+  _Running = true;
+  _Paused = false;
+}
+
+var _Paused = false;
+function resetFcnEval() {
+  cancelAnimationFrame(_AnimFrameEvalId);
+  if (!_Paused) {
+    _Running = false;
+    _Paused = true;
+  } else {
+    _Running = false;
+    _EvalCnt = [];
+    _EvalValues = [];
+    _CurrentValue = Math.random();
+    _CurrentId = 0;
+    plot2dEval();
+    _Paused = false;
+  }
+}
+
+
+function OnIntevalSliderCB() {
+  _EvalR = document.getElementById('intevalSlider').value;
+  document.getElementById('intevalSliderOut').value = 'r:' + _EvalR;
+  resetFcnEval();
 }
 
 // Also re-center the contents when the page was resized...
 window.addEventListener ('resize', plot2d);
 
 window.addEventListener ('load', function() {
-  // document.getElementById ('intevalSlider').addEventListener ('change', OnIntevalSliderCB);
+  document.getElementById ('intevalSlider').addEventListener ('change', OnIntevalSliderCB);
+  OnIntevalSliderCB();
   plot2d();
+  plot2dEval();
 });
 
 </script>
 </head>
   <body>
     <div style='margin-left:10%;'>
-      <!-- <output id='intevalSliderOut' style='float:left'>Interval order 2</output>
-      <input id='intevalSlider' type='range' min='1' max='5' step='1' value='2'/> -->
+      <output id='intevalSliderOut' style='float:left'>r:</output>
+      <input id='intevalSlider' type='range' min='2.8' max='4.0' step='0.02' value='3.8282'/>
+      <button onclick="startFcnEval()">Start</button>
+      <button onclick="resetFcnEval()">Pause/Reset</button>
+    </div>
+    <div align="center">
+      <div id="myPlotEval" style="width:80%;height:265px;"></div>
+    </div>
+
+    <div style='margin-left:10%;'>
       <button onclick="startFcn()">Start</button>
       <button onclick="resetFcn()">Reset</button>
     </div>
