@@ -428,7 +428,12 @@ Some References:
   * Cons: Need Texture. Need perfect 3d model. Have a smaller basin of convergence and less robust to illumination changes.
 * [A Direct Method for Robust Model-Based 3D Object Tracking from a Monocular RGB Image 2016](https://www.semanticscholar.org/paper/A-Direct-Method-for-Robust-Model-Based-3D-Object-a-Seo-Wuest/d4b1db788da22a2e07abcea154f44ff5322ae7ba). directly align image intensity.
 * [DSO 2018](https://github.com/JakobEngel/dso).                  
+* **My implementation** :
 
+<figure align="center">
+  <img src="/assets/img/screenshots/object_tracking.gif" width="50%"/>
+  <figcaption>My implementation using direct method.</figcaption>
+</figure>
 
 ## 8.2 Deep Learning Methods
 
