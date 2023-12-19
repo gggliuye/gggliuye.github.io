@@ -1,6 +1,6 @@
 ---
 layout: page_tree
-title: G. A. Cohen
+title: G. A. Cohen books
 ---
 
 # Table of Contents
