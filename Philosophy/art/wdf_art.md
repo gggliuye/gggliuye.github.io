@@ -7,6 +7,7 @@ title: 《艺术哲学》(王德峰)
 
 <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gggliuye/for_fun/raw/master/pdfs/philosophy/art_philo_wdf.pdf" width="100%" height="500">
 
+<p></p>
 
 # [【复旦大学】艺术哲学与审美问题（全66讲）王德峰](https://www.bilibili.com/video/BV1FL411w7Mx/?share_source=copy_web&vd_source=7e02250c240f5781cde17d4e607c33bd)
 
