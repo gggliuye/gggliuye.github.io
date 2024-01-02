@@ -82,3 +82,75 @@ Temporal lobe
 
 * [Dr. Robert Sapolsky: Science of Stress, Testosterone & Free Will](https://www.youtube.com/watch?v=DtmwtjOoSYU)
 * [Robert Sapolsky: The Illusion of Free Will - The Origins Podcast](https://www.youtube.com/watch?v=mSWJmzMoTyY)
+
+[Determined: A Science of Life without Free Will](https://vk.com/wall-169240848_34185)
+1. [Where did that **intent** come from ?](#l2.1)
+2. [PFC (the prefrontal cortex)](#l2.2)
+
+**we are nothing more or less than the cumulative biological and environmental luck, over which we had no control, that has brought us to any moment.**
+we cannot **"show a neuron (or brain) whose generation of a behavior independent of the sum of its biological past"** (there is no room for free will). **Good and bad luck do not balance out in the end.**
+<n>人的意志不是一个固定的抽象概念，而是随着环境变化，被“人”和环境的相互作用决定的。</n>
+
+<a name="l2.1"></a>
+## 2.1 Where did that **intent** come from ?
+
+<div align="center">    
+<img src="https://www.informationphilosopher.com/solutions/scientists/libet/Libet_Clock.gif" width="30%"/>
+</div>
+
+1. [Libet's experiment](https://www.informationphilosopher.com/freedom/libet_experiments.html) (though EEG, fMRI, individual neurons monitoring):
+  * The subject showed unconscious activity to flex about 350 milliseconds before reporting conscious awareness of the decision to flex.
+  * Neurons in the hippocampus were activated 1~2 seconds before.
+  * PFC (the prefrontal cortex) was found activated ten seconds before.
+  * <U>some neurons activated in preparation for a particular movement decision seconds before subjects claimed they had consciously decided.</u>
+  * problems : *conscious intention* vs *consciousness of intention*. *intending* vs *having an intent*. *wanting* vs *intending*, etc.
+2. Seconds before: **sensory information** coming from our bodies (i.e. **interoceptive sensation**).
+3. Minutes to Days before: the levels of **hormones** in the blood stream and the levels and variants of their receptors in the brain.
+  * Testosterone : make preexisting patterns more likely to happen, less generous and more self-centered.
+  * Oxytocin (催產素), Vasopressin (抗利尿激素) : enhance mother-infant bonding in mammals (O) (and in males - V). decrease excitability in the amygdala - less aggressive and calmer. Monogamous species.
+  * Glucocorticoid (糖皮質素) alter the brain during stress.
+4. Weeks to Years before: **neuroplasticity** - brain and body change in response to experience over longer periods.
+5. Adolescence:
+  * delayed frontal maturation - PFC the brain region last shaped by genes and most shaped by environment.
+  * long lasting changes in gene expression.
+6. Genes: **gene/environment interactions** - genes are turned on and off by environment.
+7. Cultures: historical and ecological circumstances.
+
+> In order to prove there is free will, you have to show that some behavior just happened out of the thin air in the sense of considering all these biological precursors. ... Free will can exit only if neurons' actions are completely uninfluenced by all the uncontrollable factors that came before.
+
+
+Misunderstanding :
+* Self-formation (Robert Kane) : *How did you get to be the kind of person you now are?*
+* Second-order free will (Peter Tse) : *free will now - who you are going to be in the future*.
+* Finn, squanderes, Albright : partial free will - *choose what we do with those attributes* (that we have no control).
+
+<a name="l2.2"></a>
+## 2.2 PFC (the prefrontal cortex)
+
+**PFC**: do the *right* thing when it is the harder thing to do. -> <h>PFC can explain our decision making, fewer room for free will exclude PFC.</h>
+* right : in a neurobiological and instrumental sense rather than a moral one.
+* **context! context! context!**
+* PFC is the outcome of all the uncontrollable biology interacting with all that uncontrollable environment.
+
+<div align="center"> <pre class="mermaid">
+  graph LR
+  LS["Limbic system"]
+  subgraph PFC["PFC (the prefrontal cortex)"]
+    dlPRC["dorsolateral PFC
+    * the definitive rational decider.
+    * no effect to sociality-manipulating.
+    * the last part to fully mature.
+    * leads to utilitarian."]
+    vmPRC["ventromedial PFC
+    * getting inputs from other cortical regions, including limbic system.
+    * feel experiment, support decision making.
+    * response to negative feedback."]
+  end
+  PFC -- sending commend --> LS
+  LS -- emotional inputs--> vmPRC
+</pre> </div>
+
+
+1. Seconds to Hours before : sensory information modulates PFC function.
+  * when not enough energy on board, PFC doesn't work well -> terrified, in pain, fatigue, hunger, etc.
+2. Hours to Days before :
