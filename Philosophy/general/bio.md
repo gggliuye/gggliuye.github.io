@@ -86,6 +86,7 @@ Temporal lobe
 [Determined: A Science of Life without Free Will](https://vk.com/wall-169240848_34185)
 1. [Where did that **intent** come from ?](#l2.1)
 2. [PFC (the prefrontal cortex)](#l2.2)
+3. [CHAOS](#l2.3)
 
 **we are nothing more or less than the cumulative biological and environmental luck, over which we had no control, that has brought us to any moment.**
 we cannot **"show a neuron (or brain) whose generation of a behavior independent of the sum of its biological past"** (there is no room for free will). **Good and bad luck do not balance out in the end.**
@@ -94,9 +95,9 @@ we cannot **"show a neuron (or brain) whose generation of a behavior independent
 <a name="l2.1"></a>
 ## 2.1 Where did that **intent** come from ?
 
-<div align="center">    
-<img src="https://www.informationphilosopher.com/solutions/scientists/libet/Libet_Clock.gif" width="30%"/>
-</div>
+**Seamless** : <h>each unique biological state was caused (maybe randomly) by a unique state that preceded it.</h>
+
+<img style="float: right;" src="https://www.informationphilosopher.com/solutions/scientists/libet/Libet_Clock.gif" width="25%"/>
 
 1. [Libet's experiment](https://www.informationphilosopher.com/freedom/libet_experiments.html) (though EEG, fMRI, individual neurons monitoring):
   * The subject showed unconscious activity to flex about 350 milliseconds before reporting conscious awareness of the decision to flex.
@@ -114,7 +115,8 @@ we cannot **"show a neuron (or brain) whose generation of a behavior independent
   * delayed frontal maturation - PFC the brain region last shaped by genes and most shaped by environment.
   * long lasting changes in gene expression.
 6. Genes: **gene/environment interactions** - genes are turned on and off by environment.
-7. Cultures: historical and ecological circumstances.
+7. Cultures: historical and ecological circumstances. Tilt the brain construction (to fit cultures), then pass its values to the next generation.
+  * east-west comparison. collectivist-individualist cultures comparison.
 
 > In order to prove there is free will, you have to show that some behavior just happened out of the thin air in the sense of considering all these biological precursors. ... Free will can exit only if neurons' actions are completely uninfluenced by all the uncontrollable factors that came before.
 
@@ -127,14 +129,13 @@ Misunderstanding :
 <a name="l2.2"></a>
 ## 2.2 PFC (the prefrontal cortex)
 
-**PFC**: do the *right* thing when it is the harder thing to do. -> <h>PFC can explain our decision making, fewer room for free will exclude PFC.</h>
+**PFC**: **do the right thing when it is the harder thing to do.** -> <h>PFC can explain our decision making, fewer room for free will exclude PFC.</h>
 * right : in a neurobiological and instrumental sense rather than a moral one.
 * **context! context! context!**
 * PFC is the outcome of all the uncontrollable biology interacting with all that uncontrollable environment.
 
 <div align="center"> <pre class="mermaid">
   graph LR
-  LS["Limbic system"]
   subgraph PFC["PFC (the prefrontal cortex)"]
     dlPRC["dorsolateral PFC
     * the definitive rational decider.
@@ -145,12 +146,33 @@ Misunderstanding :
     * getting inputs from other cortical regions, including limbic system.
     * feel experiment, support decision making.
     * response to negative feedback."]
+    obPRC["orbitofrontal cortex"]
   end
+  LS["Limbic system"]
+  HM["hormones"]
   PFC -- sending commend --> LS
-  LS -- emotional inputs--> vmPRC
+  LS -- emotional inputs --> vmPRC
+  HM -- change gene expression --> PFC
 </pre> </div>
 
 
 1. Seconds to Hours before : sensory information modulates PFC function.
   * when not enough energy on board, PFC doesn't work well -> terrified, in pain, fatigue, hunger, etc.
-2. Hours to Days before :
+2. Hours to Days before : hormonal effects on PFC - change gene expression.
+3. Days to Years before : neuroplasticity in response to experiences.
+4. Adolescent social experience.
+5. Family changes children.(1) childhood abuse changes brain; (2) socioeconomic status.
+6. Genes : the variation in versions of genes help explain variation in the volume of the frontal cortex, its level of activity, and performance on PFC-dependent tasks. (1) neurotransmitter serotonin (血清素); (2) gene-environment.
+7. Cultures : east-west comparison. collectivist-individualist cultures comparison.
+
+<a name="l2.3"></a>
+## 2.3 CHAOS
+
+**Reductionism** : breakdown complicated thing into parts to understand. [CHAOS](/Math/NDS/chaos/) : complicated things **cannot** be understood on a reductive level.
+* example : [Cellular Automata](https://plato.stanford.edu/entries/cellular-automata/), [Cellular Automata Simulator](https://robinforest.net/post/cellular-automata/).
+
+**WRONG conclusions** :
+1. *The freely choosing cloud*. (1) determinism is not equal to predictability; (2) unpredictable but can be explained.
+2. *A causeless fire*. we cannot do radical eliminative reductionism and decide what caused the fire, but that *doesn't mean that the fire wasn't actually caused by anything*.
+
+**CHAOS does not lead to free will.**

@@ -205,8 +205,10 @@ $$
 * [post Bag of freebies](https://www.collabora.com/news-and-blog/blog/2021/06/17/bag-of-freebies-xr-hand-tracking-machine-learning-openxr/), [pretrained model gitlab](https://gitlab.collabora.com/col0047/hand-detection).
   * Data augmentation + Noisy Student Training, a semi-supervised learning approach.
   * Architecture inspired by the YOLOv4 architecture
-* [post monado hand tracking](https://www.collabora.com/news-and-blog/blog/2022/05/31/monado-hand-tracking-hand-waving-our-way-towards-a-first-attempt/), fits with the ethos of [libsurvive](https://github.com/cntools/libsurvive). using [One Euro Filter](https://jaantollander.com/post/noise-filtering-using-one-euro-filter/). using [MediaPipe](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker).
-  * [MediaPipe samples](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker)， [MediaPipe c++](https://developers.google.com/mediapipe/framework/getting_started/hello_world_cpp.md).
+* [post monado hand tracking](https://www.collabora.com/news-and-blog/blog/2022/05/31/monado-hand-tracking-hand-waving-our-way-towards-a-first-attempt/):
+  * fits with the ethos of [libsurvive](https://github.com/cntools/libsurvive) (an Open Source Lighthouse(inside-out) Tracking System).
+  * using [One Euro Filter](https://jaantollander.com/post/noise-filtering-using-one-euro-filter/).
+  * using [MediaPipe](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker): [MediaPipe samples](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker)， [MediaPipe c++](https://developers.google.com/mediapipe/framework/getting_started/hello_world_cpp.md).
 
 
 <a name="l5"></a>
