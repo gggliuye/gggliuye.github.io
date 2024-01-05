@@ -1,6 +1,6 @@
 ---
 layout: page_tree
-title: Robert Sapolsky
+title: Robert Sapolsky - Free Will
 ---
 
 # Table of Contents
@@ -87,6 +87,7 @@ Temporal lobe
 1. [Where did that **intent** come from ?](#l2.1)
 2. [PFC (the prefrontal cortex)](#l2.2)
 3. [CHAOS](#l2.3)
+4. [Emergent Complexity](#l2.4)
 
 **we are nothing more or less than the cumulative biological and environmental luck, over which we had no control, that has brought us to any moment.**
 we cannot **"show a neuron (or brain) whose generation of a behavior independent of the sum of its biological past"** (there is no room for free will). **Good and bad luck do not balance out in the end.**
@@ -135,7 +136,7 @@ Misunderstanding :
 * PFC is the outcome of all the uncontrollable biology interacting with all that uncontrollable environment.
 
 <div align="center"> <pre class="mermaid">
-  graph LR
+  graph TD
   subgraph PFC["PFC (the prefrontal cortex)"]
     dlPRC["dorsolateral PFC
     * the definitive rational decider.
@@ -176,3 +177,17 @@ Misunderstanding :
 2. *A causeless fire*. we cannot do radical eliminative reductionism and decide what caused the fire, but that *doesn't mean that the fire wasn't actually caused by anything*.
 
 **CHAOS does not lead to free will.**
+
+<a name="l2.4"></a>
+## 2.4 Emergent Complexity
+
+
+Two simple phases:                  
+1. "scouts" in a population explore an environment, and broadcast the news.
+2. other individuals wander randomly in their environment with a simple rule, regrading their response to the broadcast.
+
+
+* **properties**: no blueprint, no blueprint maker; follow few simple rules; active feedback; following randomness, etc.
+* **Scouts + quality-dependent broadcasting + rich-get-richer recruiting**. e.g. traveling-salesman ants, bees, human brain, slime molds. swarm intelligence.
+
+Genes code the simple rules and some simple parameters.
