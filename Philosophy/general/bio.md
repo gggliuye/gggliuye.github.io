@@ -84,10 +84,11 @@ Temporal lobe
 * [Robert Sapolsky: The Illusion of Free Will - The Origins Podcast](https://www.youtube.com/watch?v=mSWJmzMoTyY)
 
 [Determined: A Science of Life without Free Will](https://vk.com/wall-169240848_34185)
-1. [Where did that **intent** come from ?](#l2.1)
-2. [PFC (the prefrontal cortex)](#l2.2)
-3. [CHAOS](#l2.3)
-4. [Emergent Complexity](#l2.4)
+1. [Where did that **intent** come from ?](#l2.1). Intention making has strong relation to free will (if exist).
+2. [PFC (the prefrontal cortex)](#l2.2). Think about decision making, investigate PFC.
+3. [CHAOS](#l2.3). Can chaos linked to free will ?
+4. [Emergent Complexity](#l2.4). Can free will be built from emergent system ?
+5. [Quantum Indeterminacy](#l2.5).
 
 **we are nothing more or less than the cumulative biological and environmental luck, over which we had no control, that has brought us to any moment.**
 we cannot **"show a neuron (or brain) whose generation of a behavior independent of the sum of its biological past"** (there is no room for free will). **Good and bad luck do not balance out in the end.**
@@ -181,13 +182,29 @@ Misunderstanding :
 <a name="l2.4"></a>
 ## 2.4 Emergent Complexity
 
+Emergent Complexity:
 
-Two simple phases:                  
-1. "scouts" in a population explore an environment, and broadcast the news.
-2. other individuals wander randomly in their environment with a simple rule, regrading their response to the broadcast.
-
-
+* Two simple phases:                  
+  1. "scouts" in a population explore an environment, and broadcast the news.
+  2. other individuals wander randomly in their environment with a simple rule, regrading their response to the broadcast.
 * **properties**: no blueprint, no blueprint maker; follow few simple rules; active feedback; following randomness, etc.
-* **Scouts + quality-dependent broadcasting + rich-get-richer recruiting**. e.g. traveling-salesman ants, bees, human brain, slime molds. swarm intelligence.
+* **Scouts + quality-dependent broadcasting + rich-get-richer recruiting**.
+  * e.g. traveling-salesman ants, bees, human brain development, slime molds. swarm intelligence.
+  * Genes code the **simple rules** and some simple parameters.
+  * Bifurcation system in **all** forms of fractals.
+* Parteo distribution - **Power Law** - 80:20 rule: approximately 80 percent of interactions occur among approximately 20 percent of the population. Highly adaptive in the biological world.
 
-Genes code the simple rules and some simple parameters.
+Emergence & Free Will. **wrong link** (low level - no free will, while high level - free will):
+* Unpredictable in emergence is not indeterministic.
+* *Weak emergence*. <h>emergence is still constrained by the reductive bricks.</h> <u>You can be out of your mind but not out of your brain.</u>
+* Emergent systems cannot make the the bricks that built them stop being brick-ish.
+
+<a name="l2.5"></a>
+## 2.5 Quantum Indeterminacy
+
+Brownian motion : filled in the world, and influence various biology phenomena.
+
+Quantum Indeterminacy： (1) particle/wave duality; (2) entanglement and non-locality; (3) quantum tunneling.
+<u>the subatomic universe works on a level that is fundamentally indeterministic on both an ontic and epistemic level.</u>
+
+**Conclusions**: <h>there is no evidence that those sorts of quantum effects bubble up enough to alter behavior, and most experts think that it is actually impossible - quantum strangeness is not that strange, and quantum effects are washed away amid the decohering warm, wet noise of the brain as one scales up.</h> Even if it can happen, no one wants *random free will*.

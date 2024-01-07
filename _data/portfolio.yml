@@ -18,14 +18,22 @@
   description: multi-plane-images based spatial video application (in Phone and VR).
   img: mpi_view_test.gif
   url: /Study/PaperRead/subjects/#l6
+- title: Line Mapping & Localization - 2023
+  description: Image-based Line Point Mapping & Localization
+  img: limap.jpg
+  url: .https://github.com/yeliu-deepmirror/limap
 - title: LVIO Mapping - 2022
   description: Lidar, IMU, Image tightly coupled odometry
   img: vlio.gif
   url: ./WorkDeepMirror/lidar_mapping
+- title: Mesh Generation - 2022
+  description: Lidar-image-based PointCloud & Mesh Generation
+  img: tsdf_pcl.jpg
+  url: ./WorkDeepMirror/lidar_mapping
 - title: AR HUD in Car - 2022
   description: Ar-hud application in car.
   img: ar_hud.gif
-  url:
+  url: https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA
 - title: Lidar Mapping & Fusion - 2021
   description: LVIO Mapping + offline multi-session fusion & optimization.
   img: youfang_mapping.gif
