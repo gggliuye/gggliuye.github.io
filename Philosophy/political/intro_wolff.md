@@ -334,7 +334,7 @@ An introduction to political philosophy - Jonathan Wolff.
 <a name="l5.1"></a>
 ## 5.1 分配正义的问题
 
-“自由”下的分配正义：
+“自由”下的分配正义（<n>只要获得物品的历史是正当的，那么现在对它的所属权就是正当的。</n>）：
 1. **自由至上主义**：承认对财产的自然权利（洛克、诺奇克）。赋税是最小的，分配应该留给不受干涉的市场、馈赠和自愿的慈善捐赠来完成。
   * 导致财产分配悬殊（in 2018, the top 1% were securing 16.4% of income [link](https://www.epi.org/publication/inequalitys-drag-on-aggregate-demand/)）
 2. **福利自由主义**：需要在富人和穷人之间重新分配财产以确保所有人平等地享有自由（罗尔斯）。
@@ -410,6 +410,7 @@ An introduction to political philosophy - Jonathan Wolff.
 
 （3）**宣称这样选定的正义原则是正确的（至少对现代民主政体来说是正确的）。**
 
+<a name="l5.3.2"></a>
 ### 5.3.2 批评反对
 
 对原初状态的批评：
@@ -421,7 +422,7 @@ An introduction to political philosophy - Jonathan Wolff.
 * 现时的（end-state）正义理论。只查看一种情况的状况。&#128517;
 * 历史的（historical）正义理论。需要知道更多关于资源的获取和分配的信息。
   * 模式化的（patterned）：“按照每个人的...给予某人。” &#128517;
-  * 非模式化的（unpatterned）：，每个人通过合法程序获得他们的持有物。&#128512;
+  * 非模式化的（unpatterned）：每个人通过合法程序获得他们的持有物。&#128512;
 * 结论：
   1. 任何模式都很容易受到人们自由行为的干扰。
   2. 如果分配模式1是正义的，人们自愿地从模式1转到模式2，那么模式2也是正义的——不遵循原本的模式也可以实现正义。
