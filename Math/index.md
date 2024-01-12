@@ -18,13 +18,13 @@ title: Math
 
 # [Topology](/Math/topology)
 
+# [Nonlinear Dynamical Systems](/Math/NDS)
+
 # [Artificial Intelligence](/Math/ai/00index)
 
 # Smooth Manifolds
 
 * Berkeley MA214, [Book Smooth Manifolds](https://math.berkeley.edu/~jchaidez/materials/reu/lee_smooth_manifolds.pdf), [My Notes](https://drive.google.com/drive/folders/1KE0TUxWXaeIlvXJ7faiJi4rmUDG_W4Vc?usp=sharing).
-
-# [Nonlinear Dynamical Systems](/Math/NDS)
 
 <p/><p/>
 
