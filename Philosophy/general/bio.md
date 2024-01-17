@@ -32,8 +32,7 @@ You can see an old version in [Youtube](https://www.youtube.com/watch?v=4WwAQqWU
 
 ### Schizotypal personality
 
-From the gene lectures we learned that : there is no bad gene, but only
-gene in a bad gene-environment interaction.
+From the gene lectures we learned that : **there is no bad gene, but only gene in a bad gene-environment interaction.**
 
 Recall the depression class and the schizophrenia lectures.
 Schizophrenia has strong genetic factor, while at the end of last lecture,
@@ -94,11 +93,14 @@ First part. **A seamless continuum** - <h>evolution produces genes marked by the
 4. [Emergent Complexity](#l2.4). Can free will be built from emergent system ?
 5. [Quantum Indeterminacy](#l2.5).
 
-Second part. how are we supposed to function without free will.
+Second part. how are we supposed to function without free will (could make the world a better place).
 
 {:start="6"}
 6. [If people stopped believing in free will, would there be amoral chaos?](#l2.6)
 7. [If there is no free will, how does anything ever change?](#l2.7)
+8. [We can change](#l2.8): We can subtract responsibility out of our view of aspects of behavior. And this makes the world a better place.
+9. [The criminal justice system & Quarantine model](#l2.9)
+10. [Some people had bad luck](#l2.10)
 
 <a name="l2.1"></a>
 ## 2.1 Where did that **intent** come from ?
@@ -276,3 +278,41 @@ graph TD
   SN == + ==> MN
   MN --> RG
 </pre> </div>
+
+* The adaptive change in human behavior in response to experience (same as in Aplysia) (see book for examples) - We can blink the eye, doesn't mean we have free will.
+* A nervous system that has been sculpted by all that came before it. **Conditioned Stimulus** -> **Unconditioned Stimulus**.
+
+<a name="l2.8"></a>
+## 2.8 We can change
+
+**We can subtract responsibility out of our view of aspects of behavior. And this makes the world a better place.**
+
+Example of **epilepsy**.
+* Once was thought to be *demonic possession*.
+* Once was thought to be *a disease of moral turpitude*. associated with violence and criminality.
+* Later w e have more understanding of it.
+  * seizures can damage or kill neurons.
+  * seizures (near amygdala) can cause aggression immediately.
+* 1808, a person who had killed while having a seizure was acquitted.
+
+Example of schizophrenia:
+* Early days, Schizophrenogenic mothering (rooted in Freudian thinking) - blaming the parents.
+* Now, schizophrenia is known as a neurodevelopmental disorder with strong genetic components. Requires a combination of vulnerability plus a stressful environment. **A Biological Problem.**
+  * Aberrant salience (also found in hallucinations) - excess of dopamine.
+  * Structural changes in the brain - cortex thin and compressed (especially in frontal cortex) - lessen the neurons communication.
+* [National Alliance on Mental Illness](https://www.nami.org/Home).
+
+Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
+
+
+<a name="l2.9"></a>
+## 2.9 The criminal justice system & Quarantine model
+
+**Pereboom's quarantine model**: (A) Some people are dangerous because of problems with the likes of impulse control, propensity for violence, or incapacity for empathy. (B) If you truly accept that there is no free will, it's not their fault—it's the result of their genes, fetal life, hormone levels, the usual. (C) Nonetheless, the public needs to be protected from them until they can be rehabilitated, if possible, justifying the constraint of their freedom. (D) But their "quarantine" should be done in a way that constrains the least do what's needed to make them safe, and in all other ways, they're free to be. The retributive justice system is built on backward-looking proportionality, where the more damage is caused, the more severe the punishment. A quarantine model of criminality shows forward-looking proportionality, where the more danger is posed in the future, the more constraints are needed.
+
+**Punishment**:
+* ubiquitous cooperation -> ubiquitous cheating -> punishment. ([Game Theory](/Math/others/02gametheory/))
+* our enjoyment of seeing righteous punishment served.
+
+<a name="l2.10"></a>
+## 2.10 Some people had bad luck
