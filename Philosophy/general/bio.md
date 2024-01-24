@@ -5,7 +5,8 @@ title: Robert Sapolsky - Free Will
 
 # Table of Contents
 1. [Human Behavioral Biology](#l1)
-2. [The Illusion of Free Will](#l2)
+2. [The Illusion of Free Will 《Determined》](#l2)
+3. [《Behave: The Biology of Humans at Our Best and Worst》](#l3)
 
 <p></p>
 
@@ -77,7 +78,7 @@ Allow you to see casual link, that doesn't exist.
 Temporal lobe
 
 <a name="l2"></a>
-# 2. The Illusion of Free Will
+# 2. The Illusion of Free Will 《Determined》
 
 * [Dr. Robert Sapolsky: Science of Stress, Testosterone & Free Will](https://www.youtube.com/watch?v=DtmwtjOoSYU)
 * [Robert Sapolsky: The Illusion of Free Will - The Origins Podcast](https://www.youtube.com/watch?v=mSWJmzMoTyY)
@@ -316,3 +317,6 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
 
 <a name="l2.10"></a>
 ## 2.10 Some people had bad luck
+
+<a name="l3"></a>
+# 3. 《Behave: The Biology of Humans at Our Best and Worst》
