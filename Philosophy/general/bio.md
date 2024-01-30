@@ -244,8 +244,7 @@ How people function when they don't believe in a moralizing god. (atheists)
 
 > When you begin to be biased against some alien group of people because their customs differ form you own, the biology underlying your change in behavior is the same as when a sea slug learns to avoid a shock administered by a researcher. And the sea slug sure isn't displaying free will when that change occurs. Remarkably and probably most important, the antiquity and ubiquity of these biological gears explaining behavioral change wind up being grounds fro optimism.
 
-
-Aplysia (海兔属) protecting its gill - **2000 Nobel Prize** [Molecular Biology of Memory: A Dialogue Between Genes and Synapses](https://www.nobelprize.org/prizes/medicine/2000/kandel/symposia/). A machine does not choose to change its behavior; its behavior was changed by circumstances via logical, highly evolved pathways.
+Aplysia (海兔属) protecting its gill - **2000 Nobel Prize**. A machine does not choose to change its behavior; its behavior was changed by circumstances via logical, highly evolved pathways.
 
 <img style="float: right;" src="https://www.researchgate.net/profile/Harilaos-Papachristou/publication/317381197/figure/fig2/AS:561927077023745@1510985263109/Neurobiology-of-the-gill-withdrawal-reflex-in-Aplysia-Kandel-2001-Science.png" width="50%"/>
 
@@ -282,6 +281,26 @@ graph TD
 
 * The adaptive change in human behavior in response to experience (same as in Aplysia) (see book for examples) - We can blink the eye, doesn't mean we have free will.
 * A nervous system that has been sculpted by all that came before it. **Conditioned Stimulus** -> **Unconditioned Stimulus**.
+
+An overview of [Molecular Biology of Memory: A Dialogue Between Genes and Synapses](https://www.nobelprize.org/prizes/medicine/2000/kandel/symposia/), [lecture pdf](http://teachline.ls.huji.ac.il/72336/sphira/Kandelnobellecture.pdf).
+
+* Problem of memory storage :
+  1. (this lecture) <u>the storage component of memory, the molecular mechanism whereby information is stored.</u>
+  2. (for further research) the systems component of memory, the mechanisms whereby the storage sites at each point in the explicit or implicit neural system that mediates memory interact to encode, store, and recall memory.
+* **Molecular Mechanism**: used in *Aplysia*, can be applied for both <u>implicit and explicit memory.</u>
+  * synaptic changes:
+    * The short-term synaptic changes involve covalent modification of pre-existing proteins, leading to modification of <u>pre-existing synaptic connections.</u>
+    * the long-term synaptic changes involve activation of gene expression, new protein synthesis, and the formation of <h>new connections.</h>
+  * memory storage:
+    * short-term memory storage uses different signaling kinases for implicit and explicit memory.
+    * long-term storage of both implicit and explicit memory uses as a core signaling sequence PKA, MAPK, and CREB-1.
+  * all are regulated by a number of inhibitory constraints.
+* **Modulatory transmitters**:
+  1. they activate secondmessenger kinases that are transported to the nucleus where they initiate processes required for neuronal growth and long-term memory.
+  2. they mark the specific synapses for capture of the long-term process and regulate local protein synthesis for stabilization.
+  3. they appear to mediate attentional processes required for memory formation and recall.
+* <u>The extensive dialog between the synapse and the nucleus and the nucleus and the synapse.</u> In the long-term process the response of a synapse is not simply determined by its own history of activity. It is also significantly determined by <h>the history of transcriptional activation in the nucleus.</h>
+
 
 <a name="l2.8"></a>
 ## 2.8 We can change
