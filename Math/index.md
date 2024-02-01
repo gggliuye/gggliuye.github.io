@@ -26,6 +26,8 @@ title: Math
 
 * Berkeley MA214, [Book Smooth Manifolds](https://math.berkeley.edu/~jchaidez/materials/reu/lee_smooth_manifolds.pdf), [My Notes](https://drive.google.com/drive/folders/1KE0TUxWXaeIlvXJ7faiJi4rmUDG_W4Vc?usp=sharing).
 
+# [Finance](/Math/finance/00index)
+
 <p/><p/>
 
 **Important note**: some of the images are reproduced from the cited papers, and the copyright belongs to the authors or the organization that published their papers.

@@ -8,6 +8,8 @@ title: Robert Sapolsky - Free Will
 2. [The Illusion of Free Will 《Determined》](#l2)
 3. [《Behave: The Biology of Humans at Our Best and Worst》](#l3)
 
+[Neuroscience Electronic Textbook](https://nba.uth.tmc.edu/neuroscience/toc.htm)
+
 <p></p>
 
 <a name="l1"></a>
@@ -339,3 +341,61 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
 
 <a name="l3"></a>
 # 3. 《Behave: The Biology of Humans at Our Best and Worst》
+
+## 3.1 One second before
+
+
+[Whole brain model](https://www.neuroanatomy.ca/3D/wholebrainPG.html), Three metaphorical layers.
+
+<div align="center"> <pre class="mermaid">
+  graph TD
+  subgraph L3["layer 3 - cortex"]
+    FC["Frontal lobe"]
+    PL["Parietal lobe"]
+    TL["Temporal lobe"]
+    OL["Occipital lobe"]
+  end
+  subgraph L2["layer 2 - limbic system"]
+    A["Amygdala
+    Hippocampus
+    Thalamus
+    Basal ganglia
+    Cingulate gyrus"]
+    HYP["Hypothalamus"]
+  end
+  subgraph L1["layer 1 - autonomic nervous system"]
+    SNS["SNS sympathetic nervous system
+    - four Fs : fear, fight, flight, sex"]
+    SNS --> norepinephrine & epinephrine
+    PNS["PNS parasympathetic nervous system
+    - calm vegetative states"]
+    PNS --> acetylcholine
+  end
+  L3 <--quasi member--> L2
+  HYP --influence--> L1
+</pre> </div>
+
+**Amygdala** (杏仁核): [lecture](https://nba.uth.tmc.edu/neuroscience/m/s4/chapter06.html), [wikipedia](https://en.wikipedia.org/wiki/Amygdala).
+* function : (1) fear and anxiety -> generating aggression; (2) implicit distrust and vigilance -> social emotional decision making; etc.
+* parts : (1) central amygdala : innate fears. (2) basolateral amygdala : learned fears. (frontal cortex helps stop false fear)
+
+
+<div align="center"> <pre class="mermaid">
+  graph LR
+  SI["Sensors"] --> CR["Cortical regions"]
+  CR --> A["Amygdala"]
+  SI ==stronger but less accurate==> A
+  PAG["Periaqueductal gray"] --"unpredictable context
+  dependent pain"--> A
+  A --> PAG
+  IC["Insular cortex"] --"physics and moral
+  disgust"--> A
+  A --> IC
+  FC["Frontal cortex"] <--> A
+  H["Hippocampus"] <--fear learning--> A
+  A --> M["Motor"]
+  A --alarms--> BB["Brain and Body"]
+  A --> LC["Locus coeruleus"]
+</pre> </div>
+
+**Frontal Cortex**
