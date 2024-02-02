@@ -376,7 +376,7 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
 </pre> </div>
 
 **Amygdala** (杏仁核): [lecture](https://nba.uth.tmc.edu/neuroscience/m/s4/chapter06.html), [wikipedia](https://en.wikipedia.org/wiki/Amygdala).
-* function : (1) fear and anxiety -> generating aggression; (2) implicit distrust and vigilance -> social emotional decision making; etc.
+* function : (1) **fear and anxiety** -> generating aggression; (2) **implicit distrust and vigilance** -> social emotional decision making; etc.
 * parts : (1) central amygdala : innate fears. (2) basolateral amygdala : learned fears. (frontal cortex helps stop false fear)
 
 
@@ -385,7 +385,9 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
   SI["Sensors"] --> CR["Cortical regions"]
   CR --> A["Amygdala"]
   SI ==stronger but less accurate==> A
-  PAG["Periaqueductal gray"] --"unpredictable context
+  PAG["Periaqueductal gray
+  (ancient region helps
+  process pyhsical pain)"] --"unpredictable context
   dependent pain"--> A
   A --> PAG
   IC["Insular cortex"] --"physics and moral
@@ -398,4 +400,8 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
   A --> LC["Locus coeruleus"]
 </pre> </div>
 
-**Frontal Cortex**
+**Frontal Cortex**: "do the harder thing when it's the right thing to do."
+* [dlPFC & vmPFC](#l2.2). dlPFC and vmPFC can be *inversely correlated*, but mostly intertwined in a *collaborative relationship*.
+* FPC is effected by limbic system (emotions), but thought could regulate emotion as well.
+  * Antecedent strategies work better than response-focused strategies.
+* "RIGHT" is used in neurobiological and instrumental sense, rather than a moral one.
