@@ -405,3 +405,14 @@ Other examples : autism, PTSD, Gulf War syndrome, dyslexia, etc.
 * FPC is effected by limbic system (emotions), but thought could regulate emotion as well.
   * Antecedent strategies work better than response-focused strategies.
 * "RIGHT" is used in neurobiological and instrumental sense, rather than a moral one.
+
+
+**Dopamine System**:
+* **Mesolimbic dopamine pathway**: the tegmentum sends projections to the accumbens and other limbic areas.\
+  * sex, pleasurable aesthetics.
+* **Mesocortical dopamine pathway**: the tegmentum projects to PFC.
+* Social interactions.
+* Habituation, the first time is the best.
+* Anticipation - Learning.
+  * Anticipation driven by reward.
+  * Anticipation driven by uncertainty (in mesocortical pathway).
