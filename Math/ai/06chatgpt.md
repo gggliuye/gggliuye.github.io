@@ -43,6 +43,10 @@ title: LLM algorithms
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [Large Language Model for Science: A Study on P vs. NP](/2023-09-20-SocraticReasoning/).
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [New Theory Suggests Chatbots Can Understand Text](https://www.quantamagazine.org/new-theory-suggests-chatbots-can-understand-text-20240122/)
+* It's important that AI scientists reach consensus on risks-similar to climate scientists, who have rough consensus on climate change-to shape good policy. [conversation: Geoff Hinton with Andrew Ng](https://www.linkedin.com/posts/andrewyng_had-an-insightful-conversation-with-geoff-activity-7073688821803978752-DO9h/)
+* **Random Graphs**, which give rise to unexpected behaviors after they meet certain thresholds, could be a way to model the behavior of LLMs.
+
 <a name="papers"></a>
 # 2. Algorithm Papers
 

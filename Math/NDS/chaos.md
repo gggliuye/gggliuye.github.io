@@ -74,6 +74,10 @@ If the system's Lorenz map is nearly one-dimensional and unimodal, then the *uni
 <a name="l2"></a>
 # 2. Fractal
 
+Demos:
+* [Explore the Mandelbrot Set](https://math.hws.edu/eck/js/mandelbrot/MB.html) (more demo in [David Eck's JavaScript Page](https://math.hws.edu/eck/js/)).
+* [Explore the Mandelbrot Set](https://mandel.gart.nz/)
+
 1. C has structure at arbitrarily small scales.
 2. C is self-similar.
 3. The dimension of C is not an integer.
