@@ -1,7 +1,15 @@
 ---
 layout: page_tree_math
-title: Neuromorphic Computing
+title: Neuro-Biology
 ---
+
+# Table of Contents
+
+1. [Neuromorphic Computing](#l1)
+2. [Critical System](#l2)
+
+<a name="l1"></a>
+# Neuromorphic Computing
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Physics for Neuromorphic Computing 2020](https://arxiv. org/abs/2003.04711)
 
@@ -39,3 +47,13 @@ Unsupervised learning with [Spike Timing Dependent Plasticity (STDP)](#STDP) - w
 
 <a name="STDP"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Bioinspired Programming of Memory Devices for Implementing an Inference Engine 2015](https://hal.science/hal-01822199/document)
+
+<a name="l2"></a>
+# Critical Systems
+
+Critical systems exhibit optimal computational properties, suggesting that the possibility that criticality has been evolutionarily selected as a useful trait for our nervous system.
+
+[Edge of chaos and prediction of computational performance for neural circuit models 2007](https://igi-web.tugraz.at/people/maass/psfiles/166.pdf)
+
+[Self-organized criticality as a fundamental property of neural systems 2014](https://www.frontiersin.org/articles/10.3389/fnsys.2014.00166/full)
+* for large finite system, there will be a small region (not a single isolated point) that shows properties of critical systems in an approximate sense.
