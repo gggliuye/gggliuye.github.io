@@ -1,6 +1,6 @@
 ---
 layout: page_tree_bio
-title: 《Behave: The Biology of Humans at Our Best and Worst》
+title: 《Behave - The Biology of Humans at Our Best and Worst》
 ---
 
 ## 1. One second before
