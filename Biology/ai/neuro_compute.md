@@ -46,7 +46,7 @@ Unsupervised learning with [Spike Timing Dependent Plasticity (STDP)](#STDP) - w
 
 <img src="/assets/img/paperread/chrown.png" height="25"/>  [Spiking Neural Networks and Their Applications: A Review 2022](https://www.researchgate.net/publication/362314380_Spiking_Neural_Networks_and_Their_Applications_A_Review)
 * Introduction of : **biological neurons** (dendrites, soma, axon, synapse, neurotransmitters), **artificial neural networks** ($$r = f(Wu + b)$$), **spiking neural networks** (spike times).
-* Spiking Neuron Models:
+* Spiking Neuron Models (see [wiki - Biological neuron model](https://en.wikipedia.org/wiki/Biological_neuron_model) for more):
   1. Hodgkin-Huxley Model. (efficiency-, plausibility+) include K Na channels.
   2. Leaky Integrate and Fire Model. (efficiency+, plausibility-) ignore iron channels.
   3. Izhikevich Model. (efficiency+, plausibility+) use 2d system (potential & ionic current).
@@ -58,8 +58,21 @@ Unsupervised learning with [Spike Timing Dependent Plasticity (STDP)](#STDP) - w
   3. ANN-to-SNN Conversion. convert RELU to IF neurons.
 * Spike Encoding : decode/encode spikes into/from information - rate encoding & pulse encoding.
 
-<img src="/assets/img/paperread/thumbs.png" height="25"/> [python implementation 2018](https://github.com/Shikhargupta/Spiking-Neural-Network), [SpykeTorch 2021](https://github.com/miladmozafari/SpykeTorch).
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [Spike-FlowNet: Event-based Optical Flow Estimation with Energy-Efficient Hybrid Neural Networks 2020](https://arxiv.org/abs/2003.06696), [github](https://github.com/chan8972/Spike-FlowNet). ANN+SNN optical flow for event camera.
+* ANN for pixel-based images rely on photo-consistency constraints; SNN fits Event camera (bio-inspired silicon retinas).
+* SNN problem : The number of <u>spikes drastically vanish</u> at deeper layers.
+* Make an simple implementation of IF (integrate-and-fire) SNN [in python](https://github.com/chan8972/Spike-FlowNet/blob/master/models/FlowNetS_spike.py#L21).
 
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Intel Loihi](https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html) ([wikichip](https://en.wikichip.org/wiki/intel/loihi)) based works:
+* [Reinforcement co-Learning of Deep and Spiking Neural Networks for Energy-Efficient Mapless Navigation with Neuromorphic Hardware 2020](https://arxiv.org/abs/2003.01157) hybrid SNN + DNN framework.
+  * SNN (LIF leaky-integrate-and-fire) : state-to-action network. (trained by backpropagation using pseudo-gradient function)
+    * transform to an end-to-end SNN compared to their previous work.
+  * DNN : action-value (critic ) network.
+* [Spiking Neural Network on Neuromorphic Hardware for Energy-Efficient Unidimensional SLAM 2019](https://arxiv.org/abs/1903.02504),
+  * [mammalian brains space representation](/Biology/others/#lspace).
+  * head direction network, reference frame transformation network, distance mapping network, observation likelihood network, bayesian inference network.
+
+<img src="/assets/img/paperread/thumbs.png" height="25"/> [python implementation 2018](https://github.com/Shikhargupta/Spiking-Neural-Network), [SpykeTorch 2021](https://github.com/miladmozafari/SpykeTorch), [Brian2 2008](https://www.frontiersin.org/articles/10.3389/neuro.11.005.2008/full).
 
 <a name="STDP"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Bioinspired Programming of Memory Devices for Implementing an Inference Engine 2015](https://hal.science/hal-01822199/document).
