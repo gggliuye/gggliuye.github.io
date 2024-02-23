@@ -5,6 +5,8 @@ title: Neuromorphic Computing
 
 # Physics Overview
 
+## Paper Read
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Physics for Neuromorphic Computing 2020](https://arxiv. org/abs/2003.04711)
 
 **Human brain:**
@@ -44,6 +46,9 @@ Unsupervised learning with [Spike Timing Dependent Plasticity (STDP)](#STDP) - w
 <a name="SNN"></a>
 # [Spiking-Neural-Network](https://en.wikipedia.org/wiki/Spiking_neural_network)
 
+
+## Paper Read
+
 <img src="/assets/img/paperread/chrown.png" height="25"/>  [Spiking Neural Networks and Their Applications: A Review 2022](https://www.researchgate.net/publication/362314380_Spiking_Neural_Networks_and_Their_Applications_A_Review)
 * Introduction of : **biological neurons** (dendrites, soma, axon, synapse, neurotransmitters), **artificial neural networks** ($$r = f(Wu + b)$$), **spiking neural networks** (spike times).
 * Spiking Neuron Models (see [wiki - Biological neuron model](https://en.wikipedia.org/wiki/Biological_neuron_model) for more):
@@ -73,6 +78,30 @@ Unsupervised learning with [Spike Timing Dependent Plasticity (STDP)](#STDP) - w
   * head direction network, reference frame transformation network, distance mapping network, observation likelihood network, bayesian inference network.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [python implementation 2018](https://github.com/Shikhargupta/Spiking-Neural-Network), [SpykeTorch 2021](https://github.com/miladmozafari/SpykeTorch), [Brian2 2008](https://www.frontiersin.org/articles/10.3389/neuro.11.005.2008/full).
+
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [First-Spike-Based Visual Categorization Using Reward-Modulated STDP 2017](https://arxiv.org/abs/1705.09132) : supervised learingin - Reward-Modulated STDP (using RL). R-STDP can change the behavior of a neuron. [implementation using SpykeTorch](https://github.com/yeliu-deepmirror/SpykeTorch/blob/master/tutorial.ipynb).
+
+<div align="center">    
+<img src="https://github.com/yeliu-deepmirror/SpykeTorch/raw/master/assets/SNN-encoding.png" width="90%"/>
+</div>
+
+* Layer 1 : convert image to spike latencies based on the saliency of its oriented edges.
+* Layer 2 : local pooling.
+* Layer 3 : integrate-and-fire neurons. (trainable)
+* Layer 4 : decision making.
+* RL supervised update [github](https://github.com/yeliu-deepmirror/SpykeTorch/blob/master/SpykeTorch/snn.py#L121) :
+
+$$
+\Delta W_{ij}=
+\begin{cases}
+    a_{LTP}\times \left(W_{ij}-W_{LB}\right)\times \left(W_{UP}-W_{ij}\right) & \ \ \ t_j - t_i \leq 0,\\
+    a_{LTD}\times \left(W_{ij}-W_{LB}\right)\times \left(W_{UP}-W_{ij}\right) & \ \ \ t_j - t_i > 0,\\
+\end{cases}
+$$
+
+* My test playground - [SNN Heading Estimation](https://github.com/yeliu-deepmirror/SpykeTorch/wiki/Heading-Estimation-Test).
+
+
 
 <a name="STDP"></a>
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Bioinspired Programming of Memory Devices for Implementing an Inference Engine 2015](https://hal.science/hal-01822199/document).

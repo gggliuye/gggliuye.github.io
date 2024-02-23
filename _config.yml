@@ -18,6 +18,7 @@ navbar-links:
   Documents:
     - Philosophy : "Philosophy/index"
     - Math : "Math/index"
+    - Biology : "Biology/index"
     - Work Paper Read : "Study/PaperRead/index"
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"

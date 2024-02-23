@@ -58,6 +58,15 @@ No recourse to external funds : $$\eta_{1} = \eta_{0}$$
 $$
 \begin{align*}
 V_{0} & = \eta + \theta S_{0} \\
-\beta V_{1} & = \beta \eta + \beta \theta S_{1}
+\beta V_{1} & = \eta + \beta \theta S_{1}
 \end{align*}
 $$
+
+Then hedging is be find $$(\eta, \theta)$$ to achieve objective H (s.t. $$H=V_{1}$$).
+(<n>but it should be</n> $$\beta V_{1} = \beta\eta + \beta \theta S_{1}$$ ? since cash is also affected by discount factor)
+
+**Risk and Return**: The ‘variability’ of the stock S by means of the variance of the random variable $$S_{1}/S_{0}$$.
+
+## 1.5 Multi-period Binomial Models
+
+a binomial pricing model with trading dates 0, 1, 2, . . . , T for some ﬁxed positive integer T.
