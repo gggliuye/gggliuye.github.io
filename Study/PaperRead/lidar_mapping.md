@@ -18,6 +18,8 @@ title: Lidar Mapping
 <a name="l2023"></a>
 # 2023
 
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Wavemap : Efficient volumetric mapping of multi-scale environments using wavelet-based compression](https://ethz-asl.github.io/wavemap/).
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Point-LIO: Robust High-Bandwidth Lidar-Inertial Odometry](https://github.com/hku-mars/Point-LIO).
 * point-by-point update -> high frequency & high bandwidth.
 * stochastic process model to estimate imu -> handle aggressive motions (imu saturation).
