@@ -1,0 +1,59 @@
+---
+layout: base
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/main.css"
+  - "/assets/css/tree.css"
+---
+
+{% include header.html type="page_tree" %}
+
+<button id="myBtn"><a href="#top" style="color: white">Back to Top</a></button>
+
+<div id="tree-section">
+<a href="{{ "Biology" | absolute_url }}">Biology Home</a>
+<ul id="my_tree", class="my_tree">
+  <li><span class="caret">Robert Sapolsky</span>
+    <ul class="nested">
+      <li><a href="{{ "Biology/rs/lecture" | absolute_url }}">Human Behavioral Biology</a></li>
+      <li><a href="{{ "Biology/rs/free_will" | absolute_url }}">The Illusion of Free Will 《Determined》</a></li>
+      <li><a href="{{ "Biology/rs/behave" | absolute_url }}">《Behave: The Biology of Humans at Our Best and Worst》</a></li>
+    </ul>
+  </li>
+  <li><span class="caret">Artificial Intelligence</span>
+    <ul class="nested">
+      <li><a href="{{ "Biology/ai/critical_system" | absolute_url }}">Critical Systems</a></li>
+      <li><a href="{{ "Biology/ai/neuro_compute" | absolute_url }}">Neuromorphic Computing</a></li>
+    </ul>
+  </li>
+  <li><a href="{{ "Biology/others" | absolute_url }}">Others</a></li>
+</ul>
+</div>
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+function activate_togglers() {
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].parentElement.querySelector(".nested").classList.toggle("active");
+    toggler[i].classList.toggle("caret-down");
+  }
+}
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>

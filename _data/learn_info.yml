@@ -4,7 +4,7 @@
 - icon: fas fa-newspaper
   content: "[Math](Math/): [Convex Optimization](Math/ConvexOptimization), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)"
 - icon: fas fa-book
-  content: "**Philosophy** [Nature Philosophy](Philosophy/index)"
+  content: "**Philosophy** [Nature Philosophy](Philosophy/index), [Biology](Biology/index)"
 - icon: fas fa-paint-brush
   content: "**Art** [Art Posts](tags/#Art)"
 #- icon: fas fa-trophy

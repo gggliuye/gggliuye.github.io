@@ -25,4 +25,48 @@ $$
 
 Put-Call Parity 对等 : A correspondence between put and call price of an underlying with the same maturity and strike. <u>A put can be seen as an insurance contract protecting against downside stock movements.</u>
 
-**Chooser-Option**
+## 1.2 Single-Period Option Pricing Models (discount factor == 1)
+
+A **martingale** is a sequence of random variables (i.e., a stochastic process) for which, at a particular time, the conditional expectation of the next value in the sequence is equal to the present value, regardless of all prior values.
+
+The connection between the ‘fair price’ of a claim and a replicating (or ‘hedge’) portfolio that mimics the value of the claim - the price π(H) will be ﬁxed by the market in order to maintain market equilibrium.
+
+**Assumptions** :
+* hedging strategy (η, θ) : value $$V_{t} = \eta + \theta S_{t}$$ : the value of cash + stock value. (<n>value of cash came out of nowhere</n>)
+* probability distribution satisfying $$E(\Delta S) = 0$$ - the conditional expectation of price remain constant. (<n>which is ideal, not in reality</n>)
+
+<n>The upper pricing method is based on martingale assumption. while it deliberately mix up the concept of 'value' and 'price'. The value should be constant, but the price never will be in equilibrium state (even though we want it to be). </n>
+<p></p>
+<n>在科学上，我们确实经常做近似（忽略一些变量的影响），但是这些忽略都是在与主要的研究对象（变量）对比的情况下的。但是在金融中，主要研究的对象就是价格的差异和不平衡，那么我们就不能在一开始就把它直接消除。</n>
+<p></p>
+
+## 1.3 A General Single-Period Model (discount factor != 1)
+
+Considering β. Optimize the discounted cost increment $$\Delta \bar C = \beta \eta_{1} - \eta_{0}$$.
+
+$$
+\begin{align*}
+V_{0} & = \eta_{0} + \theta S_{0} \\
+\beta V_{1} & = \beta \eta_{1} + \beta \theta S_{1}
+\end{align*}
+$$
+
+## 1.4 A Single-Period Binomial Model
+
+No recourse to external funds : $$\eta_{1} = \eta_{0}$$
+
+$$
+\begin{align*}
+V_{0} & = \eta + \theta S_{0} \\
+\beta V_{1} & = \eta + \beta \theta S_{1}
+\end{align*}
+$$
+
+Then hedging is be find $$(\eta, \theta)$$ to achieve objective H (s.t. $$H=V_{1}$$).
+(<n>but it should be</n> $$\beta V_{1} = \beta\eta + \beta \theta S_{1}$$ ? since cash is also affected by discount factor)
+
+**Risk and Return**: The ‘variability’ of the stock S by means of the variance of the random variable $$S_{1}/S_{0}$$.
+
+## 1.5 Multi-period Binomial Models
+
+a binomial pricing model with trading dates 0, 1, 2, . . . , T for some ﬁxed positive integer T.

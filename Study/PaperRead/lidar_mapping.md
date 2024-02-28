@@ -18,6 +18,17 @@ title: Lidar Mapping
 <a name="l2023"></a>
 # 2023
 
+<img src="/assets/img/paperread/chrown0.png" height="25"/> [Wavemap : Efficient volumetric mapping of multi-scale environments using wavelet-based compression](https://ethz-asl.github.io/wavemap/).
+* measuremeent model : modeling the angular uncertainty and range uncertainty.
+* [Multi-Resolution Analysis - wavelet transformation](/Math/others/06wavelet)
+* Mapping comparison between wavemap and voxblox: resolution 5cm, 16 line lidar.
+  * wavemap could be a lot slower when resolution or size enlarged.
+  * wavemap result is more complete (fewer holes), but with larger wall width.
+
+<div align="center">    
+<img src="/assets/img/paperread/wavemap_voxblox.jpg" width="70%"/>
+</div>
+
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [Point-LIO: Robust High-Bandwidth Lidar-Inertial Odometry](https://github.com/hku-mars/Point-LIO).
 * point-by-point update -> high frequency & high bandwidth.
 * stochastic process model to estimate imu -> handle aggressive motions (imu saturation).
