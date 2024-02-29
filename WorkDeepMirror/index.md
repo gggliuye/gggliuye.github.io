@@ -59,10 +59,10 @@ see [Line Mapping Page](/Study/PaperRead/subjects/#l2).
 <p/><p/>
 ## D. Deep Learning
 
-* Use [Dense Match](/Study/PaperRead/deeplearning/#ldense_match) with relative pose (Global averaging) for localization and visual mapping.
+* Use [Dense Match](/Study/PaperRead/deeplearning/03loc/#ldense_match) with relative pose (Global averaging) for localization and visual mapping.
 * Use [Nerf](/Study/PaperRead/3d_reconstruction/#lneural_r) with our data session.
 * Use [Multiplane Images](/Study/PaperRead/subjects/#l6) for render live 3d videos (as shown in Apple Vision Pro), [test video in PICO](https://drive.google.com/file/d/1mz66BP2f6ZB5Gv_L6dkrPg6Px94lbviZ/view?usp=sharing).
-* Use [ACE](/Study/PaperRead/deeplearning/#lend_to_end_loc) for mapping, and check its descriptor quality with [match test](https://github.com/yeliu-deepmirror/ace#encoder-test).
+* Use [ACE](/Study/PaperRead/deeplearning/03loc/#lend_to_end_loc) for mapping, and check its descriptor quality with [match test](https://github.com/yeliu-deepmirror/ace#encoder-test).
 
 <p/><p/>
 <a name="l2022"></a>
