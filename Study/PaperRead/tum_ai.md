@@ -42,7 +42,7 @@ title: TUM AI Lecture Series
 <a name="lauto_drive"></a>
 # 2. Autonomous Driving
 
-[Here for my paper read](/Study/PaperRead/deeplearning/#lauto_drive).
+[Here for my paper read](/Study/PaperRead/deeplearning/02autodrive).
 
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [A Future With Self-Driving Vehicles (Raquel Urtasun) 2021/02](https://www.youtube.com/live/efLZZigsC7c?feature=share).
 

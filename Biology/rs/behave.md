@@ -67,12 +67,16 @@ title: 《Behave - The Biology of Humans at Our Best and Worst》
 * "RIGHT" is used in neurobiological and instrumental sense, rather than a moral one.
 
 
-**Dopamine System**:
+**Dopamine System** - happiness of pursuit of reward:
 * **Mesolimbic dopamine pathway**: the tegmentum sends projections to the accumbens and other limbic areas.\
   * sex, pleasurable aesthetics.
 * **Mesocortical dopamine pathway**: the tegmentum projects to PFC.
 * Social interactions.
 * Habituation, the first time is the best.
 * Anticipation - Learning.
-  * Anticipation driven by reward.
+  * Anticipation driven by (delayed) reward.
   * Anticipation driven by uncertainty (in mesocortical pathway).
+
+decrease **Serotonin** signaling increases behavioral and cognitive implusivity.
+
+## 2. Seconds to Minutes Before

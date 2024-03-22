@@ -50,7 +50,7 @@ css:
 <div id="post-section-out" class="page-section">
 <div class="container-md" role="main">
   <div class="row">
-    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+    <div class="offset-lg-1 col-lg-10 offset-lg-1">
 
 {% assign posts = paginator.posts | default: site.posts %}
 

@@ -7,13 +7,48 @@ title: LLM algorithms
 
 # Table of Contents
 
-1. [ChatGPT - Higher Level Discussions](#lhld)
-2. [Algorithm Papers](#papers)
+1. [ChatGPT: 30 Year History](#history)
+2. [ChatGPT - Higher Level Discussions](#lhld)
+3. [Algorithm Papers](#papers)
 
 <p></p>
 
+<a name="history"></a>
+# 1. ChatGPT: 30 Year History
+
+youtube : [ChatGPT - 30 Year History - How AI Learned to Talk](https://www.youtube.com/watch?v=OFS90-FX6pg)
+
+**Recurrent neural network**:
+* [Serial Order: A Parallel Distributed Processing Approach 1986](https://cseweb.ucsd.edu/~gary/PAPER-SUGGESTIONS/Jordan-TR-8604-OCRed.pdf). First paper on sequential learning.
+  * Symbol sequence to sequence. Train by predicting next symbol.
+  * Could used to generation of sequence -> Trajectory pattern.
+* [Finding structure in time 1990](https://www.sciencedirect.com/science/article/abs/pii/036402139090002E), large network train on language.
+  * Observation of word boundary detection. Observation of word clustering. -> Semantic ?
+* [Generating Text with Recurrent Neural Networks 2011](https://icml.cc/2011/papers/524_icmlpaper.pdf), push the experiment forwards.
+  * Word compression in language understanding.
+* [The Unreasonable Effectiveness of Recurrent Neural Networks 2015](https://karpathy.github.io/2015/05/21/rnn-effectiveness/). First "large" language model Hinton/Sutskever.
+* [Learning to Generate Reviews and Discovering Sentiment 2017](https://arxiv.org/abs/1704.01444) (Ilya from OpenAI) trained on Amazon reviews (larger).
+  * Sentiment neuron **emerge** from training to predict next word.
+  * Size limiting the performance.
+
+**Transformer** (encoder - decoder):
+* Impractical to train.
+* [Attention Is All You Need 2017](https://arxiv.org/abs/1706.03762), adaptive connection.
+  * Leads to shallower wider network, practical to train.
+  * look at everything all at once, without need of internal memory.
+
+**GPT-1** : [Improving Language Understanding by Generative Pre-Training 2018](https://paperswithcode.com/paper/improving-language-understanding-by) use transformer in next word prediction. trained on 7000 books. show zero-shot behaviors.
+
+**GPT-2** : [Language Models are Unsupervised Multitask Learners 2018](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) same approach. data from Reddit, much large network.<u> But still drift to none sense after many sentences.</u>
+
+**GPT-3** : same approach, 100 bigger network - **175 billion parameters**. **trained on entire network data**. **context learning** during inference.
+
+**ChatGPT** : shape the network to better follow human instruction.
+
+
+
 <a name="lhld"></a>
-# 1. ChatGPT - Higher Level Discussions
+# 2. ChatGPT - Higher Level Discussions
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [An era of ChatGPT as a significant futuristic support tool: A study on features, abilities, and challenges 2022](https://www.sciencedirect.com/science/article/pii/S2772485923000066)
 
@@ -48,6 +83,6 @@ title: LLM algorithms
 * **Random Graphs**, which give rise to unexpected behaviors after they meet certain thresholds, could be a way to model the behavior of LLMs.
 
 <a name="papers"></a>
-# 2. Algorithm Papers
+# 3. Algorithm Papers
 
 <img src="/assets/img/paperread/chrown.png" height="25"/> [LLaVA: Large Language and Vision Assistant 2023](https://llava-vl.github.io/), Open source LLM, work better for **visual instruction**.

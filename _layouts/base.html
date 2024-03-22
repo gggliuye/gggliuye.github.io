@@ -3,8 +3,7 @@ common-css:
   - "/assets/css/bootstrap-social.css"
   - "/assets/css/main.css"
 common-ext-css:
-  - href: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    sri: "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  - "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css"
   - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
   - "https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
   - "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
@@ -13,19 +12,19 @@ common-ext-js:
     sri: "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
   - href: "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     sri: "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-  - href: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    sri: "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  - href: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"
 common-js:
   - "/assets/js/main.js"
 ---
 
 <!DOCTYPE html>
+<link rel="shortcut icon" href="#" />
 <html lang="{{ page.language | default: site.language | default: 'en' }}">
   <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2020 -->
   {% include head.html %}
 
 
-  <!-- https://mermaid-js.github.io/mermaid/#/ -->
+  <!-- https://mermaid.js.org/intro/getting-started.html#_4-calling-the-mermaid-javascript-api -->
   <body>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.3.1/+esm';
