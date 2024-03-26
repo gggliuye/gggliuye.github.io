@@ -4,31 +4,81 @@ title: Work Utopa 2019/02 - 2020/11
 subtitle: GuangZhou, China
 ---
 
-My work in China.
-
-# Company Introduction
-
-* **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
-
-<div align="center">    
-<img src="images/gtland.jpg" width="50%" height="50%" />
-</div>
-
-* **Team** : we have dozen of algorithm engineers, major in Visual SLAM (simultaneous localization and mapping), Visual Deep Learning, and 3D Reconstruction. Support with a few dozens of employees working on Unity3d, and a few dozens working with server back-end. I am part of the algorithm group (or should I say the 'head' without a offical title).
-
-* **My Work** : I am fully charged of one major aspect (**signle image based visual localization algorithm**), and in the direction of two other parts (**mobile device visual SLAM algorithm**, and **6-DOF Image marker tracking algorithm**). The 'productions' of our group are SDKs could be used in Unity Android.
+My work in China. ([Documentation with more details](https://vio.readthedocs.io/))
+* [Single image based localization algorithm](#lvlp)
+* [Mobile visual imu odometry](#lvio)
+* [Image marker tracking](#lobj)
+* [Other computer vision](#lothers)
 
 <div align="center">    
 <img src="images/demos.PNG"/>
 </div>
 
-# Summary and Backups
+<p></p>
+# Company Introduction
 
-[A detailed summary](https://vio.readthedocs.io/)
+* **UTOPA** : also called 'GaoWei Tech' is subcompany, fully supported by [GTLAND](http://www.gtlandplaza.com/) . GTLAND is a real estate company. It owns four large plazas in the very center of GuangZhou. However, with the change of real estate industry, it is in the urge to transform. It choosed the 'AR' (augmented reality) industry, to fully explore its plazaa.
 
-The three directions of my work. (updated 2020/08)
+* **Team** : we have dozen of algorithm engineers, major in Visual SLAM (simultaneous localization and mapping), Visual Deep Learning, and 3D Reconstruction. Support with a few dozens of employees working on Unity3d, and a few dozens working with server back-end. I am part of the algorithm group.
 
+* **My Work** : I am fully charged of one major aspect (**signle image based visual localization algorithm**), and in the direction of two other parts (**mobile device visual SLAM algorithm**, and **6-DOF Image marker tracking algorithm**). The 'productions' of our group are SDKs could be used in Unity Android.
+
+<a name="lvlp"></a>
+## Single image based large scene localization
+I am **fully in charge** of this part. Our system is based on Colmap SFM system, but I have our own modification to make it work for our system. [videos_indoor](https://www.bilibili.com/video/BV1NZ4y1j7Ba/), [videos_ar](https://www.bilibili.com/video/BV1Ci4y1b79V/) and [video_outdoor](https://www.bilibili.com/video/BV1VT4y157NH/).
+
+<div align="center">    
+<img src="images/demos_server.PNG" width="80%" height="80%"/>
+</div>
+
+**Algorithm**:
+
+* Offline Mapping:
+  * image pretreatments : a fast blur detection algorithm; deep learning based illumination equalization.
+  * sensor fusion:
+    * imu based scale estimation.
+    * lidar based pose graph refinement.
+  * dense reconstruction:
+    * lidar-image mapping with solid lidar slam, [Using Neuvition](https://www.bilibili.com/video/BV1uJ411C74B/).
+    * Deep learning based MVS methods. [articles research](https://docs.qq.com/slide/DUndnS2pwbkRiQmZM) and [DeepMVS test](https://gitee.com/gggliuye/VIO/blob/master/DeepMVS/Result_show.ipynb)
+* Online Localization:
+  * various feature supported : SIFT, FAST, SuperPoint + SuperGlue.
+  * We have further developped an local version of the algorithm (which could run entirely in mobile phone, will with a small loss of robustness). [Local Map](https://vio.readthedocs.io/zh_CN/latest/ServerLocalization/LocalMap.html)
+* Application (Unity):
+  * Build a scan application (in Android Devices) [demo](https://www.bilibili.com/video/BV1NZ4y1j7Ba?p=6), to simultaneous filtering image, and record IMU data for scale estimation.
+  * Build a map analysis interface to help user better build a map with our system.
+  * Build a complete Unity Ar application (with automatic image sending system, image filter system, and pose smoothing filter).
+
+Other:
+* Work Flow:
+  * Linux Algorithm development. C++ development, followed by Java implementation.
+  * Build serve, and define interface. Build Android server communication system, and the message encoder/decoder.
+  * Build the corresponding Unity project.
+* Mapping cloud demo: [Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
+* Some development log: [ServerLocalization](ServerLocalization/)
+* WebGL demo development.
+
+<details>
+  <summary>Backups</summary>
+
+<li><a>Unity Native Plugin Related : baiduyun/UTOPA/Backups/2020_07_UnityNativePluginRender.zip</a></li>
+<li><a>Android Netty Library : baiduyun/UTOPA/Backups/2020_03_netty_for_android.zip</a></li>
+<li><a>Android Full Library : baiduyun/UTOPA/Backups/2020_07_01_server_arcore.zip</a></li>
+<li><a>ArCore based Scene Scan App : baiduyun/UTOPA/Backups/2020_07_Unity_ArCoreMakeMap.rar</a></li>
+<li><a>ArCore based Image Localizaton Demo : baiduyun/UTOPA/Backups/2020_07_Unity_ArCoreServerLocalizationApp.zip</a></li>
+
+</details>
+
+<!--[Unity Native Plugin Related](https://pan.baidu.com/s/183jBN1hnnLoBpQUpPAiPXg)(lgek) -->
+<!-- [Android Netty Library](https://pan.baidu.com/s/1VnAhNK8AIA-AMSBWpVO5PQ) (fc8m)-->
+<!-- [Android Full Library](https://pan.baidu.com/s/1vbLbB89j3kDDeYqXf3VH3g)(7km1) -->
+<!--[ArCore based Scene Scan App](https://pan.baidu.com/s/1M407vkVbDXXlODUefosWOQ)(db7b)-->
+<!--[ArCore based Image Localizaton Demo](https://pan.baidu.com/s/1TrEQaZh85-OnmRMQihfIZg)(q0ez)-->
+
+
+<a name="lvio"></a>
 ## Moblie Phone Visual SLAM
+
 We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modification of the code to better suit our project. [videos](https://www.bilibili.com/video/BV1Xk4y1d7ap/)
 * Use a marker image to initialize the SLAM system, to have a faster and better initialization, and have an accurate estimation of the scale.
 * A system to offer a result with higher frequence, which is realized using optical flow tracking and pose only bundle adjustment.
@@ -58,7 +108,7 @@ We use the ORBSLAM2 base to develop a SLAM system, we our (mostly mine) modifica
 * Build Android Library, build corresponding Unity project.
 * Test and find problems.
 
-
+<a name="lobj"></a>
 ## Marker image based tracking
 We have another co-worker deal with it, but I think he didn't do a great job. So I have realize all the algorithms on my own, in my private time. [videos](https://www.bilibili.com/video/BV1Ma4y1t7oD/)
 * Single marker detection (version of my co-worker is ORB feature match based, and version of mine is a brute force finder). Mine version could realize a faster and more robust detection (using a Branch-and-Bound optimization structure).
@@ -85,92 +135,14 @@ We have another co-worker deal with it, but I think he didn't do a great job. So
 
 * Same as the former one.
 
-## Single image based large scene localization
-I am fully in charge of this part. Our system is based on Colmap SFM system, but I have our own modification to make it work for our system. [videos_indoor](https://www.bilibili.com/video/BV1NZ4y1j7Ba/) [videos_ar](https://www.bilibili.com/video/BV1Ci4y1b79V/) and [video_outdoor](https://www.bilibili.com/video/BV1VT4y157NH/).
-
-<div align="center">    
-<img src="images/demos_server.PNG" width="80%" height="80%"/>
-</div>
-
-**Algorithm Part**:
-
-* [My work of the first period](https://vio.readthedocs.io/) is mostly to study and to prepare the modules. And we have built all the basic algorithm interface of C++, C#, and java to support.
-* We use a fast blur detection algorithm to reject bad image frames.
-* We have built a IMU based scale estimation algorithm.
-* We have built a system to allow to use a third-party lidar device to help optimize our map.
-* We are now developping a deep learning based feature detection algorithm to deal with the illumination changing.
-* We are now developping a solid lidar based visual-lidar system to get a better and more dense result. [Using Neuvition](https://www.bilibili.com/video/BV1uJ411C74B/)
-* We are working with Deep learning based MVS methods. [articles research](https://docs.qq.com/slide/DUndnS2pwbkRiQmZM) and  [DeepMVS test](https://gitee.com/gggliuye/VIO/blob/master/DeepMVS/Result_show.ipynb)
-* We have further developped an local version of the algorithm (which could run entirely in mobile phone, will with a small loss of robustness). [Local Map](https://vio.readthedocs.io/zh_CN/latest/ServerLocalization/LocalMap.html)
-
-**Application Part**:
-
-* Build a scan application (in Android Devices) [demo](https://www.bilibili.com/video/BV1NZ4y1j7Ba?p=6), to simultaneous filtering image, and record IMU data for scale estimation.
-* Build a map analysis interface to help user better build a map with our system.
-* Build a complete Unity Ar application (with automatic image sending system, image filter system, and pose smoothing filter).
-
-**Backups and Documents**:
-
-* **Unity Native Plugin Related** : baiduyun/UTOPA/Backups/2020_07_UnityNativePluginRender.zip
-<!--[Unity Native Plugin Related](https://pan.baidu.com/s/183jBN1hnnLoBpQUpPAiPXg)(lgek) -->
-* **Android Netty Library** : baiduyun/UTOPA/Backups/2020_03_netty_for_android.zip
-<!-- [Android Netty Library](https://pan.baidu.com/s/1VnAhNK8AIA-AMSBWpVO5PQ) (fc8m)-->
-* **Android Full Library** : baiduyun/UTOPA/Backups/2020_07_01_server_arcore.zip
-<!-- [Android Full Library](https://pan.baidu.com/s/1vbLbB89j3kDDeYqXf3VH3g)(7km1) -->
-* **ArCore based Scene Scan App** : baiduyun/UTOPA/Backups/2020_07_Unity_ArCoreMakeMap.rar
-<!--[ArCore based Scene Scan App](https://pan.baidu.com/s/1M407vkVbDXXlODUefosWOQ)(db7b)-->
-* **ArCore based Image Localizaton Demo** : baiduyun/UTOPA/Backups/2020_07_Unity_ArCoreServerLocalizationApp.zip
-<!--[ArCore based Image Localizaton Demo](https://pan.baidu.com/s/1TrEQaZh85-OnmRMQihfIZg)(q0ez)-->
-
-**Work Flow**:
-
-* Linux Algorithm development.
-* C++ development, followed by Java implementation.
-* Build serve, and define interface.
-* Build Android server communication system, and the message encoder/decoder.
-* Build the corresponding Unity project.
-
-**Mapping Clouds**:
-
-* [Colmap extremely large scene](https://www.voxxlr.com/s/1594282119587)
-
-**Some Log**:
-
-[ServerLocalization](ServerLocalization/)
-
-**WebGL demo**:
-
-(worked with my own effort)
-* First demo : use threejs to load and show a point cloud (which I encoded into json form).
-* Second demo : use threejs to show a computer vision algorithm based 3d reconstruction.
-[WebGL demo](WEBGL/threejs)
-
+<a name="lothers"></a>
 ## Other Computer Vision stuff
 
-Backups and Documents:
+<div align="center">    
+<img src="images/utopa.png"  width="80%"/>
+</div>
 
 * [Hand Tracking Python](https://gitee.com/gggliuye/Opencv_based_hand_detection) Use traditional Opencv Method and Deeplearning methods repectively for the task of hand detection.
-
-<div align="center">    
-<img src="images/hand.PNG"  width="80%" height="80%" />
-</div>
-
 * [Probability Graph model based image segmentation](https://github.com/gggliuye/graph_based_image_segmentation) Use Probability Graph model based algorithm for a simple image segmentation task, a realization of GraphCut algorithm, and an example of L1 heuristic for filling missing data.
-
-<div align="center">    
-<img src="images/image_pgm.jpg"  width="80%" height="80%" />
-</div>
-
 * [Lidar SLAM](https://github.com/gggliuye/LidarSlam) : Try to realize an simple ICP based lidar odometry algorithm. And try an mapping algorithm using part of the result from SFM visual reconstrction. some clouds :[RealSense lidar pop art](https://www.voxxlr.com/s/1594283047256) and [RealSense lidar office](https://www.voxxlr.com/s/1594283095264)
-
 * [Point Net ++ Kitti Detection Test](https://github.com/gggliuye/PointNetKitti) : Using point cloud clustering algorithm for object detection, and using a Point Net++ network for object classification.
-
-<div align="center">    
-<img src="images/test_result.PNG"  width="60%" height="60%" />
-</div>
-
-
-## Diary
-Some the develop diary.
-
-[Diary](Diary/)
