@@ -41,6 +41,11 @@ title: Autonomous Driving
     * OpenDRIVE : reference line/road (various geometric primitives), lane, and features.
     * Apollo Maps : uses points. Road, Intersection, Traffic signal, Logical relationship & Others.
 
+<img src="/assets/img/paperread/thumbs.png" height="25"/> Localization using HD map:
+* [YOLOP: You Only Look Once for Panoptic Driving Perception 2021](https://arxiv.org/abs/2108.11250), YOLO for car images.
+* [Coarse-to-fine Semantic Localization with HD Map for Autonomous Driving in Structural Scenes 2021](https://arxiv.org/abs/2107.02557), segmentation to gradient map, use direct method for pose refinement.
+
+
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Computing Systems for Autonomous Driving: State-of-the-Art and Challenges 2020](https://arxiv.org/pdf/2009.14349.pdf). focus on hardware side.
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [Towards End-to-End Lane Detection: an Instance Segmentation Approach 2018](https://arxiv.org/abs/1802.05591), [github](https://github.com/MaybeShewill-CV/lanenet-lane-detection) lane segmentation.
