@@ -14,12 +14,8 @@ What else do you need?
 ## Hobby
 
 * Philosophy, Art.
-* Love music, Rock fan.
-* Love outdoor.
-
-## github calendar
-
-https://github.com/Bloggify/github-calendar
+* Music, Rock fan.
+* Outdoor.
 
 ## Education
 
@@ -27,13 +23,13 @@ https://github.com/Bloggify/github-calendar
 <img src="/assets/img/nju.jpg"/>
 </div>
 
-**Nanjing University**, in <u>the best Physics department in China</u> (at the year 2012). National plan of basic disciplines of top-notch training (基础学科拔尖计划) (consist of the students **ranked top 30** out of about 250) with scholarship.
+**Nanjing University**, in <u>the best Physics department in China</u> (at the year 2012). <u>National plan of basic disciplines of top-notch training (基础学科拔尖计划)</u> (consist of the students **ranked top 30** out of about 250) with scholarship.
 
 <div align="center">    
 <img src="/assets/img/ip-paris.jpg"/>
 </div>
 
-**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (best Grand Ecole in France), <u>Diplôme d'ingénieur</u> (much harder than Master’s Degree), Awarded the China Scholarship Council’s (CSC) scholarship.
+**Institut Polytechnique de Paris** [IP Paris](https://www.ip-paris.fr/) (best Grand Ecole in France, [rank](https://www.ip-paris.fr/en/about/facts-and-figures/rankings)), <u>Diplôme d'ingénieur, Awarded the China Scholarship Council’s (CSC) scholarship.</u>
 
 <!-- [ENSTA](http://www.ensta-paris.fr/cn/node/1214) -->
 
@@ -51,16 +47,8 @@ https://github.com/Bloggify/github-calendar
 
 -->
 
-<!--
-## Work at DeepMirror
-[The abstract of my work until now](../WorkDeepMirror/index).
 
-## Work at UTOPA-AR
+## Work
 
-[My home page of this work](https://vio.readthedocs.io/zh_CN/latest/index.html).
-
-* [The abstract of my work until 2020/08](../WorkUtopa/index).
-* [My certifications Coursera](../Study/certs/coursera).
-* [My certifications Deep Blue (深蓝学院)](../Study/certs/deepblue).
-
--->
+* [DeepMirror 2020/11 - now](/WorkDeepMirror/index)
+* [Work Utopa 2019/02 - 2020/11](/WorkUtopa/index)

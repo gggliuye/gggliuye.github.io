@@ -80,3 +80,5 @@ title: 《Behave - The Biology of Humans at Our Best and Worst》
 decrease **Serotonin** signaling increases behavioral and cognitive implusivity.
 
 ## 2. Seconds to Minutes Before
+
+signals from body, physics state, words.

@@ -48,9 +48,7 @@ We also talked about Vuforia image localization. As the economy battle between U
 ## 2020/04
 
 A summary of the work of our LAB.
+
 [2020_04_创科实验室_工作汇总](https://docs.qq.com/slide/DUlhFYVBYdUVVbElk)
-
-
-
 
 [BACK](../)
