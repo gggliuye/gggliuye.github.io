@@ -81,4 +81,5 @@ decrease **Serotonin** signaling increases behavioral and cognitive implusivity.
 
 ## 2. Seconds to Minutes Before
 
+social & physics environments.
 signals from body, physics state, words.

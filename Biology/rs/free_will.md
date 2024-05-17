@@ -215,7 +215,7 @@ graph TD
 Example of **epilepsy**.
 * Once was thought to be *demonic possession*.
 * Once was thought to be *a disease of moral turpitude*. associated with violence and criminality.
-* Later w e have more understanding of it.
+* Later we have more understanding of it.
   * seizures can damage or kill neurons.
   * seizures (near amygdala) can cause aggression immediately.
 * 1808, a person who had killed while having a seizure was acquitted.
