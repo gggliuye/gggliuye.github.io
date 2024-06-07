@@ -81,4 +81,15 @@ decrease **Serotonin** signaling increases behavioral and cognitive implusivity.
 
 ## 2. Seconds to Minutes Before
 
+social & physics environments.
 signals from body, physics state, words.
+
+## 3. Hours to Days Before
+
+Endocrinology - hormones,
+* can affect cells in the **whole body**.
+* effects merge over hours to days and can **persist** forever.
+
+**Testosterone**
+* Aggression is typically more about social learning than about testosterone. and differing levels of testosterone generally cannot explain aggressive individuals.
+* exaggerate preexisting pattern of aggression. at the time of challenges.
