@@ -2,6 +2,10 @@
   description: My Philosophy learning & reading note.
   img: philo.jpg
   url: ./Philosophy/index
+- title: NERF - 2024
+  description: Neural Rendering
+  img: nerf.gif
+  url: https://www.bilibili.com/video/BV1jw411w7xy
 - title: 3D Object Tracking - 2023
   description: Monocular 3d object tracking
   img: object_tracking.gif
