@@ -31,7 +31,7 @@ css:
 <div id="learning-section-out" class="page-section">
 <div id="learning-section">
   <div class="section-title">
-    <a href="{{ "blog/index" | absolute_url }}">Blogs</a>
+    <a href="{{ "blog/index" | absolute_url }}">Blogs</a> - <a href="{{ "tags" | absolute_url }}">Tags</a>
   </div>
 
 <!-- https://stackoverflow.com/questions/54769586/how-to-display-tags-in-jekyll-and-get-the-tag-to-click-through-to-all-relevant-c -->
