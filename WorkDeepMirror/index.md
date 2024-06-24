@@ -22,9 +22,9 @@ WORKs
       Lidar-IMU
       Lidar-IMU-Image
     Visual SLAM
-      DSO-Car
-      VINS
-      DL Re-Localization
+      Visual-Car
+      Visual-IMU
+      ML Re-Localization
   (OffLine Mapping)
     Visual Based
       Point Based SFM
@@ -33,7 +33,7 @@ WORKs
       Image MVS
       Map Summarization
     Lidar Based
-      TSDF
+      TSDF Pointcloud
       Mesh : Delaunay Ray Tracing
       Multi-Map Fusion
     Deep Learning
@@ -41,8 +41,9 @@ WORKs
       Gaussian Splatting
   (Other Image Processing)
     Multiplane Images
-    Infra-Red Tracking
-    Panorama image
+    Monocular Depth
+    Infra-Red
+    Panorama
   (MR)
     World Generation
     MR 6DOF in Vehicle
