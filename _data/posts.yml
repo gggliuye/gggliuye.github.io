@@ -1,5 +1,0 @@
-# for more icons https://fontawesome.com/v4/icons/
-- icon: fas fa-bookmark
-  content: " [Posts](blog/index)"
-- icon: fas fa-paint-brush
-  content: "**Art** [Art Posts](tags/#Art)"

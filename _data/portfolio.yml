@@ -2,6 +2,10 @@
   description: My Philosophy learning & reading note.
   img: philo.jpg
   url: ./Philosophy/index
+- title: MR Travel Mode - 2024
+  description: Travel Mode using Visual Odometry
+  img: vo.gif
+  url: ./WorkDeepMirror/
 - title: NERF - 2024
   description: Neural Rendering
   img: nerf.gif
