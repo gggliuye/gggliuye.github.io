@@ -7,7 +7,7 @@
   img: vo.gif
   url: ./WorkDeepMirror/
 - title: NERF - 2024
-  description: Neural Rendering
+  description: Neural Rendering for Extremely Large Outdoor Scenes.
   img: nerf.gif
   url: https://www.bilibili.com/video/BV1jw411w7xy
 - title: 3D Object Tracking - 2023
@@ -19,7 +19,7 @@
   img: ar_glass_car.gif
   url:
 - title: Infra-Red State Estimate - 2023
-  description: Infra-Red IMU fusion state estimation
+  description: Infra-Red IMU fusion state estimation.
   img: hand6dof.gif
   url: ./Study/PaperRead/subjects/#l4
 - title: Mulitplane-Images based Spatial Video - 2023
