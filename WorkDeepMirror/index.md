@@ -8,10 +8,50 @@ subtitle: GuangZhou, China
 
 * [DeepMirror](#ldm)
 * [My work 2023](#l2023)
+* [My work 2024](#l2024)
 * [My work 2022](#l2022)
 * [My work 2020 - 2021](#l2021)
 
 <p></p>
+
+<div align="center"><pre class="mermaid">
+mindmap
+WORKs
+  (Online SLAM)
+    Lidar SLAM
+      Lidar-IMU
+      Lidar-IMU-Image
+    Visual SLAM
+      Visual-Car
+      Visual-IMU
+      ML Re-Localization
+  (OffLine Mapping)
+    Visual Based
+      Point Based SFM
+      Global Averaging
+      Line Based SFM
+      Image MVS
+      Map Summarization
+    Lidar Based
+      TSDF Pointcloud
+      Mesh : Delaunay Ray Tracing
+      Multi-Map Fusion
+    Deep Learning
+      NERF
+      Gaussian Splatting
+  (Other Image Processing)
+    Multiplane Images
+    Monocular Depth
+    Infra-Red
+    Panorama
+  (MR)
+    World Generation
+    MR 6DOF in Vehicle
+    Vertigo Reduction
+    RunTime Rendering
+    OpenXR Native
+</pre></div>
+
 
 <a name="ldm"></a>
 # DeepMirror
@@ -21,6 +61,32 @@ subtitle: GuangZhou, China
 <div align="center">    
 <img src="/assets/img/work/mirrorverse-p-1600.png" width="75%"/>
 </div>
+
+<a name="l2024"></a>
+# My work 2024
+
+## A. Low Cost INS
+
+Use low quality GPS & IMU only. Achieve state-of-art INS performance.
+<div align="center">    
+<img src="/assets/img/work/ins_1.gif" width="60%"/>
+</div>
+
+## B. Automatic World Generation
+
+Generate random world, based on earth topology and OSM road map.
+
+<div align="center">
+<iframe src="//player.bilibili.com/player.html?aid=1705747518&bvid=BV1XT421e7KB&cid=1581361304&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+
+<p></p>
+## C. MR in Vehicle 6DOF
+
+Enable MR device to have 6DOF tracking in any vehicle.
+* Well designed fusion algorithm to give a comfort experience.
+* Output poses both in car reference frame & world reference frame.
+
 
 <a name="l2023"></a>
 # My work 2023
@@ -75,6 +141,11 @@ working on slam/vlp system.
 
 working on meta-verse for cars.
 * **car localization** - ins system : Based on iterative extended error state kalman filter. imu (motion model) + gps + chassis + visual localization.
+
+<div align="center">    
+<img src="/assets/img/work/ins.gif" width="60%"/>
+</div>
+
 * **vr in-car localization** - work with guangqi for **AR-HUD & VR**.
   * [广汽ADiGO SPACE升级沉浸式智能座舱体验 2022](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA).
   * **patent**: [Vehicle-mounted XR equipment](http://www.soopat.com/Patent/202211281972).

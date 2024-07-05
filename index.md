@@ -29,16 +29,26 @@ css:
 </div>
 
 <div id="learning-section-out" class="page-section">
-  <div id="learning-section">
-    <div class="section-title">Blogs</div>
-	<div id="learning-list" markdown="1">
-{% for info in site.data.posts %}
-{% if info.icon %}<span class="learning-icon fa-fw {{ info.icon }}" aria-hidden="true"></span>{% endif info.icon %}
-<span class="learning-content">{{ info.content }}</span>
-{: .learning-text }
-{% endfor %}
-</div>
+<div id="learning-section">
+  <div class="section-title">
+    <a href="{{ "blog/index" | absolute_url }}">Blogs</a> - <a href="{{ "tags" | absolute_url }}">Tags</a>
   </div>
+
+<!-- https://stackoverflow.com/questions/54769586/how-to-display-tags-in-jekyll-and-get-the-tag-to-click-through-to-all-relevant-c -->
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tags_list = site_tags | split:',' | sort_natural %}
+
+<div align="center"><pre class="mermaid">
+mindmap
+Blogs
+{% for item in (0..site.tags.size) %}{% unless forloop.last %}
+  {% capture this_word %}{{ tags_list[item] | strip_newlines }}{% endcapture %}
+  {{ this_word }} - {{ site.tags[this_word].size }}
+{% endunless %}{% endfor %}
+</pre></div>
+
+
+</div>
 </div>
 
 <div id="portfolio-out" class="page-section">
