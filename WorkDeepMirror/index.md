@@ -56,10 +56,10 @@ WORKs
 <a name="ldm"></a>
 # DeepMirror
 
-[website](https://www.deepmirror.com/)
+[website](https://www.deepmirror.com/) : MirrorSpace - City scale spatial mapping and localization.
 
 <div align="center">    
-<img src="/assets/img/work/mirrorverse-p-1600.png" width="75%"/>
+<img src="/assets/img/work/dm.jpg" width="85%"/>
 </div>
 
 <a name="l2024"></a>
@@ -72,21 +72,37 @@ Use low quality GPS & IMU only. Achieve state-of-art INS performance.
 <img src="/assets/img/work/ins_1.gif" width="60%"/>
 </div>
 
+<p></p>
 ## B. Automatic World Generation
 
-Generate random world, based on earth topology and OSM road map.
-
 <div align="center">
-<iframe src="//player.bilibili.com/player.html?aid=1705747518&bvid=BV1XT421e7KB&cid=1581361304&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe style="float: right;" src="//player.bilibili.com/player.html?aid=1705747518&bvid=BV1XT421e7KB&cid=1581361304&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>
+
+Generate random world, based on earth topology and OSM road map.
+* terrain generation.
+* shadow & light shader.
+* MR rendering.
 
 <p></p>
 ## C. MR in Vehicle 6DOF
 
+<img style="float: right;" src="/assets/img/screenshots/vo.gif" width="30%"/>
+
 Enable MR device to have 6DOF tracking in any vehicle.
 * Well designed fusion algorithm to give a comfort experience.
 * Output poses both in car reference frame & world reference frame.
+* Realtime on board absolute localization (w.r.t. car) using deeplearning.
 
+<p></p>
+## D. Video Streaming
+
+<img style="float: right;" src="/assets/img/screenshots/car_vr_stream.gif" width="30%"/>
+
+Stream outside Panorama view to MR.
+* Camera hardware connection, image stitch, video encoder.
+* Video Streaming using FFMPEG.
+* MR video decoder, panorama rendering.
 
 <a name="l2023"></a>
 # My work 2023

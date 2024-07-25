@@ -6,6 +6,10 @@
   description: Travel Mode using Visual Odometry
   img: vo.gif
   url: ./WorkDeepMirror/
+- title: MR CAR STREAM - 2024
+  description: Stream panorama from Car to MR
+  img: car_vr_stream.gif
+  url: ./WorkDeepMirror/
 - title: NERF - 2024
   description: Neural Rendering for Extremely Large Outdoor Scenes.
   img: nerf.gif
