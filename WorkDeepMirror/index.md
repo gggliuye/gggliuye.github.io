@@ -7,8 +7,8 @@ subtitle: GuangZhou, China
 # Table of Contents
 
 * [DeepMirror](#ldm)
-* [My work 2023](#l2023)
 * [My work 2024](#l2024)
+* [My work 2023](#l2023)
 * [My work 2022](#l2022)
 * [My work 2020 - 2021](#l2021)
 
@@ -75,13 +75,11 @@ Use low quality GPS & IMU only. Achieve state-of-art INS performance.
 <p></p>
 ## B. Automatic World Generation
 
-<div align="center">
-<iframe style="float: right;" src="//player.bilibili.com/player.html?aid=1705747518&bvid=BV1XT421e7KB&cid=1581361304&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-</div>
+<img style="float: right;" src="/assets/img/work/image_mc.jpg" width="30%"/>
 
-Generate random world, based on earth topology and OSM road map.
-* terrain generation.
-* shadow & light shader.
+Generate random world, based on earth topology and OSM road map. [Video](https://www.bilibili.com/video/BV1XT421e7KB/?share_source=copy_web&vd_source=7e02250c240f5781cde17d4e607c33bd).
+* Terrain generation (random while fits earth topology).
+* Shaders : shadow & light & fog & water.
 * MR rendering.
 
 <p></p>
@@ -164,7 +162,7 @@ working on meta-verse for cars.
 
 * **vr in-car localization** - work with guangqi for **AR-HUD & VR**.
   * [广汽ADiGO SPACE升级沉浸式智能座舱体验 2022](https://mp.weixin.qq.com/s/l01PoJ47BtGNLOIvLN5oGA).
-  * **patent**: [Vehicle-mounted XR equipment](http://www.soopat.com/Patent/202211281972).
+  * **patent**: 一种车载XR设备定位方法、装置、设备及存储介质 CN115690194B.
   * [DeepMirror在宝马汽车元宇宙比赛中荣获第一名 2023](https://mp.weixin.qq.com/s/8SFkmZQhMmpXe-6Yj9VkRA). First place in the "Vehicle Readiness" category was secured by Chinese start-up DeepMirror Inc.
 
 <div align="center">    
@@ -194,7 +192,7 @@ working on meta-verse for cars.
 ## B. VLIO algorithm
 
 **lidar-imu-image slam**, based on image direct method with photometric refinement (following last year's work).
-**patent**: [Mapping method and system based on laser vision fusion](http://www.soopat.com/Patent/202211633054).
+**patent**: 基于激光视觉融合的建图方法及系统 CN115797490B.
 
 <div align="center">  
 <iframe src="//player.bilibili.com/player.html?aid=261580358&bvid=BV1He411L7ti&cid=860597168&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
