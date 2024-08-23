@@ -1,6 +1,6 @@
 ---
 layout: page_mba
-title: MBA
+title: Business
 ---
 
 Pages:
@@ -15,7 +15,7 @@ Pages:
 L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
   * 《财务会计：概念与应用》 (Financial Accounting: Concepts and Applications)
-  * Financial Accounting
+  * [Financial Markets](../1finace)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
   * 《公司理财》 (Corporate Finance)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
