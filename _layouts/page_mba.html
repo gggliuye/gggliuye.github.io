@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+
+{% include header.html type="page" %}
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="offset-lg-1 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
