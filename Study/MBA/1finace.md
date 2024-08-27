@@ -4,9 +4,11 @@ title: Financial Markets
 ---
 
 
-[Financial Markets Coursera](https://www.coursera.org/learn/financial-markets-global/home/)
+[Financial Markets Coursera](https://www.coursera.org/learn/financial-markets-global/home/). [Talk with ChatGPT](https://chatgpt.com/share/aa073c42-1c11-44f2-9145-d4e9eb45eaf8).
 
 1. [Introduction](#l1)
+2. [Debt, Forecasting, Behavioral Finance](#l2)
+3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps.
 
 <a name="l1"></a>
 # 1. Introduction
@@ -107,4 +109,96 @@ Deal with Risk - **Portfolio Management**
 * 批评：（1）效力与规模—难以覆盖脆弱和贫困群体；（2）利益冲突导致社会目标被牺牲；（3）社会责任的转移。
 
 <a name="l2"></a>
-# 2.
+# 2. Debt, Forecasting, Behavioral Finance
+
+**Debt**:
+* Invention Takes Time: progress is slow.
+* **Limited Liability** (负债).
+  * Protection against liability: investors in stocks can never be pursued for the mistakes of the company invested in.
+  * But might encourage corruption, creating lottery effect.
+* **Inflation Indexed Debt** (通货膨胀率连结债券) pays back index to inflation.
+* **Unidad de Fomento** (UF值) price to be tied to consumer price index (CPI).
+  * money is often defined in terms of the: a store of value, a unit of account and a medium of transaction.
+* Real Estate: Risk Management Devices.
+  * Insurance against house price.
+  * Short the housing market can help stop bubbles, and protect people.
+
+**Forecasting**:
+* **The Efficient Markets Hypothesis** (***half truth***).
+  * <u>semi-strong form: all publicly information is already incorporated in the market prices.</u>
+* **Random Walk Hypothesis** with growth.
+  * $x_{t} = x_{t - 1} + \varepsilon_{t} $. Totally unforecastable. so better make prediction with the price today.
+  * First-order autoregressive (AR-1) Model: $x_{t} = x_{0} + \rho (x_{t -1} - x_{0} ) + \varepsilon_{t} $. elastic tied to the lamp post.
+* **Price as PDV**: the price of a stock should be the present discounted value of expected dividends.
+  * **P/E ratio** (price-earnings ratio) ： the amount investors are willing to pay for each unit of the company's earnings.
+  * P/E ratio = (Price per Share) / (Earning per Share EPS)
+
+**Behavioral Finance**:
+(Adam Smith "The Wealth of Nations", "The Theory of Moral Sentiments" - As people mature, <u>the desire for praise morphs</u> into <u>a desire for praiseworthiness</u>. (unknown mathematicians v.s. famous actors))
+<img style="float: right;" src="/assets/img/company/prospect_thoery.jpg" width="30%"/>
+1. **Prospect Theory** :  how people make decisions between alternatives that involve risk and uncertainty, especially when the probabilities of outcomes are known. Challenges the traditional economic assumption that people are rational actors who always make decisions to <u>maximize utility</u>.
+  * (1) <u>Value function</u> : overly focused on little losses, little gains.
+  * (2) <u>Weighting function</u> : overweight small probabilities and underweight large probabilities.
+  * (3) Reference dependence, decisions are based on perception from a specific reference point.
+  * (3) Framing effect, decisions are influenced by how the choices are presented rather than by the actual outcomes.
+  * Criticisms: (1) being descriptive rather than predictive; (2) does not account for all the complexities of decision-making in real-world scenarios.
+2. **Overconfidence**: most people think they're above average.
+3. **Cognitive Dissonance** : the discomfort a person feels when their behavior does not align with their values or beliefs. (strengthen decision rightness, ignore bad decision)
+4. **Mental Compartments** : we tend to (ignore the whole thing) separate thoughts and feelings that seem to conflict.
+  * Option salespeople use these tactics: buy a put option on a single stock.
+5. **Attention Anomalies** : we tend to pay attention to the same things that other people pay attention. (we cannot pay attention to everything)
+6. **Anchoring** : decisions are based on perception from a specific reference anchor.
+  * stock price prediction anchored to past value.
+7. **Representativeness Heuristic** : people judge by familiar patterns.
+  * manipulators try to create patterns to fool investors.
+8. **Disjunction Effect** : inability to make decisions in advance in anticipation of future information.
+9. **Magical Thinking** : people believes that specific thoughts, words, emotions, or ritual behaviors have a special influence on the world around them. (built from repeating behaviors)
+10. **Quasi-Magical Thinking** :
+  * People bet more on coin not yet tossed.
+  * People pay more for lottery ticket in which they choose the number.
+11. **Culture and Social Contagion**.
+12. **Antisocial Personality Disorder**.
+
+**Q&A**:
+* How to measure the irrational molde in prediction ?
+  * Central Bank policy: strategies and actions implemented by a central bank to manage a country’s monetary system and achieve specific economic objectives.
+  * People tend to focus on short-term. transactions tax.
+  * Mike O'Brennan at UCLA proposed that  create separate markets for corporate dividends at various horizons.
+
+<a name="l3"></a>
+# 3. Financial Instruments
+
+**Interest Rates**:
+* Term is the time that you have to leave your money in and cannot get it out at least without a penalty.
+* Interbank Market Interest Rates:
+  * Federal Funds interest rates (over night rate), virtually zeros since crisis.
+  * [EONIA (Euro Overnight Index Average )](https://corporatefinanceinstitute.com/resources/economics/euro-overnight-index-average-eonia/) went even to negative. (since it is costly to store cash)
+* Source: "Interest rates tend to be small positive numbers like 3% or 5% because of <u>technical progress, time preferences</u> (people are naturally impatient.) and <u>advantages to round aboutness</u> (round about production process -  time-consuming method of production)."
+* Compound Interest $A = P(1 + r/n)^{nt}$:
+  * If $n \to \inf$, continuous compounding, balance is $e^{rt}$.
+
+**Discount Bonds** (zero-coupon bonds) (貼現債券) being redeemed at their full face value at maturity. Normally sold with discount. Yield to Maturity r : $P = \frac{1}{(1+r)^{T}}$.
+**Coupon Bonds** (息票债券) debt security that pays periodic interest payments, known as coupons, to the bondholder.
+
+**Consol** (永续债券) and **Annuity** (年金):
+
+
+* Consol pays constant quantity x forever (no maturity date). Consol PDV = x/r.
+* Growing Consol pays $x(1+g)^{t-1}$ in t. Growing Consol PDV = x/(r - g).
+* Annuity pays x from time 1 to T. Annuity PDV = $x\frac{1-1/(1+r)^{T}}{r}$.
+  * No principal repayment at maturity in an annuity.
+
+**Forward rates** (远期利率/汇率) refer to the agreed-upon interest rates or exchange rates for a financial contract that will take effect at a future date.
+
+**Inflation** (通货膨胀) the rate at which the general level of prices for goods and services is rising, eroding purchasing power over time. Interest rates with inflation: $(1 + r_{money}) = (1 + r_{real}) (1 +r)$, $r_{money} \approx r_{real} + i$.
+
+**Indexed Bonds** (指数债券) bonds whose interest payments and/or principal repayment are adjusted based on an underlying index, often to account for inflation or changes in interest rates. Designed to protect investors from inflation or other economic fluctuations.
+
+**Leverage** (杠杆) putting more money into the asset than you have.
+* Irving Fisher “The Debt-Deflation Theory of Great Depressions” 1933.
+  * Deflation redistributed real wealth from debtors to creditors.
+  * The overall level of debt in the economy (hence leverage) rises in real value because of deflation.
+* John Geanakoplos [“The Leverage Cycle”](https://en.wikipedia.org/wiki/Leverage_cycle) 2009 ([paper](https://web.stanford.edu/~piazzesi/Reading/Geanakoplos2009)).
+  * <u>Supply and demand do determine both the equilibrium leverage (or margin) and the interest rate.</u>
+  * "In the absence of intervention, leverage becomes too high in boom times, and too low in bad times. As a result, in boom times asset prices are too high, and in crisis times they are too low. This is the leverage cycle." "fed should manage system."
+* Debt is a good thing, but not always well managed.
