@@ -6,9 +6,10 @@ title: Financial Markets
 
 [Financial Markets Coursera](https://www.coursera.org/learn/financial-markets-global/home/). [Talk with ChatGPT](https://chatgpt.com/share/aa073c42-1c11-44f2-9145-d4e9eb45eaf8).
 
-1. [Introduction](#l1)
-2. [Debt, Forecasting, Behavioral Finance](#l2)
-3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps.
+1. [Introduction](#l1): the basics of financial markets, insurance, and CAPM (Capital Asset Pricing Model).
+2. [Debt, Forecasting, Behavioral Finance](#l2): some details of behavioral finance, forecasting, pricing, debt, and inflation.
+3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
+4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
 
 <a name="l1"></a>
 # 1. Introduction
@@ -177,12 +178,12 @@ Deal with Risk - **Portfolio Management**
 * Compound Interest $A = P(1 + r/n)^{nt}$:
   * If $n \to \inf$, continuous compounding, balance is $e^{rt}$.
 
+## 3.1 Bonds
+
 **Discount Bonds** (zero-coupon bonds) (貼現債券) being redeemed at their full face value at maturity. Normally sold with discount. Yield to Maturity r : $P = \frac{1}{(1+r)^{T}}$.
 **Coupon Bonds** (息票债券) debt security that pays periodic interest payments, known as coupons, to the bondholder.
 
 **Consol** (永续债券) and **Annuity** (年金):
-
-
 * Consol pays constant quantity x forever (no maturity date). Consol PDV = x/r.
 * Growing Consol pays $x(1+g)^{t-1}$ in t. Growing Consol PDV = x/(r - g).
 * Annuity pays x from time 1 to T. Annuity PDV = $x\frac{1-1/(1+r)^{T}}{r}$.
@@ -202,3 +203,117 @@ Deal with Risk - **Portfolio Management**
   * <u>Supply and demand do determine both the equilibrium leverage (or margin) and the interest rate.</u>
   * "In the absence of intervention, leverage becomes too high in boom times, and too low in bad times. As a result, in boom times asset prices are too high, and in crisis times they are too low. This is the leverage cycle." "fed should manage system."
 * Debt is a good thing, but not always well managed.
+
+## 3.2 STOCK
+
+**Market Capitalization** (the price per share multiplied by the number of shares, and this is common stock) by Country.
+* Households market is bigger than the direct holdings on the stock market.
+
+**Corporation**
+* Compare *publicani* of ancient Rome, essentially corporations.
+* *Shareholder Democracy* : (1) Shareholder vote for *Board of Directors*; (2) Board of Directors votes the CEO; (3) In Germany, firms have Supervisory Board and Management Board.
+* <u>For-Profit</u> (objectives focus on shareholders) vs. <u>Non-Profit</u> (don't distribute profits to shareholders).
+
+Two **RETURN** components : capital gains which is the appreciation in the price per **Shares** (股份) and **Dividends** (股息 or 红利):
+* Shares are about ratio : total value of company divided by total number of shares. Share price adjustment : by splitting (essentially meaningless).
+* Dividends:
+  * *Most* of the returns got on the stock market are in the dividends.
+  * A dividend is <u>a message that the company is making money</u>, and <u>it will build up trust</u>.
+  * X dividend date: when a company pays a dividend, the share price pretty much has to drop.
+* Young people prefer company without dividends (recent 20 years).
+
+<u>Common vs. Preferred Stock (优先股) </u>:
+* Preferred stock *typically* has a specified dividend which does not grow through time (but no force) (!= corporate bonds).
+* Preferred shareholders usually <u>do not have voting rights</u> in the company.
+* Made for Gov to avoid the situation : if US gov buy common stock, the gov would be owning parts of companies - socialism.
+
+**Corporate Charter** (公司章程):
+* All common shareholders are treated equally. All shareholders have one vote, and they elect the Board.
+* Allow for takeovers of companies.
+  * Shareholder Democracy won't work well for large company (Berle and Means 1933). (why do I even bother vote, since my vote is miniscule)
+* Share with voting right, and share without.
+
+How Corporations **Raise Money**?
+* (1) Retained earnings, save until got enough money; (2) Borrow money, issue debt; (3) Issue new shares (leads to dilution 稀釋).
+* <u>Stuart Myers Pecking Order Theory</u>: firms like to raise money through retained earnings first, through borrowing second, equity only as last resort.
+  * Without issuing new shares, share price doesn't matter for the company.
+
+**Share Repurchase**: (instead of issuing new shares to raise money) the company can repurchase shares outstanding (reverse dilution).
+* It's an alternative way of paying a dividend. (<u>but not taxed the same</u>)
+* Tax incentive (激勵):
+  * Dividends tax payed at marginal tax rate.
+  * Share Repurchase: (Capital gains taxes) won't pay tax until sell the share.
+
+**PDV of Expected Dividends**
+* **price earnings ratio**, price per share divided by earnings per share.
+  * dividend price ratio, dividends per share divided by price per share.
+* <u>All the value of the star Inherently is due to the dividends.</u> The price of a share is the present discounted value of its expected future dividends.
+  * But dividends do not serve as it was designed now.
+* Gordon Model: $P/E = I/(r - g)$.
+  * high r : riskier in that they co-vary with the market.
+  * high g : the price will reflect the growth in earnings already.
+  * **Value investing** says invest in low P/E. (when a company is hot, people bid it up too high.)
+
+
+Others:
+* People's answer to "stocks are the best investment", strongly correlated with the recent behavior of the market.
+* Recessions are substantially psychological - a long-term pessimism.
+* Nominal rate : without considering inflation.
+
+<a name="l4"></a>
+# 4. Real Estate
+
+**Direct Participation Program** (直接参与计划)
+* Allows investors to participate directly in the cash flow and tax benefits of an underlying business venture.
+* Pass-Through Taxation (without corporate profits taxes 企业所得税); Limited partners, Limited Liability; Illiquidity; High Risk and High Reward; For accredited investors.
+* Examples :
+  * Real Estate Partnerships: Investors pool their money to invest in commercial or residential real estate projects.
+  * Oil and Gas Partnerships: Investors fund drilling and exploration projects with the potential for significant returns if resources are discovered.
+* Wanted to protect small investors, while it just kick off them.
+
+**REIT** (Real Estate Investment Trust), available to small investors to share the cake. Can also escape corporate taxes. Has restrictions.
+
+<a name="l4.1"></a>
+## 4.1 Mortgage
+
+Mortgage : to mortgage your house means to offer it as collateral for a loan. <h>House price rise <-> New Mortgage <-> Sell Repacked Mortgage.</h>
+* Bubbles:
+  * 2017 mortgages owned by households was $13.2 trillion, there were 48 million in the United States. In 2012, 11 million homes that were under water.
+  * Millions of houses were foreclosed in early 1930s in crisis. Turn to have long term mortgage.
+* the 30-year mortgage rate tracks the 10-year government bond yield.
+* Kinds of Mortage.
+  * Conventional, fixed rate mortgage (amortizing, long term).
+  * Adjustable rate mortgage (ARM).
+  * Price level adjusted mortgage (PLAM) payment adjusted to inflation so constant in real terms.
+  * Dual rate mortgages (DRAMs) same as PLAM but interest rate floats.
+  * Shared appreciation mortgages (SAMs).
+* Risk management: Private Mortgage Insurance (PMI).
+* <u>Repack the mortgage, and sold them to general people.</u> (leads to liar's loan， "天才"！)
+  * Collateralized Mortgage Obligations (CMOs 擔保抵押證券) divide the cash flow of a mortgage pass-through security into a number of tranches (信貸分檔) in terms of prepayment risk.
+  * Collateralized Debt Obligations (CDOs 債務擔保證券) divide the cash flow into a number of tranches in terms of default risk.
+
+Post Crisis Regulation :
+* **QRM** Qualified Residential Mortgage:
+  * 2010 [Dodd-Frank Wall Street Reform and Consumer Protection Act](https://www.investopedia.com/terms/d/dodd-frank-financial-regulatory-reform-bill.asp): Mortgage originator, have to hold at least 5% of the mortgages you issue, unless it's a QRM  (undefined yet).
+  * Took 4 years to define QRM in 689 pages.
+* **Excess Reserves** (超額準備金) [not hold until 2008](https://en.wikipedia.org/wiki/Excess_reserves).
+  * After 2008, keep increasing, not where to invest. Decreasing since 2015.
+
+
+## 4.2 Bubble
+<p></p>
+
+* House index of interest rate is stable for 100 years. House is not a good long-term investment.
+* People accept 12% price increase per year for the next 10 years in 2004.
+* Public attitudes were changing since 2005 : obvious -> stupid. (<u>but they rarely mentioned the word "bubble"</u>)
+
+(make a similar graph in china)
+
+
+Others:
+* <u>Moral hazard and adverse selection</u> (逆選擇), manipulation and deception.
+  * Bank might stop to loan money.
+  * Local offices, build local interaction to decide whether to loan.
+* China - Real Estate:
+  * (1) Hard to invest abroad; (2) A fear of corruption, a fear of being taken advantage of; (3)Marriage.
+  * Will they stay up there? towards liberalizing (invest abroad), might be slow down in economic growth rate.
