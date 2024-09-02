@@ -4,7 +4,7 @@ title: Foundations of Business Strategy
 ---
 
 
-[Foundations of Business Strategy Coursera](https://www.coursera.org/learn/uva-darden-foundations-business-strategy/home/module/1)
+[Foundations of Business Strategy Coursera](https://www.coursera.org/learn/uva-darden-foundations-business-strategy/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/TXTAK1N5B18Y).
 
 1. [Strategic Analysis](#l1) : the strategic analysis and the SWOT, competitor, and environmental analysis tools and then apply these tools in the Google case study.
 2. [Analyzing Industry Structure](#l2) : how to assess an industry's structure and how the competitive dynamics in an industry affect profitability. We'll go into depth with the **five forces** tool, a common and highly influential analytical framework.

@@ -10,7 +10,7 @@ title: Financial Markets
 2. [Debt, Forecasting, Behavioral Finance](#l2): some details of behavioral finance, forecasting, pricing, debt, and inflation.
 3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
 4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
-5. [](#l5)
+5. [Options and bond markets](#l5)
 
 <a name="l1"></a>
 # 1. Introduction
@@ -377,4 +377,43 @@ Q&A:
 * Financial Stability Board.
 
 <a name="l5"></a>
-# 5.
+# 5. Options and bond markets
+
+**Forwards and Futures Contracts** (a forward contract usually only has one specified delivery date, whereas there is a range of delivery dates in a futures contract)
+* Grains are historically the origin of forwards and futures.
+  * It is essential in preventing grain shortages.
+  * Warehouses buy from the farmer in forwards, and then hedge on futures.
+* **Forward Contract**: a contract to deliver at a future date (exercise date or maturity date) at a specified exercise price.
+  * Both sides are locked into the contract, no liquidity. need to establish that the counterparty has good credit
+  * Forward exchange rate (Y/\\$) = spot exchange rate (Y/\\$) $\times \frac{1 + r_{Y}}{1 + r_{\$}}$.
+  * Forward Rate Agreements.
+* **Futures contracts** differ from forward contracts in that <u>contractors deal with an exchange rather than each other</u>, and thus do not need to assess each others’ credit.
+  * Futures contracts are standardized retail products, rather than custom products.
+  * Futures contracts rely on margin calls to guarantee performance.
+  * Forwards are rigid, <u>Futures create meaningful price and it create clarity for the future</u>.
+  * <u>Most futures contracts are closed out without delivery.</u> Mostly used to hedge against price fluctuations.
+* **Cash-Settle Futures** : the final delivery is replaced by a settlement in cash. The difference between the contract price and the market price of the underlying asset at expiration is exchanged between the buyer and seller. (So, the contract means put up **margin** at the beginning).
+  * Can be on financial indices, interest rates, or commodities that are difficult to deliver.
+* Fair Value in Futures Contracts : $P_{future} = P_{spot}(1+r+s)$ (r: interest rate, s : storage cost).
+
+Futures **Examples**:
+* Rice Futures:
+  * First Futures Market: Osaka. Futures exchange had precise definitions of quality, delivery date and place. The contract can be traded, which <u>creates liquidity in the rice trade</u>.
+  * CBOT Rough Rice Futures (GBX)
+* Wheat Futures.
+* Oil Futures.
+  * (has no obvious spot price) Oil Prices : nearest future prices.
+  * Oil prices have not significantly increased over the past century. This is in contrast to the stock market, which has shown significant growth.
+  * The Organization of Petroleum Exporting Countries (OPEC) was established to fix oil prices and limit production.
+* SPI (Stock Price Index) & FFR (Federal Funds Rate) Futures.
+
+**Options**:
+* With options, one pays money to have a choice in the future.
+* Exercise date
+* Exercise price
+* Definition of underlying and number of shares
+
+
+
+**Q&A:**
+* Speculators help to stabilize the market prices.
