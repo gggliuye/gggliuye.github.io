@@ -10,6 +10,7 @@ title: Financial Markets
 2. [Debt, Forecasting, Behavioral Finance](#l2): some details of behavioral finance, forecasting, pricing, debt, and inflation.
 3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
 4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
+5. [](#l5)
 
 <a name="l1"></a>
 # 1. Introduction
@@ -299,6 +300,13 @@ Post Crisis Regulation :
 * **Excess Reserves** (超額準備金) [not hold until 2008](https://en.wikipedia.org/wiki/Excess_reserves).
   * After 2008, keep increasing, not where to invest. Decreasing since 2015.
 
+Others:
+* <u>Moral hazard and adverse selection</u> (逆選擇), manipulation and deception.
+  * Bank might stop to loan money.
+  * Local offices, build local interaction to decide whether to loan.
+* China - Real Estate:
+  * (1) Hard to invest abroad; (2) A fear of corruption, a fear of being taken advantage of; (3)Marriage.
+  * Will they stay up there? towards liberalizing (invest abroad), might be slow down in economic growth rate.
 
 ## 4.2 Bubble
 <p></p>
@@ -307,13 +315,66 @@ Post Crisis Regulation :
 * People accept 12% price increase per year for the next 10 years in 2004.
 * Public attitudes were changing since 2005 : obvious -> stupid. (<u>but they rarely mentioned the word "bubble"</u>)
 
-(make a similar graph in china)
+<div align="center">    
+<img src="/assets/img/company/home_price_index.jpeg" width="60%"/>
+</div>
+
+* Rational Bubble.
+* Bubbles don't crash completely.
+* Short Sell : If you can't short sell, there is nothing to stop crazy people from bidding up the price.
+
+## 4.3 Regulation
+<p></p>
+
+* MicroPrudential vs Macroprudential Regulation
+* Business Wants Regulation : having a referee at a sports event.
 
 
-Others:
-* <u>Moral hazard and adverse selection</u> (逆選擇), manipulation and deception.
-  * Bank might stop to loan money.
-  * Local offices, build local interaction to decide whether to loan.
-* China - Real Estate:
-  * (1) Hard to invest abroad; (2) A fear of corruption, a fear of being taken advantage of; (3)Marriage.
-  * Will they stay up there? towards liberalizing (invest abroad), might be slow down in economic growth rate.
+Q&A:
+* Dodd-Frank Act. wanted to get banks responsible for ability to pay and responsible for checking out borrowers.  
+* Short sale restrictions.
+* Public expectations that prices can never fall (China).
+  * But is Real Estate a good investment ? might not.
+* A tax benefit to homeownership (USA) to encourage homeownership for better citizens.
+* Anti-corruption laws in China.
+
+**Five Levels of Financial Regulation**:
+
+<u>(1) Within-firm regulation: </u>
+* Board of Directors acts like a regulator & Outside directors represent a broader community.
+* Tunneling Problem = Expropriation (不動產徵收) by minority shareholders (~steal. figuratively, as by an underground tunnel)
+  * Asset sales; Contracts, as for prices paid for inputs; Excessive executive compensation; Loan guarantees; Expropriation of corporate opportunities; Dilutive share issues; Insider trading.
+* Common law is very useful in preventing tunneling and other kinds of abuse.
+* Directors’ Duties to Prevent Tunneling : Duty of Care & Duty of loyalty.
+
+
+|  | Common Law (普通法) | Civil Law (民法) |
+| Origin | originated in England and is used in countries that were once part of the British Empire (US, Canada, Australia, and India). | Originated in continental Europe, particularly in Roman law, and is used in most European countries|
+| Basis | based on precedent, the outcomes of previous judicial decisions influence future cases. | based on written legal codes and statutes, with less emphasis on judicial decisions. |
+| Judges  | judges having significant power to interpret and shape the law. |  judges playing a more limited role in interpreting the law.|
+| Role |  framework for legal interpretation  |  structured, codified rules in specific areas |
+
+<u>(2) Trade Groups: </u> Stock Exchange : Text of Buttonwood Agreement 1792 (1st in US). Companies made a deal to not decrease the price.
+
+<u>(3) Local Government Regulation: </u> Bank Regulation. Belonged to states until the National Banking Act of 1863.
+
+<u>(4) National Government Regulation:</u>
+* An innovative spirit and government support for regulators. Making regulation an attractive career.
+* Securities and Exchange Commission (**SEC** 美国证券交易委员会) set up in 1934, to force organizations to maintain financial transparency.
+  * Crimes of financial markets:
+    * <u>Insider Trading</u>: block by trying to define access to this wealth, by disclosure rules.
+    * <u>Front Running and Decimalization</u>.
+  * Financial Accounting Standards Board (FASB) (recognized as authoritative by SEC in 1973) defines Generally Accepted Accounting Principles (GAAP), used for EDGAR.
+* Securities Investor Protection Corporation (SIPC) : insures people against the failure of a brokerage firm.
+* The 2008 Financial Crisis as Result of Regulatory Failure before Crisis.
+  * Dodd-Frank Act 2010.
+  * European Supervisory Framework Created 2010.
+
+<u>(5) International Regulation: </u>
+* Bank for International Settlements. Banker's bank : provides an intermediary for the central banks to deal with each other.
+* Basel Committee on Banking Supervision: an international committee that formulates broad supervisory standards and guidelines, and recommends statements of best practice in banking supervision.
+* G-7 Countries, G20.
+* Financial Stability Board.
+
+<a name="l5"></a>
+# 5.
