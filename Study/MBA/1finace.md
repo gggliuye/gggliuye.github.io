@@ -407,11 +407,8 @@ Futures **Examples**:
   * The Organization of Petroleum Exporting Countries (OPEC) was established to fix oil prices and limit production.
 * SPI (Stock Price Index) & FFR (Federal Funds Rate) Futures.
 
-**Options**:
-* With options, one pays money to have a choice in the future.
-* Exercise date
-* Exercise price
-* Definition of underlying and number of shares
+**Options** With options, one pays money to have a choice in the future (Forwards contract is bound to buy).
+* Exercise date, Exercise price, Definition of underlying and number of shares.
 
 
 
