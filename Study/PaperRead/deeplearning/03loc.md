@@ -93,7 +93,7 @@ input image, directly return the pose (3dof/6dof).
   * <u>setting all the points in ground image on ground</u> (to have 3d points).
   * pose error as the trainning loss.
 * <img src="/assets/img/paperread/thumbs.png" height="25"/> [Satellite Image Based Cross-view Localization for Autonomous Vehicle 2023](https://arxiv.org/abs/2207.13506), the same pipeline as upper paper, but with more refinement.
-* <img src="/assets/img/paperread/chrown.png" height="25"/> [OrienterNet: Visual Localization in 2D Public Maps with Neural Matching 2023](https://arxiv.org/pdf/2304.02009v1.pdf), **<h>ETH, META</h>**.
+* <img src="/assets/img/paperread/chrown.png" height="25"/> [OrienterNet: Visual Localization in 2D Public Maps with Neural Matching 2023](https://arxiv.org/pdf/2304.02009v1.pdf), **<h>ETH, META</h>**, [github](https://github.com/facebookresearch/OrienterNet).
   1. Bird’s-Eye View inference (given height & gravity), encode input image to BEV.
   2. Map encoding, encode the raster map (from OSM).
   3. BEV-map matching, to get 3dof (x,y,yaw) pose.

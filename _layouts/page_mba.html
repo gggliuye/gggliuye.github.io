@@ -1,0 +1,21 @@
+---
+layout: base
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/main.css"
+  - "/assets/css/tree.css"
+---
+
+
+{% include header.html type="page" %}
+
+<button id="myBtn"><a href="#top" style="color: white">Back to Top</a></button>
+
+<div class="container-md" role="main">
+  <div class="row">
+    <div class="offset-lg-1 col-lg-10 offset-lg-1">
+      {{ content }}
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
