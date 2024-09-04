@@ -55,6 +55,9 @@ SA --> SP
 ## 1.2 Strategist's Challenge
 
 <u>The Strategist's Challenge:</u> balancing values, opportunities, and capabilities to identify the desirable competitive positions that create and sustain value.
+
+<img style="float: right;" src="/assets/img/company/pos_value.png" width="25%"/>
+
 1. **Values** - What are the values of the organization, i.e. the values, the mission, the scope of the organization.
   * **Mission Statements** defines who a company is and what it's trying to achieve, which is the foundation of its strategy.
   * Goolge, Dell, Citigroup, etc

@@ -10,7 +10,8 @@ title: Financial Markets
 2. [Debt, Forecasting, Behavioral Finance](#l2): some details of behavioral finance, forecasting, pricing, debt, and inflation.
 3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
 4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
-5. [Options and bond markets](#l5)
+5. [Options and bond markets](#l5): Derivatives (衍生品).
+6. [Investment Banks](#l6): investment banking, underwriting processes, brokers, dealers, exchanges, and new innovations in financial markets.
 
 <a name="l1"></a>
 # 1. Introduction
@@ -409,8 +410,26 @@ Futures **Examples**:
 
 **Options** With options, one pays money to have a choice in the future (Forwards contract is bound to buy).
 * Exercise date, Exercise price, Definition of underlying and number of shares.
-
-
+  * “Ask” is the price to purchase an option.
+  * “Bid” is the price to sell the option back to the dealer.
+  * “Last” is the last price the option was sold for.
+* Why Have Options?
+  * Theoretical Reason: Kenneth Arrow : a major source of economic inefficiency is the absence of markets for risks. Stephen Ross : financial options have a central place in the form of “completing the market.”
+  * Behavioral Reason: Salience and Attention. As insurance. Peace of mind.
+* Put/Call parity.
+  * <u>put option price - call option price = present value of strike price + present value of dividends - price of stock</u>
+  * <u>price of stock = call price + pdv strike + pdv dividends - put price</u>
+* Using Options to Hedge:
+  * To put a floor on one's holding of stock.
+  * (Stop-loss order: will be operated by broker - human.)
 
 **Q&A:**
 * Speculators help to stabilize the market prices.
+* The biggest arsenal against economic inequality is the insurance industry.
+
+<a name="l6"></a>
+# 6. Investment Banks
+
+Investment banks: Underwriting securities (manage the process of issuing new shares in companies or issuing debt for companies). Commercial banks take deposits and make loans.
+
+Moral Hazard
