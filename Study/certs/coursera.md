@@ -7,6 +7,7 @@ subtitle: Some of my certification for online courses
 
 | Course      | Certification |
 | ----------- | ----------- |
+| **Advanced Business Strategy** <br> Completed at September 4, 2024. 10 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/NQGU5ISR1KAE) |
 | **Foundations of Business Strategy** <br> Completed at September 2, 2024. 9 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/TXTAK1N5B18Y) |
 | **Robotics: Mobility** <br> Completed at June 19, 2018. 4 weeks of study, 2-4 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/UE9FB5TV6V6J) |
 | **Robotics: Computational Motion Planning** <br> Completed at June 11, 2018.  3 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/U2YBJRMCYS5L)  |

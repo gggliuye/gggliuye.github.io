@@ -4,7 +4,8 @@ title: Advanced Business Strategy
 ---
 
 
-[Advanced Business Strategy Coursera](https://www.coursera.org/learn/uva-darden-advanced-business-strategy/home/module/1)
+[Advanced Business Strategy Coursera](https://www.coursera.org/learn/uva-darden-advanced-business-strategy/home/module/1). [Certification link](https://www.coursera.org/account/accomplishments/verify/NQGU5ISR1KAE).
+
 
 1. [Dynamic Strategy](#l1)
 2. [International Strategy](#l2)
@@ -132,4 +133,25 @@ Evaluate the strategy and valuable competitive position of each business, and th
 <a name="l4"></a>
 # 4. Stakeholder Strategy
 
-Example : "Whole Foods Market".
+<img style="float: right;" src="/assets/img/company/stakeholder.png" width="30%"/>
+
+<u>A competitive stakeholder strategy creates value for all stakeholders and aligns with the organization's values and capabilities.</u>Shape these relationship, so that value can be created ideally for all of them. (Example : "Whole Foods Market")
+
+* **Align Interests**.
+* Stakeholder Issues Matrix & Stakeholder Impact Matrix (Alternative).
+* Secondary Stakeholders: Institutional Pressures.
+  * Political actors may have self-interested motives to act against firms.
+  * Stakeholders may act (or call for action) against firms in response to: Normative conflict (conflicts with norms and
+beliefs) or Distributional conflict (often market failure).
+
+|Issue | Employees | Customers | Government | Community | Shareholders |
+|Product Safty | 3 | 1 | 1 | 1 | 3|
+| Job Fulfillment | 1 | 5 | 5 | 3 | 5 |
+| Financial Returns | 3 | 5 | 5 | 5 | 1 |
+| Impact on Environment | 3 | 3 | 1 | 1 | 5 |
+
+Strategy and Ethics:
+* Institutional/non-market strategies can seem overly instrumental.
+* Also important to think beyond the immediate financial impact of effective stakeholder management.
+* Seeing stakeholders as ends, and not just means to profits.
+* Value creation involves **values**. <u>what we value as an organization.</u>
