@@ -11,7 +11,7 @@ title: Financial Markets
 3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
 4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
 5. [Options and bond markets](#l5): Derivatives (衍生品).
-6. [Investment Banks](#l6): investment banking, underwriting processes, brokers, dealers, exchanges, and new innovations in financial markets.
+6. [Investment](#l6): investment banking, underwriting processes, brokers, dealers, exchanges, and new innovations in financial markets.
 
 <a name="l1"></a>
 # 1. Introduction
@@ -428,8 +428,47 @@ Futures **Examples**:
 * The biggest arsenal against economic inequality is the insurance industry.
 
 <a name="l6"></a>
-# 6. Investment Banks
+# 6. Investment
 
-Investment banks: Underwriting securities (manage the process of issuing new shares in companies or issuing debt for companies). Commercial banks take deposits and make loans.
+## 6.1 Investment banks
 
-Moral Hazard
+**Investment banks**: Underwriting securities (manage the process of issuing new shares in companies or issuing debt for companies). Commercial banks take deposits and make loans.
+* Two Basic Kinds of Offerings: (1) Bought deal (synonym: Firm commitment offering): The underwriter agrees to buy all shares that are not sold; (2) Best efforts: the underwriter says that if the issue is not sold, deal collapses.
+* <u>Initial Public Offerings IPO</u>. the process through which a private company offers its shares to the public for the first time.
+  * underwriters usually underprice IPOs, aim to create a "pop" on the first day of trading, leading to positive publicity and investor excitement.
+* <u>Ratings Agencies</u>. They have improved their practices due to new regulations and the need to restore their reputation. Despite accepting money for ratings, they now exercise more care in their evaluations.
+* <u>Glass-Steagall Act 1933</u>. create the modern concept of "Investment Banks", separated investment banking from commercial banking.
+
+## 6.2 Professional Money Managers
+
+**Professional Money Managers** who invest other people's money by managing their portfolios.
+
+* <u>Prudent Person Rule</u> : prudent person as someone who acts with care, skill, prudence, and diligence in a similar capacity and familiar with such matters.
+* A <u>financial planner</u> offers comprehensive planning for life, whereas a <u>financial advisor</u> advises on the value of securities.
+
+## 6.3 Funds
+<p></p>
+
+* <u>Open-End</u>: can pull your money in and out. owning a share in a portfolio, and you can get it out at market value at 4:00 pm of every day.
+  * <u>Mutual Fund</u> are investment companies that allow individuals to invest their money in a diversified portfolio of stocks, bonds, or other securities. *only deal at the closing price*.
+  * <u>Exchange-Traded Funds (ETFs)</u>  traded on stock exchanges and can be bought and sold *throughout the trading day*.
+* <u>Closed-End Funds</u>: the fund invests the money, and it pays dividends out, but it doesn't redeem.
+  * (+) trading continually all day long. (-) doesn't track the value of the underlying assets necessarily (value of fund != value of investment).
+
+## 6.4 Exchanges, Brokers, Dealers, Clearinghouses
+<p></p>
+
+* **B**rokers act on behalf of **O**thers as their **A**gent for which they earn a **C**ommission.
+  * Acts as an agent for others and earns a commission by bringing buyers and sellers together.
+* A **D**ealer always acts for **H**imself, in other words as a **P**rincipal in the transaction for which he makes a **M**arkup.
+  * When buying from a dealer, the dealer owns the shares being sold and sells them at a higher price. When selling to a dealer, the dealer buys at a lower price.
+
+The Traditional Four Markets:
+* First Market: NYSE (New York Stock Exchange).
+* Second market: NASDAQ National Market (replaced the “pink sheets” in 1971).
+* Third market: Nasdaq small cap.
+* Fourth market: large institutions trade amongst themselves without the use of a securities firm.
+
+<u>High frequency trading</u> is not seen as adding value to the market and is considered to be siphoning money away from investors.
+
+<u>Payment for Order Flow</u> is The compensation and benefit a brokerage receives by directing orders to different parties to be executed.
