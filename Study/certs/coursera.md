@@ -7,6 +7,7 @@ subtitle: Some of my certification for online courses
 
 | Course      | Certification |
 | ----------- | ----------- |
+| **Financial Markets** <br> Completed at September 9, 2024. 33 hours (approximately) |   [link](https://www.coursera.org/account/accomplishments/verify/3XB9BHY50930)   |
 | **Advanced Business Strategy** <br> Completed at September 4, 2024. 10 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/NQGU5ISR1KAE) |
 | **Foundations of Business Strategy** <br> Completed at September 2, 2024. 9 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/TXTAK1N5B18Y) |
 | **Robotics: Mobility** <br> Completed at June 19, 2018. 4 weeks of study, 2-4 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/UE9FB5TV6V6J) |
