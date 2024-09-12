@@ -4,13 +4,16 @@ title: Financial Markets
 ---
 
 
-[Financial Markets Coursera](https://www.coursera.org/learn/financial-markets-global/home/). [Talk with ChatGPT](https://chatgpt.com/share/aa073c42-1c11-44f2-9145-d4e9eb45eaf8).
+[Financial Markets Coursera](https://www.coursera.org/learn/financial-markets-global/home/). [Talk with ChatGPT](https://chatgpt.com/share/aa073c42-1c11-44f2-9145-d4e9eb45eaf8). [Certification link](https://www.coursera.org/account/accomplishments/verify/3XB9BHY50930)
 
 1. [Introduction](#l1): the basics of financial markets, insurance, and CAPM (Capital Asset Pricing Model).
 2. [Debt, Forecasting, Behavioral Finance](#l2): some details of behavioral finance, forecasting, pricing, debt, and inflation.
 3. [Financial Instruments](#l3): Stocks, bonds, dividends, shares, market caps; what are these? Who needs them? Why?
 4. [Real Estate](#l4): recessions, bubbles, the mortgage crisis, and regulation.
-5. [Options and bond markets](#l5)
+5. [Options and bond markets](#l5): Derivatives (衍生品).
+6. [Investment](#l6): investment banking, underwriting processes, brokers, dealers, exchanges, and new innovations in financial markets.
+7. [Nonprofits, Corporations & Philanthropy](#l7)
+8. [Career](#l8): your career in finance.
 
 <a name="l1"></a>
 # 1. Introduction
@@ -407,13 +410,142 @@ Futures **Examples**:
   * The Organization of Petroleum Exporting Countries (OPEC) was established to fix oil prices and limit production.
 * SPI (Stock Price Index) & FFR (Federal Funds Rate) Futures.
 
-**Options**:
-* With options, one pays money to have a choice in the future.
-* Exercise date
-* Exercise price
-* Definition of underlying and number of shares
-
-
+**Options** With options, one pays money to have a choice in the future (Forwards contract is bound to buy).
+* Exercise date, Exercise price, Definition of underlying and number of shares.
+  * “Ask” is the price to purchase an option.
+  * “Bid” is the price to sell the option back to the dealer.
+  * “Last” is the last price the option was sold for.
+* Why Have Options?
+  * Theoretical Reason: Kenneth Arrow : a major source of economic inefficiency is the absence of markets for risks. Stephen Ross : financial options have a central place in the form of “completing the market.”
+  * Behavioral Reason: Salience and Attention. As insurance. Peace of mind.
+* Put/Call parity.
+  * <u>put option price - call option price = present value of strike price + present value of dividends - price of stock</u>
+  * <u>price of stock = call price + pdv strike + pdv dividends - put price</u>
+* Using Options to Hedge:
+  * To put a floor on one's holding of stock.
+  * (Stop-loss order: will be operated by broker - human.)
 
 **Q&A:**
 * Speculators help to stabilize the market prices.
+* The biggest arsenal against economic inequality is the insurance industry.
+
+<a name="l6"></a>
+# 6. Investment
+
+## 6.1 Investment banks
+
+**Investment banks**: Underwriting securities (manage the process of issuing new shares in companies or issuing debt for companies). Commercial banks take deposits and make loans.
+* Two Basic Kinds of Offerings: (1) Bought deal (synonym: Firm commitment offering): The underwriter agrees to buy all shares that are not sold; (2) Best efforts: the underwriter says that if the issue is not sold, deal collapses.
+* <u>Initial Public Offerings IPO</u>. the process through which a private company offers its shares to the public for the first time.
+  * underwriters usually underprice IPOs, aim to create a "pop" on the first day of trading, leading to positive publicity and investor excitement.
+* <u>Ratings Agencies</u>. They have improved their practices due to new regulations and the need to restore their reputation. Despite accepting money for ratings, they now exercise more care in their evaluations.
+* <u>Glass-Steagall Act 1933</u>. create the modern concept of "Investment Banks", separated investment banking from commercial banking.
+
+## 6.2 Professional Money Managers
+
+**Professional Money Managers** who invest other people's money by managing their portfolios.
+
+* <u>Prudent Person Rule</u> : prudent person as someone who acts with care, skill, prudence, and diligence in a similar capacity and familiar with such matters.
+* A <u>financial planner</u> offers comprehensive planning for life, whereas a <u>financial advisor</u> advises on the value of securities.
+
+## 6.3 Funds
+<p></p>
+
+* <u>Open-End</u>: can pull your money in and out. owning a share in a portfolio, and you can get it out at market value at 4:00 pm of every day.
+  * <u>Mutual Fund</u> are investment companies that allow individuals to invest their money in a diversified portfolio of stocks, bonds, or other securities. *only deal at the closing price*.
+  * <u>Exchange-Traded Funds (ETFs)</u>  traded on stock exchanges and can be bought and sold *throughout the trading day*.
+* <u>Closed-End Funds</u>: the fund invests the money, and it pays dividends out, but it doesn't redeem.
+  * (+) trading continually all day long. (-) doesn't track the value of the underlying assets necessarily (value of fund != value of investment).
+
+## 6.4 Exchanges, Brokers, Dealers, Clearinghouses
+<p></p>
+
+* **B**rokers act on behalf of **O**thers as their **A**gent for which they earn a **C**ommission.
+  * Acts as an agent for others and earns a commission by bringing buyers and sellers together.
+* A **D**ealer always acts for **H**imself, in other words as a **P**rincipal in the transaction for which he makes a **M**arkup.
+  * When buying from a dealer, the dealer owns the shares being sold and sells them at a higher price. When selling to a dealer, the dealer buys at a lower price.
+
+The Traditional Four Markets:
+* First Market: NYSE (New York Stock Exchange).
+* Second market: NASDAQ National Market (replaced the “pink sheets” in 1971).
+* Third market: Nasdaq small cap.
+* Fourth market: large institutions trade amongst themselves without the use of a securities firm.
+
+<u>High frequency trading</u> is not seen as adding value to the market and is considered to be siphoning money away from investors.
+
+<u>Payment for Order Flow</u> is The compensation and benefit a brokerage receives by directing orders to different parties to be executed.
+
+## 6.5 Public Finance
+
+Government Debt and Default.
+* <u>Repudiation of a debt</u> (refuse to pay). <u>Odious debt</u> (refuse to pay old gov debt). However, repudiation is **rare**.
+* Governments in danger of default often pay higher interest rates to attract investors.
+* <u>Loan default</u> means you've failed to make the required payment by the due date you agreed to.
+
+“Government as Risk Manager of Last Resort” - David Moss. Government involvement in Corporations. Bankruptcy allows companies to reorganize or shut down, with the government often accepting some of the losses in the process. As a result, <u>Government act like a shareholder.</u>
+
+Municipal (city/town gov) Finance.
+
+* Motivation (why not finance everything by taxes?) <u>borrow money for construction - then charge as tax</u> assuming steady population growth.
+* Connecticut adopted a constitutional amendment in 1991 against deficit spending (spending exceeds revenue) on the general account at time that it instituted a state income tax. Can still run deficit on capital account.
+* Revenue Bonds.
+
+Government Social Insurance.
+* The first major government involvement in insurance, which occurred in Germany in the 1870s.
+* Driven by the belief that the private sector may not be able to effectively handle certain aspects of insurance and that some insurance programs may be difficult to sell to the public.
+* Forms : families with dependent children, progressive taxes, free public education, social security, worker's compensation, and government health insurance.
+
+<a name="l7"></a>
+# 7. Nonprofits, Corporations & Philanthropy
+
+## 7.1 Nonprofits
+
+People are not completely selfish. In the United States alone, there were 1.41 million non-profit companies in 2013, employing 10.2% of the workforce.
+Motivations for working in non-profits can vary, from a desire to make a meaningful impact to a need for companionship and a sense of loyalty. Additionally, non-profits may have informal executive bonus systems to incentivize good work.
+
+## 7.2 Corporations
+
+The Rochdale society, established in the 1840s, was the first cooperative grocery store.
+
+
+## 7.3 Alternative Forms
+
+**Benefit Corporation** (created in Maryland, 2010), Halfway between for-profit and non-profit. Company charter must state a social or environmental
+purpose, and is required to pursue that as well as profit. Example: Grower’s Secret and NPK balance of planet.
+
+<a name="l8"></a>
+# 8. Career
+<p></p>
+
+<h>Finance is about making civilization work better.</h> Accumulating wealth while you're young and giving it away constructively when you're older. Emphasizing the importance of maintaining humanity in the business world and finding purpose in life and finance.
+
+The rise in debt for advanced economies and the increasing share of profits and wages in the financial industry.
+* whether these trends contribute to a better society or if they are simply rent-seeking behaviors.
+* Critics of Modern Finance:
+  1. Critics 1: Adair Turner Between Debt and the Devil Oct 2015 : Corporate debt is a kind of “economic pollution” that needs to be taxed.
+  2. Critics 2: Rana Foroohar Makers & Takers May 2016: tax evasion.
+
+<u>Democratization of Finance</u>, which benefit everyone, not just the wealthy.
+* Crowdfunding platforms like [Crowdcube](https://www.crowdcube.com/) allow entrepreneurs to present their ideas and connect with potential investors. (regulations needed)
+* Involves addressing societal and environmental issues.
+
+Finance and War
+
+* Reparations (赔偿) imposed on Germany after World War I. Confiscation (充公) of financial holdings in East Germany after World War II.
+* Not all governments confiscate or nullify financial arrangements after a war.
+* It is important to be aware of the potential risks and disruptions that war can bring to long-term investments and to consider the basic ethics of the investment being made.
+
+Finance and Population Growth
+
+<u>The Importance of Financial Theory:</u>
+* Mathematical Finance (**skepticism**)
+  * The world will never be the same again because of the development of mathematical finance.
+  * The theory of allocation of scarce resources was not understood by most people in early 20th century.
+* <u>Behavioral Finance is the salvation of mathematical finance, for it explains the frictions that inhibit it.</u>
+  * Hardcore mathematical finance people have a tendency to be irrelevant.
+  * Law schools are as necessary as the math, finance people.
+
+Wealth and Poverty
+* Popular theory: inequality is because of political power, evil people.
+* **Alternative theory: inequality is due to unmanaged risks.** (<n>doubt</n>)
+* Risk Management : Democratizing finance and providing financial advice to all individuals, regardless of income level, to reduce poverty and inequality.

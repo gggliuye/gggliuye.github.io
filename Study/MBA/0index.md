@@ -3,11 +3,12 @@ layout: page_mba
 title: Business
 ---
 
+<!-- https://emojipedia.org/ -->
 
 L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
   * 《财务会计：概念与应用》 (Financial Accounting: Concepts and Applications)
-  * <img src="/assets/img/paperread/chrown.png" height="25"/> [Financial Markets](../1finace)
+  * ✅ <img src="/assets/img/paperread/chrown.png" height="25"/> [Yale: Financial Markets](../1finace)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
   * 《公司理财》 (Corporate Finance)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
@@ -25,7 +26,9 @@ L1：
 L2：
 * 战略管理：掌握战略制定、行业分析、竞争优势等高级管理概念。
   * 《竞争战略》 (Competitive Strategy)，《竞争优势》 (Competitive Advantage) Strategic Management。
-  * [Foundations of Business Strategy](../2strategy)
+  * ✅ <img src="/assets/img/paperread/thumbs.png" height="25"/> [UVA: Foundations of Business Strategy](../2strategy)
+  * ✅ <img src="/assets/img/paperread/thumbs.png" height="25"/> [UVA: Advanced Business Strategy](../3strategy_adv)
+  * <img src="/assets/img/paperread/thumbs.png" height="25"/> [UVA: Business Growth Strategy](../4strategy_grow)
 * 人力资源管理：学习人力资源规划、招聘、绩效管理、培训与发展等。
   * 《人力资源管理》 (Human Resource Management)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。

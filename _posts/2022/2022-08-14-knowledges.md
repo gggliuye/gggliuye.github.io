@@ -2,7 +2,7 @@
 layout: post
 title: Knowledges
 subtitle: some thoughts
-tags: [Philosophy, Knowledges, Thoughts]
+tags: [Philosophy, Thoughts]
 comments: true
 ---
 

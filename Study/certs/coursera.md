@@ -7,7 +7,21 @@ subtitle: Some of my certification for online courses
 
 | Course      | Certification |
 | ----------- | ----------- |
+| **Financial Markets** <br> Completed at September 9, 2024. 33 hours (approximately) |   [link](https://www.coursera.org/account/accomplishments/verify/3XB9BHY50930)   |
+| **Advanced Business Strategy** <br> Completed at September 4, 2024. 10 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/NQGU5ISR1KAE) |
 | **Foundations of Business Strategy** <br> Completed at September 2, 2024. 9 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/TXTAK1N5B18Y) |
+
+<p></p>
+
+| Course      | Certification |
+| ----------- | ----------- |
+| **Intro to AR/VR/MR/XR** <br> Completed at September 11, 2024. 28 hours (approximately) |   [link](https://www.coursera.org/account/accomplishments/verify/RRQT9G8G20QB)   |
+
+
+<p></p>
+
+| Course      | Certification |
+| ----------- | ----------- |
 | **Robotics: Mobility** <br> Completed at June 19, 2018. 4 weeks of study, 2-4 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/UE9FB5TV6V6J) |
 | **Robotics: Computational Motion Planning** <br> Completed at June 11, 2018.  3 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/U2YBJRMCYS5L)  |
 | **Robotics: Preception** <br> Completed at May 31, 2018.  4 weeks of study, 3-5 hours/week  | [link](https://www.coursera.org/account/accomplishments/verify/2N32E5KYYG8K) |
