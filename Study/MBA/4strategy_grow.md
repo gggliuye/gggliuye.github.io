@@ -4,14 +4,14 @@ title: Business Growth Strategy
 ---
 
 
-[Business Growth Strategy](https://www.coursera.org/learn/uva-darden-business-growth-strategy/home/module/1). [Certification link]().
+[Business Growth Strategy](https://www.coursera.org/learn/uva-darden-business-growth-strategy/home/module/1). [Certification link](https://www.coursera.org/account/accomplishments/verify/71GUL4OEE2VU).
 
 
 1. [Growth Strategy Overview](#l1): the Scenario Planning tool to identify and evaluate opportunities to scale an organization.
 2. [Growth through Scaling](#l2): Scenario Planning.
-3. [Entry and Rivalry](#l3): Payoff Matrices
-4. [Growth through Acquisition](#l4)
-5. [](#l5)
+3. [Entry and Rivalry](#l3): Payoff Matrices.
+4. [Growth through Acquisition](#l4): Acquisition Analysis.
+5. [Growing through Innovation](#l5): Real Options Analysis.
 6. [Final Assignment](../4strategy_grow_fa)
 
 <a name="l1"></a>
@@ -87,5 +87,70 @@ Scaling is a way for a business to grow by <u>doing more of what they're already
 <a name="l4"></a>
 # 4. Growth through Acquisition
 
+<u>Most Acquisition Failed! Proceed with Caution!</u>
+Integration is as complicated as starting a new business and requires massive amounts of planning.
+
+* Advantages:
+  * Overcome otherwise insurmountable entry barriers.
+  * Increase entry speed.
+  * Acquire intangible assets.
+  * Avoid uncertainty and risk of internal development.
+* Disadvantages:
+  * Synergies (协同效应) do not really exist.
+  * Difficult to integrate companies.
+  * Become highly leveraged.
+  * Overpaying for acquired firm.
+
+**Pitfalls** of Growth Through Acquisition (Why fail ?) : (1) Wrong target; (2) Difficulties in implementation; (3) Over payment.
+
+* Why Firms **Overpay** for Acquisitions ? (1) Moral hazard (fees for M&A services); (2) Agency problem; (3) The winner's curse (auction leads to over-price).
+* Alternative to acquisition: (1) Scaling ; (2) Internal development (innovation); (3) Alliance formation - less resource intensive than mergers and acquisitions.
+
+**Acquisition Analysis** : does the value creation potential exceed the acquisition costs ?
+* Strategic Benefit (Value of the Target) = Independent Value + Value Added.
+* Purchase Price. avoid Overpay.
+* Opportunity Cost. Any other alternative benefits.
+* Strategic Benefit - Purchase Price > Opportunity Cost.
+
 <a name="l5"></a>
-# 5. 
+# 5. Growing through Innovation
+
+Because strategic positions are unsustainable, companies must innovate to continue to win consumers.
+
+1. Innovator (first-mover) strategy. Capture a valuable market position.
+2. Follower (second-mover) strategy. Avoid costs and risks of innovation.
+
+Planning :
+* Innovation as Rational Plan - *Ideal* Development Path : Concepts -> Investigate -> Develop -> Product.
+* Actual Development Path (more chaotic, more uncertain).
+* Driving innovative capability :
+  * Create climate to generate and pursue novel ideas.
+  * Design an effective development process.
+
+**Keys** : (1) Provide motivation; (2) Build absorptive capacity (Taking part in joint ventures or forming alliances ).
+
+**Organizing** for Innovation : <u>no single best way to organize</u>.
+
+* Chaotic (Unidivisional) : generate idea then act (skunk works), fits startups.
+* Sequential (Functional) : project passed from one function to the next.
+* Concurrent (Project) : completely overlap (cross-functional teams), all functions work together for the entire project.
+* Overlapping (Matrix) : allow easier interface between functions by overlapping. create cross-functional "design house" from marketing & engineering.
+
+
+<img style="float: right;" src="/assets/img/company/innv_dec_tree.jpeg" width="35%"/>
+
+**Appropriating Value** from Innovations
+1. Intellectual Property Protection - ability to protect intellectual property.
+  * Make imitation by competitors difficult.
+  * Make diffuse among customers fast.
+2. Complementary Assets - control of important complementary assets.
+  * Assets - Innovation dependence.
+
+**Innovation Strategy**:
+
+|  | Complementary Assets <br> widely available | Complementary Assets <br> tightly hold |
+| IP Protection Weak | * Diffcult to make money <br>* No Good Options | * Holders of CA <br>* Integrate|
+| IP Protection Strong | * Innovator <br>* Use Market | * Party with Bargaining Power <br>* License or Integrate |
+
+
+**Real Options Analysis** : there is value in having optionality.

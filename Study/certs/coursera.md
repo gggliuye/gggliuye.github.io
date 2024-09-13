@@ -10,6 +10,7 @@ subtitle: Some of my certification for online courses
 | **Financial Markets** <br> Completed at September 9, 2024. 33 hours (approximately) |   [link](https://www.coursera.org/account/accomplishments/verify/3XB9BHY50930)   |
 | **Advanced Business Strategy** <br> Completed at September 4, 2024. 10 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/NQGU5ISR1KAE) |
 | **Foundations of Business Strategy** <br> Completed at September 2, 2024. 9 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/TXTAK1N5B18Y) |
+| **Business Growth Strategy** <br> Completed at September 13, 2024. 10 hours (approximately) | [link](https://www.coursera.org/account/accomplishments/verify/71GUL4OEE2VU) |
 
 <p></p>
 
