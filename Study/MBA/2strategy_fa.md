@@ -1,5 +1,5 @@
 ---
-layout: page_mba
+layout: page_coursera
 title: Competitive Positioning of startup Mixed Reality company
 subtitle: Final Assignment of Foundations of Business Strategy
 ---

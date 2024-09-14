@@ -1,5 +1,5 @@
 ---
-layout: page_mba
+layout: page_coursera
 title: Business Growth Strategy
 subtitle: Final Assignment of Business Growth Strategy
 ---

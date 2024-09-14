@@ -1,5 +1,5 @@
 ---
-layout: page_mba
+layout: page_coursera
 title: Foundations of Business Strategy
 ---
 
