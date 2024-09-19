@@ -1,5 +1,5 @@
 ---
-layout: page_mba
+layout: page_coursera
 title: Advanced Competitive Positioning of Large Space Virtual Reality
 subtitle: Final Assignment of Advanced Business Strategy
 ---
