@@ -7,10 +7,11 @@ title: Strategic Planning and Execution
 [Strategic Planning and Execution](https://www.coursera.org/learn/uva-darden-strategic-planning-execution/home/module/1). [Certification link]().
 
 
-**Analysis Formulation Implementation**
+**Pillars of Strategy Execution: Analysis Formulation Implementation**
 
 1. [Strategic Analysis](#l1)
-2. [Strategy Formulation](#l2)
+2. [Strategy Formulation & Implementation](#l2)
+3. [Strategy Implementation](#l3)
 
 <a name="l1"></a>
 # 1. Strategic Analysis
@@ -112,4 +113,75 @@ Strategist's Toolkit: **Hypothesis Testing**:
 7. **Data Visualization** - Techniques and tools to help visualize data for making inferences and recommendations.
 
 <a name="l2"></a>
-# 2. Strategy Formulation
+# 2. Strategy Formulation & Implementation
+
+## 2.1 Strategy Formulation
+
+Views:
+* **Top-Down** : traditional view.
+* **Bottom-Up** (Emergent) : emerges over time, response to changing conditions.
+
+**The Strategic War Room** :
+* Storyboards. (panels in graphic novel)
+* Involvement of organization members. (broad involve of members)
+* Involvement of experts.
+* Input from diverse perspectives.
+* Collaboration.
+* Iteration.
+
+**Rapid Prototyping** (manufacturing design build) <u>quickly identify and correct shortcomings in products or organizational changes.</u>
+* Encourage different thinking.
+* Pilot tests and experiments.
+* Quick failures (rapidly determine what works, what doesn't)
+* Used in instructional design, Corporate initiates.
+
+**Design Thinking** systematic approach to problem solving. What would be different if managers thought more like designers ? **Empathy, Invention, Iteration**.
+
+
+|  | BUSINESS | DESIGN |
+| --- | --- | --- |
+| Underlying Assumptions | Rational and objective; all share the same reality | Emotional and subjective; each have a unique reality |
+| Method | Analysis aimed at proving one "best" answer | Experimentation aimed at iterating toward a "better" answer |
+| Process | Planning | Doing |
+| Decision Drivers | Logic; run the numbers! | Emotional insight: understand experience! |
+| Values | Control and stability; discomfort with uncertainty | Pursuing novelty; dislike the status quo |
+| Levels of Focus | Strategic or tactical | Back and forth between high level and particular |
+
+**Business Model Canvas** : **Focus, Flexibility, Transparency**: (1) Costumer segments; (2) Value propositions; (3) Channels; (4) Customer relationships; (5) Revenue streams; (6) Key activities; (7) Key resources; (8) Key partnerships; (9) Cost structure.
+
+## 2.2 Corporate Governance
+
+<u>Governance is the way we organize and operate in order to help us accomplish our purpose.</u>
+Effective governance boosts performance; minimize misconduct.
+
+* System of checks and balances.
+* Set of processes (the "way thins are done").
+* Involves the structure of an organization, but more than structure.
+* Involves risk management.
+* How to deal with external pressures.
+* Importance of trust and culture.
+
+Key Themes:
+* Long-term orientation.
+* Effective stakeholder management.
+* Focus on risk management.
+
+## 2.3 The Human Factor
+
+<p></p>
+* Behavioral Theory : Bounded (not perfect) rationality; Satisfying (not optimal); Performance assessment (better than benchmark or some reference points).
+* Institutional Theory : Mimetic isomorphism (organizations tend to mimic each other).
+* Resource Dependence Theory : Power dynamics.
+
+
+## 2.4 Common Strategy Execution Mistakes
+<p></p>
+* Failure to understand your own organization.
+* Failure to understand how you are performing.
+* Failure to understand the context.
+* Hyper-focus on growth for growth's sake.
+* Governance mismatch.
+* Competency traps.
+
+<a name="l3"></a>
+# 3. Strategy Implementation
