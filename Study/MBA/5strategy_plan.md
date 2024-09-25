@@ -4,14 +4,16 @@ title: Strategic Planning and Execution
 ---
 
 
-[Strategic Planning and Execution](https://www.coursera.org/learn/uva-darden-strategic-planning-execution/home/module/1). [Certification link]().
+[Strategic Planning and Execution](https://www.coursera.org/learn/uva-darden-strategic-planning-execution/home/module/1). [Certification link](https://www.coursera.org/account/accomplishments/verify/WHH3A0UDRBBR).
 
 
 **Pillars of Strategy Execution: Analysis Formulation Implementation**
 
 1. [Strategic Analysis](#l1)
 2. [Strategy Formulation & Implementation](#l2)
-3. [Strategy Implementation](#l3)
+3. [Strategy Implementation](#l3) : 4A model.
+4. [Guest Speakers](#l4)
+5. [Final Assignment](../5strategy_plan_fa)
 
 <a name="l1"></a>
 # 1. Strategic Analysis
@@ -27,7 +29,7 @@ title: Strategic Planning and Execution
 
 | **Questions (External)**                                           | **Tools**                        |
 |--------------------------------------------------------------------------|----------------------------------|
-| What market(s) is the firm in and who are the players in these markets?   | Competitor Analysis              |
+| What market(s) is the firm in and who are the players in these markets?   | Competitor Analysis, [Competitive Position](../2strategy/#l4)         |
 | What are the major trends impacting the industry?                        | Environmental Analysis           |
 | Is this an attractive market? Are there barriers to competition?         | [Five Forces Analysis](../2strategy/#l2)             |
 | How is the competitive structure of the market likely to evolve?         | [Competitive Life Cycle Analysis](../3strategy_adv/#l1)  |
@@ -185,3 +187,113 @@ Key Themes:
 
 <a name="l3"></a>
 # 3. Strategy Implementation
+
+"Five percent of the challenge is the strategy, Ninety-five percent is the execution." - CEO Nissan/Renalt.
+
+* Goes beyond implementing a plan to include organizational design, culture, processes, technology, and human resource management.
+* Is an enduring process, not a single decision or action, and results from a series of integrated decisions and actions over time.
+* Requires disciplined investment in four key organizational domains - **The 4A Model of Strategy Execution.**
+
+| | Resources - Human | Resources - Organization |
+| --- | --- | --- |
+| **Energy - Kinetic** | Alignment | Agility |
+| **Energy - Potential** | Ability | Architecture |
+
+<p></p>
+
+* Alignment: This involves creating consistency and collaboration within the organization, with a focus on delivering value in the marketplace. It requires all the different components of the organization to align around the strategy and work together to achieve performance.
+* Ability: Many organizations lack the necessary talent and leadership to execute a strategy effectively. Developing a strong leadership bench and ensuring a robust talent system are essential for building the skills and abilities needed to execute the strategy.
+* Architecture: The infrastructure of an organization, including information systems, processes, reward systems, and organizational structure, plays a vital role in strategy execution. Different strategies may require different architectures, and it is important to build the right platform to support the execution of the strategy.
+* Agility: Strategies need to adapt and change over time, and organizations must be agile enough to respond to these changes. Creating a capacity for organizational learning, adaptation, and adjustment is crucial for maintaining agility and ensuring long-term success.
+
+## 3.1 Alignment
+
+* External alignment - organization operates in a manner 'fit for purpose' to support the market strategy.
+* Internal alignment - processes, practices, structures work together to create a mutually reinforcing system.
+* Leadership alignment - consistency of perspective and effort toward a <u>common strategic intent.</u>
+
+**Keys** to Achieving Alignment
+* Clearly articulated strategic intent.
+  * There is NOT one best strategy.
+  * Treacy & Wiersema
+* Shared expectations for high performance.
+  * Cultures may reinforce other values.
+  * Grounded in practice and initiatives.
+* Accountability for results.
+  * Drucker: “What gets measured gets done.”
+  * Caution: unintended consequences.
+
+**Strategy Mapping.** Metrics & Initiatives.
+
+## 3.2 Ability
+
+The Talent Syndrome: firms often face talent shortages.
+
+**Keys** to Execution Ability
+* Identify <u>strategic talent pools</u>
+  * Two dimensions : General <-> **Unique**; Operational <-> **Strategic**.
+* Develop a <u>robust</u> talent system:
+  * Useful and Usable.
+  * Mutually reinforcing.
+  * Produce Unique & Strategic talents.
+* Vitality - build the talent pipeline
+  * Commitment Engagement Accountability.
+  * Business Perf : Top leaders - Line Managers - Key Talent.
+
+## 3.3 Architecture
+
+Organization Architecture : managing information and authority. Getting the right design.
+
+* Two extremes : (1) Underdeveloped organization (insufficient infrastructure); (2) Bureaucratic organization.
+* Design Principles:
+  * Strategy "enacts" environment → (complexity + dynamism = uncertainty).
+  * Structure helps manage uncertainty and information required to make decisions.
+  * Curvilinear relationship between <u>uncertainty and bureaucracy.</u>
+* (1) Flatter, simplified structures
+  * Enpower decisions close to action - Google to Alphabet.
+* (2) Streamlined processes & workflow
+  * Eliminate waste & improve value add
+* (3) Information access and connectivity
+  * "Inform" real-time decisions
+
+## 3.4 Agility
+
+Why is agility so difficult?
+
+- Uncertainty and ambiguity - what makes it difficult, makes it important.
+- Inertia versus momentum - flat footed or sprinting.
+- Leader adaptability - too slow or too fast.
+- Culture of risk aversion - avoid falling into the execution trap.
+
+<img style="float: right;" src="/assets/img/company/agility_1.jpg" width="35%"/>
+
+Keys :
+1. Organizational Learning. (see right image)
+2. Leadership unity. <u>Transactive memory</u> : A knowledge system shared by a group, in which each member of the group has a known area of expertise.
+3. Resource fluidity. Adjustable, and could reallocated.
+
+<a name="l4"></a>
+# 4. Guest Speakers
+
+Shannon Smith, CEO Abundant Power.
+
+Byrne Murphy, DigiPlex.
+* Concept is always ahead of the capital markets in the product life cycle. The key to keep your eye on is what's the goal.
+* Revisit annually, If the goal remains realistic, Stick to it and find the talent that is more talented than you are to help you get there.
+* You have to be regionally dominant.
+* Two tools important : (1) People skills; (2) Communicating skills.
+
+Carolyn Miles, Save the Children (Nonprofit).
+* Tightly tied to the mission.
+* The **engagement** (of people from all levels) in the process of putting together a strategy.
+* Three goals (1) end the preventable deaths of kids under five; (2) get every children into school and learn; (3) change the way the world thinks about violence against children.
+
+Rick Edmunds, Strategy& PwC
+* Challenges : (1) The world is changing; (2) A hard view in trade off.
+* Help refine strategy : <u>(1) help them articulate why they are uncomfortable with their strategy; (2) forcing trade offs.</u>
+* Build strategy : (1) trends in the marketplace and potential big disruptions in the marketplace; (2) What are the few capabilities that a company has that distinguishes it.
+* Strategy consulting : (1) Go outside in first; (2) how would company operate differently?
+
+Bob Hugin, Celgene.
+* Dynamic, great companies are incredibly self aware. <u>Understanding yourself, understanding the outside world and then putting a strategy.</u>
+* Ownership is incredibly important.
