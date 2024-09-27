@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Graph</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        .node {
+            fill: #ffab00;
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+        text {
+            font-size: 12px;
+            font-family: sans-serif;
+        }
+        blockquote {
+          color: #808080;
+          font-style: italic;
+        }
+        blockquote p:first-child {
+          margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Knowledge Graph - D3.js Plot</h2>
+
+<p>通过如下的命令，让AI修改图谱的输出：</p>
+<blockquote>
+<p>修改知识图谱的输出，按照如下格式。（1）先输出nodes，";"为分隔；（2）输出edges，按照“节点1-关系-节点2”的格式，";"为分隔。</p>
+</blockquote>
+
+<p>Nodes:</p>
+<textarea id="in_nodes" style="width:100%;height:50px;">形而上学;本体论;宇宙论;时间与空间;</textarea>
+
+<p>Edges:</p>
+<textarea id="in_edges" style="width:100%;height:50px;">形而上学-包含-本体论;形而上学-包含-宇宙论;形而上学-包含-时间与空间;</textarea>
+
+<button onclick="updateGraph()">Update Graph</button>
+<p></p>
+<svg id="myPlot" style="width:100%;height:600;background-color:#eaf2f8;"><g></g></svg>
+
+<script>
+
+var simulation;
+var svg_plot = document.getElementById('myPlot');
+const width = svg_plot.clientWidth, height = svg_plot.clientHeight;
+
+const data = {
+    "nodes": [
+        { "id": "形而上学" },
+        { "id": "本体论" },
+        { "id": "宇宙论" }
+    ],
+    "links": [
+        { "source": "形而上学", "target": "本体论", "relationship": "包含" },
+        { "source": "形而上学", "target": "宇宙论", "relationship": "包含" }
+    ]
+};
+
+const svg = d3.select("svg g");
+
+function makeGraphFromData() {
+  svg.selectAll("*").remove();
+
+  simulation = d3.forceSimulation(data.nodes)
+      .force("link", d3.forceLink(data.links).id(d => d.id).distance(100))
+      .force("charge", d3.forceManyBody().strength(-100))
+      .force("center", d3.forceCenter(width / 2, height / 2));
+
+  // Define the arrowhead marker variables
+  const markerBoxWidth = 50;
+  const markerBoxHeight = 20;
+  const refX = markerBoxWidth / 2;
+  const refY = markerBoxHeight / 2;
+  const markerWidth = markerBoxWidth / 2;
+  const markerHeight = markerBoxHeight / 2;
+  const arrowPoints = [[0, 0], [0, 20], [10, 10]];
+
+  svg
+    .append('defs')
+    .append('marker')
+    .attr('id', 'arrow')
+    .attr('viewBox', [0, 0, markerBoxWidth, markerBoxHeight])
+    .attr('refX', refX)
+    .attr('refY', refY)
+    .attr('markerWidth', markerBoxWidth)
+    .attr('markerHeight', markerBoxHeight)
+    .attr('orient', 'auto-start-reverse')
+    .append('path')
+    .attr('d', d3.line()(arrowPoints))
+    .attr('stroke', 'black');
+
+  const link = svg.append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(data.links)
+      .enter().append("line")
+      .attr("class", "link")
+      .attr('marker-end', 'url(#arrow)')
+      .attr("stroke-width", 2);
+
+  const node = svg.append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+      .data(data.nodes)
+      .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 35)
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+  const text_nodes = svg.append("g")
+      .selectAll("text")
+      .data(data.nodes)
+      .enter().append("text")
+      .attr("dy", 5)
+      .attr("dx", d => - 5 * d.id.length)
+      .text(d => d.id);
+
+  //
+  for (let i = 0; i < data.links.length; i++) {
+    let link = data.links[i];
+    data.links[i].x = 0.5 * (link.target.x + link.source.x);
+    data.links[i].y = 0.5 * (link.target.y + link.source.y);
+  }
+  const text_links = svg.append("g")
+      .selectAll("text")
+      .data(data.links)
+      .enter().append("text")
+      .attr("dy", 5)
+      .text(d => d.relationship);
+
+
+  simulation.on("tick", () => {
+      link
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+      node
+          .attr("cx", d => d.x)
+          .attr("cy", d => d.y);
+
+      text_nodes
+          .attr("x", d => d.x)
+          .attr("y", d => d.y);
+
+      text_links
+          .attr("x", d => 0.5 * d.target.x + 0.5 * d.source.x)
+          .attr("y", d => 0.5 * d.target.y + 0.5 * d.source.y);
+  });
+
+  let zoom = d3.zoom().on('zoom', handleZoom);
+  d3.select('svg').call(zoom);
+}
+
+function dragstarted(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(event, d) {
+  d.fx = event.x;
+  d.fy = event.y;
+}
+
+function dragended(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+function handleZoom(e) {
+	d3.select('svg g')
+		.attr('transform', e.transform);
+}
+
+makeGraphFromData();
+
+function updateGraph() {
+  // update data
+  new_nodes = [];
+  new_edges = [];
+
+  nodes_str = document.getElementById("in_nodes").value;
+  nodes_values = nodes_str.split(";");
+  for (let i = 0; i < nodes_values.length; i++) {
+    if (nodes_values[i].length == 0) {
+      continue;
+    }
+    var obj = new Object();
+    obj.id = nodes_values[i];
+    new_nodes.push(obj);
+  }
+
+  edges_str = document.getElementById("in_edges").value;
+  edges_values = edges_str.split(";");
+  for (let i = 0; i < edges_values.length; i++) {
+    if (edges_values[i].length == 0) {
+      continue;
+    }
+
+    elements_str = edges_values[i].split("-");
+    if (elements_str.length != 3) {
+      continue;
+    }
+
+    var obj = new Object();
+    obj.source = elements_str[0];
+    obj.relationship = elements_str[1];
+    obj.target = elements_str[2];
+
+    new_edges.push(obj);
+  }
+
+  data.nodes = new_nodes;
+  data.links = new_edges;
+
+  makeGraphFromData();
+  console.log(data);
+}
+
+</script>
+
+</body>
+</html>
