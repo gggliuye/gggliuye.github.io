@@ -74,12 +74,36 @@ function makeGraphFromData() {
       .force("charge", d3.forceManyBody().strength(-100))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
+  // Define the arrowhead marker variables
+  const markerBoxWidth = 50;
+  const markerBoxHeight = 20;
+  const refX = markerBoxWidth / 2;
+  const refY = markerBoxHeight / 2;
+  const markerWidth = markerBoxWidth / 2;
+  const markerHeight = markerBoxHeight / 2;
+  const arrowPoints = [[0, 0], [0, 20], [10, 10]];
+
+  svg
+    .append('defs')
+    .append('marker')
+    .attr('id', 'arrow')
+    .attr('viewBox', [0, 0, markerBoxWidth, markerBoxHeight])
+    .attr('refX', refX)
+    .attr('refY', refY)
+    .attr('markerWidth', markerBoxWidth)
+    .attr('markerHeight', markerBoxHeight)
+    .attr('orient', 'auto-start-reverse')
+    .append('path')
+    .attr('d', d3.line()(arrowPoints))
+    .attr('stroke', 'black');
+
   const link = svg.append("g")
       .attr("class", "links")
       .selectAll("line")
       .data(data.links)
       .enter().append("line")
       .attr("class", "link")
+      .attr('marker-end', 'url(#arrow)')
       .attr("stroke-width", 2);
 
   const node = svg.append("g")
@@ -88,7 +112,7 @@ function makeGraphFromData() {
       .data(data.nodes)
       .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 30)
+      .attr("r", 35)
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
