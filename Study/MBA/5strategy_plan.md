@@ -25,6 +25,8 @@ title: Strategic Planning and Execution
 3. Analyze Competitive Position.
 4. Analyze and Recommend Strategic Actions.
 
+[SWOT Analysis](https://en.wikipedia.org/wiki/SWOT_analysis)
+
 <p></p>
 
 | **Questions (External)**                                           | **Tools**                        |
