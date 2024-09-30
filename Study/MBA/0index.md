@@ -8,11 +8,12 @@ title: Business
 L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
   * 《财务会计：概念与应用》 (Financial Accounting: Concepts and Applications)
-  * ✅ 👑 [Yale: Financial Markets](../1finace)
+  * [ISES: Accounting: Principles of Financial Accounting](../01accunting)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
   * 《公司理财》 (Corporate Finance)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
   * 《经济学原理》 (Principles of Economics)
+  * ✅ 👑 [Yale: Financial Markets](../1finace)
 
 L1：
 * 市场营销：掌握市场分析、消费者行为、营销策略、品牌管理等知识。
@@ -28,8 +29,8 @@ L2：
   * ✅ 👍 [UVA: Foundations of Business Strategy](../2strategy)
   * ✅ 👍 [UVA: Advanced Business Strategy](../3strategy_adv)
   * ✅ 👍 [UVA: Business Growth Strategy](../4strategy_grow)
-  * ✅ 💡 [Strategic Planning and Execution](../5strategy_plan)
-  * [Business Strategy in Practice](../6strategy_in_p)
+  * ✅ 💡 [UVA: Strategic Planning and Execution](../5strategy_plan)
+  * ✅ 💡 [UVA: Business Strategy in Practice](../6strategy_in_p)
 * 人力资源管理：学习人力资源规划、招聘、绩效管理、培训与发展等。
   * 《人力资源管理》 (Human Resource Management)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
