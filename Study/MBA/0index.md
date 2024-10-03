@@ -23,6 +23,7 @@ L1：
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
   * 《组织行为学》 (Organizational Behavior)
+* [Project Management](../pm/00index)
 
 L2：
 * 战略管理：掌握战略制定、行业分析、竞争优势等高级管理概念。
@@ -40,7 +41,7 @@ L2：
 * 领导力与变革管理：提高领导力、理解组织变革的原理和技巧，学会应对复杂的管理挑战。
   * 《领导力》 (Leadership)， Leading People and Teams
 * 企业财务战略：深度理解财务报表、资本结构、企业估值及战略性财务决策。
-  *  《公司财务管理》 (Corporate Financial Strategy) Advanced Corporate Finance
+  * 《公司财务管理》 (Corporate Financial Strategy) Advanced Corporate Finance
 
 
 L3：

@@ -54,9 +54,9 @@ OP -- "reinvest part of profits" --> IV
 <a name="l1"></a>
 # 1. The Balance Sheet
 
-Double Entry Accounting : <u>Use of capital (Assets) == Source of capital (Equity & Liabilities)</u>.
+Balance Sheet : the statement of finanial position. Double Entry Accounting : <u>Use of capital  (Assets) == Source of capital (Equity & Liabilities)</u>.
 
-* Assets = Liabilities + Owner's Equity.
+* **Assets = Liabilities + Owner's Equity**
 * Current/Non-Current Assets/Liabilities.
 * Assets : ordered by Liquidity.
 * Equity & Liabilities : ordered by Maturity Date.
@@ -65,7 +65,8 @@ Double Entry Accounting : <u>Use of capital (Assets) == Source of capital (Equit
 **Assets** : <u>a resource owned or controlled by the firm, that it is expected to generate future economic benefits and arise from a past event or transaction.</u>
 Examples : machine(y), brand(n), employees(n), lottery(n), sport club employee(n/y).
 
-**Liabilities** : <u></u>
+**Liabilities** : <u>a present obligation of the firm to transfer economic benefits in the future to another party that arise from a past event or transaction.</u> Examples : bank loan(y), loss a lawsuit but cannot estimate the penality(n - unknown amont), sell car with warranty (y).
+
 
 <a name="l2"></a>
 # 2. The Income Statement
