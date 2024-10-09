@@ -6,6 +6,10 @@ title: Project Initiation - Starting a Successful Project
 [Project Management Home](../00index)
 
 [Project Initiation: Starting a Successful Project](https://www.coursera.org/learn/project-initiation-google/home/module/1)
+* Project manager gets assigned.
+* Project goals, scope, and deliverables have to be approved.
+* Team members get assigned.
+* Sign off on the project charter.
 
 ## Key Components
 
