@@ -3,7 +3,7 @@ layout: page_coursera
 title: Foundations of Project Management
 ---
 
-[Foundations of Project Management](https://www.coursera.org/learn/project-management-foundations/home/module/1)
+[Foundations of Project Management](https://www.coursera.org/learn/project-management-foundations/home/module/1), [Glossary](https://docs.google.com/document/d/100bNgK8Ly_30OjVzjRPkxBNle-zF92YtclgXCg_doGU/template/preview?pli=1)
 
 1. [Introduction](#l1)
 2. [Life cycle and Methodologies](#l2)
@@ -149,3 +149,6 @@ The process of delivering your completed project and getting people to adopt it.
 * Create a sensor of owneship and urgency.
 * Figure out the right combination of skills and personalities.
 * **Effective communication** : being transparent, upfront with your plans and ideas, and making information available.
+
+**Governance** (<u>understanding who is in charge</u>): the management framework within which decisions are made and accountability and responsibility are determined.
+* Corporate and project governance
