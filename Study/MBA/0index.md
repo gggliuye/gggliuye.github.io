@@ -27,11 +27,11 @@ L1：
 
 L2：
 * 战略管理：掌握战略制定、行业分析、竞争优势等高级管理概念。
-  * ✅ 👍 [UVA: Foundations of Business Strategy](../2strategy)
-  * ✅ 👍 [UVA: Advanced Business Strategy](../3strategy_adv)
-  * ✅ 👍 [UVA: Business Growth Strategy](../4strategy_grow)
-  * ✅ 💡 [UVA: Strategic Planning and Execution](../5strategy_plan)
-  * ✅ 💡 [UVA: Business Strategy in Practice](../6strategy_in_p)
+  * ✅ 👍 [UVA: Foundations of Business Strategy](../strategy/2strategy)
+  * ✅ 👍 [UVA: Advanced Business Strategy](../strategy/3strategy_adv)
+  * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
+  * ✅ 💡 [UVA: Strategic Planning and Execution](../strategy/5strategy_plan)
+  * ✅ 💡 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
 * 人力资源管理：学习人力资源规划、招聘、绩效管理、培训与发展等。
   * 《人力资源管理》 (Human Resource Management)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
