@@ -3,6 +3,8 @@ layout: page_coursera
 title: Business Strategy in Practice
 ---
 
+[MBA Home](../../0index)
+
 [Business Strategy in Practice](https://www.coursera.org/learn/uva-darden-business-strategy-capstone/home/module/1). [Certification link](https://www.coursera.org/account/accomplishments/verify/H93KOZMVNP14).
 
 [Final Assignment](../6strategy_in_p_fa)

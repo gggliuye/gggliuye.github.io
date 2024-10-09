@@ -3,6 +3,8 @@ layout: page_coursera
 title: Accounting Principles of Financial Accounting
 ---
 
+[MBA Home](../0index)
+
 [Accounting: Principles of Financial Accounting](https://www.coursera.org/learn/financial-accounting/home/info) by IESE Business School. [Certification link](https://www.coursera.org/account/accomplishments/verify/2SNU0I1GISHA).
 
 1. [The Balance Sheet](#l1) a summary of all the sources of capital and uses of capital in the company.
