@@ -7,8 +7,7 @@ title: Business
 
 L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
-  * 《财务会计：概念与应用》 (Financial Accounting: Concepts and Applications)
-  * [ISES: Accounting: Principles of Financial Accounting](../01accunting)
+  * 👍 [ISES: Accounting: Principles of Financial Accounting](../01accunting)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
   * 《公司理财》 (Corporate Finance)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
@@ -23,7 +22,8 @@ L1：
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
   * 《组织行为学》 (Organizational Behavior)
-* [Project Management](../pm/00index)
+* 项目管理。
+  * 👑 [Project Management](../pm/00index)
 
 L2：
 * 战略管理：掌握战略制定、行业分析、竞争优势等高级管理概念。

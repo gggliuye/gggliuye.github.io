@@ -3,14 +3,15 @@ layout: page_coursera
 title: Accounting Principles of Financial Accounting
 ---
 
-[Accounting: Principles of Financial Accounting](https://www.coursera.org/learn/financial-accounting/home/info) by IESE Business School.
+[Accounting: Principles of Financial Accounting](https://www.coursera.org/learn/financial-accounting/home/info) by IESE Business School. [Certification link](https://www.coursera.org/account/accomplishments/verify/2SNU0I1GISHA).
 
 1. [The Balance Sheet](#l1) a summary of all the sources of capital and uses of capital in the company.
 2. [The Income Statement](#l2) explains the profitability of the business.
-3. [The Cash Flow Statement](#l3) xplain the generation and consumption of cash in the business. give information about the liquidity of the business.
+3. [The Cash Flow Statement](#l3) explain the generation and consumption of cash in the business. give information about the liquidity of the business.
 4. [Accrual Accounting](#l4)
+5. [More](#l5)
 
-**Financial Accounting**:
+**Financial Accounting** : <u>Record, Classify, Summarize</u>. ([Required Reading](https://drive.google.com/file/d/1AMj_jd_XupHrSinSYMw_cj-KUttndjJ8/view?usp=drive_link)):
 
 <div align="center"><pre class="mermaid">
 graph LR
@@ -71,8 +72,93 @@ Examples : machine(y), brand(n), employees(n), lottery(n), sport club employee(n
 <a name="l2"></a>
 # 2. The Income Statement
 
+**The income statement** (<u>the statement of profits and losses (the P&L)</u>) is a financial statement that measures the performance of the firm over a period of time. It shows the profit generated and its different components. The income statement contains the revenues generated (the achievements) less the expenses incurred (the efforts). ([Required Reading](https://drive.google.com/file/d/1-3utq58RzYyX8m6rc08glal9T00G_UHX/view?usp=drive_link))
+* Revenues – Expenses = Net Profit. (**not** the change in cash during the period)
+* **Revenues** are increases in owners’ equity as a result of operations conducted by the firm with the intention of generating profits.
+  1. The firm has done all that it has promised to do for the customer。
+  2. The firm has received cash or some other asset.
+* **Expenses** are decreases in owners’ equity as a result of operations conducted by the firm with the intention of generating profits.
+  1. The consumption of an asset results from a transaction that leads to the recognition of revenue.
+  2. The consumption of an asset (or the incurrence of a liability) results from the passage of time (e.g., depreciation expense, interest expense).
+* <u>The profit and loss account.</u>
+* **Profitability != Liquidity**
+* Loss of value over time. **Depreciation** (折旧) (for tangible non-current assets) and **Amortization** (摊销) (for intangible non-current assets).
+* Interest from Bank Loan and Taxes.
+* Other Comprehensive Income (OCI).
+
+| Income Statement (Expenses by Function) |
+|------------------------------------------|
+| **Sales revenue** <br> - Cost of goods sold expense |
+| **Gross profit** (revenue - cost of sales/services) <br> - Marketing and selling expenses<br> - Administration expenses <br>- Research & development expenses<br> - Other operating expenses <br> +/- Other nonrecurring operating items |
+| **Operating profit** (revenues - operating expenses) <br> (earnings before interest and taxes (EBIT)) <br> + Financial income <br> - Financial expense|
+| **Profit before tax** <br> - Tax expense |
+| **Net profit** from continuing operations (all the revenues - all the expenses) <br> - Profit for minority interests |
+| **Net profit for parent company owners** |
+
+<!-- generate table using https://www.tablesgenerator.com/html_tables -->
+
+**T-account** (debit 借记, credit 贷记):
+
+<table style="undefined;table-layout: fixed; width: 100%"><colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+  <tr>
+    <th colspan="2">Assets</th>
+    <th colspan="2">Liabilities and owner's equity</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Beginning balance<br>Increases debit (Dr.)<br>+</td>
+    <td><br>Decreases credit (Cr.)<br>-</td>
+    <td><br>Decreases debit (Dr.)<br>-</td>
+    <td>Beginning balance<br>Increases credit (Cr.)<br>+</td>
+  </tr>
+  <tr>
+    <td>Ending balance</td>
+    <td></td>
+    <td></td>
+    <td>Ending balance</td>
+  </tr>
+</tbody>
+</table>
+
 <a name="l3"></a>
 # 3. The Cash Flow Statement
 
+The statement of cash flows shows how cash is generated and how cash is used in every period and it classifies the different cash flows into three categories: <u>cash from operations, cash from investments and cash from financing.</u> ([Reading](https://drive.google.com/file/d/1w4rNzXqISmZsEXlWQQsv8hg_P_HKiMhd/view?usp=drive_link))
+* Financing cash flows include capital contributions by owners, new borrowings, repayment of existing borrowings, and payment of dividends.
+* Investment cash flows include purchases or disposals of property, plant and equipment, purchases or sales of financial assets (i.e., shares of other firms, treasury bills, etc.), and purchases or disposals of other firms (i.e., mergers and acquisitions)
+  * Typically involve the acquisition and disposal of <u>long-term</u> assets and investments.
+* All other cash flows are operating cash flows, which include collections from customers, payments to suppliers and employees, payments to tax authorities, and payments for operating expenses (i.e., rent, insurance, utilities, etc.). Interest paid or received and dividends received from financial investments.
+  * Involve <u>the primary revenue-generating activities</u> of a company and include transactions related to the sale of goods and services as well as expenses necessary to run the business.
+
 <a name="l4"></a>
 # 4. Accrual Accounting  
+
+**Accrual accounting** recognizes revenues when the firm sells goods or performs services; at the same time, it also recognizes the expenses incurred to generate the revenues.
+* The economic impact of events and transactions is recognized in the financial statements <u>when the events and transactions occur, not when cash exchanges happens</u>.
+  * *Cash Accounting* (when cash exchanges), miss any economic event not reflected in the cash account yet.
+* Examples : 50% salary in the middle of the month, prepaid insurance, accrued interest and advances from customers.
+
+Accrual accounting matches revenues with the expenses associated with those revenues, allowing for <u>better forecasting and decision-making</u>. It also incentivizes long-term investments and provides a more comprehensive view of the company's financial position.
+
+One disadvantage of accrual accounting is that it <u>requires making estimations</u>, such as depreciation, which can be subjective and prone to errors or manipulation. Cash accounting, on the other hand, provides a calculation of real cash inflows and outflows.
+
+<a name="l5"></a>
+# 5. More
+
+Advanced accounting topics.
+* Inventory valuation.
+* Bad debts.
+* Provisions for sales returns and warranties.
+* Financial assets.
+* Impairments of non-current assets.
+* Long-term debt : bonds.
+* Leases.
+* Owners' equity transactions.
+* Corporate taxes.
