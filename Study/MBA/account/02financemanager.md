@@ -81,8 +81,21 @@ Operational Risks vs. Financial Risks (interest expenses with stable income).
 Forecast P&L - Forecast **Sales**, then others.
 
 Forecast Balance Sheet, derived from sales. Put cash and credit at the end.
-
+If <u>total assets	>	(total liabilities + equity) </u>, the difference will go to **credit**.
 
 # 3. Diagnosis and Action Plan
+
+**Diagnosis**: <u>Why do they need more and more credit?</u> Structure problem : <u>as company grow, the need of funds to operate grows faster than the working capital.</u>
+
+**Need of Funds** (NFOs) are funds required to finance a <u>company's operations</u>.
+* Sources of needness for money : Delay in selling what you buy from suppliers - receivables and inventory.
+* **NFO = RECEIVABLES + INVENTORY - PAYABLES** (directly related to **sales**)
+* <u>NFOs are "use of assets"</u>.
+
+**Working Capital** (WC) is the long-term funding available to finance the NFO once the fixed assets have been financed.
+* **WC = EQUITY + LONG-TERM DEBT - FIXED ASSETS**
+* <u>WC is "source of funds"</u>.
+* if NFO < WC, we have extra CASH.
+* id NFO > WC, we need to ask for CREDIT.
 
 # 4. Sensitivity Analysis, NFO Revisited, and Building up the ROE
