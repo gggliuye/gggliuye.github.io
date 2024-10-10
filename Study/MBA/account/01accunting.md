@@ -3,7 +3,7 @@ layout: page_coursera
 title: Accounting Principles of Financial Accounting
 ---
 
-[MBA Home](../0index)
+[MBA Home](../../0index)
 
 [Accounting: Principles of Financial Accounting](https://www.coursera.org/learn/financial-accounting/home/info) by IESE Business School. [Certification link](https://www.coursera.org/account/accomplishments/verify/2SNU0I1GISHA).
 
@@ -56,6 +56,10 @@ OP -- "reinvest part of profits" --> IV
 
 <a name="l1"></a>
 # 1. The Balance Sheet
+
+<div align="center">    
+<img src="/assets/img/company/balance_sheet.jpg" width="60%"/>
+</div>
 
 Balance Sheet : the statement of finanial position. Double Entry Accounting : <u>Use of capital  (Assets) == Source of capital (Equity & Liabilities)</u>.
 
