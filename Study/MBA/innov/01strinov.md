@@ -105,6 +105,21 @@ How innovating entrants can disrupt industry leaders
   2. When to compete.
   3. How to compete.
 
+## 2.2 Demand-Side Disruption
+
+《The innovator's dilemma》, 《The disruption dilemma》.
+
+<div align="center">    
+<img src="https://innovationmanagement.se/wp-content/uploads/2017/05/dilemma-400x174.png" width="55%"/>
+</div>
+
+* What makes a disruption a disruption is not the original starting point, but how the trajectory improves over time.
+* Two types:
+  * The low-end disruptor, targeting the underserved segments by offering a lower quality product at that point in time.
+  * The new to the market disruption, they come in with a totally different package of attributes and catered to the non-served market.
+
+## 2.3
+
 
 # 3. Open Innovation
 
