@@ -85,6 +85,8 @@ If <u>total assets	>	(total liabilities + equity) </u>, the difference will go t
 
 # 3. Diagnosis and Action Plan
 
+## 3.1 Diagnosis
+
 **Diagnosis**: <u>Why do they need more and more credit?</u> Structure problem : <u>as company grow, the need of funds to operate grows faster than the working capital.</u>
 
 **Need of Funds** (NFOs) are funds required to finance a <u>company's operations</u>.
@@ -93,9 +95,44 @@ If <u>total assets	>	(total liabilities + equity) </u>, the difference will go t
 * <u>NFOs are "use of assets"</u>.
 
 **Working Capital** (WC) is the long-term funding available to finance the NFO once the fixed assets have been financed.
-* **WC = EQUITY + LONG-TERM DEBT - FIXED ASSETS**
+* **WC = EQUITY + LONG-TERM DEBT - FIXED ASSETS** or **WC = Current Assets - Current Liabilities**
 * <u>WC is "source of funds"</u>.
 * if NFO < WC, we have extra CASH.
 * id NFO > WC, we need to ask for CREDIT.
 
-# 4. Sensitivity Analysis, NFO Revisited, and Building up the ROE
+## 3.2 Action Plan
+
+<img style="float: right;" src="/assets/img/company/action_plan.jpg" width="30%"/>
+
+Plan to solve the problem drawn from diagnosis.
+* NFO ： Changing REC, INV, PAY.
+* WC： Changing LT Debt, FA, or Equity. We could work on P&L (making money).
+
+**Sustainable Growth** :  WC should grow faster or equal to NFO. $\Delta NFO <= \Delta WC$
+* $\Delta NFO_{t} = NFO_{t}^{\%} * \Delta Sales_{t}$ (assuming NFO per sale is constant)
+* $\Delta WC_{t} = \frac{Net\ Income_{t}}{Sales_{t}} * Sales_{t} = ROS_{t} * (Sales_{t -1} + \Delta Sales_{t})$ (with Return on Sales，ROS)
+* As a result , $\frac{NFO_{t}^{\%} * \Delta Sales_{t}}{Sales_{t -1}} = \frac{ROS_{t} * (Sales_{t -1} + \Delta Sales_{t})}{Sales_{t -1}}$
+* We have $NFO_{t}^{\%} * g = ROS_{t} * (1 +g)$
+* We have $g = \frac{ROS_{t}}{NFO_{t}^{\%} - ROS_{t}}$
+
+# 4. Sensitivity Analysis, NFO Revisited, and ROE
+
+**Sensitivity Analysis**, how sensitive the results are if the key variables changed.
+
+<div align="center">    
+<img src="/assets/img/company/senstive_analysis.jpg" width="60%"/>
+</div>
+
+**Seasonal Companies**
+
+**Return On Equity** ROE, more interesting for shareholders.
+
+$$
+ROS = \frac{Net\ Income}{Salse} \frac{Sales}{Assets} \frac{Assets}{Equity} = ROS * Turnover * Leverage = \frac{Net\ Income}{Equity}
+$$
+
+**Blind Financial Statements**
+
+<div align="center">    
+<img src="/assets/img/company/blind_finacne.jpg" width="70%"/>
+</div>

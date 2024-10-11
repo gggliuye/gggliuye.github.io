@@ -58,3 +58,19 @@ Key components: Resource cost rate (Direct/Indirect costs), Reserve analysis, Co
 * Budget for surprise expense.
 * Maintaining adaptability.
 * Reviewing and re-forecasting throughout the project.
+
+**Create** project a budget:
+(1) Historical data.
+(2) Leverage (use to maximal advantage) experts.
+(3) Bottom-up. thinking from beginning to end. Break the project into tasks, then evaluate.
+(4) Confirm accuracy.
+(5) Baseline.
+
+Maintain a project budget. Monitor & Cost control.
+
+**Procurement** : obtaining all of the materials, services, and supplies required to complete the project. Vendor management.
+1. <u>Initiating</u> - Non-Disclosure Agreement;
+2. <u>Selecting vendor</u> - [Request for Proposal](https://www.indeed.com/career-advice/career-development/rfp-template) used to solicit bids from vendors so the project team can select the best vendor for a project;
+3. <u>Contract writing</u> - [Statement of Work](https://docs.google.com/document/d/1TA55da0QI6aJousn5sLzOzN0X-Tcx5iwUaWmnOoUj50/template/preview) describes the products and services a vendor or contractor will provide for an organization;
+4. <u>Controlling</u>. making payments and maintaining and ensuring quality.
+5. <u>Completing</u>. measuring your success.

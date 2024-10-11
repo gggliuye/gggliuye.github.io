@@ -9,7 +9,7 @@ L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
   * ✅ 👍 [ISES: Accounting: Principles of Financial Accounting](../account/01accunting)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
-  * 👍 [Operational Finance : Finance for Managers](../account/02financemanager)
+  * ✅ 👍 [Operational Finance : Finance for Managers](../account/02financemanager)
   * 《公司理财》 (Corporate Finance)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
   * 《经济学原理》 (Principles of Economics)
