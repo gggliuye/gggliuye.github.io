@@ -8,8 +8,15 @@ title: Strategic Innovation - Building and Sustaining Innovative Organizations
 
 [Strategic Innovation: Building and Sustaining Innovative Organizations](https://www.coursera.org/learn/strategic-innovation-building-and-sustaining-innovative-organizations/home/week/1)
 
+# 1. Innovation Life Cycles
 
-# 0. Readings
+Key drivers of innovation life cycles:
+1. The rate or trajectory of technological advance - S-curves (cumulative adaptation).
+2. Firm's decisions of when to enter the market.
+3. Customers decisions of when to adopt new technologies.
+
+
+## 1.1 Readings
 
 👍 [Crossing the chasm: Marketing and selling technology products to mainstream customers 1991](http://soloway.pbworks.com/w/file/fetch/46715502/Crossing-The-Chasm.pdf). Moore identifies **a perilous gap**, or "chasm," that many high-tech products fall into when attempting this transition. Strategies for successfully transitioning products to the mainstream market, including <u>focusing on a specific niche market and concentrating resources on becoming the dominant player in that segment.</u>
 
@@ -37,14 +44,66 @@ short-term and long-term success.
 * Accepting Resistance: Be patient. Eliminate the old.
 * Minimizing Resistance: Make behaviorally compatible products. Seek out the unendowed. Find believers.
 
-# 1. Innovation Life Cycles
+## 1.2 Lifecycles
 
-Key drivers of innovation life cycles:
-1. The rate or trajectory of technological advance - S-curves.
-2. Firm's decisions of when to enter the market.
-3. Customers decisions of when to adopt new technologies.
+**Innovation Adoption Lifecycle** (Non-cumulative adaptation - bell shape)
+<div align="center">    
+<img src="/assets/img/company/ada_cyc.jpg" width="45%"/>
+</div>
+
+**Diffusion of firms**: <u>firm takeoff and sales takeoff points</u>. Firm takeoff usually come before sales takeoff.
+
+<div align="center">    
+<img src="/assets/img/company/EifiFMlX0AE_dOf.jpg" width="60%"/>
+</div>
+
+**Product life cycle** ([Reading](https://www.twi-global.com/technical-knowledge/faqs/what-is-a-product-life-cycle)), takeoff point as the sales takeoff.
+
+<div align="center">    
+<img src="https://www.twi-global.com/CachedImage.axd?ImageName=Product-Life-Cycle-Diagram.jpg&ImageWidth=800&ImageHeight=611&ImageVersionID=107543&ImageModified=20210621110712" width="45%"/>
+</div>
+
+## 1.3 Types of Innovations
+
+* Process
+* Incremental
+* Radical
+* Disruptive (initial bad, gradually getting better )
+* Business Model
+
+## 1.4 Crossing Over from Niche Markets to Mass-Market Dominance
+
+* Early market, MVP (~alpha/beta product) is OK.
+* Find a niche. <u>NEED A PERFECT PRODUCT</u>. Companies need to identify a **beachhead segment** and develop a perfect product for that segment.
+* (To Mass-Market) Generate volumes and harness cost advantages so as to develop reliable products.
+
+## 1.5 [Prospect Theory](https://www.investopedia.com/terms/p/prospecttheory.asp): Minimizing Losses and Maximizing Gains
+
+<div align="center">    
+<img src="https://sketchplanations.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsketchplanations%2Fa91c962d-ad54-4295-b3fb-355c79299068_118976026701.jpg%3Fauto%3Dcompress%2Cformat&w=750&q=75" width="45%"/>
+</div>
 
 # 2. Disruptive Innovation
+
+How innovating entrants can disrupt industry leaders
+
+## 2.1 Readings
+
+[Match Your Innovation Strategy to Your Innovation Ecosystem 2006](https://hbr.org/2006/04/match-your-innovation-strategy-to-your-innovation-ecosystem)
+> When they work, ecosystems allow firms to create value that no single firm could create alone.
+
+* Innovation ecosystems are characterized by three fundamental types of risk:
+  1. initiative risks, or the familiar uncertainties of managing a project.
+  2. interdependence risks, or the <u>uncertainties of coordinating with complementary innovators</u>.
+    * different partners should be able to satisfy their commitments within a specific time frame.
+    * other ecosystem actors had to develop their own distinct innovations.
+  3. integration risks, or the uncertainties presented by the adoption process across the value chain.
+    * Innovation adopt it to old value chain before it can reach volume sales.
+* Target Markets and Ecosystem Risk
+* <u>Strategy in Ecosystems</u>:
+  1. Where to compete.
+  2. When to compete.
+  3. How to compete.
 
 
 # 3. Open Innovation

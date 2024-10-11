@@ -5,7 +5,8 @@ title: Operational Finance - Finance for Managers
 
 [MBA Home](../../0index)
 
-[Operational Finance : Finance for Managers](https://www.coursera.org/learn/operational-finance/home/week/1)
+[Operational Finance : Finance for Managers](https://www.coursera.org/learn/operational-finance/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/EC2QV2KNUGS0).
+
 
 # 1. Financial Analysis
 

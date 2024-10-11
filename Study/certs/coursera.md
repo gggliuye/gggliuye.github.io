@@ -9,6 +9,7 @@ subtitle: Some of my certification for online courses
 | ----------- | ----------- |
 | **Financial Markets** <br> September 9, 2024. 33 hours (approximately) |   [link](https://www.coursera.org/account/accomplishments/verify/3XB9BHY50930)   |
 | **Accounting: Principles of Financial Accounting** <br> October 9, 2024. 12 hours (approximately) |  [link](https://www.coursera.org/account/accomplishments/verify/2SNU0I1GISHA)   |
+| **Finance for Managers** <br> October 11, 2024. 14 hours (approximately) |  [link](https://www.coursera.org/account/accomplishments/verify/EC2QV2KNUGS0)   |
 
 <p></p>
 

@@ -74,3 +74,12 @@ Maintain a project budget. Monitor & Cost control.
 3. <u>Contract writing</u> - [Statement of Work](https://docs.google.com/document/d/1TA55da0QI6aJousn5sLzOzN0X-Tcx5iwUaWmnOoUj50/template/preview) describes the products and services a vendor or contractor will provide for an organization;
 4. <u>Controlling</u>. making payments and maintaining and ensuring quality.
 5. <u>Completing</u>. measuring your success.
+
+# 3. Risk Management
+
+[Risk Management Process](https://www.projectmanager.com/blog/risk-management-process-steps)
+* Identify, analyze, evaluate, treat, and control.
+* An **opportunity** is a potential positive outcome of a risk.
+* Identify risk by create a [fishbone diagram](https://asq.org/quality-resources/fishbone), help the team to brainstorm potential causes of a problem or risk and sort them into useful categories.
+  * (1) Define the problem; (2) Identify the categories; (3) Brainstorm the causes; (4) Analyze the causes.
+* Risk type : (1) internal : time, budget, scope; (2) external risk; (3) single point of failure.
