@@ -5,7 +5,7 @@ title: Project Planning - Putting It All Together
 
 [Project Management Home](../00index)
 
-[Project Planning: Putting It All Together](https://www.coursera.org/learn/project-planning-google/home/module/1) :
+[Project Planning: Putting It All Together](https://www.coursera.org/learn/project-planning-google/home/module/1). [Template](https://docs.google.com/spreadsheets/d/11jQc1cGQQnJoWpFg-dn8M26M593C8tnY1DfqONNA8F0/template/preview):
 * **Schedule** : how to make accurate time estimates, and how to set milestones.
 * **Budget** : how to build and manage a budget and how the procurement processes work.
 * **Risk Management** : tools help to identify and manage different types of risk and how to use a risk management plan to communicate and resolve risks.
@@ -83,3 +83,24 @@ Maintain a project budget. Monitor & Cost control.
 * Identify risk by create a [fishbone diagram](https://asq.org/quality-resources/fishbone), help the team to brainstorm potential causes of a problem or risk and sort them into useful categories.
   * (1) Define the problem; (2) Identify the categories; (3) Brainstorm the causes; (4) Analyze the causes.
 * Risk type : (1) internal : time, budget, scope; (2) external risk; (3) single point of failure.
+
+Risk mitigation strategies.
+1. Avoid the risk
+2. Accept the risk
+3. Reduce or control the risk
+4. Transfer the risk
+
+[Risk management plan](https://docs.google.com/document/d/1OB1mF3uYelmSmHjC4z4rMAPs562AWlomTdOIkUoHeo8/template/preview): Probability chart, Impact chart,  Probability and Impact Matrix, Risk to project.
+
+# 4. Communication Plan
+
+Effective communication:
+* Recognize and understand individual differences
+* Brainstorm and craft the appropriate message
+* Deliver your message
+* Obtain feedback and incorporate that feedback going forward
+
+**Communication Plan** [template](https://docs.google.com/spreadsheets/d/1xVA_N9868hb4rL0s1w3zNABY5wbjl-ig05eqFFwwa80/template/preview) : organizes and documents the process, types, and expectations of communication for the project: <u>what (types), who, when (frequency, key dates), how (delivery method), why (goals), where (resources links).</u>
+
+<u>Project documentation -> Knowledge management.</u>
+what to share with who and when.

@@ -118,7 +118,7 @@ How innovating entrants can disrupt industry leaders
   * The low-end disruptor, targeting the underserved segments by offering a lower quality product at that point in time.
   * The new to the market disruption, they come in with a totally different package of attributes and catered to the non-served market.
 
-## 2.3
+## 2.3 
 
 
 # 3. Open Innovation
