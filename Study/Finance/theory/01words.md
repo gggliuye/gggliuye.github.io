@@ -1,5 +1,5 @@
 ---
-layout: page_tree_math
+layout: page
 title: Finance Terms
 ---
 

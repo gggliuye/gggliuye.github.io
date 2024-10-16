@@ -3,6 +3,7 @@ layout: page_coursera
 title: Strategic Planning and Execution
 ---
 
+[MBA Home](../../0index)
 
 [Strategic Planning and Execution](https://www.coursera.org/learn/uva-darden-strategic-planning-execution/home/module/1). [Certification link](https://www.coursera.org/account/accomplishments/verify/WHH3A0UDRBBR).
 
