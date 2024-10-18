@@ -118,10 +118,25 @@ How innovating entrants can disrupt industry leaders
   * The low-end disruptor, targeting the underserved segments by offering a lower quality product at that point in time.
   * The new to the market disruption, they come in with a totally different package of attributes and catered to the non-served market.
 
-## 2.3 
+Prescriptions for Incumbents for Assessing Disruptions. Elements : Leadership & Vision, Resources, Processes, Culture, Structure.
 
+**Creating** a Disruptive Innovation.
+* Three elements together : <u>technology, business model,  ecosystem -  simplifying technology paired with a business model that is then embedded in a viable ecosystem.</u>.
+* Opportunities can be discovered through three dimensions : <u>Time, Skill, Accessibility</u>.
 
 # 3. Open Innovation
+
+* pursue an “open” strategy by seeking new ideas and technologies outside the firm.
+* different mechanisms that enable firms to capture value from innovations, including the importance of patents and specialized assets and capabilities in providing a competitive advantage.
+* when innovators should forward integrate to compete with other firms in product markets and when they should license their innovations to other firms in technology markets.
+
+## 3.1 Readings
+
+[The Era of Open Innovation 2003](https://sloanreview.mit.edu/article/the-era-of-open-innovation/)
+
+[Markets for Technology and their Implications for Corporate Strategy Get access Arrow 2001](https://academic.oup.com/icc/article-abstract/10/2/419/678614?redirectedFrom=fulltext)
+
+## 3.2 
 
 
 # 4. Multi-sided Platforms
