@@ -24,6 +24,8 @@ bundle exec jekyll serve
 * install jekyll:
 ```
 gem install jekyll
+gem install tzinfo
+gem install tzinfo-data
 ```
 * install bundle
 ```
