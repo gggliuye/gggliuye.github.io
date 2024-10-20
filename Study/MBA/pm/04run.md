@@ -114,3 +114,54 @@ The factors that impact team effectiveness:
 * Act and reflect on the outcome
 
 **Effective Influencing** : (1) Establish credibility (from expertise and relationships); (2) Frame for common ground; (3) Provide evidence; (4) Connect emotionally.
+
+# 6. Communication
+
+Tools :
+1. Messaging: email, instant messager, phone call.
+2. Virtual meetings.
+3. Work management and collaboration tools.
+
+Efficient emails:
+* State what you want clearly.
+* Keep the content concise.
+* Structure your writing.
+* Check grammar, punctuation, and spelling.
+
+Efficient meetings:
+* Structured: on time, attendness, prioritized, notetaker.
+* Intentional : clearly stated purpose and expectations.
+* Collaboration: working together.
+* Inclusivity: inclusive and accessible meetings.
+  * inclusive environment, accessiblity to everyone, visual impairments.
+
+Project meetings [agenda template](https://docs.google.com/document/d/1fAIN8j5GcBwjHXZkYnHFFWPSn2-bevSdwKLB8Ufa9QM/template/preview):
+1. **Kick-off meeting**. align understanding of the project goals with actual plans and procedures.
+2. **Status update meeting**. align the team on updates, progress, challenges, and next steps.
+  * Tasks update. Scheduale status. Budget status. Current or anticipated issues. Action items.
+3. Stakeholders review meetins.
+4. Retrospective meeting. reflect on what went well and potential improvements for the future. celebrate the project's completion.
+
+# 7. Close project
+
+Criteria to successfully close a project:
+* Assure all works are done.
+* Agreed upon project management processes are executed.
+* Formal recognition and agreement that the project is done by key stakeholders.
+
+**Steps** :
+* Conduct closing process after each phase or milestone.
+  1. Refer to prior documentation.
+  2. Put together closing documentation.
+  3. Conduct administrative closure of the procurement process.
+  4. Make sure all stakeholders are aware that a phase, or project, is ending.
+  5. Execute necessary follow-up work.
+* Close at the end of the project:
+  1. Provide the necessary training, tools, documentation, and capability to use your product.
+  2. Ensure that the project has satisfied its goals and desired outcomes.
+  3. Document acceptance from all stakeholders.
+  4. Review all contracts and documentation.
+  5. Conduct a formal retrospective.
+  6. Disband and thank the project team.
+
+**Impact reporting**: to make sure that all stakeholders feel like their needs are met and to review areas for improvements in the future.
