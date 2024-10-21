@@ -133,13 +133,13 @@ Efficient meetings:
 * Intentional : clearly stated purpose and expectations.
 * Collaboration: working together.
 * Inclusivity: inclusive and accessible meetings.
-  * inclusive environment, accessiblity to everyone, visual impairments.
+  * inclusive environment, accessibility to everyone, visual impairments.
 
 Project meetings [agenda template](https://docs.google.com/document/d/1fAIN8j5GcBwjHXZkYnHFFWPSn2-bevSdwKLB8Ufa9QM/template/preview):
 1. **Kick-off meeting**. align understanding of the project goals with actual plans and procedures.
 2. **Status update meeting**. align the team on updates, progress, challenges, and next steps.
-  * Tasks update. Scheduale status. Budget status. Current or anticipated issues. Action items.
-3. Stakeholders review meetins.
+  * Tasks update. Schedule status. Budget status. Current or anticipated issues. Action items.
+3. Stakeholders review meetings.
 4. Retrospective meeting. reflect on what went well and potential improvements for the future. celebrate the project's completion.
 
 # 7. Close project
