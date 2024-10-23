@@ -30,7 +30,7 @@ Others :
 * **Deliverables** : (products or services) produced and presented at the end of a task, event or process.
   * help quantify and realize the impact of the project.
 * **Success criteria** (measure project success) by the quality of the product, the ability to fulfill the needs of your customers, and the need to meet the expectations of your stakeholders.
-* **Stakeholders** : 2x2 grid of <u>interest and influence</u>.
+* <a name="stakeholders"></a> **Stakeholders** : 2x2 grid of <u>interest and influence</u>.
   * [What Steps Do You Take To Identify and Prioritize All Stakeholders at the Start of a Project?](https://www.pmi.org/learning/library/identify-prioritize-stakeholders-11408) : List all the stakeholders the project impacts, determine their level of interest and influence, and find ways to involve them.
 
 <div align="center"><pre class="mermaid">
@@ -73,14 +73,16 @@ quadrantChart
 
 **Project Roles** - **RACI** : Responsible (who gets the work done), Accountable (who makes sure the work is done), Consulted (who gives input or feedback on work), Informed (who needs to know the outcome).
 
+<a name="proj_charter"></a>
 ## Project Charter
 
-Create **Project Charter**, defines the project and outlines the necessary details for the project to reach its goals. [template](https://docs.google.com/document/d/1HtFRAk4GAIEUdBZvct_Jr9RuWyGS8IlmqNiR0kA19y0/template/preview)
-* introduction/project summary
-* goals/objectives
+Create **Project Charter**, defines the project and outlines the necessary details for the project to reach its goals. (first elements in the life cycle) [template](https://docs.google.com/document/d/1HtFRAk4GAIEUdBZvct_Jr9RuWyGS8IlmqNiR0kA19y0/template/preview)
+* <u>introduction/project summary</u>
+* <u>goals/objectives</u> (SMART: Specific, Measurable, Attainable, Relevant, and Time-bound)
+* <u>deliverables</u>
+* <u>scope</u>
 * business case/benefits and costs
 * project team
-* scope
 * success criteria
 * major requirements or key deliverables
 * budget
@@ -89,6 +91,17 @@ Create **Project Charter**, defines the project and outlines the necessary detai
 * risks
 * OKRs
 * approvals
+
+Project Charter is a **alignment tool** to <u>get the project's stakeholders in alignment</u> about the project's scope and goals.
+
+<details>
+  <summary>Alignment Guiding Questions</summary>
+<li>Who are the stakeholders?</li>
+<li>When do project stakeholders disagree on a particular topic?</li>
+<li>Who is the “decision-maker”?</li>
+<li>How is the misalignment clarified?</li>
+<li>What is the final decision regarding the misalignment?</li>
+</details>
 
 [Cost-benefit Analysis](https://pmstudycircle.com/cost-benefit-or-benefit-cost-analysis/#:~:text=Cost%2Dbenefit%20analysis%20is%20a,during%20the%20project%20selection%20analysis) adding up the expected value of a project—the benefits—and comparing them to the dollar costs.
 

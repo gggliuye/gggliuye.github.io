@@ -9,6 +9,10 @@ title: Agile Project Management
 
 # 1. Introduction
 
+[Agile Product Ownership in a Nutshell](https://www.youtube.com/watch?v=502ILHjX9EE), [whole drawing](https://www.dropbox.com/scl/fi/g68gwog4y57lx5o9o6w27/PO-in-a-nutshell.png?rlkey=ai4g4n85iycu5b2w6aomla3c4&e=1)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/502ILHjX9EE?si=djCp74LvBopTVq8C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Agile: <u>An iterative, flexible process that incorporates necessary changes throughout the process and is based on foundational values and principles.</u>
 
 | Feature        | Waterfall                               | Agile                                    |
@@ -138,9 +142,35 @@ Team roles and [traits](https://www.infoq.com/articles/great-scrum-team/):
 * Sprint Planning. [Example](https://docs.google.com/spreadsheets/d/1zb-AFNR4iuxP_ocHmJQEC-sVTm38skfNhmawS2SVXGU/template/preview?resourcekey=0-VCNh3sJvqAdg6Ns2_hOkTw#gid=2118111924)
 * Daily Scrum (Stand up)
 * Sprint Review
-* Sprint Retrospective
-
+* Sprint Retrospective ([email example](https://docs.google.com/document/d/1Nhmx9OiBgmzglWqnqYdXvj1uQGEaqAJWiRkcRdkCCtg/template/preview#heading=h.gjdgxs))
+  * Ask open-ended, probing questions.
+  * Consider diverse styles of communication and participation.
+  * Cover the many aspects of the Sprint when conducting a retrospective.
+  * Consider reflecting periodically on Scrum theory and values by asking specific questions.
 
 ## 3.3 Scrum Tools
 
+* **Burndown charts** : time - work done.
+* **Velocity** : The measure of how many points the team burns down in a given Sprint on average.
+  * 👌 Be careful when sharing velocity with external stakeholders.
+  * 🚫 Don't use velocity as a performance metric, nor comparison metric.
+  * 👌 Proceed with caution when using velocity as a metric for project delivery date.
+* **Kanban boards**.
+
 # 4. Apply
+
+**Maximizing value-driven delivery** : (1) build the right thing, (2) build the thing right, (3) run it right.
+* Following a [Value Roadmap](https://www.scrum.org/resources/blog/product-roadmap-first-principles-empower-scrum-teams-align-w-stakeholders) : where to go, how to get there, what to accomplish along the way.
+  * Product vision, Product roadmap, Release plan.
+
+Change management.
+* Create a sense of *ownership & urgency*. Facilitating organizational change to Agile.
+* [Three keys to influence](https://sourcesofinsight.com/influencer-the-power-to-change-anything/) : Clarify measurable results; Find vital behaviors; Use the six sources of influence.
+
+Coach :
+1. Design the "plays" with the team.
+2. Provide feedback to the team.
+3. Celebrate and learn with the team.
+
+
+[Agile vs DevOps: What's the Difference?](https://www.cmswire.com/information-management/agile-vs-devops-whats-the-difference/)
