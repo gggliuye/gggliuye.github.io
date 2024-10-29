@@ -47,13 +47,15 @@ Tracking methods : **GANTT chart** (waterfall methodology), **Roadmap** (for big
 
 (4) Communicating changes to the team : small change - email, big change - team meeting & timeout.
 
+<a name="quality"></a>
 # 3. Quality management
 <p></p>
 
-* [Quality standards](https://asq.org/quality-resources/learn-about-standards).
-* [Quality planning](https://asq.org/quality-resources/quality-plans). (Identify relevant standards and how to satisfy them)
+* Define [Quality standards](https://asq.org/quality-resources/learn-about-standards).
+* Make [Quality planning](https://asq.org/quality-resources/quality-plans). (<u>Identify relevant standards and how to satisfy them</u>)
 * **QA** Quality assurance. (Review process : Evaluate if the project is moving towards high-quality)
   * QA seeks to prevent defects before they occur.
+  * Involves observing, measuring, and then comparing with a set of agreed-upon criteria.
 * **QC** Quality control. (Monitor project results and delivery to determine if they are meeting desired results or not)
   * [QC is a subset of QA](https://asq.org/quality-resources/quality-assurance-vs-control).
   * QC aims to identify defects after they have happened and also entails taking corrective action to resolve these issues.
@@ -70,6 +72,8 @@ Tracking methods : **GANTT chart** (waterfall methodology), **Roadmap** (for big
   * Portfolio. collection of projects and programs across the whole organization.
 
 👍 **Retrospective** [Template](https://docs.google.com/document/d/1G1uZpxgqQPYfqeS5Tb8SdJLoIghqNqU3MDwarE9NeIw/template/preview) : (1) Project summary (Goals and objectives, Duration, Team members, Methodology), (2) Key accomplishments, (3) Lessons learned, (4) Action items (turn their lessons into action items), (5) Future considerations, (6) Resources and notes.
+
+Retrospective's purpose: (1) Encourage team building; (2) Facilitate improved collaboration; (3) Promote positive changes.
 
 # 4. Data-informed decision-making
 
@@ -115,6 +119,7 @@ The factors that impact team effectiveness:
 
 **Effective Influencing** : (1) Establish credibility (from expertise and relationships); (2) Frame for common ground; (3) Provide evidence; (4) Connect emotionally.
 
+<a name="commu"></a>
 # 6. Communication
 
 Tools :
