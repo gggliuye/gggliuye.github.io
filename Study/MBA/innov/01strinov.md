@@ -136,7 +136,44 @@ Prescriptions for Incumbents for Assessing Disruptions. Elements : Leadership & 
 
 [Markets for Technology and their Implications for Corporate Strategy Get access Arrow 2001](https://academic.oup.com/icc/article-abstract/10/2/419/678614?redirectedFrom=fulltext)
 
-## 3.2 
+## 3.2 Open Innovations
 
+Open innovation is **creating value** by focusing on internal and external ideas from various stakeholders and using different pathways to the market including licensing, acquisition, and launching using company channels. (e.g. [InnoCentive](https://www.wazokucrowd.com/) & [NineSigma](https://www.ninesigma.com/), to open the world)
+
+👑 **Crowd sourcing**
+
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+CW["Crowd Wisdom"] CV["Crowd Voting"] CL["Crowd Labor"]
+CC["Crowd Contests"]:2 CF["Crowd Funding"]
+CCC["Crowd Content"]:3
+</pre></div>
+
+* <u>Crowd Content</u>: through collaborative communities. (e.g. Wikipedia)
+* <u>Crowd Contests</u>: sponsor post the problem, and the crowd response. (e.g. [TopCoder](https://www.topcoder.com/))
+* <u>Crowd Funding</u> (众酬) : tends to democratize opportunities and access to deserving cases that might not otherwise have a chance. (e.g. [KickStarter](https://www.kickstarter.com/))
+* <u>Crowd Labor</u> (外包): matching buyers and sellers of matching skills (short term). (e.g. [Amazon Mechanical Turk](https://www.mturk.com/), [Upwork](https://www.upwork.com/))
+* <u>Crowd Voting</u> is valuable to gauge interst and excitement. It can be used to generate engagement. (e.g. Google, Youtube Like, American Idol)
+* <u>Crowd Wisdom</u> : crowd to generate insight (e.g. Intrade, Befair, Iowa Electronic Markets, Inkling markets, Corwdcast, Prokons)
+  1. Diversity of opinions. Private information.
+  2. Independence.
+  3. Decentralization. Local knowledge.
+  4. Aggregation.
 
 # 4. Multi-sided Platforms
+
+Platforms enable firms to both create and capture value by bringing together sellers and buyers and controlling the transactions between them.
+
+value chain and platform businesses
+
+## 4.1 Readings
+
+[Networks and positive feedback: How to exploit network effects 1998](https://www.hbsp.harvard.edu/product/2578BC-PDF-ENG)
+
+[Strategic Decisions for Multisided Platforms 2013](https://sloanreview.mit.edu/article/strategic-decisions-for-multisided-platforms/):
+1. **Definition of Multisided Platforms (MSPs)**: MSPs are technologies, products, or services that primarily create value by enabling direct interactions between two or more customer or participant groups. (eBay, Facebook, Airbnb, Uber, Apple's iOS, Google's Android operating system)
+2. **Value of MSPs**: reducing search costs or transaction costs (or both) for participants. As a result, MSPs often hold a privileged position in their respective industries, with most other industry participants revolving around and depending on MSPs in important ways.
+3. **Characteristics of MSPs**: (1) each group of participants (a "side") is a customer of the MSP in some meaningful way, and (2) the MSP enables direct interaction between the sides.
+4. **Strategic Decisions**: (1) the number of sides to bring on board; (2) design; (3) pricing structures; and (4) governance rules.
+5. **Network Effects**: The article also discusses the network effects that MSPs may exhibit, including one-sided network effects and cross-side network effects.
