@@ -7,7 +7,12 @@ title: Strategic Innovation - Building and Sustaining Innovative Organizations
 
 
 [Strategic Innovation: Building and Sustaining Innovative Organizations](https://www.coursera.org/learn/strategic-innovation-building-and-sustaining-innovative-organizations/home/week/1)
+1. [Innovation Life Cycles](#l1)
+2. [Disruptive Innovation](#l2)
+3. [Open Innovation](#l3)
+4. [Multi-sided Platforms](#l4)
 
+<a name="l1"></a>
 # 1. Innovation Life Cycles
 
 Key drivers of innovation life cycles:
@@ -83,6 +88,7 @@ short-term and long-term success.
 <img src="https://sketchplanations.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsketchplanations%2Fa91c962d-ad54-4295-b3fb-355c79299068_118976026701.jpg%3Fauto%3Dcompress%2Cformat&w=750&q=75" width="45%"/>
 </div>
 
+<a name="l2"></a>
 # 2. Disruptive Innovation
 
 How innovating entrants can disrupt industry leaders
@@ -124,6 +130,7 @@ Prescriptions for Incumbents for Assessing Disruptions. Elements : Leadership & 
 * Three elements together : <u>technology, business model,  ecosystem -  simplifying technology paired with a business model that is then embedded in a viable ecosystem.</u>.
 * Opportunities can be discovered through three dimensions : <u>Time, Skill, Accessibility</u>.
 
+<a name="l3"></a>
 # 3. Open Innovation
 
 * pursue an “open” strategy by seeking new ideas and technologies outside the firm.
@@ -161,6 +168,7 @@ CCC["Crowd Content"]:3
   3. Decentralization. Local knowledge.
   4. Aggregation.
 
+<a name="l4"></a>
 # 4. Multi-sided Platforms
 
 Platforms enable firms to both create and capture value by bringing together sellers and buyers and controlling the transactions between them.
@@ -177,3 +185,35 @@ value chain and platform businesses
 3. **Characteristics of MSPs**: (1) each group of participants (a "side") is a customer of the MSP in some meaningful way, and (2) the MSP enables direct interaction between the sides.
 4. **Strategic Decisions**: (1) the number of sides to bring on board; (2) design; (3) pricing structures; and (4) governance rules.
 5. **Network Effects**: The article also discusses the network effects that MSPs may exhibit, including one-sided network effects and cross-side network effects.
+
+## 4.2 The Strategic Logic
+
+The strategic logic involves transitioning from a traditional pipeline business model, which focuses on linear value chains, to <u>a platform model that connects multiple consumer groups, enhancing efficiency and creating network effects.</u>
+
+The pipeline business model creates value by <u>controlling a linear series of activities wherein inputs at one end of the chain undergo a series of sequential steps that transform them into a finished product</u>. A platform model can be defined as intermediaries that connect two or more distinct groups of users and facilitate their interaction.
+
+## 4.3 Network Effects
+
+* Network effects occur when the value of a product increases as more people use it.
+* Double Jeopardy Effect: Larger brands benefit from higher loyalty rates due to their popularity, as customers of smaller brands are often aware of and likely to switch to larger brands.
+* The Internet enhances network effects (both Direct and Indirect effects).
+
+## 4.4 Multi-sided Markets
+
+* Competitive Limits
+  * When larger competitors enter the market, it can become challenging to compete effectively. Recognizing this reality is crucial for strategic planning.
+  * It may be more beneficial to focus on harvesting your existing business rather than trying to compete directly with these larger entities.
+* Exploring New Growth Opportunities
+  * While managing your current business, it's essential to explore potential new avenues for growth. This proactive approach can lead to discovering innovative strategies.
+  * Diversifying your efforts can help mitigate risks associated with relying solely on your existing business model.
+* Strategic Adaptation
+  * Adapting your strategy in response to market changes is vital for long-term sustainability. This may involve reevaluating your business goals and objectives.
+  * Embracing innovation and being open to change can position your organization for future success.
+
+Develop **content - user** to build critical mass chicken-egg problem : **《Matchmakers - The new economics of multisided platform》**
+* ZigZag strategy : pushing participation simultaneously till both side reach critical mass (ebay, YouTube).
+* Two-Step strategy : pushing participation on one side first (allow the company to achieve critical mass) and then fostering the other side of the platform
+  * video game industry - provider first; newspapers - develop content first.
+* Mixed strategy : pursuing zig zag first and then a two-step strategy (YouTube).
+
+Pricing strategy. Ecosystem governance.
