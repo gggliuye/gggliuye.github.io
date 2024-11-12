@@ -193,13 +193,13 @@ The strategic logic involves transitioning from a traditional pipeline business 
 The pipeline business model creates value by <u>controlling a linear series of activities wherein inputs at one end of the chain undergo a series of sequential steps that transform them into a finished product</u>. A platform model can be defined as intermediaries that connect two or more distinct groups of users and facilitate their interaction.
 
 ## 4.3 Network Effects
-
+<p></p>
 * Network effects occur when the value of a product increases as more people use it.
 * Double Jeopardy Effect: Larger brands benefit from higher loyalty rates due to their popularity, as customers of smaller brands are often aware of and likely to switch to larger brands.
 * The Internet enhances network effects (both Direct and Indirect effects).
 
 ## 4.4 Multi-sided Markets
-
+<p></p>
 * Competitive Limits
   * When larger competitors enter the market, it can become challenging to compete effectively. Recognizing this reality is crucial for strategic planning.
   * It may be more beneficial to focus on harvesting your existing business rather than trying to compete directly with these larger entities.
@@ -217,3 +217,13 @@ Develop **content - user** to build critical mass chicken-egg problem : **《Mat
 * Mixed strategy : pursuing zig zag first and then a two-step strategy (YouTube).
 
 Pricing strategy. Ecosystem governance.
+
+**Contemporary Business Models in the Era of Digitization:**
+* **Platform Business Models**
+  * Platform businesses leverage network effects, leading to increasing returns to scale, but they face complex pricing challenges due to costs and revenues on both sides of the platform.
+  * Successful platforms often need to subsidize one side to generate revenue from the other, making pricing strategies intricate.
+* **Long-Tail Business Models**
+  * The long-tail model shifts focus from a few blockbuster products to a vast array of **niche items**, which can be profitable due to the infinite shelf space available online.
+  * Online retailers can stock a significantly larger variety of products, leading to substantial sales from niche items that traditional brick-and-mortar stores cannot accommodate.
+* **Crowd-Sourced Models** utilize the collective intelligence of the **crowd**, exemplified by platforms like Kickstarter and InnoCentive, enabling innovative solutions and funding opportunities.
+* **Bundled Models** combine multiple products or services into a single offering, benefiting sellers by simplifying pricing and reducing marketing costs while catering to diverse consumer preferences. (Microsoft, Newspaper)
