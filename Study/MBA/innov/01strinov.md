@@ -6,7 +6,7 @@ title: Strategic Innovation - Building and Sustaining Innovative Organizations
 [Innovation Home](../00index)
 
 
-[Strategic Innovation: Building and Sustaining Innovative Organizations](https://www.coursera.org/learn/strategic-innovation-building-and-sustaining-innovative-organizations/home/week/1)
+[Strategic Innovation: Building and Sustaining Innovative Organizations](https://www.coursera.org/learn/strategic-innovation-building-and-sustaining-innovative-organizations/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/TXC91BBJMTM3).
 1. [Innovation Life Cycles](#l1)
 2. [Disruptive Innovation](#l2)
 3. [Open Innovation](#l3)
