@@ -19,6 +19,7 @@ navbar-links:
     - Philosophy : "Philosophy/index"
     - Math : "Math/index"
     - Biology : "Biology/index"
+    - Business: "Study/MBA/0index"
     - Work Paper Read : "Study/PaperRead/index"
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"
