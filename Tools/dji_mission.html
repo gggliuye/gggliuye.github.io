@@ -38,6 +38,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- Leaflet Draw JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="math/convex_hull.js"></script>
     <script>
         const map = L.map('map', {
             zoomSnap: 0.05,
@@ -79,11 +80,32 @@
             return meters / 111320; // Approximation for 1 degree = ~111.32 km
         }
 
+        function isPointInsidePolygen(point, hull) {
+            let count = 0;
+            const [px, py] = point;
+            for (let i = 0, j = hull.length - 1; i < hull.length; j = i++) {
+                const [x1, y1] = hull[j];
+                const [x2, y2] = hull[i];
+
+                if ((y1 <= py && y2 > py || y2 <= py && y1 > py) &&
+                    (x1 < (px - x2) * (y1 - y2) / (py - y2) + x2)) {
+                    count++;
+                }
+            }
+            return count % 2 !== 0; // If count is odd, the point is inside the hull
+        }
+
         // Generate trajectory with 90-degree turns (scanning the area)
         function createTrajectory(polygonCoords, resolutionMeters) {
             const resolutionDegrees = metersToDegrees(resolutionMeters);
-            const polygon = L.polygon(polygonCoords);
-            const bounds = polygon.getBounds();
+
+            points_original = [];
+            for (let i = 0; i < polygonCoords.length; i++) {
+              points_original.push([polygonCoords[i].lat, polygonCoords[i].lng])
+            }
+            const points_convex_hull = convexhull.makeHull(points_original);
+
+            const bounds = L.polygon(polygonCoords).getBounds();
             const latStart = bounds.getNorthWest().lat;
             const latEnd = bounds.getSouthEast().lat - resolutionDegrees;
             const lngStart = bounds.getNorthWest().lng;
@@ -96,23 +118,22 @@
             for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
                 if (isLeftToRight) {
                   for (let currentLng = lngStart; currentLng < lngEnd; currentLng += resolutionDegrees) {
-                    trajectory.push([currentLat, currentLng]);
+                    let point = [currentLat, currentLng];
+                    if (isPointInsidePolygen(point, points_convex_hull)) {
+                      trajectory.push(point);
+                    }
                   }
                 } else {
                   for (let currentLng = lngEnd; currentLng > lngStart; currentLng -= resolutionDegrees) {
-                    trajectory.push([currentLat, currentLng]);
+                    let point = [currentLat, currentLng];
+                    if (isPointInsidePolygen(point, points_convex_hull)) {
+                      trajectory.push(point);
+                    }
                   }
                 }
                 isLeftToRight = !isLeftToRight; // Switch direction for the next row
             }
-
-            const sampledPoints = [];
-            for (let i = 0; i < trajectory.length; i++) {
-                const start = trajectory[i];
-                sampledPoints.push([start[0], start[1]])
-            }
-
-            return { trajectory, sampledPoints };
+            return { points_convex_hull, trajectory };
         }
 
         // Handle polygon creation
@@ -128,14 +149,14 @@
             const polygonCoords = layer.getLatLngs()[0];
             const resolution = parseFloat(document.getElementById('resolution').value);
 
-            const { trajectory, sampledPoints } = createTrajectory(polygonCoords, resolution);
+            const { convex_hull, trajectory } = createTrajectory(polygonCoords, resolution);
 
             // Draw trajectory
             trajectoryLayer = L.featureGroup();
             const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
 
             // Highlight sampled points
-            sampledPoints.forEach((point) => {
+            trajectory.forEach((point) => {
                 L.circleMarker(point, {
                     radius: 5,
                     color: 'red',
@@ -148,7 +169,7 @@
 
             // Output trajectory details
             let output = 'Trajectory Points:<br>';
-            sampledPoints.forEach((point, index) => {
+            trajectory.forEach((point, index) => {
                 output += `Point ${index + 1}: ${point[0].toFixed(6)}, ${point[1].toFixed(6)}<br>`;
             });
 
