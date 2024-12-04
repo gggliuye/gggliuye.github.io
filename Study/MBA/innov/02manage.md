@@ -8,7 +8,8 @@ title: Strategic Innovation - Managing Innovation Initiatives
 [Strategic Innovation: Managing Innovation Initiatives](https://www.coursera.org/learn/strategic-innovation-innovation-at-the-frontier/home/week/1)
 1. [Managing Innovation](#l1) : **Enable effective implementation (execution) of your strategic intent. Ambidextrous Organizations**
 2. [Responding to Different Types of Innovations](#l2)
-3. [](#l3)
+3. [Teams and Innovation](#l3)
+4. [](#l4)
 
 <a name="l1"></a>
 # 1. Managing Innovation
@@ -145,7 +146,10 @@ quadrantChart
 
 ## 2.4 Corporate Entrepreneurship
 
-Corporate Entrepreneurship: <u>Firm relies on & enables employees to build new businesses that leverage resources of the parent firm</u> (happens within the firm, leverage the resources within the firm). Extend the range of tools we have for building an innovative firm.
+Corporate Entrepreneurship (**CE**): <u>Firm relies on & enables employees to build new businesses that leverage resources of the parent firm</u> (happens within the firm, leverage the resources within the firm). Extend the range of tools we have for building an innovative firm.
+
+* Where lies the responsibility for corporate entrepreneurship?
+* Where do the resources come from?
 
 <div align="center"><pre class="mermaid">
 quadrantChart
@@ -159,21 +163,82 @@ quadrantChart
   "The company builds a full-service" : [0.75, 0.9] radius: 0
   "group with a mandate for corporate" : [0.75, 0.85] radius: 0
   "entrepreneurship. (i.e. Cargill)" : [0.75, 0.8] radius: 0
+  "Responsible for entire CE process" : [0.75, 0.7] radius: 0
+  "and has resources from corporate." : [0.75, 0.65] radius: 0
+  "Work on ideas directly." : [0.75, 0.60] radius: 0
   %% for A
   "The company provides funding & senior" : [0.25, 0.9] radius: 0
   "executive attention to prospective" : [0.25, 0.85] radius: 0
   "projects. (i.e. Google)" : [0.25, 0.8] radius: 0
+  "Support employees across the organization" : [0.25, 0.7] radius: 0
+  "to enable development of new concepts" : [0.25, 0.65] radius: 0
+  "Executive council - receiving executive" : [0.25, 0.6] radius: 0
+  "attention & funding." : [0.25, 0.55] radius: 0
   %% for B
   "The company has no deliberate approach." : [0.25, 0.4] radius: 0
   "Internal & external networks drive concept"      : [0.25, 0.35] radius: 0
   "selection and recourse allocation."  : [0.25, 0.3] radius: 0
-  "How firm starts. Not dependable."  : [0.25, 0.25] radius: 0
+  "How firm starts. Not dependable."  : [0.25, 0.2] radius: 0
   %% for D
   "A corporate unit strongly evangelizes": [0.75, 0.4] radius: 0
   "for corporate entrepreneurship,": [0.75, 0.35] radius: 0
   "but business units provide the primary": [0.75, 0.3] radius: 0
   "funging .(i.e. DuPont)": [0.75, 0.25] radius: 0
+  "Established corporate group facilitates": [0.75, 0.15] radius: 0
+  "CE in business unit.": [0.75, 0.1] radius: 0
+  "Good ideas get hearing.": [0.75, 0.05] radius: 0
 </pre></div>
 
 <a name="l3"></a>
-# 3.
+# 3. Teams and Innovation
+
+* Common approaches to team design in product development.
+* How to design and lead "heavyweight" cross-functional development teams.
+* Recent research on the execution side of innovation.
+* Key idea: <u>Design a dedicated team that works in partnership with functional groups to effectively address challenging innovation situations.</u>
+
+## 3.1 Product Development Teams
+
+Integration of different capabilities.
+1. **Functional Team Structure** (have a team for each function with function manager, the traditional approach)
+2. **Lightweight Team Structure** (simply add lightweight project manager, for cross-function management)
+  * Lightweight project manager can communicate with function manager, but <u>cannot make key decisions</u>.
+  * Challenging innovation could easily be ignored.
+3. **Heavyweight Team Structure** (truly a cross-functional team)
+  * Heavyweight project manager has <u>more influence</u>. Could break the inertia.
+  * While it <u>makes the functional organization complicated</u>.
+4. **Autonomous Team Structure** (pull people out off the functional structure entirely)
+  * May cause confliction with the major organization.
+
+## 3.2 Cross-Functional Team
+<p></p>
+
+| Issue                          | Cross-Functional Team                                   | Functional Team                                               |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------------|
+| Team's Charter:                | Broad & Dynamic: Responsible for Product                | Narrow (functional) and pre-specified                         |
+| Orientation of Core Members:   | Think like General Manager                              | Functional Specialist                                         |
+| Project Ownership:             | Within Team                                             | Diffused                                                      |
+| Integration:                   | Interactive within Team                                | Sequential across functions (orchestrated by Sr. Managers)   |
+| Source of Expertise and Resources: | Team co-located, Functions supply expertise & resources | Staff on multiple projects, resources & expertise in function |
+| Success is:                    | Product Success                                         | Best Practice Used                                            |
+| Accountable to:                | Sr. Management                                          | Functional Boss                                               |
+
+* **LEADER**:
+  1. The leader is the ultimate owner of the project.
+  2. The leader has to be comfortable in different functional areas.
+  3. The leader has to be very active.
+* **EXECUTIVE SPONSORSHIP** - GOVERNANCE PROCESS (rather than a manager)
+  * Clarify areas where the team is empowered to make decisions as opposed to the executive leadership being very involved.
+  * Clarity in these areas helps the team move forward in a way that avoids violations of expectations and maintains confidence of executive leadership.
+* **TEAM MEMBERS'** ROLES & RESPONSIBILITIES.
+  * The functional areas AND for the performance of the project as a whole.
+  * Required to take an executive view.
+  * Team members can vary sharply in their comfort with the idea of putting on a team hat. Therefore, coaching and development is critical.
+
+## 3.3 Innovation through Partnerships between Dedicated Teams and Mainline Functional Groups
+
+## 3.4 
+
+
+<a name="l4"></a>
+# 4.
