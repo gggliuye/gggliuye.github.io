@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Selector with Trajectory</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <style>
+        #map {
+            height: 70vh;
+            width: 100%;
+        }
+        #controls {
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        #output {
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Polygon Selector with Trajectory</h1>
+    <div id="controls">
+        <label for="resolution">Trajectory Resolution (meters):</label>
+        <input type="number" id="resolution" value="20" min="1">
+        <button onclick="clearMap()">Clear Map</button>
+    </div>
+    <div id="map"></div>
+    <div id="output">Coordinates and trajectory details will be displayed here...</div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet Draw JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script>
+        const map = L.map('map', {
+            zoomSnap: 0.05,
+            zoomDelta: 0.25,
+            zoomAnimation: true,
+            wheelPxPerZoomLevel: 120,
+            minZoom: 3
+        }).fitWorld();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.locate({ setView: true, maxZoom: 16 });
+
+        const drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        const drawControl = new L.Control.Draw({
+            draw: {
+                rectangle: true,
+                polygon: true,
+                polyline: false,
+                circle: false,
+                circlemarker: false,
+                marker: false
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+
+        let trajectoryLayer = null;
+
+        // Convert resolution in meters to degrees
+        function metersToDegrees(meters) {
+            return meters / 111320; // Approximation for 1 degree = ~111.32 km
+        }
+
+        // Generate trajectory with 90-degree turns (scanning the area)
+        function createTrajectory(polygonCoords, resolutionMeters) {
+            const resolutionDegrees = metersToDegrees(resolutionMeters);
+            const polygon = L.polygon(polygonCoords);
+            const bounds = polygon.getBounds();
+            const latStart = bounds.getNorthWest().lat;
+            const latEnd = bounds.getSouthEast().lat - resolutionDegrees;
+            const lngStart = bounds.getNorthWest().lng;
+            const lngEnd = bounds.getSouthEast().lng + resolutionDegrees;
+
+            const trajectory = [];
+            let isLeftToRight = true; // Track the direction for horizontal movement
+
+            // Create trajectory by scanning the area row by row
+            for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
+                if (isLeftToRight) {
+                  for (let currentLng = lngStart; currentLng < lngEnd; currentLng += resolutionDegrees) {
+                    trajectory.push([currentLat, currentLng]);
+                  }
+                } else {
+                  for (let currentLng = lngEnd; currentLng > lngStart; currentLng -= resolutionDegrees) {
+                    trajectory.push([currentLat, currentLng]);
+                  }
+                }
+                isLeftToRight = !isLeftToRight; // Switch direction for the next row
+            }
+
+            const sampledPoints = [];
+            for (let i = 0; i < trajectory.length; i++) {
+                const start = trajectory[i];
+                sampledPoints.push([start[0], start[1]])
+            }
+
+            return { trajectory, sampledPoints };
+        }
+
+        // Handle polygon creation
+        map.on(L.Draw.Event.CREATED, function (e) {
+            if (trajectoryLayer) {
+                map.removeLayer(trajectoryLayer);
+            }
+
+            const layer = e.layer;
+            drawnItems.clearLayers();
+            drawnItems.addLayer(layer);
+
+            const polygonCoords = layer.getLatLngs()[0];
+            const resolution = parseFloat(document.getElementById('resolution').value);
+
+            const { trajectory, sampledPoints } = createTrajectory(polygonCoords, resolution);
+
+            // Draw trajectory
+            trajectoryLayer = L.featureGroup();
+            const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
+
+            // Highlight sampled points
+            sampledPoints.forEach((point) => {
+                L.circleMarker(point, {
+                    radius: 5,
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 1
+                }).addTo(trajectoryLayer);
+            });
+
+            trajectoryLayer.addTo(map);
+
+            // Output trajectory details
+            let output = 'Trajectory Points:<br>';
+            sampledPoints.forEach((point, index) => {
+                output += `Point ${index + 1}: ${point[0].toFixed(6)}, ${point[1].toFixed(6)}<br>`;
+            });
+
+            document.getElementById('output').innerHTML = output;
+        });
+
+        // Clear the map
+        function clearMap() {
+            drawnItems.clearLayers();
+            if (trajectoryLayer) {
+                map.removeLayer(trajectoryLayer);
+                trajectoryLayer = null;
+            }
+            document.getElementById('output').innerHTML = 'Map cleared.';
+        }
+    </script>
+</body>
+</html>
