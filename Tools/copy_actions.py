@@ -52,13 +52,6 @@ def get_photo_action_group(action_group_id, pitches = [-20, -55], yaws = [0, 60,
 
 
 def remove_wpml_action_group(file_path, output_path):
-    """
-    Reads a file, removes all content between <wpml:actionGroup> and </wpml:actionGroup> tags,
-    and writes the modified content to a new file.
-
-    :param file_path: Path to the input file to be read.
-    :param output_path: Path to the output file to be written.
-    """
     try:
         # Read the original content of the file
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -71,26 +64,18 @@ def remove_wpml_action_group(file_path, output_path):
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(modified_content)
 
-        print(f"Modified content has been written to '{output_path}'.")
+        print(f"===> Modified content has been written to '{output_path}'.")
     except FileNotFoundError:
         print(f"Error: File '{file_path}' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
 
-def add_content_after_line(file1_path, output_path):
-    """
-    Finds all occurrences of the line <wpml:useStraightLine>0</wpml:useStraightLine> in file1,
-    and appends the content of file2 after each occurrence. The result is written to a new output file.
-
-    :param file1_path: Path to the input file where the search and modification will happen.
-    :param file2_path: Path to the file whose content will be added after the matched lines.
-    :param output_path: Path to the new file to save the modified content.
-    """
+def add_content_after_line(file_path, output_path):
     try:
         # Read the content of file1
-        with open(file1_path, 'r', encoding='utf-8') as file1:
-            lines = file1.readlines()
+        with open(file_path, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
 
         # Open the output file for writing the modified content
         cnt = 0
@@ -111,18 +96,68 @@ def add_content_after_line(file1_path, output_path):
         print(f"An error occurred: {e}")
 
 
+
+def get_place_marker(point_content, index, height):
+    return f"""
+      <Placemark>
+        {point_content}
+        <wpml:index>{index}</wpml:index>
+        <wpml:ellipsoidHeight>{height}</wpml:ellipsoidHeight>
+        <wpml:height>{height}</wpml:height>
+        <wpml:useGlobalHeight>0</wpml:useGlobalHeight>
+        <wpml:useGlobalSpeed>1</wpml:useGlobalSpeed>
+        <wpml:useGlobalHeadingParam>1</wpml:useGlobalHeadingParam>
+        <wpml:useGlobalTurnParam>1</wpml:useGlobalTurnParam>
+        <wpml:useStraightLine>0</wpml:useStraightLine>
+        <wpml:isRisky>0</wpml:isRisky>
+      </Placemark>
+    """
+
+
+# [4, 8, 20, 40, 60, 80]
+def duplicate_points(file_path, output_path, heights = [20, 40, 60, 80]):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    point_contents = re.findall(r'<Point>.*?</Point>', content, re.DOTALL)
+    print(f"  Found {len(point_contents)} points")
+
+    # remove all the exist place markers
+    modified_content = re.sub(r"<Placemark>.*?</Placemark>", "", content, flags=re.DOTALL)
+    with open(output_path, 'w', encoding='utf-8') as file:
+        file.write(modified_content)
+
+    place_marker_contents = ""
+    point_index = 0
+    for height in heights:
+        for point_content in point_contents:
+            place_marker_contents += get_place_marker(point_content, point_index, height)
+            point_index += 1
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    with open(output_path, 'w', encoding='utf-8') as output_file:
+        for line in lines:
+            output_file.write(line)
+            if "<wpml:globalUseStraightLine>" not in line.strip():
+                continue
+            output_file.write(place_marker_contents + '\n')  # Append the content of file2
+
+
+
 def process_file(origin_kmz_file):
-    print("unzip the origin file")
+    print("===> unzip the origin file")
     os.system("rm -rf tmp")
     os.system(f"unzip {origin_kmz_file}.kmz -d tmp")
     os.system("mkdir -p wpmz")
 
-    new_kmz_file = "new_" + origin_kmz_file
-    print("update files")
+    new_kmz_file = "liuye_" + origin_kmz_file
+    print("===> update files")
     remove_wpml_action_group("tmp/wpmz/template.kml", "tmp/tmp.txt")
+    duplicate_points("tmp/tmp.txt", "tmp/tmp.txt")
     add_content_after_line("tmp/tmp.txt", "wpmz/template.kml")
-    remove_wpml_action_group("tmp/wpmz/waylines.wpml", "tmp/tmp.txt")
-    add_content_after_line("tmp/tmp.txt", "wpmz/waylines.wpml")
+    # remove_wpml_action_group("tmp/wpmz/waylines.wpml", "tmp/tmp.txt")
+    # add_content_after_line("tmp/tmp.txt", "wpmz/waylines.wpml")
     os.system(f"zip -r {new_kmz_file}.zip wpmz")
     os.system(f"mv {new_kmz_file}.zip {new_kmz_file}.kmz")
     os.system("rm -rf tmp")
