@@ -1,6 +1,6 @@
 # for more icons https://fontawesome.com/v4/icons/
 - icon: fas fa-map
-  content: "**SLAM** [Paper Read](Study/PaperRead/index), [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN)"
+  content: "**SLAM** [Paper Read](Study/PaperRead/index), [SLAM/SFM](https://vio.readthedocs.io/), [VINS](https://github.com/gggliuye/VINS_BASTIAN), [Tools](Tools/index)"
 - icon: fas fa-newspaper
   content: "[Math](Math/): [Convex Optimization](Math/ConvexOptimization), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)"
 - icon: fas fa-book

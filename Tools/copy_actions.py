@@ -3,219 +3,52 @@ import os
 import sys
 
 
-content_action_group = """
+def get_photo_action(pitch, yaw, action_id):
+    return f"""
+          <wpml:action>
+            <wpml:actionId>{action_id}</wpml:actionId>
+            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:gimbalPitchRotateAngle>{pitch}</wpml:gimbalPitchRotateAngle>
+              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
+              <wpml:gimbalYawRotateAngle>{yaw}</wpml:gimbalYawRotateAngle>
+              <wpml:focusX>0</wpml:focusX>
+              <wpml:focusY>0</wpml:focusY>
+              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
+              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
+              <wpml:focalLength>48</wpml:focalLength>
+              <wpml:aircraftHeading>{yaw}</wpml:aircraftHeading>
+              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
+              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
+              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>
+    """
+
+
+def get_photo_action_group(action_group_id, pitches = [-20, -55], yaws = [0, 60, 120, 180, -120, -60]):
+    content_internal = ""
+
+    action_id = 0
+    for pitch in pitches:
+        for yaw in yaws:
+            content_internal += get_photo_action(pitch, yaw, action_id)
+            action_id += 1
+    content_internal += get_photo_action(-90, 0, action_id)
+
+    return f"""
         <wpml:actionGroup>
-          <wpml:actionGroupId>0</wpml:actionGroupId>
-          <wpml:actionGroupStartIndex>0</wpml:actionGroupStartIndex>
-          <wpml:actionGroupEndIndex>0</wpml:actionGroupEndIndex>
-          <wpml:actionGroupMode>sequence</wpml:actionGroupMode>
-          <wpml:actionTrigger>
-            <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
-          </wpml:actionTrigger>
-          <wpml:action>
-            <wpml:actionId>0</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-20</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>0</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>0</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>1</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-20</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>90</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>90</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>2</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-20</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>180</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>180</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>3</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-20</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>-90</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>-90</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>4</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-55</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>0</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>0</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>5</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-55</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>90</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>90</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>6</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-55</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>180</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>180</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>7</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-55</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>-90</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>-90</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
-          <wpml:action>
-            <wpml:actionId>8</wpml:actionId>
-            <wpml:actionActuatorFunc>orientedShoot</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:gimbalPitchRotateAngle>-90</wpml:gimbalPitchRotateAngle>
-              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
-              <wpml:gimbalYawRotateAngle>0</wpml:gimbalYawRotateAngle>
-              <wpml:focusX>0</wpml:focusX>
-              <wpml:focusY>0</wpml:focusY>
-              <wpml:focusRegionWidth>0</wpml:focusRegionWidth>
-              <wpml:focusRegionHeight>0</wpml:focusRegionHeight>
-              <wpml:focalLength>48</wpml:focalLength>
-              <wpml:aircraftHeading>0</wpml:aircraftHeading>
-              <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
+        <wpml:actionGroupId>{action_group_id}</wpml:actionGroupId>
+        <wpml:actionGroupStartIndex>{action_group_id}</wpml:actionGroupStartIndex>
+        <wpml:actionGroupEndIndex>{action_group_id}</wpml:actionGroupEndIndex>
+        <wpml:actionGroupMode>sequence</wpml:actionGroupMode>
+        <wpml:actionTrigger>
+          <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
+        </wpml:actionTrigger>
+        {content_internal}
         </wpml:actionGroup>
-"""
-
-
-def replace_action_group_values(old_content, n):
     """
-    Replaces the value '0' in the following lines with the specified number 'n':
-        <wpml:actionGroupId>0</wpml:actionGroupId>
-        <wpml:actionGroupStartIndex>0</wpml:actionGroupStartIndex>
-        <wpml:actionGroupEndIndex>0</wpml:actionGroupEndIndex>
-    and writes the modified content to a new file.
-
-    :param file_path: Path to the input file.
-    :param n: The number to replace 0 with.
-    :param output_path: Path to the new output file.
-    """
-    try:
-        # Read the content of the file
-        # Replace the 0 values with the input number n in the specific tags
-        new_content = old_content.replace('<wpml:actionGroupId>0</wpml:actionGroupId>',
-                                      f'<wpml:actionGroupId>{n}</wpml:actionGroupId>') \
-                             .replace('<wpml:actionGroupStartIndex>0</wpml:actionGroupStartIndex>',
-                                      f'<wpml:actionGroupStartIndex>{n}</wpml:actionGroupStartIndex>') \
-                             .replace('<wpml:actionGroupEndIndex>0</wpml:actionGroupEndIndex>',
-                                      f'<wpml:actionGroupEndIndex>{n}</wpml:actionGroupEndIndex>')
-
-        # Write the modified content to a new file
-        return new_content
-    except FileNotFoundError:
-        print(f"Error: File '{file_path}' not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    return new_content
 
 
 def remove_wpml_action_group(file_path, output_path):
@@ -259,11 +92,6 @@ def add_content_after_line(file1_path, output_path):
         with open(file1_path, 'r', encoding='utf-8') as file1:
             lines = file1.readlines()
 
-        # Read the content of file2
-        # with open(file2_path, 'r', encoding='utf-8') as file2:
-        #     file2_content = file2.read()
-        file2_content = content_action_group
-
         # Open the output file for writing the modified content
         cnt = 0
         with open(output_path, 'w', encoding='utf-8') as output_file:
@@ -271,9 +99,8 @@ def add_content_after_line(file1_path, output_path):
                 output_file.write(line)
                 if "<wpml:useStraightLine>" not in line.strip():
                     continue
-                new_content = replace_action_group_values(file2_content, cnt)
-                # print(new_content)
-                output_file.write(new_content + '\n')  # Append the content of file2
+                action_group_content = get_photo_action_group(cnt)
+                output_file.write(action_group_content + '\n')  # Append the content of file2
                 cnt += 1
 
         print(f"Modified {cnt} content has been written to '{output_path}'.")
@@ -287,16 +114,17 @@ def add_content_after_line(file1_path, output_path):
 def process_file(origin_kmz_file):
     print("unzip the origin file")
     os.system("rm -rf tmp")
-    os.system(f"unzip {origin_kmz_file} -d tmp")
+    os.system(f"unzip {origin_kmz_file}.kmz -d tmp")
     os.system("mkdir -p wpmz")
 
+    new_kmz_file = "new_" + origin_kmz_file
     print("update files")
     remove_wpml_action_group("tmp/wpmz/template.kml", "tmp/tmp.txt")
     add_content_after_line("tmp/tmp.txt", "wpmz/template.kml")
     remove_wpml_action_group("tmp/wpmz/waylines.wpml", "tmp/tmp.txt")
     add_content_after_line("tmp/tmp.txt", "wpmz/waylines.wpml")
-    os.system("zip -r new_route.zip wpmz")
-    os.system("mv new_route.zip new_route.kmz")
+    os.system(f"zip -r {new_kmz_file}.zip wpmz")
+    os.system(f"mv {new_kmz_file}.zip {new_kmz_file}.kmz")
     os.system("rm -rf tmp")
     os.system("rm -rf wpmz")
 
