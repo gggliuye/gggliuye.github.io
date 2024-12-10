@@ -21,7 +21,7 @@ def get_photo_action(pitch, yaw, action_id):
               <wpml:accurateFrameValid>0</wpml:accurateFrameValid>
               <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
               <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-              <wpml:payloadLensIndex>wide</wpml:payloadLensIndex>
+              <wpml:payloadLensIndex>wide,visable</wpml:payloadLensIndex>
             </wpml:actionActuatorFuncParam>
           </wpml:action>
     """
@@ -60,6 +60,25 @@ def remove_wpml_action_group(file_path, output_path):
         # Use regular expressions to remove content between the specified tags
         modified_content = re.sub(r"<wpml:actionGroup>.*?</wpml:actionGroup>", "", content, flags=re.DOTALL)
 
+        # update payload
+        new_payload = """
+          <wpml:payloadParam>
+            <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+            <wpml:meteringMode>average</wpml:meteringMode>
+            <wpml:dewarpingEnable>1</wpml:dewarpingEnable>
+            <wpml:returnMode>singleReturnStrongest</wpml:returnMode>
+            <wpml:samplingRate>240000</wpml:samplingRate>
+            <wpml:scanningMode>nonRepetitive</wpml:scanningMode>
+            <wpml:modelColoringEnable>1</wpml:modelColoringEnable>
+            <wpml:imageFormat>wide,visable</wpml:imageFormat>
+          </wpml:payloadParam>
+        """
+        modified_content = re.sub(r"<wpml:payloadParam>.*?</wpml:payloadParam>", new_payload, modified_content, flags=re.DOTALL)
+
+        # update takeoff height
+        new_toffs_height = "<wpml:takeOffSecurityHeight>4</wpml:takeOffSecurityHeight>"
+        modified_content = re.sub(r"<wpml:takeOffSecurityHeight>.*?</wpml:takeOffSecurityHeight>", new_toffs_height, modified_content, flags=re.DOTALL)
+
         # Write the modified content to a new file
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(modified_content)
@@ -97,6 +116,7 @@ def add_content_after_line(file_path, output_path):
 
 
 
+# https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/dji-wpml/template-kml.html
 def get_place_marker(point_content, index, height):
     return f"""
       <Placemark>
