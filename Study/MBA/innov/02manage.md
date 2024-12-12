@@ -9,7 +9,7 @@ title: Strategic Innovation - Managing Innovation Initiatives
 1. [Managing Innovation](#l1) : **Enable effective implementation (execution) of your strategic intent. Ambidextrous Organizations**
 2. [Responding to Different Types of Innovations](#l2)
 3. [Teams and Innovation](#l3)
-4. [](#l4)
+4. [Planning & Evaluation & Innovation Across Organizations](#l4)
 
 <a name="l1"></a>
 # 1. Managing Innovation
@@ -237,8 +237,142 @@ Integration of different capabilities.
 
 ## 3.3 Innovation through Partnerships between Dedicated Teams and Mainline Functional Groups
 
-## 3.4 
+**Innovation = Idea + Execution**
+* **Mainstream Organization**, Performance Engine, built to be **Repeatable** specialization & efficiency; **Predictable** result based management.
+* **Complex Innovation** initiatives are : **Non-Routine** and **Unpredictable**.
+* <u>So for Innovation we must do things differently</u> :
+  1. **Custom Organizational Model** (Design-processes, culture, etc).
+  2. **Custom Plan** (Goals, measurement, accountability).
+
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+M["Model"] EX["Examples of Successes"] WL["What Limits it"]
+M1["Innovation = Idea + Motivation"] EX1["Continuous improvement \n metaphor (Nucor)"] WL1["Efficiency pressures mean only limited \n resources available for innovation here"]
+M2["Innovation = Idea + Process"] EX2["Repeated (e.g. product \n generations) innovation"] ML2["Need for (some) predictability \n means past must forecast future"]
+M3["Innovation = Idea + Leader"]  EX3["Frequent failures, lead to (ineffective) \n 'break all the rules' approach"]  ML3["Fails because mainstream organization \n built to fight dramatic innovation"]
+
+classDef front fill:#696,stroke:#333;
+class M,EX,WL front
+
+</pre></div>
+
+## 3.4 Building the Dedicated Team & Managing the Partnership
+
+<h>Project Team = Dedicated team +(partnership)+ shared staff</h>
+* The dedicated team is custom built for the initiative.
+* The shared staff retains its existing responsibility and supports the initiative.
+
+
+### 3.4.1 What is the team's scope?
+
+**How people embedding is more important than individual skills.**
+
+Tendency to overestimate mainstream organization's capabilities, though underscope the dedicated team. Since they focus too much on individuals & talents, while what is important is relationships between groups and functions.
+
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+R["Reason for separation"]
+EX["Explanation"]
+EXA["Example"]
+A[" Lack of needed work relationships"]
+B["Building new relationships takes much \n time & effort, pressed out by demands\n of mainstream organization"]
+C["New product architecture: BMW splits out \n regenerative braking initiative for hybrid car"]
+
+D["Power structure doesn’t fit \n needs of innovation initiative"]
+E["Power is deeply embedded in relationships \n and work, need to create a new context \n if power structure is to change"]
+F["Need to compete in new way: Electrolux splits out \n customer insight teams to develop high-end markets"]
+
+G["Operational tempo doesn’t fit \n innovation opportunity"]
+H["Tempo is built into planning and evaluation \n processes and difficult to work against"]
+I["Need extensive exploration: Timberland \n splits out trail shoe development"]
+
+classDef front fill:#696,stroke:#333;
+class R,EX,EXA front
+</pre></div>
+
+### 3.4.2 How to build the team
+#### For Task 1: Identify needed skills and hire the best people
+
+* Bias: Towards insiders due to pride, familiarity, comfort, expediency, compensation norms, valuable opportunity.
+* Trap: Danger of skill deficit and more importantly, recreating existing perspectives, power structures, and processes.
+
+#### For Task 2: Design the new organization
+
+* Bias: Towards drawing on components from the mainstream organization because it is expedient, familiar, required.
+* Traps:
+  * Recreating old roles and responsibilities.
+  * Reinforcing dominance of old power centers.
+  * Assessing performance using established measures.
+  * Failing to create a distinct culture.
+  * Using existing (inappropriate) processes.
+  * Tyranny of conformance to system and standards.
+* Solution: Design a dedicated team with a clean sheet of paper ("zero-based design"). Conscious redesign of each component. PLUS:
+  * Rebalance power by strategically hiring outsiders and choosing the most powerful insider to fit the needs of the new initiative.
+  * Gain executive support to break from systems and standards.
+
+### 3.4.3 How is the partnership managed?
+<p></p>
+
+1. Gain formal access to resources.
+2. Gain attention from individual people.
+3. Manage conflicts.
+4. Start with a positive leadership style that emphasizes the partnership.
+5. **Most important: Senior leadership**.
+
+**Challenges:**
+1. Competition for Scarce Resources
+2. Divided Attention of Shared Staff
+3. Disharmony in the Partnership
+
+**Solutions:**
+1. **Leader's Style:**
+   - Be Collaborative, Persuasive, and Positive
+
+2. **Ongoing Senior Executive Support:**
+   - Provide support beyond just the launch; mediate ongoing conflicts, celebrate successes, and emphasize the importance of the team.
+   - Ensure day-to-day involvement is critical, even for small units.
+
+3. **Set up Processes & Systems for partnering success:**
+   - Establish a single document and process for resource allocation to avoid fragmentation.
+   - Clearly define responsibilities to avoid confusion and overlap.
+   - Protect mainstream units from the uncertainties associated with innovation.
+   - Implement a system to pay for resources used or committed, possibly through transfers.
+   - Utilize incentives, special bonuses, or payments to motivate and reward team members.
+
+4. **Win Hearts & Minds through your style AND:**
+   - Reinforce common values and a shared sense of purpose.
+   - Position dedicated teams as distinct but not superior to other teams.
+   - Assign insiders to roles that require heavy collaboration.
+   - Arrange for teams to work in separate but nearby locations to facilitate interaction.
+   - Establish metrics to measure and encourage cooperation.
 
 
 <a name="l4"></a>
-# 4.
+# 4. Planning & Evaluation & Innovation Across Organizations
+
+1. How to plan and evaluate innovation initiatives in a way that supports their effective execution. The key principle in planning and evaluation is to find ways to **encourage experimentation and learning**.
+2. Innovation initiatives that cross firm boundaries. Cross-boundary efforts are very common, as seen in alliances, joint ventures, and what are generally known as virtual firms generally.
+
+## 4.1 Planning & Evaluation in the context of challenging innovation initiatives : The Importance of Experimentation and Learning
+
+Four Functions of Management
+* **Planning**: Choose appropriate organizational goals and courses of action to best achieve those goals.
+* **Organizing**: Establish task and authority relationships that allow people to work together to achieve organizational goals.
+* **Leading**: Motivate, coordinate, and energize individuals and groups to work together to achieve organizational goals.
+* **Controlling**: Establishing accurate measuring and monitoring systems to evaluate how well the organization has achieved its goals.
+
+**Challenges of Learning** : (1) people are not good at learning in complex situations; (2) learning is not normally valued as a central goal.
+
+**Custom Plan： Planning for Innovation Initiatives Over Time**
+- Need to iterate, experiment, learn, and adjust at a fast pace
+- Establish a fast review cycle
+- Separate planning forums for innovative initiatives, with different orientation & tempo
+- Discuss data and assumptions
+- Focus on trends & revise predictions
+- Revisions to cause-and-effect model through formal process
+- Use cause-and-effect model as the central anchor in the planning process
+
+
+## 4.2 Innovation Across Organizations
