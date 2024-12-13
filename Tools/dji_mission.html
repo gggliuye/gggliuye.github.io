@@ -79,7 +79,7 @@
             draw: {
                 rectangle: true,
                 polygon: true,
-                polyline: false,
+                polyline: true,
                 circle: false,
                 circlemarker: false,
                 marker: false
@@ -152,7 +152,7 @@
                 }
                 isLeftToRight = !isLeftToRight; // Switch direction for the next row
             }
-            return { points_convex_hull, trajectory };
+            return trajectory;
         }
 
         // Handle polygon creation
@@ -160,16 +160,23 @@
             if (trajectoryLayer) {
                 map.removeLayer(trajectoryLayer);
             }
+            const resolution = parseFloat(document.getElementById('resolution').value);
 
             const layer = e.layer;
+            const layerType = e.layerType;
             drawnItems.clearLayers();
             drawnItems.addLayer(layer);
 
-            const polygonCoords = layer.getLatLngs()[0];
-            const resolution = parseFloat(document.getElementById('resolution').value);
-
-            const { convex_hull, trajectory } = createTrajectory(polygonCoords, resolution);
-
+            let trajectory = [];
+            if (layerType == "polyline") {
+              for (let i = 0; i < layer.getLatLngs().length; i++) {
+                let point = layer.getLatLngs()[i];
+                trajectory.push([point.lat, point.lng]);
+              }
+            } else {
+              const polygonCoords = layer.getLatLngs()[0];
+              trajectory = createTrajectory(polygonCoords, resolution);
+            }
             // Draw trajectory
             trajectoryLayer = L.featureGroup();
             const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
