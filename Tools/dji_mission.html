@@ -307,6 +307,7 @@
 `;
         }
 
+        let photoCnt = 0;
         function getPhotoActionGroup(actionGroupId, pitches, yaws) {
             let contentInternal = "";
 
@@ -315,9 +316,11 @@
                 for (let j = 0; j < yaws.length; j++) {
                     contentInternal += getPhotoAction(pitches[i], yaws[j], actionId);
                     actionId += 1;
+                    photoCnt += 1;
                 }
             }
             contentInternal += getPhotoAction(-90, 0, actionId);
+            photoCnt += 1;
 
             return `
         <wpml:actionGroup>
@@ -364,6 +367,7 @@
         }
 
         function downloadFile() {
+            photoCnt = 0;
             const height = parseFloat(document.getElementById('height').value);
             var textToWrite = `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:wpml="http://www.dji.com/wpmz/1.0.6">
@@ -463,6 +467,9 @@
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
             });
+
+            let scan_type = document.getElementById('route_mode').value;
+            document.getElementById('output').innerHTML = `Download ${currentTrajectory.length} placemarkers ${photoCnt} photos using ${scan_type} mode`;
             // document.getElementById('output').innerHTML = 'Download file.';
         }
     </script>
