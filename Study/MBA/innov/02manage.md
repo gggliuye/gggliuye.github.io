@@ -407,5 +407,10 @@ quadrantChart
   quadrant-4 "Bring in-house"
 </pre></div>
 
+### 4.2.2 Case of Alliances and JVs
 
-### 4.2.2
+Alliances and JVs are often under-designed and there is insufficient attention to organization building.
+
+* Strategic Alignment Problem - Go FURTHER as part of the deal-making process.
+* Resource Sharing Problem - Make strong effort to identify shared resources & inter-dependencies, and reach shared understanding of how there will be handled. Minimize unneeded interdependencies as part of the process. Having control of resources.
+* Governance & Decision-making Problem - Think through & streamline decision-making beyond the contractual mechanisms.
