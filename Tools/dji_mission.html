@@ -26,13 +26,18 @@
 </head>
 <body>
     <h1>Polygon Selector with Trajectory</h1>
+
+    <input type="file" id="xmlFileInput" accept=".xml,.kml"><br>
+    <button onclick="extractCoordinates()">Read Coordinates</button>
+    <div id="output"></div>
+
     <div id="controls">
         <label for="resolution">Trajectory Resolution (meters):</label>
         <input type="number" id="resolution" value="20" min="1">
         <button onclick="clearMap()">Clear Map</button>
     </div>
     <div id="map"></div>
-    <div id="output">Coordinates and trajectory details will be displayed here...</div>
+    <div id="output_coord">Coordinates and trajectory details will be displayed here...</div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -174,7 +179,7 @@
                 output += `Point ${index + 1}: ${point[0].toFixed(6)}, ${point[1].toFixed(6)}<br>`;
             });
 
-            document.getElementById('output').innerHTML = output;
+            document.getElementById('output_coord').innerHTML = output;
         });
 
         // Clear the map
@@ -184,7 +189,82 @@
                 map.removeLayer(trajectoryLayer);
                 trajectoryLayer = null;
             }
+            markers.forEach(marker => {
+                map.removeLayer(marker);
+            });
+            markers = []; // Reset markers array
             document.getElementById('output').innerHTML = 'Map cleared.';
+        }
+
+        let markers = []; // Array to store markers
+        // Plot coordinates on the map and recenter to the first point
+        function plotCoordinates(coordinatesList) {
+            if (coordinatesList.length > 0) {
+                const firstCoord = coordinatesList[0];
+                const [firstLng, firstLat] = firstCoord.split(",").map(Number);
+
+                if (!isNaN(firstLat) && !isNaN(firstLng)) {
+                    map.setView([firstLat, firstLng], 18); // Recenter map to the first coordinate
+                }
+
+                coordinatesList.forEach(coord => {
+                    const [lng, lat] = coord.split(",").map(Number); // WGS format is [lng, lat]
+                    if (!isNaN(lat) && !isNaN(lng)) {
+                        const marker = L.marker([lat, lng]).addTo(map);
+                        markers.push(marker); // Store marker
+                    }
+                });
+            }
+        }
+
+        // JavaScript to read and parse XML, extracting all coordinates from a user-uploaded file
+        function extractCoordinates() {
+            const fileInput = document.getElementById("xmlFileInput");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                document.getElementById("output").innerText = "Please upload an XML file.";
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const xmlData = event.target.result;
+
+                try {
+                    // Parse the XML data
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+
+                    // Check for parse errors
+                    if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+                        document.getElementById("output").innerText = "Error: Invalid XML file.";
+                        return;
+                    }
+
+                    // Extract all <coordinates> elements' text content
+                    const coordinatesElements = xmlDoc.getElementsByTagName("coordinates");
+                    const coordinatesList = [];
+
+                    for (let i = 0; i < coordinatesElements.length; i++) {
+                        const content = coordinatesElements[i].textContent.trim();
+                        coordinatesList.push(content);
+                    }
+
+                    // Display the results
+                    if (coordinatesList.length > 0) {
+                        document.getElementById("output").innerText = `Coordinates: \n${coordinatesList.join("\n")}`;
+                        plotCoordinates(coordinatesList);
+                    } else {
+                        document.getElementById("output").innerText = "No <coordinates> elements found!";
+                    }
+                } catch (error) {
+                    document.getElementById("output").innerText = "Error: Unable to process the file.";
+                }
+            };
+
+            reader.readAsText(file);
         }
     </script>
 </body>
