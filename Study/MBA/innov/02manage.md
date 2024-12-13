@@ -365,6 +365,8 @@ Four Functions of Management
 
 **Challenges of Learning** : (1) people are not good at learning in complex situations; (2) learning is not normally valued as a central goal.
 
+### 4.1.1 Planning
+
 **Custom Plan： Planning for Innovation Initiatives Over Time**
 - Need to iterate, experiment, learn, and adjust at a fast pace
 - Establish a fast review cycle
@@ -374,5 +376,36 @@ Four Functions of Management
 - Revisions to cause-and-effect model through formal process
 - Use cause-and-effect model as the central anchor in the planning process
 
+### 4.1.2 Evaluation
 
-## 4.2 Innovation Across Organizations
+* Evaluation is Central to "control" function of management.
+  * Falling short: <u>poor execution (Bias in Evaluation)</u> or poor prediction.
+* Involves gathering & interpreting data.
+* Confirm or revise the cause and effect model.
+
+## 4.2 Innovation Across Firm Boundaries:
+
+### 4.2.1 Virtual Firms & Open Innovation
+<p></p>
+
+* *Alliances & Joint Ventures* : Firms agree to cooperate with other firms through sharing specific resources and setting up some type of separate organization. There may even be shared equity as in joint ventures.
+* *Contractual Agreements*: Other firms act as suppliers, but supplier and buyer firms work together closely to develop new products and services. Capitalize on their joint capabilities.
+
+**Virtual Firm** : innovating through building a virtual independent firm act as a coherent innovation system.
+* <u>Resources</u> : firms can pool their resources & capabilities to access opportunities that would be relatively inaccessible for a single firm.
+* <u>Ability to take risk</u> : independent firms characterized by taking more risk, moving faster, and working harder to succeed in a new market.
+* **Weakness** : ability to resolve conflicts and coordinate activities decreases.
+
+<div align="center"><pre class="mermaid">
+quadrantChart
+  title How to choose type of innovation
+  x-axis "Autonomous innovation" --> "Systemic innovation"
+  y-axis "Capabilities must by created" --> "Capabilities exist outside"
+  quadrant-1 "Ally with caution"
+  quadrant-2 "Go virtual"
+  quadrant-3 "Ally or bring in-house"
+  quadrant-4 "Bring in-house"
+</pre></div>
+
+
+### 4.2.2
