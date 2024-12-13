@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB Camera Recorder</title>
+</head>
+<body>
+    <h1>USB Camera Recorder</h1>
+    <button id="start-cameras">Start Cameras</button>
+    <button id="close-cameras" disabled>Close Cameras</button>
+    <button id="start-recording" disabled>Start Recording</button>
+    <button id="stop-recording" disabled>Stop Recording</button>
+
+    <div id="root"></div>
+    <div id="camera-info"></div>
+    <div id="video-container"></div>
+    <div id="recordings"></div>
+
+    <script>
+        // https://www.dynamsoft.com/codepool/getusermedia-multiple-camera.html
+        const startCamerasButton = document.getElementById('start-cameras');
+        const closeCamerasButton = document.getElementById('close-cameras');
+        const startRecordingButton = document.getElementById('start-recording');
+        const stopRecordingButton = document.getElementById('stop-recording');
+        const videoContainer = document.getElementById('video-container');
+        const recordingsContainer = document.getElementById('recordings');
+        const cameraInfoContainer = document.getElementById('camera-info');
+
+        let mediaStreams = [];
+        let mediaRecorders = [];
+        let recordedBlobs = [];
+
+        // Start cameras and list available video inputs
+        async function startCameras() {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const videoInputs = devices.filter(device => device.kind === 'videoinput');
+
+            if (videoInputs.length === 0) {
+                alert('No USB cameras detected.');
+                return;
+            }
+
+            videoContainer.innerHTML = '';
+            cameraInfoContainer.innerHTML = '<h2>Connected Cameras</h2>';
+            mediaStreams = [];
+
+            for (let i = 0; i < videoInputs.length; i++) {
+                const info = document.createElement('p');
+                info.textContent = `Camera ${i + 1}: ${videoInputs[i].label || 'Unnamed Camera'}`;
+                cameraInfoContainer.appendChild(info);
+
+                const videoElement = document.createElement('video');
+                videoElement.setAttribute('autoplay', true);
+                videoElement.setAttribute('muted', true);
+                videoElement.setAttribute('playsinline', true);
+                videoElement.style.width = '400px';
+                videoElement.style.margin = '5px';
+                videoContainer.appendChild(videoElement);
+
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { deviceId: videoInputs[i].deviceId },
+                });
+
+                videoElement.srcObject = stream;
+                mediaStreams.push(stream);
+            }
+
+            startRecordingButton.disabled = false;
+            closeCamerasButton.disabled = false;
+        }
+
+        // Close all cameras
+        function closeCameras() {
+            mediaStreams.forEach(stream => {
+                stream.getTracks().forEach(track => track.stop());
+            });
+
+            mediaStreams = [];
+            videoContainer.innerHTML = '';
+            cameraInfoContainer.innerHTML = '';
+            startRecordingButton.disabled = true;
+            closeCamerasButton.disabled = true;
+        }
+
+        // Start recording all streams
+        function startRecording() {
+            // Clear old videos
+            recordingsContainer.innerHTML = '';
+            recordedBlobs = [];
+            mediaRecorders = [];
+
+            mediaStreams.forEach((stream, index) => {
+                const options = { mimeType: 'video/webm;codecs=vp9' };
+                const mediaRecorder = new MediaRecorder(stream, options);
+                const blobs = [];
+
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data && event.data.size > 0) {
+                        blobs.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    const videoBlob = new Blob(blobs, { type: 'video/webm' });
+                    recordedBlobs.push(videoBlob);
+                    displayRecording(videoBlob, index);
+                };
+
+                mediaRecorder.start();
+                mediaRecorders.push(mediaRecorder);
+            });
+
+            startRecordingButton.disabled = true;
+            stopRecordingButton.disabled = false;
+        }
+
+        // Stop recording all streams
+        function stopRecording() {
+            mediaRecorders.forEach(recorder => recorder.stop());
+
+            startRecordingButton.disabled = false;
+            stopRecordingButton.disabled = true;
+        }
+
+        // Display the recorded video with a trimming interface
+        function displayRecording(blob, index) {
+            const videoElement = document.createElement('video');
+            videoElement.setAttribute('controls', true);
+            videoElement.style.width = '400px';
+            videoElement.style.margin = '5px';
+
+            const url = URL.createObjectURL(blob);
+            videoElement.src = url;
+
+            const label = document.createElement('p');
+            label.textContent = `Camera ${index + 1}`;
+
+            const trimInput = document.createElement('div');
+            trimInput.innerHTML = `
+                <label>Start (seconds): <input type="number" step="0.1" id="start-${index}" value="0"></label>
+                <label>End (seconds): <input type="number" step="0.1" id="end-${index}" value=""></label>
+                <button onclick="trimVideo(${index})">Trim</button>
+            `;
+
+            const container = document.createElement('div');
+            container.appendChild(label);
+            container.appendChild(videoElement);
+            container.appendChild(trimInput);
+            recordingsContainer.appendChild(container);
+        }
+
+        startCamerasButton.addEventListener('click', startCameras);
+        closeCamerasButton.addEventListener('click', closeCameras);
+        startRecordingButton.addEventListener('click', startRecording);
+        stopRecordingButton.addEventListener('click', stopRecording);
+    </script>
+</body>
+</html>

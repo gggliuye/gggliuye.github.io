@@ -128,6 +128,15 @@ More Work are done with Deep Learning.
   * render: (for each pixel) take k nearest points and merge by density. (<n>No alpha blending.</n>)
 * <img src="/assets/img/paperread/chrown0.png" height="25"> [Dynamic 3D Gaussians: Tracking by Persistent Dynamic View Synthesis](https://dynamic3dgaussians.github.io/), save point positions & rotations for each timestamp (while scale, and render parameters are shared) - rigid point motion.
   * **problems** : <n>need simultaneously multi-view collection, and save pcl for each timestamp is memory consuming.</n>
+* <img src="/assets/img/paperread/thumbs.png" height="25"> [三维高斯泼溅进展综述 CVMJ Spotlight 2024](https://cg.cs.tsinghua.edu.cn/jittor/news/2024-07-13-12-59-00-00-sanweigaosipojian/)
+
+<div align="center">    
+<img src="https://cg.cs.tsinghua.edu.cn/jittor/images/download/sanweigaosipojian-1.jpg" width="85%"/>
+</div>
+
+<div align="center">    
+<img src="https://cg.cs.tsinghua.edu.cn/jittor/images/download/sanweigaosipojian-2.jpg" width="85%"/>
+</div>
 
 **A generalization of the problem**:
 
