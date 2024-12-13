@@ -27,7 +27,7 @@ def get_photo_action(pitch, yaw, action_id):
     """
 
 
-def get_photo_action_group(action_group_id, pitches = [-20, -55], yaws = [0, 60, 120, 180, -120, -60]):
+def get_photo_action_group(action_group_id, pitches = [0, -30, -60], yaws = [0, 60, 120, 180, -120, -60]):
     content_internal = ""
 
     action_id = 0
@@ -135,7 +135,7 @@ def get_place_marker(point_content, index, height):
 
 
 # [4, 8, 20, 40, 60, 80]
-def duplicate_points(file_path, output_path, heights = [20, 40, 60, 80]):
+def duplicate_points(file_path, output_path, heights = [4, 8, 20, 40, 60, 80]):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
     point_contents = re.findall(r'<Point>.*?</Point>', content, re.DOTALL)
