@@ -8,6 +8,12 @@ title: Preparing to Manage Human Resources
 [Preparing to Manage Human Resources](https://www.coursera.org/learn/managing-human-resources/home/welcome)
 
 
+Managerial toolkit:
+* HR policies & job design.
+* Financial incentives.
+* Intrinsic motivation.
+* Normative measures.
+
 # 1. Different Approaches to Managing People
 
 History :
@@ -69,5 +75,45 @@ An economic approach <u>is most applicable</u> when work becomes a negative. **M
 
 # 3. Non-Monetary Aspects of Work
 
+[The Metaphor of the Octopus Worker](https://whitherwork.blogspot.com/2011/12/the-metaphor-of-octopus-worker.html): "When we work, we do more than earn a living, we also create, care for, and serve others. We hopefully derive some satisfaction, but also a deeper understanding of our own identities."
+
+
+## 3.1 More than money
+
+Self-determination theory. Foundation of intrinsic motivation : **competence, autonomy, relatedness**.
+
+| Job satisfaction | Commitment | Engagement |
+|-----|------------|------------|
+| Happy | Attached | Invested |
+
+How to facilitate positive work attitudes and fulfillment:
+
+| The job | Co-workers | Managers|
+|-----------|--------|----------|
+| Skill Variety <br> Task Identity <br> Task Significance <br> Autonomy | Supportive <br> Trusting <br> Belonging | Clear Appropriate Goals with Rational <br> Feedback <br> Career Opportunities |
+
+<p></p>
+## 3.2 Identity
+
+Self-Identification by <u>Naming ourselves</u>. define their identities through self-descriptors and by categorizing themselves into groups.
+* Social Identity theory - people categorize themselves into groups to enhance self-esteem. emphasis on the positive traits of their in-group compared to out-groups.
+* Self-categorization theory - individuals may depersonalize others, viewing them through the lens of group stereotypes rather than as unique individuals.
+
+<h>Creating a shared social identity within teams can enhance performance, as employees internalize group values and norms, fostering a sense of belonging and alignment with organizational goals.</h>
+
+Dark Side : Group Identity could be conflict with someone's inner self.
+
+[Does 5 to 9 solve 9 to 5?](https://whitherwork.blogspot.com/2021/02/does-5-to-9-solve-9-to-5.html)
+
+## 3.3 Other Motivations
+
+To fit **Norm**:
+(1) Work group norms;
+(2) Corporate culture;
+(3) National and ethnic culture.
+
+**Caring for Others**: The material discusses the historical and social constructs of gender roles in work, emphasizing the importance and value of **care-giving** as real work while highlighting the persistent gender inequalities in the workplace that need to be addressed for a more equitable environment.
+
+**Serving Others**
 
 # 4. Managing in a Complex System
