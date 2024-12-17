@@ -116,4 +116,100 @@ To fit **Norm**:
 
 **Serving Others**
 
+## 3.4 Fairness and Justice
+
+* Distributive Justice : Equity Theory. (My outcomes / My inputs) vs (Comparison outcomes / Comparison inputs).
+* Procedural Justice. fair processes.
+* Interpersonal Justice : fair conversational tone.
+* Informational Justice : fair explanations.
+
+## 3.5 The Power and Limitations of Theories of Human Behavior
+
+**Economics**
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+ECAS["<strong>Assumptions</strong>
+Self-Interested
+Rational
+Extrinsic rewards are key
+Work is lousy
+Markets are important
+"]
+ECIN["<strong>Insights</strong>
+Shirking concerns
+Overstimulation
+Opportunism
+Need monitoring incentives
+Teamwork issues
+Strategic use of private information
+Market alternatives
+"]
+ECDA["<strong>Dangers if wrong assumptions</strong>
+Crowd out intrinsic motivation
+Lack of fairness, trust, autonomy
+Overlook norms
+Incorrect team solution
+Info skepticism
+Overreliance on markets"]
+</pre></div>
+
+**Psychology**
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+ECAS["<strong>Assumptions</strong>
+Desire for psychological well-being
+Self-motivated
+Cognitive limits
+Individual diffs
+Work can provide fulfillment
+"]
+ECIN["<strong>Insights</strong>
+Intrinsic motivation
+Importance of positive self-esteem
+Autonomy, belonging, competence
+Multidimensional fairness
+"]
+ECDA["<strong>Dangers if wrong assumptions</strong>
+Shirking conerns
+Opportunism
+Inadequate monitoring and incentives
+Incorrect team solutions
+Naive use of info
+Overlook norms, markets
+"]
+</pre></div>
+
+**Sociology**
+<div align="center"><pre class="mermaid">
+block-beta
+columns 3
+ECAS["<strong>Assumptions</strong>
+Socially-aware
+Desire for status and acceptance
+Work is social
+Norms and social institutions
+Markets are hierarchical
+"]
+ECIN["<strong>Insights</strong>
+Status as a driver
+In-group/out-group
+Peer and other normative pressure
+Culture
+Reciprocity
+Get group dynamics right
+Social networks
+"]
+ECDA["<strong>Dangers if wrong assumptions</strong>
+Shirking concerns
+Opportunism
+Inadequate extrinsic & intrinsic motivation
+Overlook fairness
+Incorrect team solutions
+Overemphasis on culture
+"]
+</pre></div>
+
+
 # 4. Managing in a Complex System
