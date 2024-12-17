@@ -138,6 +138,8 @@ More Work are done with Deep Learning.
 <img src="https://cg.cs.tsinghua.edu.cn/jittor/images/download/sanweigaosipojian-2.jpg" width="85%"/>
 </div>
 
+* <img src="/assets/img/paperread/chrown0.png" height="25"> [2D Gaussian Splatting for Geometrically Accurate Radiance Fields](https://github.com/hbb1/2d-gaussian-splatting). use 2d surflet rather than points. achieve better results, but doesn't have mature environments (UNITY, UE, WEBGL, etc).
+
 **A generalization of the problem**:
 
 <a name="linstant_gtc"></a>
