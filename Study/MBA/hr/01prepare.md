@@ -213,3 +213,25 @@ Overemphasis on culture
 
 
 # 4. Managing in a Complex System
+
+## 4.1 Constraints
+
+* Internal:
+  * Organizational strategy.
+  * Organizational culture & norms.
+  * Budget.
+  * Labor Unions.
+* External:
+  * Laws & Regulations.
+  * Soft Laws - Politics.
+  * Social Norms.
+
+**Unionized workplace** : (1) Bilateral - a contract covering wages, hours and scheduling, leaves, layoffs, discipline and discharge, work rules, management rights, etc. (2) Proactive - "management acts and the union grieves", "companies get the union they deserve".
+
+## 4.2 Legal Constraints
+
+[The Employment-at-Will Baseline](https://en.wikipedia.org/wiki/At-will_employment) is an employer's ability to dismiss an employee for any reason (that is, without having to establish "just cause" for termination), and without warning, as long as the reason is not illegal (e.g. firing because of the employee's gender, sexual orientation, race, religion, or disability status).
+
+<h>But True Employment-at-Will Doesn't Exist:</h>
+* Common Laws: Public policy; Implied contract; Implied covenant of good faith.
+* Legislation: Nondiscrimination laws; Standards for terms and conditions of employment; Unjust dismissal protections.
