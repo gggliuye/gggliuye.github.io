@@ -5,7 +5,7 @@ title: Preparing to Manage Human Resources
 
 [Human Resources Home](../00index)
 
-[Preparing to Manage Human Resources](https://www.coursera.org/learn/managing-human-resources/home/welcome)
+[Preparing to Manage Human Resources](https://www.coursera.org/learn/managing-human-resources/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/9BVVX2CTUSPT).
 
 
 Managerial toolkit:
@@ -235,3 +235,7 @@ Overemphasis on culture
 <h>But True Employment-at-Will Doesn't Exist:</h>
 * Common Laws: Public policy; Implied contract; Implied covenant of good faith.
 * Legislation: Nondiscrimination laws; Standards for terms and conditions of employment; Unjust dismissal protections.
+
+Laws: **US Employment Law** (Individual Labour Law) : rights of workers as individuals. **US Labor Law** (Collective Labour Law) : rights of workers as group.
+
+Pay Attention to the Law, But Don't Be Paralyzed By It.
