@@ -8,7 +8,7 @@ title: Creativity Toolkit I - Changing Perspectives
 [Creativity Toolkit I: Changing Perspectives](https://www.coursera.org/learn/creativity-toolkit-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
 
 1. [Being Creative](#l1) - Changing Perspectives & Cueing Creativity.
-2. [Raw Materials and End Products](#l2)
+2. [Raw Materials and End Products](#l2) - Five Roles of concepts : **Parts, Actions, Goals, Event, Self-Concept**.
 3. [](#l3)
 4. [](#l4)
 
@@ -63,6 +63,13 @@ Example : [Nine dots puzzle](https://en.wikipedia.org/wiki/Nine_dots_puzzle).
 
 ## 2.2 End Products
 
+**Insights** : the initial sparks of creativity, often leading to a change in perspective that can redirect our thinking and problem-solving.
+
+**Inventions**. Insights are quick realizations that can lead to new perspectives, while inventions are <u>the tangible outcomes of those insights</u>, often taking years to develop.
+
+**Enlightenments** represent <u>new generated knowledge</u> that changes how we think about the world and can be applied in various contexts.
+
+Insights can lead to inventions, and both can contribute to enlightenments, enhancing our overall understanding and ability to innovate.
 
 <a name="l3"></a>
 # 3.
