@@ -81,21 +81,6 @@
             return meters / 111320; // Approximation for 1 degree = ~111.32 km
         }
 
-        function isPointInsidePolygen(point, hull) {
-            let count = 0;
-            const [px, py] = point;
-            for (let i = 0, j = hull.length - 1; i < hull.length; j = i++) {
-                const [x1, y1] = hull[j];
-                const [x2, y2] = hull[i];
-
-                if ((y1 <= py && y2 > py || y2 <= py && y1 > py) &&
-                    (x1 < (px - x2) * (y1 - y2) / (py - y2) + x2)) {
-                    count++;
-                }
-            }
-            return count % 2 !== 0; // If count is odd, the point is inside the hull
-        }
-
         // Generate trajectory with 90-degree turns (scanning the area)
         function createTrajectory(polygonCoords, resolutionMeters) {
             const resolutionDegrees = metersToDegrees(resolutionMeters);

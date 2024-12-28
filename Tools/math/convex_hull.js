@@ -18,7 +18,7 @@
  * along with this program (see COPYING.txt and COPYING.LESSER.txt).
  * If not, see <http://www.gnu.org/licenses/>.
  */
-"use strict";
+// "use strict";
 var convexhull;
 (function (convexhull) {
     // Returns a new array of points representing the convex hull of
@@ -85,3 +85,18 @@ var convexhull;
     }
     convexhull.POINT_COMPARATOR = POINT_COMPARATOR;
 })(convexhull || (convexhull = {}));
+
+function isPointInsidePolygen(point, hull) {
+    let count = 0;
+    const [px, py] = point;
+    for (let i = 0, j = hull.length - 1; i < hull.length; j = i++) {
+        const [x1, y1] = hull[j];
+        const [x2, y2] = hull[i];
+
+        if ((y1 <= py && y2 > py || y2 <= py && y1 > py) &&
+            (x1 < (px - x2) * (y1 - y2) / (py - y2) + x2)) {
+            count++;
+        }
+    }
+    return count % 2 !== 0; // If count is odd, the point is inside the hull
+}
