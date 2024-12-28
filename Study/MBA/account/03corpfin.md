@@ -50,3 +50,27 @@ Required returns:
 * The cost of debt.
 * The cost of equity and the CAPM.
 * The proportions of debt and equity.
+
+## 3.1 The cost of debt
+
+<u>The cost of debt</u> : **Bond** represents a promise to pay back a principal amount (face value) along with interest payments over a specified period until maturity.
+* When the perceived risk of a company increases, investors are willing to pay less for the bond, leading to a higher required return. (high risk - high return, low risk - low return)
+* The return on a bond can be calculated based on the cash flows received and the price paid for the bond.
+* Yield to maturity (YTM) is the mean annual return from holding a bond until maturity and is a more accurate <u>measure of the cost of debt</u>. (Since the interest rate will not change.)
+  * objective : <u>observable</u> for the investors (it can be directly obtained from market data or bank quotes)
+
+## 3.2 The cost of equity
+
+<u>The cost of equity</u> is subjective : <u>not observable, hence must be estimated</u> using models like the CAPM, with <u>large uncertainty</u>.
+
+**Capital Asset Pricing Model (CAPM)** : $R_{Ri} = R_{f} + MRP \cdot \beta_{i}$
+
+* $R_{E}$: required return of the cost of equity.
+* $R_{f}$: **risk-free rate** - the return expected from an investment with zero risk, often represented by the yield on long-term government bonds.
+  * But the mature day people used varies a lot. [more details](/Study/Finance/theory/01words)
+* MRP: **Market(or Equity) Risk Premium**. the historical difference between equity returns and debt returns.
+  * Market Risk Premium (MRP) = Expected Market Return − Risk-Free Rate.
+  * The additional return that investors demand for investing in the stock market (equities) instead of risk-free securities, such as government bonds.
+  * 5% to 6% for US.
+* $\beta$ : measure of relative risk - company's sensitivity to market fluctuations.
+  * The only thing, different among companies.

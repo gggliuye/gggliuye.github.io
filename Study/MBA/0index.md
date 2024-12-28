@@ -12,7 +12,7 @@ L0：
   * ✅ 👍 [Operational Finance : Finance for Managers](../account/02financemanager)
   * [Corporate Finance Essentials](../account/03corpfin)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
-  * 《经济学原理》 (Principles of Economics)
+  * DOC: [Finance Theory](/Study/Finance/theory/00index)
   * ✅ 👑 [Yale: Financial Markets](../1finace)
 
 L1：
