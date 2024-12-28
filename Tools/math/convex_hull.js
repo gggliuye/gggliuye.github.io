@@ -18,7 +18,7 @@
  * along with this program (see COPYING.txt and COPYING.LESSER.txt).
  * If not, see <http://www.gnu.org/licenses/>.
  */
-// "use strict";
+"use strict";
 var convexhull;
 (function (convexhull) {
     // Returns a new array of points representing the convex hull of
