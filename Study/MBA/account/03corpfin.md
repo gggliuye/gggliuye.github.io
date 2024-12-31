@@ -7,7 +7,13 @@ title: Corporate Finance Essentials
 
 [Corporate Finance Essentials](https://www.coursera.org/learn/corporate-finance-essentials/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
 
+1. [Returns, Volatility, and Beta](#l1)
+2. [Correlation and Diversification](#l2)
+3. [CAPM and the Cost of Capital](#l3)
+4. [Project Evaluation](#l4): NPV & IRR.
+5. [Corporate Value Creation](#l5)
 
+<a name="l1"></a>
 # 1. Returns, Volatility, and Beta
 
 Periodic return source : (1) capital gain or loss; (2) cash flow.
@@ -19,6 +25,7 @@ Periodic return source : (1) capital gain or loss; (2) cash flow.
 
 **Beta** measure of relative risk (referencing the market), reaction of an asset to fluctuations in the market. $StockRisk = \beta^{2} SystematicRisk + IdiosyncraticRisk $
 
+<a name="l2"></a>
 # 2. Correlation and Diversification
 
 Portfolio risk - we want to reduce fluctuation, with <u>diversified correlation.</u>
@@ -31,10 +38,11 @@ Portfolio risk - we want to reduce fluctuation, with <u>diversified correlation.
   3. Investers want to maximize <u>risk-adjusted returns</u>. (a "best" combination, thought diverification)
 * The lower the correlation between assets, the higher the benfits of diverification.
 
+<a name="l3"></a>
 # 3. CAPM and the Cost of Capital
 <p></p>
 * Cost of captial is related to **RISK** (not cash flows).
-* The weighted-average cost of capital (WACC).
+* **The weighted-average cost of capital (WACC)**.
   1. From the point of view of investors, the average required return on the capital provided.
   2. From the point of view of the company, the average cost of raising capital.
   3. A hurdle rate : the minimum required return on the company's investments.
@@ -45,19 +53,17 @@ Portfolio risk - we want to reduce fluctuation, with <u>diversified correlation.
 
 <u>The debt tax shield</u> $ (1-t_{c})R_{D}$. We debt we will pay fewer tax, since we pay the interest, which has a effect of discount on the required return of debt.
 
-Required returns:
-* The corporate tax rate.
-* The cost of debt.
-* The cost of equity and the CAPM.
-* The proportions of debt and equity.
+Required returns: (1) The corporate tax rate; (2) The cost of debt; (3) The cost of equity and the CAPM; (4) The proportions of debt and equity.
+
+The objective of **CFO** : <u>get the lowest possible Cost of captial.</u>
 
 ## 3.1 The cost of debt
 
 <u>The cost of debt</u> : **Bond** represents a promise to pay back a principal amount (face value) along with interest payments over a specified period until maturity.
 * When the perceived risk of a company increases, investors are willing to pay less for the bond, leading to a higher required return. (high risk - high return, low risk - low return)
 * The return on a bond can be calculated based on the cash flows received and the price paid for the bond.
-* Yield to maturity (YTM) is the mean annual return from holding a bond until maturity and is a more accurate <u>measure of the cost of debt</u>. (Since the interest rate will not change.)
-  * objective : <u>observable</u> for the investors (it can be directly obtained from market data or bank quotes)
+* <u>Yield to maturity (YTM)</u> is the mean annual return from holding a bond until maturity and is a more accurate <u>measure of the cost of debt</u>. (Since the interest rate will not change.)
+  * **objective** : <u>observable</u> for the investors (it can be directly obtained from market data or bank quotes)
 
 ## 3.2 The cost of equity
 
@@ -74,3 +80,40 @@ Required returns:
   * 5% to 6% for US.
 * $\beta$ : measure of relative risk - company's sensitivity to market fluctuations.
   * The only thing, different among companies.
+
+<a name="l4"></a>
+# 4. Project Evaluation
+
+Using NPV & IRR.
+To decide which project to invest.
+
+## 4.1 Net Present Value (NPV)
+
+$$
+NPV = CF_{0} + \frac{CF_{1}}{(1+DR)} + \frac{CF_{2}}{(1+DR)^{2}} + ... + \frac{CF_{T}}{(1+DR)^{T}}
+$$
+
+* $CF_{0}$ : the first cash flow.
+* The subsequent expected cash flow : $CF_{1}$, ..., $CF_{T}$.
+* DR : discount rate. The later the money received, the higher the discount.
+
+## 4.2 The Internal Rate of Return (IRR)
+
+$$
+CF_{0} + \frac{CF_{1}}{(1+IRR)} + \frac{CF_{2}}{(1+IRR)^{2}} + ... + \frac{CF_{T}}{(1+IRR)^{T}} = 0
+$$
+
+* The IRR is the discount rate that makes the NPV of a project equal to zero, requiring the input of initial investment and expected cash flows. **Useful but has limitations**.
+* The equation might have <u>multiple solutions</u> or <u>no solution</u>. In which case, higher IRR does not always mean a better project.
+  * In such cases, relying on NPV is essential.
+* <u>Scale problem</u>, IRR is a relative rate, scale is not considered.
+  * example : [CF0 = -100, CF1 = 150] v.s. [CF0 = -200, CF1 = 280]
+  * Bias to invest in small project, since smaller projects are easier to get higher return.
+
+## 4.3 More discount rates
+
+* Discount rates across countries or divisions.
+* Discount rates over time. NPV become more complicated, and IRR will be useless.
+
+<a name="l5"></a>
+# 5. Corporate Value Creation
