@@ -10,9 +10,10 @@ L0：
   * ✅ 👍 [ISES: Accounting: Principles of Financial Accounting](../account/01accunting)
 * 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
   * ✅ 👍 [Operational Finance : Finance for Managers](../account/02financemanager)
-  * [Corporate Finance Essentials](../account/03corpfin)
+  * ✅ 👍 [Corporate Finance Essentials](../account/03corpfin)
+  * 👍 [Corporate Finance Essentials II](../account/04corpfin2)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
-  * DOC: [Finance Theory](/Study/Finance/theory/00index)
+  * ✎ᝰ.📖 [Finance Theory](/Study/Finance/theory/00index)
   * ✅ 👑 [Yale: Financial Markets](../1finace)
 
 L1：

@@ -5,13 +5,13 @@ title: Corporate Finance Essentials
 
 [MBA Home](../../0index)
 
-[Corporate Finance Essentials](https://www.coursera.org/learn/corporate-finance-essentials/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Corporate Finance Essentials](https://www.coursera.org/learn/corporate-finance-essentials/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/XJI2ZNTQFAQF).
 
 1. [Returns, Volatility, and Beta](#l1)
 2. [Correlation and Diversification](#l2)
 3. [CAPM and the Cost of Capital](#l3)
 4. [Project Evaluation](#l4): NPV & IRR.
-5. [Corporate Value Creation](#l5)
+5. [Corporate Value Creation](#l5): EVA.
 
 <a name="l1"></a>
 # 1. Returns, Volatility, and Beta
@@ -117,3 +117,32 @@ $$
 
 <a name="l5"></a>
 # 5. Corporate Value Creation
+
+## 5.1 Three Underlying Issues:
+
+1. Shareholder (owner) value v. Stakeholder (who a role to play) value.
+  * It there really a conflict? Can you benefit both?
+  * Reasons to focus on shareholder : (1) It is a boarder criterion; (2) It is "objectively" quantifiable; (3) shareholders are the owner of the company.
+2. Common managerial mistakes :
+  * Focusing on short-term market reactions. (particularly on reactions to earning announcements)
+  * Aiming for Growth for the Sake of Growth. (disregarding the return of that growth)
+3. What to do with the capital entrusted is clear, the way to get there is far less clear.
+  * How to find "good" project.
+  * Value-based management.
+
+## 5.2 Economic value added (EVA)
+
+EVA a measure of profitability that differs from traditional accounting profits. **Idea** : (1) To 'charge' managers for the use of capital; (2) To claim profits only if cash is left after this charge.
+
+* **EVA = NOPAT - (Capital × WACC)**
+* **Return on Capital = NOPAT / Capital**
+  * NOPAT: Net Operating Profit After Taxes.
+  * Captial : Debt + Equity + ...
+  * WACC : Cost of Capital
+  * NOPAT & Captial subject to <u>proprietary adjustments</u>.
+
+
+| | Pros | Cons |
+|--------------|------|------|
+| **Level of EVA** | Easy to measure; reflects profitability. More sustainable (if the moat persists). | Can lead to an <u>unequal endowment problem</u>, where executives may be rewarded for doing little if the division is already profitable. |
+| **Change in EVA** | Encourages improvement; rewards executives for turning around underperforming divisions. | Not sustainable in <u>the medium or long term</u>. In competitive markets, it may be challenging to consistently increase EVA, potentially leading to <u>lower compensation for executives</u>. |
