@@ -28,7 +28,7 @@ L1：
   * ✅ 👑 [Google Project Management - 6 course series](../pm/00index)
 
 L2：
-* 战略管理：掌握战略制定、行业分析、竞争优势等高级管理概念。
+* 战略管理：[Business Strategy Specialization](https://www.coursera.org/specializations/business-strategy)
   * ✅ 👍 [UVA: Foundations of Business Strategy](../strategy/2strategy)
   * ✅ 👍 [UVA: Advanced Business Strategy](../strategy/3strategy_adv)
   * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
@@ -48,16 +48,9 @@ L2：
 L3：
 * 全球化与跨文化管理：理解全球化背景下的管理挑战，学习跨文化沟通与管理技巧。
   * 《跨文化管理》 (Cross-Cultural Management)
-* 企业创新与创业：学习如何在企业内部推动创新，掌握创业管理的核心技能。
-  * 《创新与创业》 (Innovation and Entrepreneurship) Entrepreneurship Strategy
-* 👑 [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies and our online programs](https://giesonline.illinois.edu/)
-  * ✅ [Strategic Innovation - Building and Sustaining Innovative Organizations](../innov/01strinov)
-  * ✅ [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
+* 企业创新与创业: [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies and our online programs](https://giesonline.illinois.edu/)
+  * ✅ 👑 [Strategic Innovation - Building and Sustaining Innovative Organizations](../innov/01strinov)
+  * ✅ 👑 [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
   * [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
-
-实战：
-* 分析实际商业案例，将所学知识应用于现实问题。
-* 撰写一份完整的商业计划书，涵盖市场分析、财务预测和运营规划。
-* 使用在线模拟工具练习管理决策和战略规划。
