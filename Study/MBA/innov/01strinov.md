@@ -3,8 +3,7 @@ layout: page_coursera
 title: Strategic Innovation - Building and Sustaining Innovative Organizations
 ---
 
-[Innovation Home](../00index)
-
+[MBA Home](../../0index)
 
 [Strategic Innovation: Building and Sustaining Innovative Organizations](https://www.coursera.org/learn/strategic-innovation-building-and-sustaining-innovative-organizations/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/TXC91BBJMTM3).
 1. [Innovation Life Cycles](#l1)

@@ -50,7 +50,10 @@ L3：
   * 《跨文化管理》 (Cross-Cultural Management)
 * 企业创新与创业：学习如何在企业内部推动创新，掌握创业管理的核心技能。
   * 《创新与创业》 (Innovation and Entrepreneurship) Entrepreneurship Strategy
-  * 👑 [Innovation: From Creativity to Entrepreneurship Specialization - 7 course series](../innov/00index)
+* 👑 [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies and our online programs](https://giesonline.illinois.edu/)
+  * ✅ [Strategic Innovation - Building and Sustaining Innovative Organizations](../innov/01strinov)
+  * ✅ [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
+  * [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
 

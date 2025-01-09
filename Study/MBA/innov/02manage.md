@@ -3,7 +3,7 @@ layout: page_coursera
 title: Strategic Innovation - Managing Innovation Initiatives
 ---
 
-[Innovation Home](../00index)
+[MBA Home](../../0index)
 
 [Strategic Innovation: Managing Innovation Initiatives](https://www.coursera.org/learn/strategic-innovation-innovation-at-the-frontier/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/EBHNRKKGGIG0).
 1. [Managing Innovation](#l1) : **Enable effective implementation (execution) of your strategic intent. Ambidextrous Organizations**

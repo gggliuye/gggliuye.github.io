@@ -3,7 +3,7 @@ layout: page_coursera
 title: Creativity Toolkit I - Changing Perspectives
 ---
 
-[Innovation Home](../00index)
+[MBA Home](../../0index)
 
 [Creativity Toolkit I: Changing Perspectives](https://www.coursera.org/learn/creativity-toolkit-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
 
