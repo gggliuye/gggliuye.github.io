@@ -10,3 +10,4 @@ Pages:
 * [Rent-Price Ratio](../02rpratio)
 * [Real Estate Bubbles](../03bubble)
 * [Real Estate China](../04china)
+* [房产税](../05housetax)

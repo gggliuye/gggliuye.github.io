@@ -45,3 +45,10 @@ To [Hedge](https://www.investopedia.com/terms/h/hedge.asp) (对冲) is to <u>tak
 [Speculation](https://www.investopedia.com/terms/s/speculation.asp) (投机), or speculative trading, refers to the act of conducting a financial transaction that has substantial risk of losing value but also holds the expectation of a significant gain or other major value. With speculation, the risk of loss is more than offset by the possibility of a substantial gain or other recompense.
 
 [Arbitrage](https://www.investopedia.com/terms/a/arbitrage.asp) (套利) is the simultaneous purchase and sale of the same or similar asset in different markets in order to profit from <u>market inefficiencies.</u>
+
+**Risk-Free Rate**: The risk-free rate is the theoretical return on an investment with zero risk of financial loss.
+**Long-term government bond yields**, such as 10-year Treasury bonds, reflect the interest investors demand for lending money to the government over a longer period.
+**Inflation rate** measures the rate at which prices for goods and services increase over time, eroding the purchasing power of money.
+* Risk-free rate: Anchored by short-term central bank policies.
+* Long-term yields: Reflect inflation expectations, real returns, and risk premia.
+* Inflation rate: Influences both, as it determines the erosion of purchasing power. Their relative closeness depends on the macroeconomic and policy environment.
