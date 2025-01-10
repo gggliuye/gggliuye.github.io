@@ -8,10 +8,10 @@ title: Business
 L0：
 * 会计学：理解财务报表、会计准则、成本核算等基本概念。
   * ✅ 👍 [ISES: Accounting: Principles of Financial Accounting](../account/01accunting)
-* 财务管理：掌握财务报表分析、资本预算、风险管理和估值技巧。
+* 财务管理：[Think like a CFO Specialization](https://www.coursera.org/specializations/thinklikeacfo), 🏅 [Certification link](https://www.coursera.org/account/accomplishments/specialization/71BS4TXQDDGG)
   * ✅ 👍 [Operational Finance : Finance for Managers](../account/02financemanager)
   * ✅ 👍 [Corporate Finance Essentials](../account/03corpfin)
-  * 👍 [Corporate Finance Essentials II](../account/04corpfin2)
+  * ✅ 💡 [Corporate Finance Essentials II](../account/04corpfin2)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
   * ✎ᝰ.📖 [Finance Theory](/Study/Finance/theory/00index)
   * ✅ 👑 [Yale: Financial Markets](../1finace)
@@ -24,11 +24,10 @@ L1：
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
   * 《组织行为学》 (Organizational Behavior)
-* 项目管理。
-  * ✅ 👑 [Google Project Management - 6 course series](../pm/00index)
+* 项目管理： 👑 [Google Project Management](../pm/00index) 🏅 [Certification link](https://www.coursera.org/account/accomplishments/professional-cert/AGIF9YWN4DHS)
 
 L2：
-* 战略管理：[Business Strategy Specialization](https://www.coursera.org/specializations/business-strategy)
+* 战略管理：[Business Strategy Specialization](https://www.coursera.org/specializations/business-strategy) 🏅 [Certification link](https://www.coursera.org/account/accomplishments/specialization/N243DB4FFG4B)
   * ✅ 👍 [UVA: Foundations of Business Strategy](../strategy/2strategy)
   * ✅ 👍 [UVA: Advanced Business Strategy](../strategy/3strategy_adv)
   * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
