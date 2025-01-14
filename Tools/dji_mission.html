@@ -41,6 +41,7 @@
         <select id="route_mode">
           <option value="oblique">倾斜(oblique)</option>
           <option value="pano">全景(pano)</option>
+          <option value="flat">水平(flat)</option>
         </select>
         <button onclick="clearMap()">Clear Map</button>
         <button onclick="downloadFile()">Download File</button>
@@ -352,6 +353,9 @@
             } else if (scan_type == "pano") {
               // 全景模式
               action_group_text = getPhotoActionGroup(id, [0, -25, -55], [0, 60, 120, 180, -120, -60]);
+            } else if (scan_type == "flat") {
+              // 水平模式
+              action_group_text = getPhotoActionGroup(id, [-15], [0, 60, 120, 180, -120, -60]);
             }
             return `
       <Placemark>
