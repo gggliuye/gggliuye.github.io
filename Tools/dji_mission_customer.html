@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polygon Selector with Trajectory</title>
+    <title>DJI WayPoints Creator (Customer Series)</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <!-- Leaflet Draw CSS -->
@@ -25,23 +25,28 @@
     </style>
 </head>
 <body>
-    <h1>Polygon Selector with Trajectory</h1>
+    <h1>DJI WayPoints Creator (Customer Series)</h1>
+    <div>
+      <li>Create an waypoint instance in DJI Fly app. (<a href="https://www.youtube.com/watch?v=Ml7EZ4umqTQ&t=5s">totural video</a>)</li>
+      <li>Replace the kmz in "Android/data/dji.go.v5/files/waypoint".</li>
+    </div>
     <div id="controls">
         <!-- <button onclick="extractCoordinates()">Read Coordinates</button> -->
         <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()"><br>
     </div>
     <div id="output"></div>
 
-
     <div id="controls">
-        <label for="resolution">Trajectory Resolution (meters):</label>
-        <input type="number" id="resolution" value="20" min="1">
-        <label for="height">Height (meters):</label>
-        <input type="number" id="height" value="15" min="1">
+        <label for="resolution">Resolution (m):</label>
+        <input type="number" id="resolution" value="20" min="1" style="width: 50px;">
+        <label for="height">Height (m):</label>
+        <input type="number" id="height" value="15" min="1" style="width: 50px;">
+        <label for="height">Speed (km/h):</label>
+        <input type="number" id="speed" value="12.96" min="1" style="width: 50px;">
         <select id="route_mode">
+          <option value="flat">水平(flat)</option>
           <option value="oblique">倾斜(oblique)</option>
           <option value="pano">全景(pano)</option>
-          <option value="flat">水平(flat)</option>
         </select>
         <button onclick="clearMap()">Clear Map</button>
         <button onclick="downloadFile()">Download File</button>
@@ -55,6 +60,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="math/convex_hull.js"></script>
+    <script src="math/draw_utils.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script>
@@ -95,67 +101,6 @@
         let drawlayerElements = []; // Array to store markers
         let currentTrajectory = [];
 
-        // Convert resolution in meters to degrees
-        function metersToDegrees(meters) {
-            return meters / 111320; // Approximation for 1 degree = ~111.32 km
-        }
-
-        function isPointInsidePolygen(point, hull) {
-            let count = 0;
-            const [px, py] = point;
-            for (let i = 0, j = hull.length - 1; i < hull.length; j = i++) {
-                const [x1, y1] = hull[j];
-                const [x2, y2] = hull[i];
-
-                if ((y1 <= py && y2 > py || y2 <= py && y1 > py) &&
-                    (x1 < (px - x2) * (y1 - y2) / (py - y2) + x2)) {
-                    count++;
-                }
-            }
-            return count % 2 !== 0; // If count is odd, the point is inside the hull
-        }
-
-        // Generate trajectory with 90-degree turns (scanning the area)
-        function createTrajectory(polygonCoords, resolutionMeters) {
-            const resolutionDegrees = metersToDegrees(resolutionMeters);
-
-            points_original = [];
-            for (let i = 0; i < polygonCoords.length; i++) {
-              points_original.push([polygonCoords[i].lat, polygonCoords[i].lng])
-            }
-            const points_convex_hull = convexhull.makeHull(points_original);
-
-            const bounds = L.polygon(polygonCoords).getBounds();
-            const latStart = bounds.getNorthWest().lat;
-            const latEnd = bounds.getSouthEast().lat - resolutionDegrees;
-            const lngStart = bounds.getNorthWest().lng;
-            const lngEnd = bounds.getSouthEast().lng + resolutionDegrees;
-
-            const trajectory = [];
-            let isLeftToRight = true; // Track the direction for horizontal movement
-
-            // Create trajectory by scanning the area row by row
-            for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
-                if (isLeftToRight) {
-                  for (let currentLng = lngStart; currentLng < lngEnd; currentLng += resolutionDegrees) {
-                    let point = [currentLat, currentLng];
-                    if (isPointInsidePolygen(point, points_convex_hull)) {
-                      trajectory.push(point);
-                    }
-                  }
-                } else {
-                  for (let currentLng = lngEnd; currentLng > lngStart; currentLng -= resolutionDegrees) {
-                    let point = [currentLat, currentLng];
-                    if (isPointInsidePolygen(point, points_convex_hull)) {
-                      trajectory.push(point);
-                    }
-                  }
-                }
-                isLeftToRight = !isLeftToRight; // Switch direction for the next row
-            }
-            return trajectory;
-        }
-
         // Handle polygon creation
         map.on(L.Draw.Event.CREATED, function (e) {
             if (trajectoryLayer) {
@@ -170,13 +115,10 @@
 
             let trajectory = [];
             if (layerType == "polyline") {
-              for (let i = 0; i < layer.getLatLngs().length; i++) {
-                let point = layer.getLatLngs()[i];
-                trajectory.push([point.lat, point.lng]);
-              }
+              trajectory = createTrajectoryFromPolyline(layer.getLatLngs(), resolution);
             } else {
               const polygonCoords = layer.getLatLngs()[0];
-              trajectory = createTrajectory(polygonCoords, resolution);
+              trajectory = createTrajectoryFromPolygon(polygonCoords, resolution);
             }
             // Draw trajectory
             trajectoryLayer = L.featureGroup();
@@ -390,9 +332,6 @@ ${gimbalAction}
             pitchaction = "";
           }
           let headingmode = "smoothTransition";
-          // if (is_starting) {
-          //   headingmode = "followWayline";
-          // }
           return `
       <Placemark>
         <Point>
@@ -433,7 +372,10 @@ ${pitchaction}
           photoCnt = 0;
 
           const height = parseFloat(document.getElementById('height').value);
-          let speed = 3.6;   // 12.96km/h
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+
+          // use mode to assign pitches and headings
+
           let pitches = [-15];
           let headings = [0, 90];
 
@@ -473,7 +415,7 @@ ${getMissionConfig()}
       <wpml:waylineId>0</wpml:waylineId>
       <wpml:distance>0</wpml:distance>
       <wpml:duration>0</wpml:duration>
-      <wpml:autoFlightSpeed>2.5</wpml:autoFlightSpeed>
+      <wpml:autoFlightSpeed>${speed}</wpml:autoFlightSpeed>
 ${placemarkerContents}
     </Folder>
   </Document>
@@ -482,13 +424,14 @@ ${placemarkerContents}
 
 
         function getMissionConfig() {
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
           return `
     <wpml:missionConfig>
       <wpml:flyToWaylineMode>safely</wpml:flyToWaylineMode>
       <wpml:finishAction>goHome</wpml:finishAction>
       <wpml:exitOnRCLost>executeLostAction</wpml:exitOnRCLost>
       <wpml:executeRCLostAction>goBack</wpml:executeRCLostAction>
-      <wpml:globalTransitionalSpeed>2.5</wpml:globalTransitionalSpeed>
+      <wpml:globalTransitionalSpeed>${speed}</wpml:globalTransitionalSpeed>
       <wpml:droneInfo>
         <wpml:droneEnumValue>68</wpml:droneEnumValue>
         <wpml:droneSubEnumValue>0</wpml:droneSubEnumValue>
@@ -534,9 +477,13 @@ ${placemarkerContents}
               downloadLink.click();
           });
 
+          let height = parseFloat(document.getElementById('height').value);
+          let speed_km = parseFloat(document.getElementById('speed').value);
+          let speed_sec = speed_km * 1000 / 60 / 60;
           let scan_type = document.getElementById('route_mode').value;
-          document.getElementById('output').innerHTML = `Download ${currentTrajectory.length} placemarkers ${photoCnt} photos using ${scan_type} mode`;
-          // document.getElementById('output').innerHTML = 'Download file.';
+          document.getElementById('output').innerHTML += `
+    <p>&nbsp;&nbsp;==> Download ${currentTrajectory.length} placemarkers, ${photoCnt} photos using ${scan_type} mode.
+    Speed: ${speed_km} km/h = ${speed_sec} m/s, Height: ${height} m.</p>`;
         }
     </script>
 </body>
