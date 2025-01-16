@@ -519,16 +519,11 @@ ${getActionGroupZoom(marker_id, 3, is_starting, is_ending)}
           let pitches = [];
           let headings = [0, 60, 120];
           if (scan_type == "oblique") {
-            pitches = [-25, -55];
+            pitches = [-55];
           } else if (scan_type == "pano") {
             pitches = [0, -25, -55];
           } else if (scan_type == "flat") {
             pitches = [-15];
-          }
-
-          const focus = parseFloat(document.getElementById('focus').value);
-          if (focus > 1.5) {
-            headings = [0, 90];
           }
 
           let markerId = -1;

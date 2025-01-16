@@ -43,7 +43,23 @@ function createTrajectoryFromPolygon(polygonCoords, resolutionMeters) {
         }
         isLeftToRight = !isLeftToRight; // Switch direction for the next row
     }
-    return trajectory;
+
+    if (trajectory.length < 2) return trajectory;
+
+    // densify the trajectory
+    let dense_trajectory = [];
+    dense_trajectory.push(trajectory[0]);
+    for (let i = 1; i < trajectory.length; i++) {
+      // push a new point
+      let pt0 = trajectory[i - 1];
+      let pt1 = trajectory[i];
+
+      let pt_new = [0.5 * (pt0[0] + pt1[0]), 0.5 * (pt0[1] + pt1[1])];
+      dense_trajectory.push(pt_new);
+      dense_trajectory.push(pt1);
+    }
+
+    return dense_trajectory;
 }
 
 function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
