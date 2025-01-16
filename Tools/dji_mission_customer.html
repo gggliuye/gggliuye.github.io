@@ -30,8 +30,10 @@
       <li>Create an waypoint instance in DJI Fly app. (<a href="https://www.youtube.com/watch?v=Ml7EZ4umqTQ&t=5s">totural video</a>)</li>
       <li>Replace the kmz in "Android/data/dji.go.v5/files/waypoint".</li>
     </div>
+    <p></p>
     <div id="controls">
         <!-- <button onclick="extractCoordinates()">Read Coordinates</button> -->
+        <label for="xmlFileInput">Load waypoints from kmz file:</label>
         <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()"><br>
     </div>
     <div id="output"></div>
@@ -41,7 +43,7 @@
         <input type="number" id="resolution" value="20" min="1" style="width: 50px;">
         <label for="height">Height (m):</label>
         <input type="number" id="height" value="15" min="1" style="width: 50px;">
-        <label for="height">Speed (km/h):</label>
+        <label for="speed">Speed (km/h):</label>
         <input type="number" id="speed" value="12.96" min="1" style="width: 50px;">
         <select id="route_mode">
           <option value="flat">水平(flat)</option>
@@ -72,12 +74,29 @@
             minZoom: 3
         }).fitWorld();
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 20,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+        // OpenStreetMap layer
+        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap contributors',
+        });
 
-        map.locate({ setView: true, maxZoom: 16 });
+        // Satellite layer (from Esri)
+        const satelliteLayer = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+          {
+            maxZoom: 18,
+            attribution: '© Esri & the GIS User Community',
+          }
+        );
+        osmLayer.addTo(map);
+        // Layer control to toggle between OSM and Satellite
+        const baseMaps = {
+          'OpenStreetMap': osmLayer,
+          'Satellite': satelliteLayer,
+        };
+        L.control.layers(baseMaps).addTo(map);
+
+        map.locate({ setView: true, maxZoom: 19 });
 
         const drawnItems = new L.FeatureGroup();
         map.addLayer(drawnItems);
@@ -246,6 +265,7 @@
 
         let actionId = 0;
         let photoCnt = 0;
+        let trajectoryRepeatCnt = 0;
 
         function getGimbalRotateAction() {
           actionId = actionId + 1;
@@ -370,18 +390,30 @@ ${pitchaction}
           // reset some parameters
           actionId = 0;
           photoCnt = 0;
+          trajectoryRepeatCnt = 0;
 
           const height = parseFloat(document.getElementById('height').value);
           const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
 
           // use mode to assign pitches and headings
-
-          let pitches = [-15];
-          let headings = [0, 90];
+          let scan_type = document.getElementById('route_mode').value;
+          let pitches = [];
+          let headings = [];
+          if (scan_type == "oblique") {
+            pitches = [-25, -55];
+            headings = [0, 90];
+          } else if (scan_type == "pano") {
+            pitches = [0, -25, -55];
+            headings = [0, 60, 120];
+          } else if (scan_type == "flat") {
+            pitches = [-15];
+            headings = [0, 60, 120];
+          }
 
           let markerId = -1;
           for (let i = 0; i < pitches.length; i++) {
             for (let j = 0; j < headings.length; j++) {
+              trajectoryRepeatCnt = trajectoryRepeatCnt + 2;
               // we will go from the first point:
               // (1) first loop (forward) with heading & pitch
               let heading = headings[j];
@@ -480,10 +512,16 @@ ${placemarkerContents}
           let height = parseFloat(document.getElementById('height').value);
           let speed_km = parseFloat(document.getElementById('speed').value);
           let speed_sec = speed_km * 1000 / 60 / 60;
+
+          // estimate the time this task might need
+          let trajectoryLength = trajectoryRepeatCnt * computeTrajectoryLength(currentTrajectory);
+          let durationFormat = formatDuration(trajectoryLength / speed_sec);
+
           let scan_type = document.getElementById('route_mode').value;
           document.getElementById('output').innerHTML += `
-    <p>&nbsp;&nbsp;==> Download ${currentTrajectory.length} placemarkers, ${photoCnt} photos using ${scan_type} mode.
-    Speed: ${speed_km} km/h = ${speed_sec} m/s, Height: ${height} m.</p>`;
+            <p>&nbsp;&nbsp;==> Download ${currentTrajectory.length} placemarkers, ${photoCnt} photos using ${scan_type} mode.
+            Speed: ${speed_km} km/h = ${speed_sec} m/s, Height: ${height} m. ${durationFormat}</p>
+            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength} m, Estimated duration : ${durationFormat}</p>`;
         }
     </script>
 </body>

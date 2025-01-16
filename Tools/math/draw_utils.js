@@ -49,6 +49,13 @@ function createTrajectoryFromPolygon(polygonCoords, resolutionMeters) {
 function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
     const resolutionDegrees = metersToDegrees(resolutionMeters); // Convert resolution to degrees
     let trajectory = [];
+    if (resolutionDegrees < 0) {
+      for (let i = 0; i < polylineCoords.length; i++) {
+        let point = polylineCoords[i];
+        trajectory.push([point.lat, point.lng]);
+      }
+      return trajectory;
+    }
 
     for (let i = 0; i < polylineCoords.length - 1; i++) {
         const start = polylineCoords[i];
@@ -74,4 +81,42 @@ function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
     }
 
     return trajectory;
+}
+
+// Compute the total length of a trajectory in meters
+function computeTrajectoryLength(trajectory) {
+    // Helper function to calculate the distance between two lat/lng points in meters
+    function haversineDistance(lat1, lng1, lat2, lng2) {
+        const R = 6371000.0; // Earth radius in meters
+        const toRad = (deg) => (deg * Math.PI) / 180; // Convert degrees to radians
+        const dLat = toRad(lat2 - lat1);
+        const dLng = toRad(lng2 - lng1);
+
+        const a =
+            Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return R * c; // Distance in meters
+    }
+
+    let totalLength = 0.0;
+
+    for (let i = 0; i < trajectory.length - 1; i++) {
+        const [lat1, lng1] = trajectory[i];
+        const [lat2, lng2] = trajectory[i + 1];
+        totalLength += haversineDistance(lat1, lng1, lat2, lng2);
+    }
+
+    return totalLength;
+}
+
+function formatDuration(durationSeconds) {
+    const hours = Math.floor(durationSeconds / 3600);
+    const minutes = Math.floor((durationSeconds % 3600) / 60);
+    const seconds = Math.floor(durationSeconds % 60);
+
+    return `${hours.toString().padStart(2, '0')}:${minutes
+        .toString()
+        .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
