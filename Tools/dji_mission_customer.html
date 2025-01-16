@@ -31,16 +31,13 @@
       <li>Replace the kmz in "Android/data/dji.go.v5/files/waypoint".</li>
     </div>
     <p></p>
-    <div>
-      <label for="selectFolder">Select folder:</label>
-      <button id="selectFolder">Select Folder</button>
-      <ul id="folderList"></ul>
-    </div>
 
     <div id="controls">
         <!-- <button onclick="extractCoordinates()">Read Coordinates</button> -->
         <label for="xmlFileInput">Load waypoints from kmz file:</label>
-        <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()"><br>
+        <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()">
+        <label for="saveFileName">Save file name:</label>
+        <input type="text" id="saveFileName" value="D9018BAF-756D-4491-A470-69B1DDE8929B" style="width: 300px;">
     </div>
     <div id="output"></div>
 
@@ -75,80 +72,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script>
-
-        const selectButton = document.getElementById('selectFolder');
-        const folderList = document.getElementById('folderList');
-        const replaceButton = document.getElementById('replaceFile');
-
-        let selectedFolderName = null;
-        let selectedSubfolderHandle = null;
-
-        // Select or deselect subfolder based on checkbox change
-        function selectSubfolder(subfolderHandle, checkbox) {
-          if (checkbox.checked) {
-            selectedSubfolderHandle = subfolderHandle;
-            selectedFolderName = subfolderHandle.name;
-            replaceButton.disabled = false; // Enable the save button when a subfolder is selected
-          } else {
-            selectedSubfolderHandle = null; // Deselect subfolder if checkbox is unchecked
-            replaceButton.disabled = true; // Disable save button if no subfolder is selected
-          }
-        }
-
-        replaceButton.addEventListener('click', async () => {
-          if (selectedSubfolderHandle) {
-            const fileName = 'example.txt';  // You can customize the file name
-            const fileContent = 'Hello, this is a test file content!';  // Customize file content
-
-            try {
-              // Always re-acquire the file handle before performing actions on it
-              const fileHandle = await selectedSubfolderHandle.getFileHandle(fileName, { create: true });
-
-              // Create a writable stream and write the content
-              const writable = await fileHandle.createWritable();
-              await writable.write(fileContent);
-              await writable.close();
-
-              alert('File saved successfully!');
-            } catch (err) {
-              console.error('Error saving file:', err);
-              alert('Error saving file.');
-            }
-          }
-        });
-
-
-        selectButton.addEventListener('click', async () => {
-          try {
-            const directoryHandle = await window.showDirectoryPicker();
-            folderList.innerHTML = '';
-            // const parentPath = directoryHandle.name ? directoryHandle.name : 'No parent folder';
-            // console.log(parentPath);
-
-            // Iterate through the folder entries to list subfolders
-            for await (const entry of directoryHandle.values()) {
-              if (entry.kind === 'directory' && entry.name != "capability" && entry.name != "map_preview") {
-                const li = document.createElement('li');
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.id = entry.name;
-                checkbox.addEventListener('change', () => selectSubfolder(entry, checkbox));
-
-                const label = document.createElement('label');
-                label.setAttribute('for', entry.name);
-                label.textContent = entry.name;
-
-                li.appendChild(checkbox);
-                li.appendChild(label);
-                folderList.appendChild(li);
-              }
-            }
-          } catch (err) {
-            console.error('Error accessing folder:', err);
-            folderList.textContent = 'Error accessing folder or permission denied.';
-          }
-        });
-
         const map = L.map('map', {
             zoomSnap: 0.05,
             zoomDelta: 0.25,
@@ -520,6 +443,7 @@ ${getActionGroupZoom(marker_id, 3, is_starting, is_ending)}
           let headings = [0, 60, 120];
           if (scan_type == "oblique") {
             pitches = [-55];
+            headings = [0, 90];
           } else if (scan_type == "pano") {
             pitches = [0, -25, -55];
           } else if (scan_type == "flat") {
@@ -612,10 +536,7 @@ ${placemarkerContents}
           var waylinesContent = getWaylinesFile();
           zip.folder('wpmz').file('waylines.wpml', waylinesContent);
 
-          let save_name = "drone_route.kmz";
-          if (selectedFolderName) {
-            save_name = selectedFolderName + ".kmz";
-          }
+          let save_name = document.getElementById('saveFileName').value + ".kmz";
 
           // Generate the ZIP and trigger the download
           zip.generateAsync({type:"blob"})
