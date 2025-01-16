@@ -45,6 +45,8 @@
         <input type="number" id="height" value="15" min="1" style="width: 50px;">
         <label for="speed">Speed (km/h):</label>
         <input type="number" id="speed" value="12.96" min="1" style="width: 50px;">
+        <label for="focus">Focus:</label>
+        <input type="number" id="focus" value="1" min="1" max="2.9" style="width: 50px;">
         <select id="route_mode">
           <option value="flat">水平(flat)</option>
           <option value="oblique">倾斜(oblique)</option>
@@ -319,7 +321,47 @@ ${gimbalAction}
         </wpml:actionGroup>`;
         }
 
-        function getActionGroupPitch(marker_id, action_group_id, pitch) {
+        function getActionGroupZoom(marker_id, action_group_id, is_starting, is_ending) {
+          if (is_ending) {
+            return "";
+          }
+          const focus = parseFloat(document.getElementById('focus').value);
+          if (focus <= 1.0) {
+            return "";
+          }
+          actionId = actionId + 1;
+          let triggerType = "betweenAdjacentPoints";
+          if (is_starting) {
+            triggerType = "reachPoint";
+          }
+          return `
+        <wpml:actionGroup>
+          <wpml:actionGroupId>${action_group_id}</wpml:actionGroupId>
+          <wpml:actionGroupStartIndex>${marker_id}</wpml:actionGroupStartIndex>
+          <wpml:actionGroupEndIndex>${marker_id + 1}</wpml:actionGroupEndIndex>
+          <wpml:actionGroupMode>parallel</wpml:actionGroupMode>
+          <wpml:actionTrigger>
+            <wpml:actionTriggerType>${triggerType}</wpml:actionTriggerType>
+          </wpml:actionTrigger>
+          <wpml:action>
+            <wpml:actionId>${actionId}</wpml:actionId>
+            <wpml:actionActuatorFunc>zoom</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:focalLength>0</wpml:focalLength>
+              <wpml:isUseFocalFactor>1</wpml:isUseFocalFactor>
+              <wpml:focalFactor>${focus}</wpml:focalFactor>
+              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>
+${gimbalAction}
+        </wpml:actionGroup>`;
+        }
+
+
+        function getActionGroupPitch(marker_id, action_group_id, pitch, is_ending) {
+          if (is_ending) {
+            return "";
+          }
           actionId = actionId + 1;
           return `
         <wpml:actionGroup>
@@ -347,10 +389,6 @@ ${gimbalAction}
           if (is_ending || is_starting) {
             waypointturn = "toPointAndStopWithContinuityCurvature";
           }
-          let pitchaction = getActionGroupPitch(marker_id, 2, pitch);
-          if (is_ending) {
-            pitchaction = "";
-          }
           let headingmode = "smoothTransition";
           return `
       <Placemark>
@@ -376,7 +414,8 @@ ${gimbalAction}
         </wpml:waypointTurnParam>
         <wpml:useStraightLine>0</wpml:useStraightLine>
 ${getActionGroupPhoto(marker_id, 1, is_starting)}
-${pitchaction}
+${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
+${getActionGroupZoom(marker_id, 3, is_starting, is_ending)}
         <wpml:waypointGimbalHeadingParam>
           <wpml:waypointGimbalPitchAngle>0</wpml:waypointGimbalPitchAngle>
           <wpml:waypointGimbalYawAngle>0</wpml:waypointGimbalYawAngle>
@@ -398,16 +437,18 @@ ${pitchaction}
           // use mode to assign pitches and headings
           let scan_type = document.getElementById('route_mode').value;
           let pitches = [];
-          let headings = [];
+          let headings = [0, 60, 120];
           if (scan_type == "oblique") {
             pitches = [-25, -55];
-            headings = [0, 90];
           } else if (scan_type == "pano") {
             pitches = [0, -25, -55];
-            headings = [0, 60, 120];
           } else if (scan_type == "flat") {
             pitches = [-15];
-            headings = [0, 60, 120];
+          }
+
+          const focus = parseFloat(document.getElementById('focus').value);
+          if (focus > 1.5) {
+            headings = [0, 90];
           }
 
           let markerId = -1;
