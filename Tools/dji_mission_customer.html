@@ -37,7 +37,7 @@
         <label for="xmlFileInput">Load waypoints from kmz file:</label>
         <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()">
         <label for="saveFileName">Save file name:</label>
-        <input type="text" id="saveFileName" value="D9018BAF-756D-4491-A470-69B1DDE8929B" style="width: 300px;">
+        <input type="text" id="saveFileName" value="D14FE22D-2F56-4699-B25F-E1A481909F30" style="width: 300px;">
     </div>
 
     <h2>Create WayPoints : </h2>
@@ -56,6 +56,8 @@
           <option value="oblique">倾斜(oblique)</option>
           <option value="pano">全景(pano)</option>
         </select>
+        <label for="hoverBox">Hover</label>
+        <input type="checkbox" id="hoverBox" name="hoverBox">
     </div>
     <div id="controls">
       <button onclick="reverseTrajectory()">Reverse Trajectory</button>
@@ -521,6 +523,63 @@ ${placemarkerContents}
 </kml>`;
         }
 
+        function getWaylinesFileHover() {
+          let placemarkerContents = "";
+
+          // reset some parameters
+          actionId = 0;
+          photoCnt = 0;
+          trajectoryRepeatCnt = 0;
+
+          const height = parseFloat(document.getElementById('height').value);
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+
+          // use mode to assign pitches and headings
+          let scan_type = document.getElementById('route_mode').value;
+          let pitches = [];
+          let headings = [0, 60, 120];
+          if (scan_type == "oblique") {
+            pitches = [-55];
+            headings = [0, 90];
+          } else if (scan_type == "pano") {
+            pitches = [0, -25, -55];
+          } else if (scan_type == "flat") {
+            pitches = [-15];
+          }
+
+          trajectoryRepeatCnt = 1;
+          let markerId = -1;
+          for (let n = 0; n < currentTrajectory.length; n++) {
+            let point = currentTrajectory[n];
+
+            for (let i = 0; i < pitches.length; i++) {
+              for (let j = 0; j < headings.length; j++) {
+                let is_start = (i == 0) && (j == 0) && (n == 0);
+                let is_ending = (i == (pitches.length - 1)) && (j == (headings.length - 1)) && (n == currentTrajectory.length - 1);
+
+                let point = currentTrajectory[n];
+                markerId = markerId + 1;
+                placemarkerContents += getPlaceMarker(markerId, point[0], point[1], pitches[i], headings[j], height, speed, is_start, is_ending);
+              }
+            }
+          }
+
+          return `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:wpml="http://www.dji.com/wpmz/1.0.2">
+  <Document>
+${getMissionConfig()}
+    <Folder>
+      <wpml:templateId>0</wpml:templateId>
+      <wpml:executeHeightMode>relativeToStartPoint</wpml:executeHeightMode>
+      <wpml:waylineId>0</wpml:waylineId>
+      <wpml:distance>0</wpml:distance>
+      <wpml:duration>0</wpml:duration>
+      <wpml:autoFlightSpeed>${speed}</wpml:autoFlightSpeed>
+${placemarkerContents}
+    </Folder>
+  </Document>
+</kml>`;
+        }
 
         function getMissionConfig() {
           const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
@@ -560,7 +619,14 @@ ${placemarkerContents}
           var templateContent = getTemplateFile();
           zip.folder('wpmz').file('template.kml', templateContent);
 
-          var waylinesContent = getWaylinesFile();
+          var waylinesContent = null;
+          const checkbox = document.getElementById('hoverBox');
+          if (checkbox.checked) {
+            waylinesContent = getWaylinesFileHover()
+          } else {
+            waylinesContent = getWaylinesFile();
+          }
+
           zip.folder('wpmz').file('waylines.wpml', waylinesContent);
 
           let save_name = document.getElementById('saveFileName').value + ".kmz";
