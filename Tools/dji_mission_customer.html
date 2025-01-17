@@ -324,6 +324,17 @@
           </wpml:action>`;
         }
 
+        function getHoverAction() {
+          actionId = actionId + 1;
+          return `
+          <wpml:action>
+            <wpml:actionId>${actionId}</wpml:actionId>
+            <wpml:actionActuatorFunc>hover</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:hoverTime>1</wpml:hoverTime>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>`;
+        }
 
         function getActionGroupPhoto(marker_id, action_group_id, is_starting) {
           actionId = actionId + 1;
@@ -333,6 +344,12 @@
           if (is_starting) {
             gimbalAction = getGimbalRotateAction();
           }
+          const checkbox = document.getElementById('hoverBox');
+          let hoverAction = "";
+          if (checkbox.checked) {
+            hoverAction = getHoverAction();
+          }
+
           return `
         <wpml:actionGroup>
           <wpml:actionGroupId>${action_group_id}</wpml:actionGroupId>
@@ -342,6 +359,7 @@
           <wpml:actionTrigger>
             <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
           </wpml:actionTrigger>
+${hoverAction}
           <wpml:action>
             <wpml:actionId>${actionId}</wpml:actionId>
             <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>
@@ -417,11 +435,13 @@ ${gimbalAction}
         }
 
         function getPlaceMarker(marker_id, lat, lng, pitch, heading, height, speed, is_starting, is_ending) {
+          const checkbox = document.getElementById('hoverBox');
           let waypointturn = "toPointAndPassWithContinuityCurvature";
-          if (is_ending || is_starting) {
+          if (is_ending || is_starting || checkbox.checked) {
             waypointturn = "toPointAndStopWithContinuityCurvature";
           }
           let headingmode = "smoothTransition";
+
           return `
       <Placemark>
         <Point>
@@ -537,10 +557,10 @@ ${placemarkerContents}
           // use mode to assign pitches and headings
           let scan_type = document.getElementById('route_mode').value;
           let pitches = [];
-          let headings = [0, 60, 120];
+          let headings = [0, 60, 120, 180, -120, -60];
           if (scan_type == "oblique") {
             pitches = [-55];
-            headings = [0, 90];
+            headings = [0, 90, 180, -90];
           } else if (scan_type == "pano") {
             pitches = [0, -25, -55];
           } else if (scan_type == "flat") {
