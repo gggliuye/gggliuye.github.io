@@ -589,8 +589,8 @@ ${placemarkerContents}
           let scan_type = document.getElementById('route_mode').value;
           document.getElementById('output').innerHTML += `
             <p>&nbsp;&nbsp;==> Download ${currentTrajectory.length} placemarkers, ${photoCnt} photos using ${scan_type} mode.
-            Speed: ${speed_km} km/h = ${speed_sec} m/s, Height: ${height} m. ${durationFormat}</p>
-            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength} m, Estimated duration : ${durationFormat}</p>`;
+            Speed: ${speed_km} km/h = ${speed_sec.toFixed(2)} m/s, Height: ${height} m. ${durationFormat}</p>
+            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength.toFixed(2)} m, Estimated duration : ${durationFormat}</p>`;
         }
     </script>
 </body>
