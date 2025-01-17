@@ -2,101 +2,124 @@
 
 // Convert resolution in meters to degrees
 function metersToDegrees(meters) {
-    return meters / 111320; // Approximation for 1 degree = ~111.32 km
+  return meters / 111320; // Approximation for 1 degree = ~111.32 km
 }
 
 // Generate trajectory with 90-degree turns (scanning the area)
 function createTrajectoryFromPolygon(polygonCoords, resolutionMeters) {
-    const resolutionDegrees = metersToDegrees(resolutionMeters);
+  const resolutionDegrees = metersToDegrees(resolutionMeters);
 
-    let points_original = [];
-    for (let i = 0; i < polygonCoords.length; i++) {
-      points_original.push([polygonCoords[i].lat, polygonCoords[i].lng])
+  let points_original = [];
+  for (let i = 0; i < polygonCoords.length; i++) {
+    points_original.push([polygonCoords[i].lat, polygonCoords[i].lng])
+  }
+  const points_convex_hull = convexhull.makeHull(points_original);
+
+  const bounds = L.polygon(polygonCoords).getBounds();
+  const latStart = bounds.getNorthWest().lat;
+  const latEnd = bounds.getSouthEast().lat;
+  const lngStart = bounds.getNorthWest().lng;
+  const lngEnd = bounds.getSouthEast().lng;
+
+  const trajectory = [];
+  let isLeftToRight = true; // Track the direction for horizontal movement
+
+  // Create trajectory by scanning the area row by row
+  for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
+    if (isLeftToRight) {
+      trajectory.push([currentLat, lngStart]);
+      trajectory.push([currentLat, lngEnd]);
+    } else {
+      trajectory.push([currentLat, lngEnd]);
+      trajectory.push([currentLat, lngStart]);
     }
-    const points_convex_hull = convexhull.makeHull(points_original);
+    isLeftToRight = !isLeftToRight; // Switch direction for the next row
+  }
 
-    const bounds = L.polygon(polygonCoords).getBounds();
-    const latStart = bounds.getNorthWest().lat;
-    const latEnd = bounds.getSouthEast().lat - resolutionDegrees;
-    const lngStart = bounds.getNorthWest().lng;
-    const lngEnd = bounds.getSouthEast().lng + resolutionDegrees;
+  {
+    let distanceLat = latStart- latEnd;
+    let cnt = Math.floor(distanceLat / resolutionDegrees);
+    let distance_left = distanceLat - cnt * resolutionDegrees;
+    if (distance_left / resolutionDegrees > 0.7) {
+      // add one more line
+      let currentLat = latEnd;
+      if (isLeftToRight) {
+        trajectory.push([currentLat, lngStart]);
+        trajectory.push([currentLat, lngEnd]);
+      } else {
+        trajectory.push([currentLat, lngEnd]);
+        trajectory.push([currentLat, lngStart]);
+      }
+    }
+  }
 
-    const trajectory = [];
-    let isLeftToRight = true; // Track the direction for horizontal movement
+  if (trajectory.length < 2) return trajectory;
 
-    // Create trajectory by scanning the area row by row
-    for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
-        if (isLeftToRight) {
-          for (let currentLng = lngStart; currentLng < lngEnd; currentLng += resolutionDegrees) {
-            let point = [currentLat, currentLng];
-            if (isPointInsidePolygen(point, points_convex_hull)) {
-              trajectory.push(point);
-            }
-          }
-        } else {
-          for (let currentLng = lngEnd; currentLng > lngStart; currentLng -= resolutionDegrees) {
-            let point = [currentLat, currentLng];
-            if (isPointInsidePolygen(point, points_convex_hull)) {
-              trajectory.push(point);
-            }
-          }
-        }
-        isLeftToRight = !isLeftToRight; // Switch direction for the next row
+  // densify the trajectory
+  const resolutionDegreesInternal = 0.5 * metersToDegrees(resolutionMeters);
+
+  let dense_trajectory = [];
+  for (let i = 0; i < trajectory.length - 1; i++) {
+    const start = trajectory[i];
+    const end = trajectory[i + 1];
+
+    // Add the starting point
+    if (dense_trajectory.length === 0) {
+      dense_trajectory.push(start);
     }
 
-    if (trajectory.length < 2) return trajectory;
+    const distanceLat = end[0] - start[0];
+    const distanceLng = end[1] - start[1];
 
-    // densify the trajectory
-    let dense_trajectory = [];
-    dense_trajectory.push(trajectory[0]);
-    for (let i = 1; i < trajectory.length; i++) {
-      // push a new point
-      let pt0 = trajectory[i - 1];
-      let pt1 = trajectory[i];
+    const distance = Math.sqrt(distanceLat ** 2 + distanceLng ** 2); // Euclidean distance in degrees
+    const numPoints = Math.ceil(distance / resolutionDegreesInternal); // Number of interpolated points
 
-      let pt_new = [0.5 * (pt0[0] + pt1[0]), 0.5 * (pt0[1] + pt1[1])];
-      dense_trajectory.push(pt_new);
-      dense_trajectory.push(pt1);
+    for (let j = 1; j <= numPoints; j++) {
+        const fraction = j / numPoints;
+        const interpolatedLat = start[0] + fraction * distanceLat;
+        const interpolatedLng = start[1] + fraction * distanceLng;
+        dense_trajectory.push([interpolatedLat, interpolatedLng]);
     }
+  }
 
-    return dense_trajectory;
+  return dense_trajectory;
 }
 
 function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
-    const resolutionDegrees = metersToDegrees(resolutionMeters); // Convert resolution to degrees
-    let trajectory = [];
-    if (resolutionDegrees < 0) {
-      for (let i = 0; i < polylineCoords.length; i++) {
-        let point = polylineCoords[i];
-        trajectory.push([point.lat, point.lng]);
-      }
-      return trajectory;
+  const resolutionDegrees = metersToDegrees(resolutionMeters); // Convert resolution to degrees
+  let trajectory = [];
+  if (resolutionDegrees < 0) {
+    for (let i = 0; i < polylineCoords.length; i++) {
+      let point = polylineCoords[i];
+      trajectory.push([point.lat, point.lng]);
     }
-
-    for (let i = 0; i < polylineCoords.length - 1; i++) {
-        const start = polylineCoords[i];
-        const end = polylineCoords[i + 1];
-
-        // Add the starting point
-        if (trajectory.length === 0) {
-            trajectory.push([start.lat, start.lng]);
-        }
-
-        const distanceLat = end.lat - start.lat;
-        const distanceLng = end.lng - start.lng;
-
-        const distance = Math.sqrt(distanceLat ** 2 + distanceLng ** 2); // Euclidean distance in degrees
-        const numPoints = Math.ceil(distance / resolutionDegrees); // Number of interpolated points
-
-        for (let j = 1; j <= numPoints; j++) {
-            const fraction = j / numPoints;
-            const interpolatedLat = start.lat + fraction * distanceLat;
-            const interpolatedLng = start.lng + fraction * distanceLng;
-            trajectory.push([interpolatedLat, interpolatedLng]);
-        }
-    }
-
     return trajectory;
+  }
+
+  for (let i = 0; i < polylineCoords.length - 1; i++) {
+      const start = polylineCoords[i];
+      const end = polylineCoords[i + 1];
+
+      // Add the starting point
+      if (trajectory.length === 0) {
+          trajectory.push([start.lat, start.lng]);
+      }
+
+      const distanceLat = end.lat - start.lat;
+      const distanceLng = end.lng - start.lng;
+
+      const distance = Math.sqrt(distanceLat ** 2 + distanceLng ** 2); // Euclidean distance in degrees
+      const numPoints = Math.ceil(distance / resolutionDegrees); // Number of interpolated points
+
+      for (let j = 1; j <= numPoints; j++) {
+          const fraction = j / numPoints;
+          const interpolatedLat = start.lat + fraction * distanceLat;
+          const interpolatedLng = start.lng + fraction * distanceLng;
+          trajectory.push([interpolatedLat, interpolatedLng]);
+      }
+  }
+
+  return trajectory;
 }
 
 // Compute the total length of a trajectory in meters

@@ -39,8 +39,9 @@
         <label for="saveFileName">Save file name:</label>
         <input type="text" id="saveFileName" value="D9018BAF-756D-4491-A470-69B1DDE8929B" style="width: 300px;">
     </div>
-    <div id="output"></div>
 
+    <h2>Create WayPoints : </h2>
+    <div id="output"></div>
     <div id="controls">
         <label for="resolution">Resolution (m):</label>
         <input type="number" id="resolution" value="20" min="1" style="width: 50px;">
@@ -55,9 +56,11 @@
           <option value="oblique">倾斜(oblique)</option>
           <option value="pano">全景(pano)</option>
         </select>
-        <button onclick="clearMap()">Clear Map</button>
-        <button onclick="downloadFile()">Download</button>
-        <button id="replaceFile" disabled>Replace</button>
+    </div>
+    <div id="controls">
+      <button onclick="reverseTrajectory()">Reverse Trajectory</button>
+      <button onclick="clearMap()">Clear Map</button>
+      <button onclick="downloadFile()">Download</button>
     </div>
     <div id="map"></div>
     <!-- <div id="output_coord">Coordinates and trajectory details will be displayed here...</div> -->
@@ -125,6 +128,7 @@
         let trajectoryLayer = null;
         let drawlayerElements = []; // Array to store markers
         let currentTrajectory = [];
+        let currentTrajectoryLeaflet = [];
 
         // Handle polygon creation
         map.on(L.Draw.Event.CREATED, function (e) {
@@ -138,38 +142,61 @@
             drawnItems.clearLayers();
             drawnItems.addLayer(layer);
 
-            let trajectory = [];
+            currentTrajectoryLeaflet = [];
             if (layerType == "polyline") {
-              trajectory = createTrajectoryFromPolyline(layer.getLatLngs(), resolution);
+              currentTrajectoryLeaflet = createTrajectoryFromPolyline(layer.getLatLngs(), resolution);
             } else {
               const polygonCoords = layer.getLatLngs()[0];
-              trajectory = createTrajectoryFromPolygon(polygonCoords, resolution);
+              currentTrajectoryLeaflet = createTrajectoryFromPolygon(polygonCoords, resolution);
             }
-            // Draw trajectory
-            trajectoryLayer = L.featureGroup();
-            const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
-
-            // Highlight sampled points
-            trajectory.forEach((point) => {
-                L.circleMarker(point, {
-                    radius: 5,
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 1
-                }).addTo(trajectoryLayer);
-            });
-
-            trajectoryLayer.addTo(map);
-
-            // Output trajectory details
-            currentTrajectory = [];
-            trajectory.forEach((point, index) => {
-                currentTrajectory.push([point[0], point[1]]);
-            });
-
-            let scan_type = document.getElementById('route_mode').value;
-            document.getElementById('output').innerHTML = `Get ${currentTrajectory.length} placemarkers using ${scan_type} mode`;
+            addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
         });
+
+        function reverseTrajectory() {
+          currentTrajectoryLeaflet = currentTrajectoryLeaflet.reverse();
+          addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
+        }
+
+        function addTrajectoryLeafletToMap(trajectory) {
+          if (trajectoryLayer) {
+              map.removeLayer(trajectoryLayer);
+              trajectoryLayer = null;
+          }
+
+          // Draw trajectory
+          trajectoryLayer = L.featureGroup();
+          const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
+
+          // Highlight sampled points
+          trajectory.forEach((point) => {
+              L.circleMarker(point, {
+                  radius: 3,
+                  color: 'green',
+                  fillColor: '#f03',
+                  fillOpacity: 1
+              }).addTo(trajectoryLayer);
+          });
+
+          // Plot the starting point
+          if (trajectory.length > 0) {
+            L.circleMarker(currentTrajectoryLeaflet[0], {
+                radius: 5,
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 1
+            }).addTo(trajectoryLayer);
+          }
+
+          trajectoryLayer.addTo(map);
+
+          // Output trajectory details
+          currentTrajectory = [];
+          trajectory.forEach((point, index) => {
+              currentTrajectory.push([point[0], point[1]]);
+          });
+
+          document.getElementById('output').innerHTML = `Get ${currentTrajectory.length} placemarkers.`;
+        }
 
         // Clear the map
         function clearMap() {
