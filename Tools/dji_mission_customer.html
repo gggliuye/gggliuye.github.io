@@ -17,7 +17,6 @@
             font-family: Arial, sans-serif;
         }
         #output {
-            padding: 10px;
             font-family: Arial, sans-serif;
             font-size: 14px;
         }
@@ -40,7 +39,6 @@
     </div>
 
     <h2>Create WayPoints : </h2>
-    <div id="output"></div>
     <div>
         <label for="resolution">Resolution (m):</label>
         <input type="number" id="resolution" value="20" min="1" style="width: 50px;">
@@ -58,12 +56,14 @@
         <option value="oblique">倾斜(oblique)</option>
         <option value="pano">全景(pano)</option>
       </select>
-      <label for="hoverBox">Hover</label>
-      <input type="checkbox" id="hoverBox" name="hoverBox" disabled>
     </label><br>
     <input type="radio" id="spiral" name="scan_type" value="Spiral" checked>
     <label for="surface">
       Spiral Mode.
+      <label for="spiral_min_radius">Min Radius (m):</label>
+      <input type="number" id="spiral_min_radius" value="20" min="1" style="width: 50px;">
+      <label for="spiral_pitch">Pitch (deg):</label>
+      <input type="number" id="spiral_pitch" value="-25" min="-90" style="width: 50px;">
     </label><br>
     <br>
 
@@ -73,6 +73,8 @@
       <button onclick="clearMap()">Clear Map</button>
       <button onclick="downloadFile()">Download</button>
     </div>
+    <div id="output"></div>
+    <p></p>
     <div id="map"></div>
     <!-- <div id="output_coord">Coordinates and trajectory details will be displayed here...</div> -->
 
@@ -138,7 +140,8 @@
 
         let trajectoryLayer = null;
         let drawlayerElements = []; // Array to store markers
-        let currentTrajectory = [];
+        let currentTrajectory = null;
+        let currentTrajectoryHeading = null;
 
         let layerType = null;
         let layerLatLngs = null;
@@ -164,17 +167,22 @@
           if (layerLatLngs == null) return;
           const resolution = parseFloat(document.getElementById('resolution').value);
 
+          currentTrajectory = [];
+          currentTrajectoryHeading = null;
           if (layerType == "polyline") {
             if (document.querySelector('input[name="scan_type"]:checked').value === "Spiral") {
-              currentTrajectoryLeaflet = createSpiralTrajectoryFromPolyline(layerLatLngs, resolution);
+              const spiral_min_radius = parseFloat(document.getElementById('spiral_min_radius').value);
+
+              [currentTrajectoryLeaflet, currentTrajectoryHeading] = createSpiralTrajectoryFromPolyline(layerLatLngs, spiral_min_radius, resolution);
+              addTrajectoryLeafletToMap(currentTrajectoryLeaflet, currentTrajectoryHeading);
             } else {
               currentTrajectoryLeaflet = createTrajectoryFromPolyline(layerLatLngs, resolution);
+              addTrajectoryLeafletToMap(currentTrajectoryLeaflet, null);
             }
-            addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
           } else {
             const polygonCoords = layerLatLngs[0];
             currentTrajectoryLeaflet = createTrajectoryFromPolygon(polygonCoords, resolution);
-            addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
+            addTrajectoryLeafletToMap(currentTrajectoryLeaflet, null);
           }
         }
 
@@ -184,7 +192,7 @@
           addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
         }
 
-        function addTrajectoryLeafletToMap(trajectory) {
+        function addTrajectoryLeafletToMap(trajectory, headingsVec) {
           if (trajectoryLayer) {
               map.removeLayer(trajectoryLayer);
               trajectoryLayer = null;
@@ -194,14 +202,45 @@
           trajectoryLayer = L.featureGroup();
           const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
 
+          // Adjust for arrow length in degrees
+          let resolution = parseFloat(document.getElementById('resolution').value);
+          let arrowLength = 0.20 * metersToDegrees(resolution);
+          let [pitches, headings] = getPitchHeadings();
+          let trajectoryRepeatCnt = pitches.length * headings.length * 2;
+          if (headingsVec != null) {
+            arrowLength = 2.0 * arrowLength;
+            trajectoryRepeatCnt = 1;
+          }
+
+          function add_heading(point, heading) {
+            // Add a direction arrow using a polyline
+            const arrowLat = point[0] + arrowLength * Math.cos((heading * Math.PI) / 180);
+            const arrowLon = point[1] + arrowLength * Math.sin((heading * Math.PI) / 180);
+            L.polyline([point, [arrowLat, arrowLon]], {
+              color: 'green',
+              weight: 2,
+            }).addTo(trajectoryLayer);
+          };
+
           // Highlight sampled points
-          trajectory.forEach((point) => {
+          trajectory.forEach((point, index) => {
               L.circleMarker(point, {
                   radius: 3,
                   color: 'green',
                   fillColor: '#f03',
                   fillOpacity: 1
               }).addTo(trajectoryLayer);
+
+              if (headingsVec != null) {
+                // draw heading
+                const heading = headingsVec[index];
+                add_heading(point, heading);
+              } else {
+                headings.forEach((heading) => {
+                  add_heading(point, heading);
+                  add_heading(point, heading + 180);
+                });
+              }
           });
 
           // Plot the starting point
@@ -222,7 +261,21 @@
               currentTrajectory.push([point[0], point[1]]);
           });
 
-          document.getElementById('output').innerHTML = `Get ${currentTrajectory.length} placemarkers.`;
+
+          let height = parseFloat(document.getElementById('height').value);
+          let speed_km = parseFloat(document.getElementById('speed').value);
+          let speed_sec = speed_km * 1000 / 60 / 60;
+
+          // estimate the time this task might need
+          let trajectoryLength = trajectoryRepeatCnt * computeTrajectoryLength(currentTrajectory);
+          let durationFormat = formatDuration(trajectoryLength / speed_sec);
+          let numPhoto = trajectoryRepeatCnt * currentTrajectory.length;
+
+          let scan_type = document.getElementById('route_mode').value;
+          document.getElementById('output').innerHTML = `
+            <p>&nbsp;&nbsp;==> Get ${currentTrajectory.length} placemarkers, ${numPhoto} photos using ${scan_type} mode.
+            Speed: ${speed_km} km/h = ${speed_sec.toFixed(2)} m/s, Height: ${height} m.</p>
+            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength.toFixed(2)} m, Estimated duration : ${durationFormat}</p>`;
         }
 
         // Clear the map
@@ -464,6 +517,20 @@ ${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
       </Placemark>`;
         }
 
+        function getPitchHeadings() {
+          let scan_type = document.getElementById('route_mode').value;
+          let headings = [0, 60, 120];
+          if (scan_type == "oblique") {
+            pitches = [-55];
+            headings = [0, 90];
+          } else if (scan_type == "pano") {
+            pitches = [0, -25, -55];
+          } else if (scan_type == "flat") {
+            pitches = [-15];
+          }
+          return [pitches, headings];
+        }
+
         function getWaylinesFile() {
           let placemarkerContents = "";
 
@@ -476,17 +543,7 @@ ${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
           const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
 
           // use mode to assign pitches and headings
-          let scan_type = document.getElementById('route_mode').value;
-          let pitches = [];
-          let headings = [0, 60, 120];
-          if (scan_type == "oblique") {
-            pitches = [-55];
-            headings = [0, 90];
-          } else if (scan_type == "pano") {
-            pitches = [0, -25, -55];
-          } else if (scan_type == "flat") {
-            pitches = [-15];
-          }
+          let [pitches, headings] = getPitchHeadings();
 
           let markerId = -1;
           for (let i = 0; i < pitches.length; i++) {
@@ -532,45 +589,31 @@ ${placemarkerContents}
 </kml>`;
         }
 
-        function getWaylinesFileHover() {
+        function getWaylinesFileSpiral() {
           let placemarkerContents = "";
+          if (currentTrajectoryHeading == null) {
+            alert("Trajectory headings is empty");
+            return;
+          }
 
           // reset some parameters
           actionId = 0;
           photoCnt = 0;
-          trajectoryRepeatCnt = 0;
+          trajectoryRepeatCnt = 1;
 
           const height = parseFloat(document.getElementById('height').value);
           const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+          const spiral_pitch = parseFloat(document.getElementById('spiral_pitch').value);
 
-          // use mode to assign pitches and headings
-          let scan_type = document.getElementById('route_mode').value;
-          let pitches = [];
-          let headings = [0, 60, 120, 180, -120, -60];
-          if (scan_type == "oblique") {
-            pitches = [-55];
-            headings = [0, 90, 180, -90];
-          } else if (scan_type == "pano") {
-            pitches = [0, -25, -55];
-          } else if (scan_type == "flat") {
-            pitches = [-15];
-          }
-
-          trajectoryRepeatCnt = 1;
           let markerId = -1;
           for (let n = 0; n < currentTrajectory.length; n++) {
+            let is_start = (n == 0);
+            let is_ending = (n == currentTrajectory.length - 1);
+
             let point = currentTrajectory[n];
-
-            for (let i = 0; i < pitches.length; i++) {
-              for (let j = 0; j < headings.length; j++) {
-                let is_start = (i == 0) && (j == 0) && (n == 0);
-                let is_ending = (i == (pitches.length - 1)) && (j == (headings.length - 1)) && (n == currentTrajectory.length - 1);
-
-                let point = currentTrajectory[n];
-                markerId = markerId + 1;
-                placemarkerContents += getPlaceMarker(markerId, point[0], point[1], pitches[i], headings[j], height, speed, is_start, is_ending);
-              }
-            }
+            let heading = currentTrajectoryHeading[n];
+            markerId = markerId + 1;
+            placemarkerContents += getPlaceMarker(markerId, point[0], point[1], spiral_pitch, heading, height, speed, is_start, is_ending);
           }
 
           return `<?xml version="1.0" encoding="UTF-8"?>
@@ -629,9 +672,8 @@ ${placemarkerContents}
           zip.folder('wpmz').file('template.kml', templateContent);
 
           var waylinesContent = null;
-          const checkbox = document.getElementById('hoverBox');
-          if (checkbox.checked) {
-            waylinesContent = getWaylinesFileHover()
+          if (layerType == "polyline" && document.querySelector('input[name="scan_type"]:checked').value === "Spiral") {
+            waylinesContent = getWaylinesFileSpiral();
           } else {
             waylinesContent = getWaylinesFile();
           }
@@ -652,20 +694,6 @@ ${placemarkerContents}
               document.body.appendChild(downloadLink);
               downloadLink.click();
           });
-
-          let height = parseFloat(document.getElementById('height').value);
-          let speed_km = parseFloat(document.getElementById('speed').value);
-          let speed_sec = speed_km * 1000 / 60 / 60;
-
-          // estimate the time this task might need
-          let trajectoryLength = trajectoryRepeatCnt * computeTrajectoryLength(currentTrajectory);
-          let durationFormat = formatDuration(trajectoryLength / speed_sec);
-
-          let scan_type = document.getElementById('route_mode').value;
-          document.getElementById('output').innerHTML += `
-            <p>&nbsp;&nbsp;==> Download ${currentTrajectory.length} placemarkers, ${photoCnt} photos using ${scan_type} mode.
-            Speed: ${speed_km} km/h = ${speed_sec.toFixed(2)} m/s, Height: ${height} m. ${durationFormat}</p>
-            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength.toFixed(2)} m, Estimated duration : ${durationFormat}</p>`;
         }
     </script>
 </body>

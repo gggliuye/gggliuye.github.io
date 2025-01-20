@@ -188,14 +188,14 @@ function createTrajectoryFromPolygon(polygonCoords, resolutionMeters) {
     return dense_trajectory;
 }
 
-function createSpiralTrajectory(center, radius, resolution) {
+function createSpiralTrajectory(center, radius, min_radius, resolution) {
   const R = 6371000; // Earth's radius in meters
   // const [centerLat, centerLon] = center;
   const centerLat = center.lat;
   const centerLon = center.lng;
 
   let trajectory = [];
-  let currentRadius = resolution; // Start radius
+  let currentRadius = min_radius; // Start radius
   let angle = 0; // Start angle
 
   // Continue until the radius exceeds the maximum radius
@@ -246,7 +246,7 @@ function haversineDistance(point1, point2) {
   return R * c; // Distance in meters
 }
 
-function createSpiralTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
+function createSpiralTrajectoryFromPolyline(polylineCoords, min_radius, resolutionMeters) {
   // the first point wll be the center.
   // the last point will be in the outer most circle
   const center = polylineCoords[0];
@@ -254,18 +254,14 @@ function createSpiralTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
   const distance = haversineDistance(center, end);
 
 
-  let trajectoryWithHeading = createSpiralTrajectory(center, distance, resolutionMeters);
+  let trajectoryWithHeading = createSpiralTrajectory(center, distance, min_radius, resolutionMeters);
   let trajectory = [];
-
-  // console.log(trajectoryWithHeading);
-
+  let headings = []
   for (let i = 0; i < trajectoryWithHeading.length; i++) {
     trajectory.push([trajectoryWithHeading[i][0], trajectoryWithHeading[i][1]]);
+    headings.push(trajectoryWithHeading[i][2]);
   }
-
-
-
-  return trajectory;
+  return [trajectory, headings];
 }
 
 function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
