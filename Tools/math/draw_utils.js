@@ -5,6 +5,10 @@ function metersToDegrees(meters) {
     return meters / 111320; // Approximation for 1 degree = ~111.32 km
 }
 
+function degreesToMeters(degree) {
+    return degree * 111320; // Approximation for 1 degree = ~111.32 km
+}
+
 
 function computeMajorDirection(points) {
   if (points.length < 2) {
@@ -182,6 +186,86 @@ function createTrajectoryFromPolygon(polygonCoords, resolutionMeters) {
     }
 
     return dense_trajectory;
+}
+
+function createSpiralTrajectory(center, radius, resolution) {
+  const R = 6371000; // Earth's radius in meters
+  // const [centerLat, centerLon] = center;
+  const centerLat = center.lat;
+  const centerLon = center.lng;
+
+  let trajectory = [];
+  let currentRadius = resolution; // Start radius
+  let angle = 0; // Start angle
+
+  // Continue until the radius exceeds the maximum radius
+  while (currentRadius <= radius) {
+    // Convert polar coordinates (currentRadius, angle) to WGS84 (lat, lon)
+    const lat = centerLat + (currentRadius / R) * (180 / Math.PI) * Math.cos(angle);
+    const lon = centerLon + (currentRadius / R) * (180 / Math.PI) * Math.sin(angle) / Math.cos(centerLat * Math.PI / 180);
+
+    // Calculate heading toward the center
+    const dLat = centerLat - lat;
+    const dLon = centerLon - lon;
+    const heading = (Math.atan2(dLon, dLat) * 180) / Math.PI; // Convert radians to degrees
+    const normalizedHeading = (heading + 360) % 360; // Normalize to [0, 360]
+
+    // Add the current point to the trajectory
+    trajectory.push([lat, lon, normalizedHeading]);
+
+    // Increment the angle and radius
+    let delta_angle = (resolution / currentRadius); // Adjust angle step based on resolution and radius
+    angle += delta_angle;
+    if (angle >= 2 * Math.PI) {
+      // Complete a full circle; increase radius for the next circle
+      angle %= 2 * Math.PI;
+    }
+
+    // increae the radius smoothly
+    let delta_radius = resolution * delta_angle / (2 * Math.PI);
+    currentRadius += delta_radius;
+  }
+
+  return trajectory;
+}
+
+function haversineDistance(point1, point2) {
+  const R = 6371000; // Earth's radius in meters
+  const toRadians = (deg) => (deg * Math.PI) / 180;
+
+  const [lat1, lon1] = [point1.lat, point1.lng];
+  const [lat2, lon2] = [point2.lat, point2.lng];
+
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+
+  const a = Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distance in meters
+}
+
+function createSpiralTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
+  // the first point wll be the center.
+  // the last point will be in the outer most circle
+  const center = polylineCoords[0];
+  const end = polylineCoords[polylineCoords.length - 1];
+  const distance = haversineDistance(center, end);
+
+
+  let trajectoryWithHeading = createSpiralTrajectory(center, distance, resolutionMeters);
+  let trajectory = [];
+
+  // console.log(trajectoryWithHeading);
+
+  for (let i = 0; i < trajectoryWithHeading.length; i++) {
+    trajectory.push([trajectoryWithHeading[i][0], trajectoryWithHeading[i][1]]);
+  }
+
+
+
+  return trajectory;
 }
 
 function createTrajectoryFromPolyline(polylineCoords, resolutionMeters) {
