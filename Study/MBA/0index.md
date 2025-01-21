@@ -35,6 +35,7 @@ L2：
   * ✅ 💡 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
 * 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/programs/open-access-guyana-ngeor/specializations/human-resource-management)
   * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
+  * [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
