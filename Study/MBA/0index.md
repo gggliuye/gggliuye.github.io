@@ -33,23 +33,24 @@ L2：
   * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
   * ✅ 💡 [UVA: Strategic Planning and Execution](../strategy/5strategy_plan)
   * ✅ 💡 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
-* 人力资源管理：学习人力资源规划、招聘、绩效管理、培训与发展等。
-  * [Human Resource Management: HR for People Managers Specialization - 5 course series](../hr/00index)
+* 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/programs/open-access-guyana-ngeor/specializations/human-resource-management)
+  * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
   * 实战：制定一份企业社会责任报告或参与社会责任项目。
-* 领导力与变革管理：提高领导力、理解组织变革的原理和技巧，学会应对复杂的管理挑战。
-  * 《领导力》 (Leadership)， Leading People and Teams
+* 领导力与变革管理：[Strategic Leadership and Management Specialization](https://www.coursera.org/programs/open-access-guyana-ngeor/specializations/strategic-leadership)
+  * [Leading Teams: Developing as a Leader](../lead/01leadteam)
 * 企业财务战略：深度理解财务报表、资本结构、企业估值及战略性财务决策。
   * 《公司财务管理》 (Corporate Financial Strategy) Advanced Corporate Finance
 
 L3：
 * 全球化与跨文化管理：理解全球化背景下的管理挑战，学习跨文化沟通与管理技巧。
   * 《跨文化管理》 (Cross-Cultural Management)
-* 企业创新与创业: [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies and our online programs](https://giesonline.illinois.edu/)
+* 企业创新与创业: [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies](https://giesonline.illinois.edu/)
   * ✅ 👑 [Strategic Innovation - Building and Sustaining Innovative Organizations](../innov/01strinov)
   * ✅ 👑 [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
-  * [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
+  * ✅ 👑 [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
+  * [Creativity Toolkit II - Creative Collaboration](../innov/04toolkit2)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
