@@ -85,8 +85,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="math/convex_hull.js"></script>
     <script src="math/draw_utils.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script>
         const map = L.map('map', {
             zoomSnap: 0.05,
@@ -422,11 +420,6 @@
           if (is_starting) {
             gimbalAction = getGimbalRotateAction();
           }
-          const checkbox = document.getElementById('hoverBox');
-          let hoverAction = "";
-          if (checkbox.checked) {
-            hoverAction = getHoverAction();
-          }
 
           return `
         <wpml:actionGroup>
@@ -437,7 +430,6 @@
           <wpml:actionTrigger>
             <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
           </wpml:actionTrigger>
-${hoverAction}
           <wpml:action>
             <wpml:actionId>${actionId}</wpml:actionId>
             <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>
@@ -478,9 +470,8 @@ ${gimbalAction}
         }
 
         function getPlaceMarker(marker_id, lat, lng, pitch, heading, height, speed, is_starting, is_ending) {
-          const checkbox = document.getElementById('hoverBox');
           let waypointturn = "toPointAndPassWithContinuityCurvature";
-          if (is_ending || is_starting || checkbox.checked) {
+          if (is_ending || is_starting) {
             waypointturn = "toPointAndStopWithContinuityCurvature";
           }
           let headingmode = "smoothTransition";
