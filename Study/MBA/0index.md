@@ -33,14 +33,14 @@ L2：
   * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
   * ✅ 💡 [UVA: Strategic Planning and Execution](../strategy/5strategy_plan)
   * ✅ 💡 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
-* 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/programs/open-access-guyana-ngeor/specializations/human-resource-management)
+* 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/specializations/human-resource-management)
   * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
   * [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
   * 实战：制定一份企业社会责任报告或参与社会责任项目。
-* 领导力与变革管理：[Strategic Leadership and Management Specialization](https://www.coursera.org/programs/open-access-guyana-ngeor/specializations/strategic-leadership)
+* 领导力与变革管理：[Strategic Leadership and Management Specialization](https://www.coursera.org/specializations/strategic-leadership)
   * [Leading Teams: Developing as a Leader](../lead/01leadteam)
 * 企业财务战略：深度理解财务报表、资本结构、企业估值及战略性财务决策。
   * 《公司财务管理》 (Corporate Financial Strategy) Advanced Corporate Finance

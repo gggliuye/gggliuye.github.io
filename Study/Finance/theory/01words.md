@@ -3,7 +3,25 @@ layout: page
 title: Finance Terms
 ---
 
-[Investopedia](https://www.investopedia.com/)
+1. [Parameter Terms](#l1)
+2. [Operations Terms of Investopedia](#l2)
+
+<a name="l1"></a>
+# 1. Parameter Terms
+
+**Risk-Free Rate**: The risk-free rate is the theoretical return on an investment with zero risk of financial loss.
+**Long-term government bond yields**, such as 10-year Treasury bonds, reflect the interest investors demand for lending money to the government over a longer period.
+**Inflation rate** measures the rate at which prices for goods and services increase over time, eroding the purchasing power of money.
+* Risk-free rate: Anchored by short-term central bank policies.
+* Long-term yields: Reflect inflation expectations, real returns, and risk premia.
+* Inflation rate: Influences both, as it determines the erosion of purchasing power. Their relative closeness depends on the macroeconomic and policy environment.
+
+**Long-term rate 长期利率**：数十年期债券、抵押或者贷款的利率。长期利率更具投机性、更难以驾驭（这些<u>决定市场未来前景的因素</u>是央行难以控制的）。
+* <u>长期债券一旦发行，其价格会与长期利率的总体水平背道而驰</u>（长期利率下降，则之前发行的高利率产品会更加有吸引力）。
+* 投资者的利率预期的变化可能会带来长期债券市场的繁荣，也可能导致其崩溃。refer to [CAPM](/Study/MBA/account/03corpfin/#l3).
+
+<a name="l2"></a>
+# 2. Operations Terms of [Investopedia](https://www.investopedia.com/)
 
 [Underlying Security](https://www.investopedia.com/terms/u/underlying-security.asp) (基础证券) : <u>a stock or bond on which derivative instruments are based.</u> It is the primary component of how the derivative gets its value.
 * Can be any asset, index, financial instrument, or even another derivative.
@@ -39,16 +57,8 @@ title: Finance Terms
 * This predetermined price at which the buyer of the put option can sell the underlying security is called the **strike** price.
 * A put option becomes more valuable as the price of the underlying stock or security decreases.
 
-
 To [Hedge](https://www.investopedia.com/terms/h/hedge.asp) (对冲) is to <u>take an offsetting position</u> in an asset or investment that reduces the price risk of an existing position. A hedge is therefore a trade that is made with the purpose of reducing the risk of adverse price movements in another asset. Normally, a hedge consists of taking the opposite position in a related security or in a derivative security based on the asset to be hedged.
 
 [Speculation](https://www.investopedia.com/terms/s/speculation.asp) (投机), or speculative trading, refers to the act of conducting a financial transaction that has substantial risk of losing value but also holds the expectation of a significant gain or other major value. With speculation, the risk of loss is more than offset by the possibility of a substantial gain or other recompense.
 
 [Arbitrage](https://www.investopedia.com/terms/a/arbitrage.asp) (套利) is the simultaneous purchase and sale of the same or similar asset in different markets in order to profit from <u>market inefficiencies.</u>
-
-**Risk-Free Rate**: The risk-free rate is the theoretical return on an investment with zero risk of financial loss.
-**Long-term government bond yields**, such as 10-year Treasury bonds, reflect the interest investors demand for lending money to the government over a longer period.
-**Inflation rate** measures the rate at which prices for goods and services increase over time, eroding the purchasing power of money.
-* Risk-free rate: Anchored by short-term central bank policies.
-* Long-term yields: Reflect inflation expectations, real returns, and risk premia.
-* Inflation rate: Influences both, as it determines the erosion of purchasing power. Their relative closeness depends on the macroeconomic and policy environment.
