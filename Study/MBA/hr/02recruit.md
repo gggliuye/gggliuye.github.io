@@ -16,8 +16,8 @@ title: Recruiting, Hiring, and Onboarding Employees
 (6) set people up for success.
 
 1. [Workforce Planning](#l1) : Workforce Planning; Job Analysis, Job Descriptions, Job Design.
-2. [Recruitment: Finding the Best Candidates](#l2)
-3. [](#l3)
+2. [Recruitment: Finding the Best Candidates](#l2) : the macro-level strategic considerations in recruiting.
+3. [Selection: Choosing the Best Candidates](#l3)
 4. [](#l4)
 
 <a name="l1"></a>
@@ -103,8 +103,22 @@ In this module, the focus is on **job design**, which is the process of structur
 <a name="l2"></a>
 # 2. Recruitment: Finding the Best Candidates
 
+<p></p>
+* Aligning Recruitment with Company Strategy : think about Brand Management, Organizational Culture.
+* Source of Talents: Mobile Recruiting, Passive Canadidates.
+* Cultural Fit vs. Diversity.
+* Legal Issues.
+
 <a name="l3"></a>
-# 3.
+# 3. Selection: Choosing the Best Candidates
+
+**Selection Process Steps**: Screening applications, testing, interviewing, checking references, making selections, and conducting background checks.
+- **Applicant Tracking Systems**: These systems help manage resumes efficiently but may overlook certain candidates.
+- **Testing and Work Samples**: Cognitive ability tests and work samples are used to assess candidates' skills.
+- **Interviewing Techniques**: Various interview formats, including phone screens and in-person interviews, are discussed.
+- **Importance of References**: Checking references is crucial, even if the information obtained is limited.
+- **Final Selection**: Making an offer contingent on a successful background check is the last step.
+  * Cultural fit? Organizational fit? Job fit?
 
 <a name="l4"></a>
 # 4.
