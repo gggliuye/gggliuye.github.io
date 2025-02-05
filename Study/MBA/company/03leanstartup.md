@@ -6,6 +6,22 @@ title: The Lean Startup
 [The Lean Startup](https://en.wikipedia.org/wiki/The_Lean_Startup)
 
 
+[Why the Lean Start-Up Changes Everything 2013](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). “Lean start-up” favors <u>experimentation over elaborate planning, customer feedback over intuition, and iterative design over traditional “big design up front” development</u>.
+
+* Core Concepts of Lean Start-Up:
+  * **Experimentation Over Elaborate Planning**: The lean start-up methodology favors conducting experiments over developing detailed plans.
+  * **Customer Feedback Over Intuition**: It emphasizes guiding product development with customer feedback rather than relying solely on the entrepreneur's intuition.
+  * **Iterative Design Over Traditional** 'Big Design Up Front': This approach倾向于 iterative and incremental product design and development instead of one-time comprehensive design.
+* Key Principles of Lean Start-Up:
+  * **Translate Company Ideas into Business Model Hypotheses**: Entrepreneurs summarize their hypotheses in a framework known as a business model canvas instead of writing an intricate business plan.
+  * **Test All Other Hypotheses and Validate Customer Interest**: If there's no interest, the start-up can "pivot" by changing one or more hypotheses.
+  * **Agile Development**: Works in tandem with customer development, developing products iteratively and incrementally to eliminate wasted time and resources.
+* Practices of Lean Start-Up:
+  * **Minimum Viable Product (MVP)**: Creating a product with just enough features to collect valuable customer feedback and then iterate on improvements.
+  * **Rapid Iteration**: Building products in short, repeated cycles, each time incorporating customer feedback.
+  * **Pivoting**: If customer feedback indicates that initial hypotheses are incorrect, the start-up can modify hypotheses or change direction entirely.
+
+
 通过类比：
 
 | 制造业 | 创业  |

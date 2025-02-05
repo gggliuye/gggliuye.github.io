@@ -53,7 +53,7 @@ L3：
   * ✅ 👑 [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
   * ✅ 💡 [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
   * ✅ 💡 [Creativity Toolkit II - Creative Collaboration](../innov/04toolkit2)
-  * 💡 [Entrepreneurship I - Laying the Foundation](../innov/05lay)
+  *  👑 [Entrepreneurship I - Laying the Foundation](../innov/05lay)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
 

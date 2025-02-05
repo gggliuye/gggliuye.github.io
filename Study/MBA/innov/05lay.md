@@ -9,8 +9,8 @@ title: Entrepreneurship I - Laying the Foundation
 
 How entrepreneurs can develop new venture concepts, identify attractive market opportunities, build teams, and find early adopter customers
 1. [Introduction to Entrepreneurship](#l1) : Mindset, Design thinking, Pitching ideas.
-2. [Understanding the Market](#l2)
-3. [](#l3)
+2. [Understanding the Market](#l2): Value Proposition Canvas, Market Sizing, Industry Analysis.
+3. [Building the Team](#l3)： Team, Leadership, Credibility.
 4. [](#l4)
 
 
@@ -79,8 +79,66 @@ Focus on costumers. Driven from experiences.
 <a name="l2"></a>
 # 2. Understanding the Market
 
+How entrepreneurs can achieve product-market fit by designing their product or service to address specific customer needs and requirements, and how they can best communicate their value proposition to customers, investors, and other key stakeholders.
+
+## 2.1 Value Propositions
+
+[The Learn Startup](/Study/MBA/company/03leanstartup)
+
+**Business Model Canvas**
+<div align="center">    
+<img src="https://miro.medium.com/v2/resize:fit:1024/0*Gew7xxse9uN8Zkdz.jpg" width="60%"/>
+</div>
+
+**Value Proposition Canvas** (costumers buy the solutions)
+
+<div align="center">    
+<img src="https://www.b2binternational.com/wp-content/uploads/2018/03/value-proposition-canvas.png" width="60%"/>
+</div>
+
+## 2.2 Market Sizing
+
+[TAM SAM SOM - what it means and why it matters](https://www.thebusinessplanshop.com/blog/en/entry/tam_sam_som):
+Investors often ask about market size to assess the potential for revenue and sustainability.
+Total Available Market; Serviceable Available Market; Serviceable Obtainable Market.
+
+* Target Market Selection.
+* Investor Expectations :
+  * SOM should support a viable business.
+  * Capturing more of SAM should result in attractive returns.
+  * Dominating SAM and capturing more of TAM should result in a "home run".
+* Estimation method : <u>Top-Down vs. Bottom-Up.</u>
+* Steps;
+  1. Define target customers. create a customer archetype.
+  2. Estimate the total number of target customers.
+  3. Estimate your penetration rate. (the percentage who need to buy now)
+  4. Calculate the potential market size : Volume = #Customers * penetration rate; Revenue = Volume * price.
+
+## 2.3 Industry Analysis
+<p></p>
+
+* **PEST** - external factors： [What Is a PEST Analysis?](https://www.businessnewsdaily.com/5512-pest-analysis-definition-examples-template.html) - political, economic, social and technological factors.
+* [Five Force Analysis](/Study/MBA/strategy/2strategy/#l2) - Threat of Entry, Threat of Substitutes, Bargaining Power of Buyers, Bargaining Power of Suppliers, Intensity of Rivalry.
+* **Industry Mapping** - visualize the value chain and identify where to compete effectively.
+
 <a name="l3"></a>
-# 3.
+# 3. Building the Team
+
+## 3.1 Team Building
+<p></p>
+
+* [What makes a successful startup team 2019](https://hbr.org/2019/03/what-makes-a-successful-startup-team) -  study of 95 new startup teams in the Netherlands. While experience broadens the teams’ resource pool, helps people identify opportunities, and is positively related to team effectiveness, a team also needs soft skills to truly thrive. Specifically, they found that <u>shared entrepreneurial passion and shared strategic vision</u> are required to get to superior team performance.
+* [5 steps for building a great startup team 2014](https://www.inc.com/john-rampton/5-steps-for-building-a-great-startup-team.html) : (1) Identify Positions; (2) Advisers, Contracts, Partners vs. Full Timers; (3) Identify Candidates; (4) The Hiring Process; (5) Post-Hire.
+* [Don’t start a company with your business school pals 2013](https://hbr.org/2013/11/dont-start-a-company-with-your-business-school-pals): 共享相似的盲点和弱点，在技术或市场洞察力上存在不足；价值观和财务观念的差异可能引发冲突；而且，商学院环境中形成的关系可能无法准确反映一个人在现实商业世界中的表现。
+
+## 3.2 Leadership
+<p></p>
+* [7 Ways to Lead Successful Entrepreneurial Teams 2016](https://www.entrepreneur.com/leadership/7-ways-to-lead-successful-entrepreneurial-teams/279438)
+* [6 Habits of Effective Entrepreneurial Leadership 2016](https://www.entrepreneur.com/leadership/6-habits-of-effective-entrepreneurial-leadership/274374)
+
+
+## 3.3 Building Credibility
+
 
 <a name="l4"></a>
 # 4.
