@@ -35,7 +35,8 @@ L2：
   * ✅ 💡 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
 * 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/specializations/human-resource-management)
   * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
-  * 👍 [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
+  * ✅ 👍 [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
+  * [Managing Employee Performance](../hr/03perfm)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
@@ -53,7 +54,8 @@ L3：
   * ✅ 👑 [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
   * ✅ 💡 [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
   * ✅ 💡 [Creativity Toolkit II - Creative Collaboration](../innov/04toolkit2)
-  *  👑 [Entrepreneurship I - Laying the Foundation](../innov/05lay)
+  * ✅ 👑 [Entrepreneurship I - Laying the Foundation](../innov/05lay)
+  * [Entrepreneurship II - Preparing for Launch](../innov/06launch)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
 

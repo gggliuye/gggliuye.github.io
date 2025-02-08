@@ -5,13 +5,13 @@ title: Entrepreneurship I - Laying the Foundation
 
 [MBA Home](../../0index)
 
-[Entrepreneurship I - Laying the Foundation](https://www.coursera.org/learn/entrepreneurship-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Entrepreneurship I - Laying the Foundation](https://www.coursera.org/learn/entrepreneurship-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/H8PNBNHMXEJG).
 
 How entrepreneurs can develop new venture concepts, identify attractive market opportunities, build teams, and find early adopter customers
 1. [Introduction to Entrepreneurship](#l1) : Mindset, Design thinking, Pitching ideas.
 2. [Understanding the Market](#l2): Value Proposition Canvas, Market Sizing, Industry Analysis.
 3. [Building the Team](#l3)： Team, Leadership, Credibility.
-4. [](#l4)
+4. [Finding Customers](#l4): Early Adopters, Crowdfunding.
 
 
 <a name="l1"></a>
@@ -131,14 +131,97 @@ Total Available Market; Serviceable Available Market; Serviceable Obtainable Mar
 * [5 steps for building a great startup team 2014](https://www.inc.com/john-rampton/5-steps-for-building-a-great-startup-team.html) : (1) Identify Positions; (2) Advisers, Contracts, Partners vs. Full Timers; (3) Identify Candidates; (4) The Hiring Process; (5) Post-Hire.
 * [Don’t start a company with your business school pals 2013](https://hbr.org/2013/11/dont-start-a-company-with-your-business-school-pals): 共享相似的盲点和弱点，在技术或市场洞察力上存在不足；价值观和财务观念的差异可能引发冲突；而且，商学院环境中形成的关系可能无法准确反映一个人在现实商业世界中的表现。
 
+
+**Roles** in a Startup: Successful teams typically consist of three key roles:
+* **Domain Expert**: Understands the industry and customer needs.
+* **Product Expert**: Responsible for designing and building the product.
+* **Business Expert**: Manages resources and operations.
+
+Team Dynamics: Founders should have a shared vision and trust each other. Diversity in skills and perspectives is essential for problem-solving.
+
+Key Early Hires: Sales; Product development and engineering; Customer support and engagement; Marketing; Production; Operations; Finance.
+
+Recruitment: Great talent is crucial, and personal networks are often the best source for finding team members. Candidates should thrive in a startup environment and be adaptable.
+
+Advisors: Engaging experienced advisors can provide valuable insights and connections.
+
 ## 3.2 Leadership
 <p></p>
 * [7 Ways to Lead Successful Entrepreneurial Teams 2016](https://www.entrepreneur.com/leadership/7-ways-to-lead-successful-entrepreneurial-teams/279438)
 * [6 Habits of Effective Entrepreneurial Leadership 2016](https://www.entrepreneur.com/leadership/6-habits-of-effective-entrepreneurial-leadership/274374)
 
 
+**Definition of Entrepreneurial Leadership**: Organizing a group to achieve common goals by managing risk, innovating, and adapting to change.
+- **Leadership Styles**:
+  - **Participative Leadership**: Emphasizes teamwork and consensus, allowing team members to contribute to decision-making.
+  - **Assertive Leadership**: More autocratic, where the leader communicates a vision and assigns tasks, leading to quicker decision-making but potentially less team motivation.
+- **Key Responsibilities of Leaders**:
+  - Serve as role models, projecting confidence and optimism.
+  - Prioritize creative problem-solving and action, even with limited information.
+  - Recruit and motivate a strong team, ensuring high performance.
+  - Communicate the company vision and create a sense of urgency with milestones.
+  - Manage resources effectively, including finances and human resources.
+  - Maintain personal integrity and manage stress to lead effectively.
+
 ## 3.3 Building Credibility
 
+Building credibility is essential for attracting customers and investors, especially in the competitive startup environment. (Most startup fall, how to persuade others)
+**Persuasion and Evidence**: To persuade others to follow, leaders must demonstrate their knowledge and capability.
+
+1. Highlight your team's **track record**.
+  - Relevant Experience: Sharing relevant past experiences, especially from similar startups, can enhance credibility.
+2. Show that you fully understand the opportunity (done your **homework**)
+  - **Market Research**: Conducting thorough market research shows diligence and understanding of customer needs.
+  - **Customer Discovery**: Engaging with potential customers to validate assumptions is crucial.
+  - **Comparable Companies**: to help understand and persuade that the business model could success.
+3. Make yourself a **A Trusted Authority**:
+  * An early web presence; Social Media; Blogs; White papers and PR; Search Engine.
+4. **Minimum Viable Product (MVP)**: An MVP helps demonstrate the value proposition and gather feedback.
+5. Early Adopters.
+  * Real sales is convincing.
+  * Turn early adopters into evangelists.
+5. **Partnerships**: Collaborating with credible partners can enhance trustworthiness.
+6. **Milestones**: Achieving specific milestones can validate the business model and reduce perceived risks.
 
 <a name="l4"></a>
-# 4.
+# 4. Finding Customers
+
+## 4.1 Customer Discovery
+
+The goal is to get the **Facts**.
+
+* [Customer Discovery: Tools and Resources 2020](https://www.futurefounders.com/news-article/customer-discovery-tools-and-resources/) - [What is Customer Discovery? A 4-Step Guide to Building the Right Product for the Right Customers 2017](https://www.futurefounders.com/news-article/what-is-customer-discovery-4-step-guide-to-building-the-right-product-for-the-right-customers/?gclid=CjwKCAjwoZWHBhBgEiwAiMN66dsvDaLrcwlQ6U_UByl0h-1YMqOryFOWDYItDjrjZRpHlitu7f3WbhoCqJIQAvD_BwE)
+  1. Define a Hypothesis - <u>My idea solves [insert problem] by [insert solution].</u> (Problem, Solution, Price, Go-to-Market)
+  2. Define Your <u>Assumptions</u> (create a hypothetical customer persona and think through the assumptions):
+    * The problem you addressed is actually a problem
+    * The solution you propose will actually solve the problem
+    * The market you plan to target has this problem
+    * The market you plan to target will be willing to pay for your solution
+  3. (Getting Interviews and) Ask (Good) Questions -  “get out of the building” and ask some questions - <u>letting the customer lead the conversation.</u>
+  4. Evaluate and Refine
+* Getting Interviews:
+  * Avoid people who know you.
+  * Ask for referrals.
+  * Go where the customers are.
+  * Linkedln and alumni networks.
+  * Gatekeepers / Executive Assistants.
+  * Create a landing page.
+* [Customer Discovery: What Do You Ask, with Justin Wilcox](https://www.youtube.com/watch?v=OTkP2JDeGWM) (With Emotions, More Repeats, More Whys. And <u>No Pitching</u>)
+  - Tell me a story about the last time ...
+  - What was hardest? Why was that hard?
+  - How do you solve it now?
+  - Why is that not awesome?
+
+## 4.2 Early Adopters
+
+* [The Secret to Finding (and Winning Over) Early Adopters 2015](https://www.inc.com/women-2/how-to-find-and-win-over-early-adopters.html) : (1) Social Media; (2) Put Yourself in Your Target Market’s Shoes; (3) Create an Acquisition Strategy, map out the buying process.
+* [Early Adopter](https://corporatefinanceinstitute.com/resources/valuation/early-adopter/)
+* [The pros and cons of early adopters 2024](https://www.three-brains.com/marketing/the-pros-and-cons-of-early-adopters/)
+  * Pros : Low barriers to trial; Highly engaged in the category; Word-of-mouth; Influencers.
+  * Cons : Demanding; Critical; They don’t like mainstream products.
+
+## 4.3 Crowdfunding
+
+(1) **Rewards-Based Crowdfunding**: Entrepreneurs offer rewards, typically their product, in exchange for contributions. (e.g. Kickstarter, Indiegogo, ...)
+
+(2) *Equity Crowdfunding*: Allows businesses to raise funds by selling shares to both accredited and non-accredited investors.

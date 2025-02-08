@@ -5,7 +5,7 @@ title: Recruiting, Hiring, and Onboarding Employees
 
 [MBA Home](../../0index)
 
-[Recruiting, Hiring, and Onboarding Employees](https://www.coursera.org/learn/recruiting-hiring-onboarding-employees/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Recruiting, Hiring, and Onboarding Employees](https://www.coursera.org/learn/recruiting-hiring-onboarding-employees/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/84PB9R7681NC).
 
 <u>Instructor's Tips:</u> [O*NET OnLine](https://www.onetonline.org/)
 (1) Hire carefully.
@@ -18,7 +18,7 @@ title: Recruiting, Hiring, and Onboarding Employees
 1. [Workforce Planning](#l1) : Workforce Planning; Job Analysis, Job Descriptions, Job Design.
 2. [Recruitment: Finding the Best Candidates](#l2) : the macro-level strategic considerations in recruiting.
 3. [Selection: Choosing the Best Candidates](#l3)
-4. [](#l4)
+4. [Onboarding](#l4) : Employee Engagement.
 
 <a name="l1"></a>
 # 1. Workforce Planning
@@ -120,5 +120,37 @@ In this module, the focus is on **job design**, which is the process of structur
 - **Final Selection**: Making an offer contingent on a successful background check is the last step.
   * Cultural fit? Organizational fit? Job fit?
 
+## 3.1 Legal Consideration
+
+* **Bias** : Confirmation, In-group, Contrast, Hola Effect, Horn Effect, Prejudice.
+  * Establishing clear job selection criteria.
+  * Using structured interviews and documented processes.
+  * Training interviewers on biases and evaluation methods.
+  * Considering multiple interviewers to improve objectivity.
+* **Background Checks** - protect your organization.
+  * Substance abuse; Employment history; References; Credit history (for finance-related positions); Education; Driving records; Criminal history
+* Selection Method **Standards**
+  * Multiple Hurdle Model.
+  * Compensatory Model.
+
+## 3.2 Selection Tools
+
+Best Predictors of Job Performance:
+* Work-sample tests: Assess candidates by having them perform tasks related to the job.
+* General mental-ability tests: Evaluate cognitive abilities through various types of questions.
+* Structured interviews: Standardized questions ensure reliability and validity.
+
+Effective interviewing
+* Structured Interviews : asking all candidates the same predetermined questions in the same order.
+* Listening. Preparation. Professionalism. Documentation. Consistency. Bias Awareness. Post-Interview Evaluation.
+
 <a name="l4"></a>
-# 4.
+# 4. Onboarding - Employee Engagement
+
+**Socialization Process** involves four stages:
+1. Accepting Organizational Reality: Understanding the organization's culture and strategy.
+2. Achieving Role Clarity: New hires should know their responsibilities and how to fulfill them.
+3. Locating Oneself in the Organization: Understanding their position within the team and organization.
+4. Detecting Signposts of Successful Socialization: Recognizing when they are effectively integrating and contributing to the team.
+
+**Build onboarding program**
