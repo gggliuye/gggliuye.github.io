@@ -27,6 +27,7 @@
     <div>
       <li>Create an waypoint instance in DJI Fly app. (<a href="https://www.youtube.com/watch?v=Ml7EZ4umqTQ&t=5s">totural video</a>)</li>
       <li>Replace the kmz in "Android/data/dji.go.v5/files/waypoint".</li>
+      <li>此电脑\DJI RC 2\内部共享存储空间\Android\data\dji.go.v5\files\waypoint</li>
     </div>
     <p></p>
 
@@ -35,7 +36,7 @@
         <label for="xmlFileInput">Load waypoints from kmz file:</label>
         <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()">
         <label for="saveFileName">Save file name:</label>
-        <input type="text" id="saveFileName" value="D14FE22D-2F56-4699-B25F-E1A481909F30" style="width: 300px;">
+        <input type="text" id="saveFileName" value="309A9356-4FA9-4E9E-9D9A-8AD4A54725DA" style="width: 300px;">
     </div>
 
     <h2>Create WayPoints : </h2>
@@ -46,6 +47,8 @@
         <input type="number" id="height" value="15" min="1" style="width: 50px;">
         <label for="speed">Speed (km/h):</label>
         <input type="number" id="speed" value="12.96" min="1" style="width: 50px;">
+        <label for="speed">Shot:</label>
+        <input type="checkbox" id="shotphoto" checked>
     </div>
 
     <input type="radio" id="surface" name="scan_type" value="Surface">
@@ -56,6 +59,8 @@
         <option value="oblique">倾斜(oblique)</option>
         <option value="pano">全景(pano)</option>
       </select>
+      <label for="rot_offset">Offset (deg):</label>
+      <input type="number" id="rot_offset" value="0" min="-90" max="90" style="width: 50px;">
     </label><br>
     <input type="radio" id="spiral" name="scan_type" value="Spiral" checked>
     <label for="surface">
@@ -72,6 +77,7 @@
       <button onclick="reverseTrajectory()">Reverse Trajectory</button>
       <button onclick="clearMap()">Clear Map</button>
       <button onclick="downloadFile()">Download</button>
+      <button id="locateButton">返回当前位置</button>
     </div>
     <div id="output"></div>
     <p></p>
@@ -108,11 +114,11 @@
             attribution: '© Esri & the GIS User Community',
           }
         );
-        osmLayer.addTo(map);
+        satelliteLayer.addTo(map);
         // Layer control to toggle between OSM and Satellite
         const baseMaps = {
-          'OpenStreetMap': osmLayer,
           'Satellite': satelliteLayer,
+          'OpenStreetMap': osmLayer,
         };
         L.control.layers(baseMaps).addTo(map);
 
@@ -135,6 +141,29 @@
             }
         });
         map.addControl(drawControl);
+
+        // 获取按钮元素
+        const locateButton = document.getElementById('locateButton');
+
+        // 为按钮添加点击事件
+        locateButton.addEventListener('click', () => {
+          // 使用Leaflet的locate方法获取设备位置
+          map.locate({
+            setView: true, // 自动将地图中心移动到设备位置
+            maxZoom: 16,  // 设置最大缩放级别
+            enableHighAccuracy: true, // 启用高精度定位
+            timeout: 10000 // 设置定位超时时间（毫秒）
+          }).on('locationfound', (e) => {
+            // 定位成功后的回调函数
+            console.log('定位成功', e);
+            // 可以在这里添加标记或其他操作
+            L.marker(e.latlng).addTo(map).bindPopup('这里是你的位置！').openPopup();
+          }).on('locationerror', (err) => {
+            // 定位失败后的回调函数
+            console.error('定位失败', err);
+            alert('无法获取您的位置，请检查设备的定位权限或网络连接。');
+          });
+        });
 
         let trajectoryLayer = null;
         let drawlayerElements = []; // Array to store markers
@@ -220,6 +249,9 @@
             }).addTo(trajectoryLayer);
           };
 
+          const rot_offset = parseFloat(document.getElementById('rot_offset').value);
+
+
           // Highlight sampled points
           trajectory.forEach((point, index) => {
               L.circleMarker(point, {
@@ -235,8 +267,8 @@
                 add_heading(point, heading);
               } else {
                 headings.forEach((heading) => {
-                  add_heading(point, heading);
-                  add_heading(point, heading + 180);
+                  add_heading(point, heading + rot_offset);
+                  add_heading(point, heading + rot_offset + 180);
                 });
               }
           });
@@ -413,14 +445,28 @@
         }
 
         function getActionGroupPhoto(marker_id, action_group_id, is_starting) {
-          actionId = actionId + 1;
-          photoCnt = photoCnt + 1;
+          if (!is_starting && !document.getElementById('shotphoto').checked) {
+            return "";
+          }
 
+          let photoAcion = "";
+          if (document.getElementById('shotphoto').checked) {
+            actionId = actionId + 1;
+            photoCnt = photoCnt + 1;
+            photoAcion = `
+            <wpml:action>
+              <wpml:actionId>${actionId}</wpml:actionId>
+              <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>
+              <wpml:actionActuatorFuncParam>
+                <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+                <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
+              </wpml:actionActuatorFuncParam>
+            </wpml:action>`;
+          }
           let gimbalAction = "";
           if (is_starting) {
             gimbalAction = getGimbalRotateAction();
           }
-
           return `
         <wpml:actionGroup>
           <wpml:actionGroupId>${action_group_id}</wpml:actionGroupId>
@@ -430,14 +476,7 @@
           <wpml:actionTrigger>
             <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
           </wpml:actionTrigger>
-          <wpml:action>
-            <wpml:actionId>${actionId}</wpml:actionId>
-            <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>
-            <wpml:actionActuatorFuncParam>
-              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
-              <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
-            </wpml:actionActuatorFuncParam>
-          </wpml:action>
+${photoAcion}
 ${gimbalAction}
         </wpml:actionGroup>`;
         }
@@ -447,6 +486,7 @@ ${gimbalAction}
           if (is_ending) {
             return "";
           }
+
           actionId = actionId + 1;
           return `
         <wpml:actionGroup>
@@ -471,11 +511,14 @@ ${gimbalAction}
 
         function getPlaceMarker(marker_id, lat, lng, pitch, heading, height, speed, is_starting, is_ending) {
           let waypointturn = "toPointAndPassWithContinuityCurvature";
+          let headingEnabled = 0;
           if (is_ending || is_starting) {
+            headingEnabled = 1;
             waypointturn = "toPointAndStopWithContinuityCurvature";
           }
           let headingmode = "smoothTransition";
 
+          let actionGroupId = { value: 1 }; // Initial value wrapped in an object
           return `
       <Placemark>
         <Point>
@@ -490,7 +533,7 @@ ${gimbalAction}
           <wpml:waypointHeadingMode>${headingmode}</wpml:waypointHeadingMode>
           <wpml:waypointHeadingAngle>${heading}</wpml:waypointHeadingAngle>
           <wpml:waypointPoiPoint>0.000000,0.000000,0.000000</wpml:waypointPoiPoint>
-          <wpml:waypointHeadingAngleEnable>0</wpml:waypointHeadingAngleEnable>
+          <wpml:waypointHeadingAngleEnable>${headingEnabled}</wpml:waypointHeadingAngleEnable>
           <wpml:waypointHeadingPathMode>followBadArc</wpml:waypointHeadingPathMode>
           <wpml:waypointHeadingPoiIndex>0</wpml:waypointHeadingPoiIndex>
         </wpml:waypointHeadingParam>
@@ -532,6 +575,7 @@ ${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
 
           const height = parseFloat(document.getElementById('height').value);
           const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+          const rot_offset = parseFloat(document.getElementById('rot_offset').value);
 
           // use mode to assign pitches and headings
           let [pitches, headings] = getPitchHeadings();
@@ -542,7 +586,10 @@ ${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
               trajectoryRepeatCnt = trajectoryRepeatCnt + 2;
               // we will go from the first point:
               // (1) first loop (forward) with heading & pitch
-              let heading = headings[j];
+              let heading = headings[j] + rot_offset;
+              if (heading > 180) {
+                heading = heading - 360;
+              }
               let pitch = pitches[i];
               for (let n = 0; n < currentTrajectory.length; n++) {
                 let is_start = (i == 0) && (j == 0) && (n == 0);
@@ -603,6 +650,9 @@ ${placemarkerContents}
 
             let point = currentTrajectory[n];
             let heading = currentTrajectoryHeading[n];
+            if (heading > 180) {
+              heading = heading - 360;
+            }
             markerId = markerId + 1;
             placemarkerContents += getPlaceMarker(markerId, point[0], point[1], spiral_pitch, heading, height, speed, is_start, is_ending);
           }

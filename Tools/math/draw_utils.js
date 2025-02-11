@@ -208,7 +208,7 @@ function createSpiralTrajectory(center, radius, min_radius, resolution) {
     const dLat = centerLat - lat;
     const dLon = centerLon - lon;
     const heading = (Math.atan2(dLon, dLat) * 180) / Math.PI; // Convert radians to degrees
-    const normalizedHeading = (heading + 360) % 360; // Normalize to [0, 360]
+    const normalizedHeading = (Math.floor(heading) + 360) % 360; // Normalize to [0, 360]
 
     // Add the current point to the trajectory
     trajectory.push([lat, lon, normalizedHeading]);

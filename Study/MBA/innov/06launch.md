@@ -19,9 +19,27 @@ title: Entrepreneurship II - Preparing for Launch
 <u>The difference between a startup concept and a startup business is paying customers.</u>
 
 ## 1.1 Go-To-Market Strategy
+<p></p>
 
 * [Leslie’s Compass: A Framework For Go-To-Market Strategy](https://review.firstround.com/leslies-compass-a-framework-for-go-to-market-strategy/) marketing and sales are counterbalances: <u>If you’re marketing-intensive, the product is bought. If it’s sales-intensive, the product is sold.</u>
   * Use 7 factors : <u>Price, Market Size, Complexity, Fit, Customer, Relationship, Touch, </u> to determine <u>whether you have a sales-intensive or marketing-intensive product</u>.
+
+ Go-to-market strategy describes how you'll use direct or indirect <u>marketing, sales, and distribution channels</u> to deliver your solution to your target customers. The ultimate goal is to **generate sales** as efficiently, effectively, and profitably as possible.
+Elements of go-to-market strategy:
+
+* Target Customers : B2B vs. b2c; Buyers vs. end user; Job title or position; Influencers.
+* Building Awareness : website (or landing page); Personal networks; Referrals.
+* <u>Outbound Marketing</u> (boardcasting message to potential customers) : advertising; public relations; direct mail, email, phone calls; in-person sales calls.
+* <u>Inbound Marketing</u> (passive, help customers who are actively seeking a solution to find you) (less expensive, and more effective): word of month; SEO; Content creation; Social media; Events.
+  * Credibility & become an trusty Authority.
+* Online / Physical <u>Sales Channels</u>.
+  * Selection : depends on the <u>customer relationship</u> desired; customers expectation; channel capabilities.
+* <u>Metrics</u>:
+  * Revenue per dollar of sales expense.
+  * Closing/conversion rate.
+  * Length of sales cycle.
+  * Customer Acquisition Cost (CAC).
+  * Vanity metrics.
 
 ## 1.2 Revenue Models
 <p></p>
@@ -50,8 +68,14 @@ title: Entrepreneurship II - Preparing for Launch
   * Pros : (1) Stable Growth; (2) Predictable Metrics; (3) Evaluation of Customer Satisfaction.
   * Challenges : (2) Customer management; (2) Invoicing; (3) Accounting and Taxes.
 
+Choose : Foucs on <u>value proposition & customer relationship & customers expectation to pay</u>. Ask customers!
+
+Metrics : sales conversion rate; Churn rate (repeat buyer); Viral coefficient (new customers brought in by exist customer).
+
 ## 1.3 Pricing
-<p></p>
+
+Four ways to grow profits : (1) More customers; (2) Higher prices; (3) Lower variable costs; (4) Lower fixed costs.
+
 * [The lean startup circle wiki: Examples of pricing pages](http://leanstartup.pbworks.com/w/page/15765232/Pricing%20pages)
 * [Pricing Strategy Guide: Unlock Growth with These 3 Strategies 2022](https://www.paddle.com/blog/pricing-strategy)
 
