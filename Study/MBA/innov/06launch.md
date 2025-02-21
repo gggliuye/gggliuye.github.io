@@ -81,9 +81,10 @@ Four ways to grow profits : (1) More customers; (2) Higher prices; (3) Lower var
 
 | **Pricing Method**         | **Definition**                                                                                      | **Advantages**                                                                                     | **Disadvantages**                                                                                       |
 |-----------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Cost-plus Pricing**       | Prices are set by adding a markup to the cost of production.                                      | Simple to implement, requires few resources, covers all product costs.                           | Inefficient, creates isolationism, ignores customer perspective.                                    |
-| **Competitor-based Pricing**| Prices are set based on competitors' pricing, with minor adjustments.                             | Simple, low risk, accounts for market share, can be fairly accurate.                              | Leads to missed opportunities, doesn't assess true value, encourages price competition.            |
+| **Cost-plus Pricing**       | Prices are set by adding a markup to the cost of production. <br> Price = VC/Unit + Profit/Unit          | Simple to implement, requires few resources, covers all product costs.                           | Inefficient, creates isolationism, ignores customer perspective.  Changes over time.                  |
+| **Competitor-based Pricing**| Prices are set based on competitors' pricing, with minor adjustments.      | Simple, low risk, accounts for market share, can be fairly accurate.                              | Leads to missed opportunities, doesn't assess true value, encourages price competition.            |
 | **Value-based Pricing**     | Prices are set based on the perceived value to the customer, using customer data.                 | Provides real data, improves product quality, enhances customer loyalty.                          | Requires time and resources, needs consistent dedication, varies by customer personas and regions. |
+
 
 <a name="l2"></a>
 # 2. Financial Forecasting
