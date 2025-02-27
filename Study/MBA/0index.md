@@ -49,13 +49,14 @@ L2：
 L3：
 * 全球化与跨文化管理：理解全球化背景下的管理挑战，学习跨文化沟通与管理技巧。
   * 《跨文化管理》 (Cross-Cultural Management)
-* 企业创新与创业: [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies](https://giesonline.illinois.edu/)
+* 企业创新与创业: [Innovation: From Creativity to Entrepreneurship Specialization](https://www.coursera.org/specializations/innovation-creativity-entrepreneurship) from [Gies](https://giesonline.illinois.edu/). 🏅 [Certification link](https://www.coursera.org/account/accomplishments/specialization/J7QP60ULKJC3).
   * ✅ 👑 [Strategic Innovation - Building and Sustaining Innovative Organizations](../innov/01strinov)
   * ✅ 👑 [Strategic Innovation - Managing Innovation Initiatives](../innov/02manage)
   * ✅ 💡 [Creativity Toolkit I - Changing Perspectives](../innov/03toolkit1)
   * ✅ 💡 [Creativity Toolkit II - Creative Collaboration](../innov/04toolkit2)
   * ✅ 👑 [Entrepreneurship I - Laying the Foundation](../innov/05lay)
-  * [Entrepreneurship II - Preparing for Launch](../innov/06launch)
+  * ✅ 💡 [Entrepreneurship II - Preparing for Launch](../innov/06launch)
+  * ✅ 💡 [Innovation - From Creativity to Entrepreneurship Capstone](../innov/07capstone)
 * 供应链与运营管理：深入理解供应链管理、全球物流及先进的运营策略。
   * 《供应链管理》 (Supply Chain Management)
 
