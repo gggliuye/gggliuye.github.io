@@ -8,7 +8,7 @@ title: Managing Employee Performance
 [Managing Employee Performance](https://www.coursera.org/learn/employee-performance/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
 
 1. [Introduction](#l1)
-2. [](#l2)
+2. [Implementing Performance Management System](#l2)
 3. [](#l3)
 4. [](#l4)
 
@@ -41,7 +41,49 @@ title: Managing Employee Performance
 **Strategic Process**: <u>Mission, Vision, SWOT, Goals, Strategies, Implementation, Communicate.</u>
 
 <a name="l2"></a>
-# 2.
+# 2. Implementing Performance Management System
+
+## 2.1 Define Performance
+
+Performance is defined as the **behaviors** of employees rather than just the results.
+* Good behaviors and poor result, is possible.
+* Poor behaviors and positive result. should not be encouraged.
+
+In the current lecture on performance management, the focus is on understanding the **performance equation**, which consists of three key components:
+
+1. **Declarative Knowledge (What)**: This refers to the facts, principles, and goals necessary for a job. It's essential to know your job description and task requirements to succeed.
+2. **Procedural Knowledge (How)**: This involves the skills needed to perform effectively, including cognitive abilities, physical skills, perception, motor skills, and interpersonal skills.
+3. **Motivation (Why)**: Understanding the reasons behind tasks enhances motivation. When employees see how their work aligns with organizational goals, their commitment and effort increase.
+
+The lecture emphasizes that all three components must be present for optimal performance. Additionally, **organizational support** and effective HR practices are crucial for enhancing performance. The concept of **conscious practice** and the importance of **feedback** are also highlighted, along with the idea that becoming an expert requires significant practice, often cited as the **10,000-hour rule**.
+
+## 2.2 Measuring Performance and Developing Objectives
+
+Three approaches to assessing employee performance:
+
+1. **Trait Approach**:
+   - Evaluates individual traits that contribute to performance, such as energy, creativity, and patience.
+   - Effective for hiring but not recommended for promotions or terminations.
+2. **Behavior Approach**:
+   - Looks at how employees perform their tasks, including punctuality, teamwork, and communication.
+   - Useful in long-term roles like R&D, where results may take time to manifest.
+3. **Results Approach**:
+   - Focuses on the outcomes produced by employees, such as profits or customer satisfaction.
+   - Effective when employees have the necessary skills and when there's a clear link between behaviors and results.
+
+The lecture emphasizes the importance of aligning individual objectives with departmental and organizational goals, ensuring clarity, measurability, and flexibility in setting these objectives. It also highlights the need for clear communication and mutual agreement on objectives to enhance employee motivation and performance.
+
+- **Goals**:
+  - Tend to be **longer-term** and more **broad**.
+  - Focus on the **big picture** and overall direction (e.g., "I want to be a successful HR manager").
+  - Often not measurable or tangible.
+- **Objectives**:
+  - Are **shorter-term** and **specific**.
+  - Must be **measurable** and **tangible** (e.g., "I will complete the HR People Management Certification Program by September 2016").
+  - Help in holding individuals accountable for their performance.
+
+## 2.3 Measuring Results and Behaviors
+
 
 <a name="l3"></a>
 # 3.
