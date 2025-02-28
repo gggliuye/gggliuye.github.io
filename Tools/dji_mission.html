@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polygon Selector with Trajectory</title>
+    <title>DJI WayPoints Creator (Enterprise Series)</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <!-- Leaflet Draw CSS -->
@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <h1>Polygon Selector with Trajectory</h1>
+    <h1>DJI WayPoints Creator (Enterprise Series)</h1>
     <div id="controls">
         <!-- <button onclick="extractCoordinates()">Read Coordinates</button> -->
         <input type="file" id="xmlFileInput" accept=".xml,.kml" onchange="extractCoordinates()"><br>
@@ -41,6 +41,7 @@
         <select id="route_mode">
           <option value="oblique">倾斜(oblique)</option>
           <option value="pano">全景(pano)</option>
+          <option value="flat">水平(flat)</option>
         </select>
         <button onclick="clearMap()">Clear Map</button>
         <button onclick="downloadFile()">Download File</button>
@@ -54,6 +55,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="math/convex_hull.js"></script>
+    <script src="math/draw_utils.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script>
@@ -94,67 +96,6 @@
         let drawlayerElements = []; // Array to store markers
         let currentTrajectory = [];
 
-        // Convert resolution in meters to degrees
-        function metersToDegrees(meters) {
-            return meters / 111320; // Approximation for 1 degree = ~111.32 km
-        }
-
-        function isPointInsidePolygen(point, hull) {
-            let count = 0;
-            const [px, py] = point;
-            for (let i = 0, j = hull.length - 1; i < hull.length; j = i++) {
-                const [x1, y1] = hull[j];
-                const [x2, y2] = hull[i];
-
-                if ((y1 <= py && y2 > py || y2 <= py && y1 > py) &&
-                    (x1 < (px - x2) * (y1 - y2) / (py - y2) + x2)) {
-                    count++;
-                }
-            }
-            return count % 2 !== 0; // If count is odd, the point is inside the hull
-        }
-
-        // Generate trajectory with 90-degree turns (scanning the area)
-        function createTrajectory(polygonCoords, resolutionMeters) {
-            const resolutionDegrees = metersToDegrees(resolutionMeters);
-
-            points_original = [];
-            for (let i = 0; i < polygonCoords.length; i++) {
-              points_original.push([polygonCoords[i].lat, polygonCoords[i].lng])
-            }
-            const points_convex_hull = convexhull.makeHull(points_original);
-
-            const bounds = L.polygon(polygonCoords).getBounds();
-            const latStart = bounds.getNorthWest().lat;
-            const latEnd = bounds.getSouthEast().lat - resolutionDegrees;
-            const lngStart = bounds.getNorthWest().lng;
-            const lngEnd = bounds.getSouthEast().lng + resolutionDegrees;
-
-            const trajectory = [];
-            let isLeftToRight = true; // Track the direction for horizontal movement
-
-            // Create trajectory by scanning the area row by row
-            for (let currentLat = latStart; currentLat > latEnd; currentLat -= resolutionDegrees) {
-                if (isLeftToRight) {
-                  for (let currentLng = lngStart; currentLng < lngEnd; currentLng += resolutionDegrees) {
-                    let point = [currentLat, currentLng];
-                    if (isPointInsidePolygen(point, points_convex_hull)) {
-                      trajectory.push(point);
-                    }
-                  }
-                } else {
-                  for (let currentLng = lngEnd; currentLng > lngStart; currentLng -= resolutionDegrees) {
-                    let point = [currentLat, currentLng];
-                    if (isPointInsidePolygen(point, points_convex_hull)) {
-                      trajectory.push(point);
-                    }
-                  }
-                }
-                isLeftToRight = !isLeftToRight; // Switch direction for the next row
-            }
-            return trajectory;
-        }
-
         // Handle polygon creation
         map.on(L.Draw.Event.CREATED, function (e) {
             if (trajectoryLayer) {
@@ -169,13 +110,10 @@
 
             let trajectory = [];
             if (layerType == "polyline") {
-              for (let i = 0; i < layer.getLatLngs().length; i++) {
-                let point = layer.getLatLngs()[i];
-                trajectory.push([point.lat, point.lng]);
-              }
+              trajectory = createTrajectoryFromPolyline(layer.getLatLngs(), resolution);
             } else {
               const polygonCoords = layer.getLatLngs()[0];
-              trajectory = createTrajectory(polygonCoords, resolution);
+              trajectory = createTrajectoryFromPolygon(polygonCoords, resolution);
             }
             // Draw trajectory
             trajectoryLayer = L.featureGroup();
@@ -352,6 +290,9 @@
             } else if (scan_type == "pano") {
               // 全景模式
               action_group_text = getPhotoActionGroup(id, [0, -25, -55], [0, 60, 120, 180, -120, -60]);
+            } else if (scan_type == "flat") {
+              // 水平模式
+              action_group_text = getPhotoActionGroup(id, [-15], [0, 60, 120, 180, -120, -60]);
             }
             return `
       <Placemark>

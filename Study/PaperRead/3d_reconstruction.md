@@ -7,8 +7,9 @@ title: 3D Reconstruction
 * [Summary](#lsum)
 * [Deep Learning](#ldl)
     1. [Neural Rendering](#lneural_r)
-    2. [SDF](#ldl_sdf)
-    3. [Multi-View Geometry](#ldl_mvs)
+    2. [Gaussian Splatting](#lgs)
+    3. [SDF](#ldl_sdf)
+    4. [Multi-View Geometry](#ldl_mvs)
 * [2022](#l2022)
 * [2021](#l2021)
 * [2020](#l2020)
@@ -94,6 +95,30 @@ More Work are done with Deep Learning.
   * [shader code](https://github.com/google-research/jax3d/blob/main/jax3d/projects/mobilenerf/view_unbounded.html).
   * The current **training is slow** due to NeRF’s MLP backbone.
 
+**A generalization of the problem**:
+
+<a name="linstant_gtc"></a>
+<img src="/assets/img/paperread/chrown.png" height="25"/> [Instant Neural Graphics Primitives 2022](https://github.com/nvlabs/instant-ngp) - An object represented by queries to a nerual network. [git page](https://nvlabs.github.io/instant-ngp/). Train & render NeRF in realtime, and enable various of GUI to interact & visualize & edit.
+
+<div align="center">    
+<img src="/assets/img/paperread/instant_gtc.png" width="55%"/>
+</div>
+
+* Examples :
+  * GigaPixel Image : 2d position X (in image) -> RGB color.
+  * SDF : 3d position X -> distance to surface.
+  * Nerf : 3d position X + view direction d -> RGB color & density.
+  * Radiance Caching : 3d position X + Extra parameters -> RGB color global illumination.
+* Acceleration Design :
+  * Nerf render process: cut empty space, and cut ray after object.
+  * Smaller MLP: memery traffic dominate -> [Fully Fused Neural Network](https://research.nvidia.com/publication/2021-06_real-time-neural-radiance-caching-path-tracing) : entire neural network implemented as single CUDA kernel.
+  * Input encoding (see [understanding of input encoding](/Study/PaperRead/tum_ai/#lnerf_understanding)): Multireslution hash encoding - pyramid structure for deep features (<u>use hash to avoid dimensionality exponentially as in the hyper-cubical voxel case</u>).
+* [here for my test results](https://github.com/yeliu-deepmirror/instant-ngp/blob/master/docs/nerf_dataset_tips.md#DM), run with a outdoor general data session.
+
+
+<a name="lgs"></a>
+## 2. Neural Rendering
+
 **Pointcloud representation:**
 * <img src="/assets/img/paperread/chrown.png" height="25"/> [3D Gaussian Splatting for Real-Time Radiance Field Rendering 2023](https://github.com/graphdeco-inria/gaussian-splatting), uses 3d Gaussian (~**pointcloud**) as representation. <a name="lgs"></a>
   * Initialize with SFM sparse pcl.
@@ -138,30 +163,10 @@ More Work are done with Deep Learning.
 <img src="https://cg.cs.tsinghua.edu.cn/jittor/images/download/sanweigaosipojian-2.jpg" width="85%"/>
 </div>
 
-* <img src="/assets/img/paperread/chrown0.png" height="25"> [2D Gaussian Splatting for Geometrically Accurate Radiance Fields](https://github.com/hbb1/2d-gaussian-splatting). use 2d surflet rather than points. achieve better results, but doesn't have mature environments (UNITY, UE, WEBGL, etc).
-
-**A generalization of the problem**:
-
-<a name="linstant_gtc"></a>
-<img src="/assets/img/paperread/chrown.png" height="25"/> [Instant Neural Graphics Primitives 2022](https://github.com/nvlabs/instant-ngp) - An object represented by queries to a nerual network. [git page](https://nvlabs.github.io/instant-ngp/). Train & render NeRF in realtime, and enable various of GUI to interact & visualize & edit.
-
-<div align="center">    
-<img src="/assets/img/paperread/instant_gtc.png" width="55%"/>
-</div>
-
-* Examples :
-  * GigaPixel Image : 2d position X (in image) -> RGB color.
-  * SDF : 3d position X -> distance to surface.
-  * Nerf : 3d position X + view direction d -> RGB color & density.
-  * Radiance Caching : 3d position X + Extra parameters -> RGB color global illumination.
-* Acceleration Design :
-  * Nerf render process: cut empty space, and cut ray after object.
-  * Smaller MLP: memery traffic dominate -> [Fully Fused Neural Network](https://research.nvidia.com/publication/2021-06_real-time-neural-radiance-caching-path-tracing) : entire neural network implemented as single CUDA kernel.
-  * Input encoding (see [understanding of input encoding](/Study/PaperRead/tum_ai/#lnerf_understanding)): Multireslution hash encoding - pyramid structure for deep features (<u>use hash to avoid dimensionality exponentially as in the hyper-cubical voxel case</u>).
-* [here for my test results](https://github.com/yeliu-deepmirror/instant-ngp/blob/master/docs/nerf_dataset_tips.md#DM), run with a outdoor general data session.
+* <img src="/assets/img/paperread/chrown0.png" height="25"> [2D Gaussian Splatting for Geometrically Accurate Radiance Fields](https://github.com/hbb1/2d-gaussian-splatting). use 2d surflet rather than points. achieve better results, but doesn't have mature ecosystem (UNITY, UE, WEBGL, etc).
 
 <a name="ldl_sdf"></a>
-## 2. SDF
+## 3. SDF
 
 <img src="/assets/img/paperread/thumbs.png" height="25"/> [PermutoSDF: Fast Multi-View Reconstruction with Implicit Surfaces using Permutohedral Lattices 2023](https://arxiv.org/pdf/2211.12562.pdf), [github page](https://radualexandru.github.io/permuto_sdf/), [github](https://github.com/RaduAlexandru/permuto_sdf). (1) use a hashed [permutohedral encoding](https://github.com/RaduAlexandru/permutohedral_encoding)(following [Instant NGP](#linstant_gtc)) to ensure fast training; (2) a novel RGB regularizer to encourage the network to predict high-frequency geometric detail.
 
@@ -210,7 +215,7 @@ $$
 <img src="/assets/img/paperread/chrown0.png" height="25"/> [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_DeepSDF_Learning_Continuous_Signed_Distance_Functions_for_Shape_Representation_CVPR_2019_paper.html) DeepSDF network outputs SDF value at a 3D query location. Shape completion (auto-decoding) takes considerably more time during inference. [github](https://github.com/facebookresearch/DeepSDF).
 
 <a name="ldl_mvs"></a>
-## 3. Multi-View Geometry
+## 4. Multi-View Geometry
 
 ### Multi-View Stereo
 

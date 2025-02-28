@@ -1,11 +1,11 @@
 ---
-layout: page_tree_paper
+layout: page_coursera
 title: Company
 ---
 
 Pages:
 
-{% assign folder1 = site.pages | where_exp: "item" , "item.path contains 'Study/PaperRead/company'"%}
+{% assign folder1 = site.pages | where_exp: "item" , "item.path contains 'Study/MBA/company'"%}
 {% for item in folder1 %}
 * [{{item.title}}]({{item.url}})
 {% endfor %}

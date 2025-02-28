@@ -3,7 +3,7 @@ layout: page_coursera
 title: Preparing to Manage Human Resources
 ---
 
-[Human Resources Home](../00index)
+[MBA Home](../../0index)
 
 [Preparing to Manage Human Resources](https://www.coursera.org/learn/managing-human-resources/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/9BVVX2CTUSPT).
 
@@ -13,6 +13,25 @@ Managerial toolkit:
 * Financial incentives.
 * Intrinsic motivation.
 * Normative measures.
+
+
+**The People Manager Value Proposition:**
+
+<div align="center"><pre class="mermaid">
+graph LR
+A[Organizational Objectives, Needs, and Values] --> A1["What do we need our people to accomplish?"]
+A1 --> B[HR Strategy<br>Achieving goals through employee performance]
+subgraph T["--"]
+E[Who and how to attract and retain?]
+C[How to manage performance?]
+D[How to motivate and reward?]
+E --> C
+C --> D
+end
+B --> T
+</pre></div>
+
+
 
 # 1. Different Approaches to Managing People
 

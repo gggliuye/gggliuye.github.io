@@ -1,5 +1,5 @@
 ---
-layout: page_tree_paper
+layout: page_coursera
 title: Remote Work
 ---
 
