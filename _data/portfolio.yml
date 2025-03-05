@@ -1,7 +1,3 @@
-- title: Philosophy
-  description: My Philosophy learning & reading note.
-  img: philo.jpg
-  url: ./Philosophy/index
 - title: MR Travel Mode - 2024
   description: Travel Mode using Visual Odometry
   img: vo.gif

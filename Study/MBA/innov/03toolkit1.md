@@ -5,12 +5,12 @@ title: Creativity Toolkit I - Changing Perspectives
 
 [MBA Home](../../0index)
 
-[Creativity Toolkit I: Changing Perspectives](https://www.coursera.org/learn/creativity-toolkit-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Creativity Toolkit I: Changing Perspectives](https://www.coursera.org/learn/creativity-toolkit-1/home/week/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/NUI04D89ZRZK).
 
 1. [Being Creative](#l1) - Changing Perspectives & Cueing Creativity.
-2. [Raw Materials and End Products](#l2) - Five Roles of concepts : **Parts, Actions, Goals, Event, Self-Concept**.
-3. [](#l3)
-4. [](#l4)
+2. [Raw Materials and End Products](#l2) - **PAGES** Five Roles of concepts : **Parts, Actions, Goals, Event, Self-Concept**.
+3. [The Creative Journey](#l3) - a long journey with many bumps in the road.
+4. [Supporting Creativity](#l4)
 
 
 <a name="l1"></a>
@@ -72,8 +72,54 @@ Example : [Nine dots puzzle](https://en.wikipedia.org/wiki/Nine_dots_puzzle).
 Insights can lead to inventions, and both can contribute to enlightenments, enhancing our overall understanding and ability to innovate.
 
 <a name="l3"></a>
-# 3.
+# 3. The Creative Journey
+
+Persist despite rejection. Rejection can motivate and lead to unique paths in creativity.
+
+**Flexibility** (Tools to change perspective):  
+1. <u>Analogy and Metaphor</u>.
+  * Recognition of *pattern* - underlying consistency.
+  * Different pattern perspective, lead to different method.
+  * Think abstractly about your stories.
+  * Talk with different people, with different communication.
+2. <u>Re-categorization</u>. Changing how we think about objects or ideas by switching categories.
+  * Zooming In and Out. (Focus or broader)
+  * Considering the Opposite
+  * Switching PAGES.
+3. <u>Combination</u>. combinations of existing ideas can lead to new inventions.
+  * Scenario-based. (e.g., truck soap for washing trucks)
+  * Property mapping. (e.g., soap shaped like a truck)
+  * Complex blends. (e.g., hybrid machines like car part incubators)
+4. <u>Association</u>. random association in life.
+
+<details>
+  <summary>Test for Car</summary>
+
+<li>Analogy：火车、飞机、公交。蚂蚁的队伍。</li>
+<li>Re-categorization: (1) 交通工具。油车/电车。玩具车。(2) 自行车、电驴、摩托车。(3) PAGES：  Parts: 道路、显示屏、方向盘；Action：驾驶、Goal: 回家、出游； Event：行驶、事故、等待, Self-concept：驾驶员、乘客。</li>
+<li>Combination: Car + AR/VR; Car + AI; Car + NERF</li>
+<li>Association: Car + Minecraft, Car + Fishing, Car + Bird watching</li>
+
+</details>
+
+why do people choose to push forward? Joy in Creativity, Intrinsic Motivation, Supporting Creativity.
 
 
 <a name="l4"></a>
-# 4.
+# 4. Supporting Creativity
+
+Core tasks around providing feedback, setting rewards, and managing resources and setting constraints can encourage rather than discourage creativity
+
+## 4.1 Organizational Culture to Support Creativity
+
+**Growth mindset** encourages individuals to believe they can enhance their creativity. **Loose cultures** encourage exploration and autonomy, which can foster creativity.
+
+## 4.2 Cultivating Creativity via Feedback, Rewards, External Factors
+
+Rewards and reward systems and their impact on creativity.
+
+Types of Constraints: These can be time-related (deadlines) or resource-related (limited materials). Constraints encourage individuals to move away from familiar solutions and seek innovative approaches.
+
+## 4.3 Spaces Encouraging Creativity
+
+Color, lighting, and physical space in work environments can significantly impact creativity and openness to new ideas.

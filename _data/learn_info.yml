@@ -4,8 +4,8 @@
 - icon: fas fa-newspaper
   content: "[Math](Math/): [Convex Optimization](Math/ConvexOptimization), [Graph Machine Learning](https://gnn-learning.readthedocs.io/en/latest/)"
 - icon: fas fa-book
-  content: "**Philosophy** [Nature Philosophy](Philosophy/index), [Biology](Biology/index)"
+  content: "**Philosophy** [Nature Philosophy](Philosophy/index), [Biology](Biology/index), [Art](/Study/Art/index)"
 - icon: fas fa-handshake
-  content: "[Business](Study/MBA/0index), [Finance](Study/Finance/index), [Readings](/Study/PaperRead/company/00index), [Coursera](Study/certs/coursera)"
+  content: "[Business](Study/MBA/0index), [Physics](Study/Physics/index), [Coursera](Study/certs/coursera)"
 #- icon: fas fa-trophy
 #  content: My certifications [Coursera](Study/coursera), [Deep Blue](Study/deepblue).
