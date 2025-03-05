@@ -165,6 +165,11 @@ More Work are done with Deep Learning.
 
 * <img src="/assets/img/paperread/chrown0.png" height="25"> [2D Gaussian Splatting for Geometrically Accurate Radiance Fields](https://github.com/hbb1/2d-gaussian-splatting). use 2d surflet rather than points. achieve better results, but doesn't have mature ecosystem (UNITY, UE, WEBGL, etc).
 
+<img src="/assets/img/paperread/chrown.png" height="25"> [City-Super](https://github.com/city-super) work path:
+* [Scaffold-GS: Structured 3D Gaussians for View-Adaptive Rendering 2024](https://city-super.github.io/scaffold-gs/) using anchor point.
+* [Octree-GS: Towards Consistent Real-time Rendering with LOD-Structured 3D Gaussians 2024](https://github.com/city-super/Octree-AnyGS) introducing Level-of-Detail (LOD) using octree.
+* [HAC++: Towards 100X Compression of 3D Gaussian Splatting 2025](https://github.com/YihangChen-ee/HAC-plus). A great work of compression of GS in Scaffold format.
+
 <a name="ldl_sdf"></a>
 ## 3. SDF
 
