@@ -7,14 +7,14 @@ title: Introduction to Quantum Information
 
 [Introduction to Quantum Information](https://www.coursera.org/learn/introduction-to-quantum-information/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
 
-1. [Quantum Theory](#l1)
-2. [](#l2)
+1. [Quantum Theory & Qubit](#l1)
+2. [Bipartite quantum systems](#l2)
 3. [](#l3)
 4. [](#l4)
 
 
 <a name="l1"></a>
-# 1. Quantum Theory
+# 1. Quantum Theory & Qubit
 <p></p>
 
 * State (
@@ -148,7 +148,76 @@ Measurement Strategy: Two detectors are used to conclude the state based on dete
   * **Perfect Discrimination <==> Perfect Cloning**
 
 <a name="l2"></a>
-# 2.
+# 2. Bipartite quantum systems
+
+## 2.1 Two-qubit entanglement
+
+Two qubits forming a composite Hilbert space spanned by the basis states |00⟩, |01⟩, |10⟩, and |11⟩.
+A two-qubit state can be expressed as <u>a linear combination</u> of these basis states, with complex coefficients that must be normalized.
+
+$$
+\begin{align}
+| \psi \rangle_{AB} &\in \mathcal{H}_{A} \otimes \mathcal{H}_{B} \\
+&= span \{|00\rangle, |01\rangle, |10\rangle, |11\rangle \} \\
+&= \alpha |00\rangle + \beta |01\rangle + \gamma |10\rangle + \delta |11\rangle, where \| |\psi \rangle \| = 1 \\
+\end{align}
+$$
+
+**LOCC (Local Operations and Classical Communication)**: This framework allows two parties (Alice and Bob) to perform local operations and communicate classically to prepare quantum states.
+
+<div align="center"><pre class="mermaid">
+graph LR
+subgraph A["qubit A
+Local Operation"]
+end
+subgraph B["qubit B
+Local Operation"]
+end
+A <--"Classical Communication"--> B
+</pre></div>
+
+- Product states (which can be expressed as a product of individual qubit states).
+$$
+|\Psi \rangle_{AB} = |\psi \rangle_{A} \otimes | \psi'\rangle_{B}
+$$
+
+$$
+\begin{align}
+|\Psi \rangle_{AB} \approx_{L.U}
+|\Psi'' \rangle_{AB} & = |\phi \rangle_{A} \otimes | \phi'\rangle_{B} \\
+& = (U_{A}|\psi \rangle_{A}) \otimes (U_{B}| \psi'\rangle_{B}) \\
+& = U_{A} \otimes U_{B} |\Psi \rangle_{AB}
+\end{align}
+$$
+
+- Entangled states (which cannot be expressed as a product of individual qubit states)
+
+**Schmidt Decomposition**: This method is introduced as a way to determine if a two-qubit state is entangled. It simplifies the state into a form that reveals the entanglement properties through Schmidt coefficients.
+
+$$
+\begin{align}
+|\psi \rangle & = \sum_{ij}C_{ij}|i\rangle |j\rangle \\
+& C_{ij} =_{SVD} (UDV^{+})_{ij} \\
+&= \sum_{k}\lambda_{k} (\sum_{i} U_{ik}|i\rangle) \otimes (\sum_{j} V_{jk}^{*}|j\rangle) \\
+& =   \sum_{k}\lambda_{k} |u_{k}\rangle \otimes |v_{k}\rangle
+\end{align}
+$$
+
+## 2.2 Two-qubit gates
+
+**Universality**: Any quantum circuit can be constructed using a combination of single qubit operations and two-qubit gates. This property allows for arbitrary transformations of quantum states.
+
+**Controlled Gates**: The lecture explains the concept of controlled gates, such as the **CNOT (Controlled NOT-X) gate**, **CPhase (Controlled Phase-Z) gate**. <u>The action on the second qubit depends on the state of the first qubit.</u>
+
+$$
+|0\rangle \langle 0| \otimes I + |1\rangle \langle 1| \otimes U
+$$
+
+$$
+|phi^{+}\rangle = \frac{1}{\sqrt 2}(|00\rangle + |11\rangle) =U_{CNOT}(H\otimes I) |00\rangle
+$$
+
+**Entanglement**: The lecture emphasizes the importance of entanglement in generating complex quantum states, which can be achieved through direct interactions between qubits or by using intermediate particles.
 
 <a name="l3"></a>
 # 3.
