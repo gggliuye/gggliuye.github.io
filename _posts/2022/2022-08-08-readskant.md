@@ -2,7 +2,7 @@
 layout: post
 title: Reading Notes - Immanuel Kant
 subtitle: and some thoughts
-tags: [Philosophy, Kant, Reading, Thoughts]
+tags: [Philosophy, Reading, Thoughts]
 comments: true
 ---
 

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJI WayPoints Creator (Customer Series)</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <style>
+        #map {
+            height: 70vh;
+            width: 100%;
+        }
+        #controls {
+            font-family: Arial, sans-serif;
+        }
+        #output {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DJI WayPoints Creator (Customer Series)</h1>
+    <div>
+      <li>Create an waypoint instance in DJI Fly app. (<a href="https://www.youtube.com/watch?v=Ml7EZ4umqTQ&t=5s">totural video</a>)</li>
+      <li>Replace the kmz in "Android/data/dji.go.v5/files/waypoint".</li>
+      <li>此电脑\DJI RC 2\内部共享存储空间\Android\data\dji.go.v5\files\waypoint</li>
+    </div>
+    <p></p>
+
+    <div id="controls">
+        <!-- <button onclick="extractCoordinates()">Read Coordinates</button> -->
+        <label for="xmlFileInput">Load waypoints from kmz file:</label>
+        <input type="file" id="xmlFileInput" accept=".kmz,.zip" onchange="extractCoordinates()">
+        <label for="saveFileName">Save file name:</label>
+        <input type="text" id="saveFileName" value="309A9356-4FA9-4E9E-9D9A-8AD4A54725DA" style="width: 300px;">
+    </div>
+
+    <h2>Create WayPoints : </h2>
+    <div>
+        <label for="resolution">Resolution (m):</label>
+        <input type="number" id="resolution" value="20" min="1" style="width: 50px;">
+        <label for="height">Height (m):</label>
+        <input type="number" id="height" value="15" min="1" style="width: 50px;">
+        <label for="speed">Speed (km/h):</label>
+        <input type="number" id="speed" value="12.96" min="1" style="width: 50px;">
+        <label for="speed">Shot:</label>
+        <input type="checkbox" id="shotphoto" checked>
+    </div>
+
+    <input type="radio" id="surface" name="scan_type" value="Surface">
+    <label for="surface">
+      Surface Mode.
+      <select id="route_mode">
+        <option value="flat">水平(flat)</option>
+        <option value="oblique">倾斜(oblique)</option>
+        <option value="pano">全景(pano)</option>
+      </select>
+      <label for="rot_offset">Offset (deg):</label>
+      <input type="number" id="rot_offset" value="0" min="-90" max="90" style="width: 50px;">
+    </label><br>
+    <input type="radio" id="spiral" name="scan_type" value="Spiral" checked>
+    <label for="surface">
+      Spiral Mode.
+      <label for="spiral_min_radius">Min Radius (m):</label>
+      <input type="number" id="spiral_min_radius" value="20" min="1" style="width: 50px;">
+      <label for="spiral_pitch">Pitch (deg):</label>
+      <input type="number" id="spiral_pitch" value="-25" min="-90" style="width: 50px;">
+    </label><br>
+    <br>
+
+    <div id="controls">
+      <button onclick="makeTrajectory()">Remake</button>
+      <button onclick="reverseTrajectory()">Reverse Trajectory</button>
+      <button onclick="clearMap()">Clear Map</button>
+      <button onclick="downloadFile()">Download</button>
+      <button id="locateButton">返回当前位置</button>
+    </div>
+    <div id="output"></div>
+    <p></p>
+    <div id="map"></div>
+    <!-- <div id="output_coord">Coordinates and trajectory details will be displayed here...</div> -->
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet Draw JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="math/convex_hull.js"></script>
+    <script src="math/draw_utils.js"></script>
+    <script>
+        const map = L.map('map', {
+            zoomSnap: 0.05,
+            zoomDelta: 0.25,
+            zoomAnimation: true,
+            wheelPxPerZoomLevel: 120,
+            minZoom: 3
+        }).fitWorld();
+
+        // OpenStreetMap layer
+        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap contributors',
+        });
+
+        // Satellite layer (from Esri)
+        const satelliteLayer = L.tileLayer(
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+          {
+            maxZoom: 18,
+            attribution: '© Esri & the GIS User Community',
+          }
+        );
+        satelliteLayer.addTo(map);
+        // Layer control to toggle between OSM and Satellite
+        const baseMaps = {
+          'Satellite': satelliteLayer,
+          'OpenStreetMap': osmLayer,
+        };
+        L.control.layers(baseMaps).addTo(map);
+
+        map.locate({ setView: true, maxZoom: 19 });
+
+        const drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        const drawControl = new L.Control.Draw({
+            draw: {
+                rectangle: true,
+                polygon: true,
+                polyline: true,
+                circle: false,
+                circlemarker: false,
+                marker: false
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+
+        // 获取按钮元素
+        const locateButton = document.getElementById('locateButton');
+
+        // 为按钮添加点击事件
+        locateButton.addEventListener('click', () => {
+          // 使用Leaflet的locate方法获取设备位置
+          map.locate({
+            setView: true, // 自动将地图中心移动到设备位置
+            maxZoom: 16,  // 设置最大缩放级别
+            enableHighAccuracy: true, // 启用高精度定位
+            timeout: 10000 // 设置定位超时时间（毫秒）
+          }).on('locationfound', (e) => {
+            // 定位成功后的回调函数
+            console.log('定位成功', e);
+            // 可以在这里添加标记或其他操作
+            L.marker(e.latlng).addTo(map).bindPopup('这里是你的位置！').openPopup();
+          }).on('locationerror', (err) => {
+            // 定位失败后的回调函数
+            console.error('定位失败', err);
+            alert('无法获取您的位置，请检查设备的定位权限或网络连接。');
+          });
+        });
+
+        let trajectoryLayer = null;
+        let drawlayerElements = []; // Array to store markers
+        let currentTrajectory = null;
+        let currentTrajectoryHeading = null;
+
+        let layerType = null;
+        let layerLatLngs = null;
+        let currentTrajectoryLeaflet = null;
+
+        // Handle polygon creation
+        map.on(L.Draw.Event.CREATED, function (e) {
+            if (trajectoryLayer) {
+                map.removeLayer(trajectoryLayer);
+            }
+
+            const layer = e.layer;
+            layerType = e.layerType;
+            drawnItems.clearLayers();
+            drawnItems.addLayer(layer);
+
+            layerLatLngs = layer.getLatLngs();
+            makeTrajectory();
+        });
+
+        function makeTrajectory() {
+          if (layerType == null) return;
+          if (layerLatLngs == null) return;
+          const resolution = parseFloat(document.getElementById('resolution').value);
+
+          currentTrajectory = [];
+          currentTrajectoryHeading = null;
+          if (layerType == "polyline") {
+            if (document.querySelector('input[name="scan_type"]:checked').value === "Spiral") {
+              const spiral_min_radius = parseFloat(document.getElementById('spiral_min_radius').value);
+
+              [currentTrajectoryLeaflet, currentTrajectoryHeading] = createSpiralTrajectoryFromPolyline(layerLatLngs, spiral_min_radius, resolution);
+              addTrajectoryLeafletToMap(currentTrajectoryLeaflet, currentTrajectoryHeading);
+            } else {
+              currentTrajectoryLeaflet = createTrajectoryFromPolyline(layerLatLngs, resolution);
+              addTrajectoryLeafletToMap(currentTrajectoryLeaflet, null);
+            }
+          } else {
+            const polygonCoords = layerLatLngs[0];
+            currentTrajectoryLeaflet = createTrajectoryFromPolygon(polygonCoords, resolution);
+            addTrajectoryLeafletToMap(currentTrajectoryLeaflet, null);
+          }
+        }
+
+        function reverseTrajectory() {
+          if (currentTrajectoryLeaflet == null) return;
+          currentTrajectoryLeaflet = currentTrajectoryLeaflet.reverse();
+          addTrajectoryLeafletToMap(currentTrajectoryLeaflet);
+        }
+
+        function addTrajectoryLeafletToMap(trajectory, headingsVec) {
+          if (trajectoryLayer) {
+              map.removeLayer(trajectoryLayer);
+              trajectoryLayer = null;
+          }
+
+          // Draw trajectory
+          trajectoryLayer = L.featureGroup();
+          const polyline = L.polyline(trajectory, { color: 'blue' }).addTo(trajectoryLayer);
+
+          // Adjust for arrow length in degrees
+          let resolution = parseFloat(document.getElementById('resolution').value);
+          let arrowLength = 0.20 * metersToDegrees(resolution);
+          let [pitches, headings] = getPitchHeadings();
+          let trajectoryRepeatCnt = pitches.length * headings.length * 2;
+          if (headingsVec != null) {
+            arrowLength = 2.0 * arrowLength;
+            trajectoryRepeatCnt = 1;
+          }
+
+          function add_heading(point, heading) {
+            // Add a direction arrow using a polyline
+            const arrowLat = point[0] + arrowLength * Math.cos((heading * Math.PI) / 180);
+            const arrowLon = point[1] + arrowLength * Math.sin((heading * Math.PI) / 180);
+            L.polyline([point, [arrowLat, arrowLon]], {
+              color: 'green',
+              weight: 2,
+            }).addTo(trajectoryLayer);
+          };
+
+          const rot_offset = parseFloat(document.getElementById('rot_offset').value);
+
+
+          // Highlight sampled points
+          trajectory.forEach((point, index) => {
+              L.circleMarker(point, {
+                  radius: 3,
+                  color: 'green',
+                  fillColor: '#f03',
+                  fillOpacity: 1
+              }).addTo(trajectoryLayer);
+
+              if (headingsVec != null) {
+                // draw heading
+                const heading = headingsVec[index];
+                add_heading(point, heading);
+              } else {
+                headings.forEach((heading) => {
+                  add_heading(point, heading + rot_offset);
+                  add_heading(point, heading + rot_offset + 180);
+                });
+              }
+          });
+
+          // Plot the starting point
+          if (trajectory.length > 0) {
+            L.circleMarker(trajectory[0], {
+                radius: 5,
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 1
+            }).addTo(trajectoryLayer);
+          }
+
+          trajectoryLayer.addTo(map);
+
+          // Output trajectory details
+          currentTrajectory = [];
+          trajectory.forEach((point, index) => {
+              currentTrajectory.push([point[0], point[1]]);
+          });
+
+
+          let height = parseFloat(document.getElementById('height').value);
+          let speed_km = parseFloat(document.getElementById('speed').value);
+          let speed_sec = speed_km * 1000 / 60 / 60;
+
+          // estimate the time this task might need
+          let trajectoryLength = trajectoryRepeatCnt * computeTrajectoryLength(currentTrajectory);
+          let durationFormat = formatDuration(trajectoryLength / speed_sec);
+          let numPhoto = trajectoryRepeatCnt * currentTrajectory.length;
+
+          let scan_type = document.getElementById('route_mode').value;
+          document.getElementById('output').innerHTML = `
+            <p>&nbsp;&nbsp;==> Get ${currentTrajectory.length} placemarkers, ${numPhoto} photos using ${scan_type} mode.
+            Speed: ${speed_km} km/h = ${speed_sec.toFixed(2)} m/s, Height: ${height} m.</p>
+            <p>&nbsp;&nbsp;==> Total Length : ${trajectoryLength.toFixed(2)} m, Estimated duration : ${durationFormat}</p>`;
+        }
+
+        // Clear the map
+        function clearMap() {
+            drawnItems.clearLayers();
+            if (trajectoryLayer) {
+                map.removeLayer(trajectoryLayer);
+                trajectoryLayer = null;
+            }
+            drawlayerElements.forEach(marker => {
+                map.removeLayer(marker);
+            });
+            drawlayerElements = []; // Reset markers array
+            currentTrajectory = [];
+            document.getElementById('output').innerHTML = 'Map cleared.';
+        }
+
+        // Plot coordinates on the map and recenter to the first point
+        function plotCoordinates(coordinatesList) {
+            if (coordinatesList.length > 0) {
+                const firstCoord = coordinatesList[0];
+                const [firstLng, firstLat] = firstCoord.split(",").map(Number);
+
+                if (!isNaN(firstLat) && !isNaN(firstLng)) {
+                    map.setView([firstLat, firstLng], 18); // Recenter map to the first coordinate
+                }
+
+                currentTrajectory = [];
+                coordinatesList.forEach(coord => {
+                    const [lng, lat] = coord.split(",").map(Number); // WGS format is [lng, lat]
+                    if (!isNaN(lat) && !isNaN(lng)) {
+                        const marker = L.marker([lat, lng]).addTo(map);
+                        drawlayerElements.push(marker); // Store marker
+                        currentTrajectory.push([lat, lng]);
+                    }
+                });
+            }
+        }
+
+        // JavaScript to read and parse XML, extracting all coordinates from a user-uploaded file
+        async function extractCoordinates() {
+            const fileInput = document.getElementById("xmlFileInput");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                document.getElementById("output").innerText = "Please upload an XML file.";
+                return;
+            }
+
+            const output = document.getElementById("output");
+            output.innerHTML = ""; // Clear previous output
+
+            try {
+              const zip = new JSZip();
+              const fileContents = await file.arrayBuffer();
+              const zipContents = await zip.loadAsync(fileContents);
+
+              const coordinatesList = [];
+
+              // Iterate through the files in the ZIP archive
+              for (const [filename, fileData] of Object.entries(zipContents.files)) {
+                if (fileData.dir) { // Only process files, not directories
+                  continue;
+                }
+                if (filename.endsWith(".wpml")) { // Process only XML files
+                  const content = await fileData.async("text");
+
+                  // Parse XML content
+                  const parser = new DOMParser();
+                  const xmlDoc = parser.parseFromString(content, "application/xml");
+
+                  // Check for parsing errors
+                  if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+                    output.innerHTML += `<p><strong>${filename}</strong>: Invalid XML file</p>`;
+                    continue;
+                  }
+
+                  // Extract elements with tag name 'coordinates'
+                  const coordinates = xmlDoc.getElementsByTagName("coordinates");
+                  if (coordinates.length > 0) {
+                    output.innerHTML += `<p><strong>${filename}</strong>: Found ${coordinates.length} <code>coordinates</code> elements</p>`;
+                    for (const coord of coordinates) {
+                      const content = coord.textContent.trim();
+                      coordinatesList.push(content);
+                    }
+                  }
+                }
+              }
+              // Display the results
+              if (coordinatesList.length > 0) {
+                  plotCoordinates(coordinatesList);
+              } else {
+                  document.getElementById("output").innerText = "No <coordinates> elements found!";
+              }
+
+            } catch (error) {
+              output.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+
+        let actionId = 0;
+        let photoCnt = 0;
+        let trajectoryRepeatCnt = 0;
+
+        function getGimbalRotateAction() {
+          actionId = actionId + 1;
+          return `
+          <wpml:action>
+            <wpml:actionId>${actionId}</wpml:actionId>
+            <wpml:actionActuatorFunc>gimbalRotate</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:gimbalHeadingYawBase>aircraft</wpml:gimbalHeadingYawBase>
+              <wpml:gimbalRotateMode>absoluteAngle</wpml:gimbalRotateMode>
+              <wpml:gimbalPitchRotateEnable>1</wpml:gimbalPitchRotateEnable>
+              <wpml:gimbalPitchRotateAngle>0</wpml:gimbalPitchRotateAngle>
+              <wpml:gimbalRollRotateEnable>0</wpml:gimbalRollRotateEnable>
+              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
+              <wpml:gimbalYawRotateEnable>0</wpml:gimbalYawRotateEnable>
+              <wpml:gimbalYawRotateAngle>0</wpml:gimbalYawRotateAngle>
+              <wpml:gimbalRotateTimeEnable>0</wpml:gimbalRotateTimeEnable>
+              <wpml:gimbalRotateTime>0</wpml:gimbalRotateTime>
+              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>`;
+        }
+
+        function getHoverAction() {
+          actionId = actionId + 1;
+          return `
+          <wpml:action>
+            <wpml:actionId>${actionId}</wpml:actionId>
+            <wpml:actionActuatorFunc>hover</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:hoverTime>1</wpml:hoverTime>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>`;
+        }
+
+        function getActionGroupPhoto(marker_id, action_group_id, is_starting) {
+          if (!is_starting && !document.getElementById('shotphoto').checked) {
+            return "";
+          }
+
+          let photoAcion = "";
+          if (document.getElementById('shotphoto').checked) {
+            actionId = actionId + 1;
+            photoCnt = photoCnt + 1;
+            photoAcion = `
+            <wpml:action>
+              <wpml:actionId>${actionId}</wpml:actionId>
+              <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>
+              <wpml:actionActuatorFuncParam>
+                <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+                <wpml:useGlobalPayloadLensIndex>0</wpml:useGlobalPayloadLensIndex>
+              </wpml:actionActuatorFuncParam>
+            </wpml:action>`;
+          }
+          let gimbalAction = "";
+          if (is_starting) {
+            gimbalAction = getGimbalRotateAction();
+          }
+          return `
+        <wpml:actionGroup>
+          <wpml:actionGroupId>${action_group_id}</wpml:actionGroupId>
+          <wpml:actionGroupStartIndex>${marker_id}</wpml:actionGroupStartIndex>
+          <wpml:actionGroupEndIndex>${marker_id}</wpml:actionGroupEndIndex>
+          <wpml:actionGroupMode>parallel</wpml:actionGroupMode>
+          <wpml:actionTrigger>
+            <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
+          </wpml:actionTrigger>
+${photoAcion}
+${gimbalAction}
+        </wpml:actionGroup>`;
+        }
+
+
+        function getActionGroupPitch(marker_id, action_group_id, pitch, is_ending) {
+          if (is_ending) {
+            return "";
+          }
+
+          actionId = actionId + 1;
+          return `
+        <wpml:actionGroup>
+          <wpml:actionGroupId>${action_group_id}</wpml:actionGroupId>
+          <wpml:actionGroupStartIndex>${marker_id}</wpml:actionGroupStartIndex>
+          <wpml:actionGroupEndIndex>${marker_id + 1}</wpml:actionGroupEndIndex>
+          <wpml:actionGroupMode>parallel</wpml:actionGroupMode>
+          <wpml:actionTrigger>
+            <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>
+          </wpml:actionTrigger>
+          <wpml:action>
+            <wpml:actionId>${actionId}</wpml:actionId>
+            <wpml:actionActuatorFunc>gimbalEvenlyRotate</wpml:actionActuatorFunc>
+            <wpml:actionActuatorFuncParam>
+              <wpml:gimbalPitchRotateAngle>${pitch}</wpml:gimbalPitchRotateAngle>
+              <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>
+              <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>
+            </wpml:actionActuatorFuncParam>
+          </wpml:action>
+        </wpml:actionGroup>`;
+        }
+
+        function getPlaceMarker(marker_id, lat, lng, pitch, heading, height, speed, is_starting, is_ending) {
+          let waypointturn = "toPointAndPassWithContinuityCurvature";
+          let headingEnabled = 0;
+          if (is_ending || is_starting) {
+            headingEnabled = 1;
+            waypointturn = "toPointAndStopWithContinuityCurvature";
+          }
+          let headingmode = "smoothTransition";
+
+          let actionGroupId = { value: 1 }; // Initial value wrapped in an object
+          return `
+      <Placemark>
+        <Point>
+          <coordinates>
+            ${lng},${lat}
+          </coordinates>
+        </Point>
+        <wpml:index>${marker_id}</wpml:index>
+        <wpml:executeHeight>${height}</wpml:executeHeight>
+        <wpml:waypointSpeed>${speed}</wpml:waypointSpeed>
+        <wpml:waypointHeadingParam>
+          <wpml:waypointHeadingMode>${headingmode}</wpml:waypointHeadingMode>
+          <wpml:waypointHeadingAngle>${heading}</wpml:waypointHeadingAngle>
+          <wpml:waypointPoiPoint>0.000000,0.000000,0.000000</wpml:waypointPoiPoint>
+          <wpml:waypointHeadingAngleEnable>${headingEnabled}</wpml:waypointHeadingAngleEnable>
+          <wpml:waypointHeadingPathMode>followBadArc</wpml:waypointHeadingPathMode>
+          <wpml:waypointHeadingPoiIndex>0</wpml:waypointHeadingPoiIndex>
+        </wpml:waypointHeadingParam>
+        <wpml:waypointTurnParam>
+          <wpml:waypointTurnMode>${waypointturn}</wpml:waypointTurnMode>
+          <wpml:waypointTurnDampingDist>0</wpml:waypointTurnDampingDist>
+        </wpml:waypointTurnParam>
+        <wpml:useStraightLine>0</wpml:useStraightLine>
+${getActionGroupPhoto(marker_id, 1, is_starting)}
+${getActionGroupPitch(marker_id, 2, pitch, is_ending)}
+        <wpml:waypointGimbalHeadingParam>
+          <wpml:waypointGimbalPitchAngle>0</wpml:waypointGimbalPitchAngle>
+          <wpml:waypointGimbalYawAngle>0</wpml:waypointGimbalYawAngle>
+        </wpml:waypointGimbalHeadingParam>
+      </Placemark>`;
+        }
+
+        function getPitchHeadings() {
+          let scan_type = document.getElementById('route_mode').value;
+          let headings = [0, 60, 120];
+          if (scan_type == "oblique") {
+            pitches = [-55];
+            headings = [0, 90];
+          } else if (scan_type == "pano") {
+            pitches = [0, -25, -55];
+          } else if (scan_type == "flat") {
+            pitches = [-15];
+          }
+          return [pitches, headings];
+        }
+
+        function getWaylinesFile() {
+          let placemarkerContents = "";
+
+          // reset some parameters
+          actionId = 0;
+          photoCnt = 0;
+          trajectoryRepeatCnt = 0;
+
+          const height = parseFloat(document.getElementById('height').value);
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+          const rot_offset = parseFloat(document.getElementById('rot_offset').value);
+
+          // use mode to assign pitches and headings
+          let [pitches, headings] = getPitchHeadings();
+
+          let markerId = -1;
+          for (let i = 0; i < pitches.length; i++) {
+            for (let j = 0; j < headings.length; j++) {
+              trajectoryRepeatCnt = trajectoryRepeatCnt + 2;
+              // we will go from the first point:
+              // (1) first loop (forward) with heading & pitch
+              let heading = headings[j] + rot_offset;
+              if (heading > 180) {
+                heading = heading - 360;
+              }
+              let pitch = pitches[i];
+              for (let n = 0; n < currentTrajectory.length; n++) {
+                let is_start = (i == 0) && (j == 0) && (n == 0);
+                let point = currentTrajectory[n];
+                markerId = markerId + 1;
+                placemarkerContents += getPlaceMarker(markerId, point[0], point[1], pitch, heading, height, speed, is_start, false);
+              }
+              // (2) second loop (return) with (heading + 180) & pitch
+              heading = heading + 180;
+              if (heading > 180) {
+                heading = heading - 360;
+              }
+              for (let n = 0; n < currentTrajectory.length; n++) {
+                let is_ending = (i == (pitches.length - 1)) && (j == (headings.length - 1)) && (n == currentTrajectory.length - 1);
+                let point = currentTrajectory[currentTrajectory.length - 1 - n];
+                markerId = markerId + 1;
+                placemarkerContents += getPlaceMarker(markerId, point[0], point[1], pitch, heading, height, speed, false, is_ending);
+              }
+            }
+          }
+          return `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:wpml="http://www.dji.com/wpmz/1.0.2">
+  <Document>
+${getMissionConfig()}
+    <Folder>
+      <wpml:templateId>0</wpml:templateId>
+      <wpml:executeHeightMode>relativeToStartPoint</wpml:executeHeightMode>
+      <wpml:waylineId>0</wpml:waylineId>
+      <wpml:distance>0</wpml:distance>
+      <wpml:duration>0</wpml:duration>
+      <wpml:autoFlightSpeed>${speed}</wpml:autoFlightSpeed>
+${placemarkerContents}
+    </Folder>
+  </Document>
+</kml>`;
+        }
+
+        function getWaylinesFileSpiral() {
+          let placemarkerContents = "";
+          if (currentTrajectoryHeading == null) {
+            alert("Trajectory headings is empty");
+            return;
+          }
+
+          // reset some parameters
+          actionId = 0;
+          photoCnt = 0;
+          trajectoryRepeatCnt = 1;
+
+          const height = parseFloat(document.getElementById('height').value);
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+          const spiral_pitch = parseFloat(document.getElementById('spiral_pitch').value);
+
+          let markerId = -1;
+          for (let n = 0; n < currentTrajectory.length; n++) {
+            let is_start = (n == 0);
+            let is_ending = (n == currentTrajectory.length - 1);
+
+            let point = currentTrajectory[n];
+            let heading = currentTrajectoryHeading[n];
+            if (heading > 180) {
+              heading = heading - 360;
+            }
+            markerId = markerId + 1;
+            placemarkerContents += getPlaceMarker(markerId, point[0], point[1], spiral_pitch, heading, height, speed, is_start, is_ending);
+          }
+
+          return `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:wpml="http://www.dji.com/wpmz/1.0.2">
+  <Document>
+${getMissionConfig()}
+    <Folder>
+      <wpml:templateId>0</wpml:templateId>
+      <wpml:executeHeightMode>relativeToStartPoint</wpml:executeHeightMode>
+      <wpml:waylineId>0</wpml:waylineId>
+      <wpml:distance>0</wpml:distance>
+      <wpml:duration>0</wpml:duration>
+      <wpml:autoFlightSpeed>${speed}</wpml:autoFlightSpeed>
+${placemarkerContents}
+    </Folder>
+  </Document>
+</kml>`;
+        }
+
+        function getMissionConfig() {
+          const speed = parseFloat(document.getElementById('speed').value) * 1000 / 60 / 60;
+          return `
+    <wpml:missionConfig>
+      <wpml:flyToWaylineMode>safely</wpml:flyToWaylineMode>
+      <wpml:finishAction>goHome</wpml:finishAction>
+      <wpml:exitOnRCLost>executeLostAction</wpml:exitOnRCLost>
+      <wpml:executeRCLostAction>goBack</wpml:executeRCLostAction>
+      <wpml:globalTransitionalSpeed>${speed}</wpml:globalTransitionalSpeed>
+      <wpml:droneInfo>
+        <wpml:droneEnumValue>68</wpml:droneEnumValue>
+        <wpml:droneSubEnumValue>0</wpml:droneSubEnumValue>
+      </wpml:droneInfo>
+    </wpml:missionConfig>`;
+        }
+
+
+        function getTemplateFile() {
+          let currentTimestamp = Date.now();
+
+          return `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:wpml="http://www.dji.com/wpmz/1.0.2">
+  <Document>
+    <wpml:author>fly</wpml:author>
+    <wpml:createTime>${currentTimestamp}</wpml:createTime>
+    <wpml:updateTime>${currentTimestamp}</wpml:updateTime>
+    ${getMissionConfig()}
+  </Document>
+</kml>`;
+        }
+
+        function downloadFile() {
+          // Create a new ZIP instance
+          var zip = new JSZip();
+
+          var templateContent = getTemplateFile();
+          zip.folder('wpmz').file('template.kml', templateContent);
+
+          var waylinesContent = null;
+          if (layerType == "polyline" && document.querySelector('input[name="scan_type"]:checked').value === "Spiral") {
+            waylinesContent = getWaylinesFileSpiral();
+          } else {
+            waylinesContent = getWaylinesFile();
+          }
+
+          zip.folder('wpmz').file('waylines.wpml', waylinesContent);
+
+          let save_name = document.getElementById('saveFileName').value + ".kmz";
+
+          // Generate the ZIP and trigger the download
+          zip.generateAsync({type:"blob"})
+          .then(function(content) {
+              var downloadLink = document.createElement("a");
+              downloadLink.download = save_name;
+              var downloadUrl = URL.createObjectURL(content);
+              downloadLink.href = downloadUrl;
+              downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+              downloadLink.style.display = "none";
+              document.body.appendChild(downloadLink);
+              downloadLink.click();
+          });
+        }
+    </script>
+</body>
+</html>
