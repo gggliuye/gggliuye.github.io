@@ -193,5 +193,14 @@ Skill Development:
 <a name="l3"></a>
 # 3. Leading Others
 
+Leadership is fundamentally about relationships with others, emphasizing the importance of building and maintaining trust.
+Trust is described as a foundation for effective leadership, necessary for navigating both good and challenging times.
+
+[Why you should collaborate through boundaries 2022](https://www.ccl.org/articles/leading-effectively-articles/boundary-spanning-the-leadership-advantage/)
+- Boundary spanning leadership is the capability to establish direction, alignment, and commitment across boundaries in service of a higher vision or goal.
+- Examples include representing your team to stakeholders, working on projects across departments, and seeking information from outside experts.
+
+
+
 <a name="l4"></a>
 # 4. Growing as a Leader
