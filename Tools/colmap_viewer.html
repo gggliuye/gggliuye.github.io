@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colmap Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="viewer" style="width: 100vw; height: 0vh;"></div>
+    <h2 style="color: white;">Choose Colmap Sparse Model</h2>
+    <input style="color: white;" type="file" webkitdirectory directory multiple id="folderInput">
+    <pre id="output" style="color: white;"></pre>
+    <label style="color: white;" >点大小: <input type="range" id="pointSize" min="0.01" max="1" step="0.01" value="0.05"></label>
+    <label style="color: white;">相机大小: <input type="range" id="cameraSize" min="0.1" max="2" step="0.1" value="0.5"></label>
+
+    <script>
+        let scene, camera, renderer, controls, pointCloud, camerasGroup;
+
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000); // 设置为黑色，也可以使用十六进制颜色值
+            document.getElementById('viewer').appendChild(renderer.domElement);
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            camera.position.set(0, 0, 5);
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        document.getElementById('folderInput').addEventListener('change', async function(event) {
+            const files = event.target.files;
+            let fileMap = {};
+
+            for (let file of files) {
+                fileMap[file.name] = file;
+            }
+
+            if (!fileMap['images.txt'] || !fileMap['points3D.txt']) {
+                document.getElementById('output').textContent = '错误：缺少必要的Colmap稀疏重建文件';
+                return;
+            }
+
+            let stats = {};
+            stats.images = await parseImages(fileMap['images.txt']);
+            stats.points3D = await parsePoints3D(fileMap['points3D.txt']);
+
+            document.getElementById('output').textContent = `\n相机数量: ${stats.images.length}\n点云点数: ${stats.points3D.points.length}`;
+
+            visualizeScene(stats.images, stats.points3D);
+        });
+
+        async function parseImages(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const lines = event.target.result.split('\n').filter(line => !line.startsWith('#') && line.trim() !== '');
+                    let poses = [];
+                    for (let i = 0; i < lines.length; i += 2) {
+                        const data = lines[i].split(' ');
+                        let qw = parseFloat(data[1]);
+                        let qx = parseFloat(data[2]);
+                        let qy = parseFloat(data[3]);
+                        let qz = parseFloat(data[4]);
+                        let tx = parseFloat(data[5]);
+                        let ty = parseFloat(data[6]);
+                        let tz = parseFloat(data[7]);
+
+                        let quaternion = new THREE.Quaternion(qx, qy, qz, qw);
+                        let translation = new THREE.Vector3(tx, ty, tz);
+
+                        let rotationMatrix = new THREE.Matrix4();
+                        rotationMatrix.makeRotationFromQuaternion(quaternion);
+                        rotationMatrix.transpose();
+
+                        let cameraPosition = translation.applyMatrix4(rotationMatrix.clone());
+                        poses.push({ position: [-cameraPosition.x, -cameraPosition.y, -cameraPosition.z], quaternion: [qx, qy, qz, qw], rotationMatrix });
+                    }
+                    resolve(poses);
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        async function parsePoints3D(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const lines = event.target.result.split('\n').filter(line => !line.startsWith('#') && line.trim() !== '');
+                    let points = [];
+                    let colors = [];
+                    for (let line of lines) {
+                        const data = line.split(' ');
+                        let x = parseFloat(data[1]);
+                        let y = parseFloat(data[2]);
+                        let z = parseFloat(data[3]);
+                        let r = parseInt(data[4]) / 255;
+                        let g = parseInt(data[5]) / 255;
+                        let b = parseInt(data[6]) / 255;
+                        points.push([x, y, z]);
+                        colors.push([r, g, b]);
+                    }
+                    resolve({ points, colors });
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        function visualizeScene(images, pointData) {
+            // clean the current scene
+            while(scene.children.length > 0){
+                scene.remove(scene.children[0]);
+            }
+            // 添加坐标系
+            const axesHelper = new THREE.AxesHelper(50); // 参数为坐标轴的长度
+            scene.add(axesHelper);
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices = new Float32Array(pointData.points.flat());
+            const colors = new Float32Array(pointData.colors.flat());
+            geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            const material = new THREE.PointsMaterial({ vertexColors: true, size: parseFloat(document.getElementById('pointSize').value) });
+            pointCloud = new THREE.Points(geometry, material);
+            scene.add(pointCloud);
+
+            camerasGroup = new THREE.Group();
+            images.forEach(img => {
+                const camGeometry = new THREE.ConeGeometry(parseFloat(document.getElementById('cameraSize').value), 0.5, 4);
+                const camMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+                const camMesh = new THREE.Mesh(camGeometry, camMaterial);
+                camMesh.position.set(...img.position);
+                camMesh.quaternion.set(...img.quaternion);
+                // camMesh.setRotationFromMatrix(img.rotationMatrix);
+                camerasGroup.add(camMesh);
+            });
+            scene.add(camerasGroup);
+        }
+
+        initThreeJS();
+    </script>
+</body>
+</html>
