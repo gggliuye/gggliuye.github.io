@@ -197,10 +197,90 @@ Leadership is fundamentally about relationships with others, emphasizing the imp
 Trust is described as a foundation for effective leadership, necessary for navigating both good and challenging times.
 
 [Why you should collaborate through boundaries 2022](https://www.ccl.org/articles/leading-effectively-articles/boundary-spanning-the-leadership-advantage/)
-- Boundary spanning leadership is the capability to establish direction, alignment, and commitment across boundaries in service of a higher vision or goal.
-- Examples include representing your team to stakeholders, working on projects across departments, and seeking information from outside experts.
+* Boundary spanning leadership is the capability to establish direction, alignment, and commitment across boundaries in service of a higher vision or goal.
+* Types : Horizontal, Vertical, Stakeholder, Demographic, Geographic.
+* Benefits : increased agility,innovation,and achievement of critical results while fostering a more engaged and adaptable workforce.
+* Strategies and Tactics for Spanning Boundaries
+  1. **Manage Boundaries**: Clarify Roles and Build Psychological Safety.
+  2. **Forge Common Ground**: Build Trust and Collective Investment.
+  3. **Discove New Frontiers**: Drive Innovation and Transformation.
 
+## 3.1 Leading with Emotional Intelligence
 
+1. Perception & Expression.
+2. Using emotion to facilitate thinking.
+3. Understanding emotion.
+4. Managing emotions: remain open, and regulate motion.
+
+## 3.2 Building Trusting Relationships
+
+**ABI Model**: Trust is built on three elements:
+(1) Ability: The perceived competence of a leader.
+(2) Benevolence: The leader's concern for others' well-being.
+(3) Integrity: Consistency in a leader's actions and promises.
+
+High trust leads to better communication, cooperation, employee satisfaction, and reduced turnover.
+Trust influences brain activity, with oxytocin promoting trust and cortisol linked to stress.
+
+<u>Trust can be built through everyday conservations.</u>
+Conversational Intelligence :
+1. **Transactional** : straight forward way of communication - give & receive information.
+2. **Positional** : someone take a side to influence others - selling ideas, or seek specific answer.
+3. **Transformational** (co-creating) : collect and consider ideas, lead to deep inside and trust.
+
+<u>Creating transformational conversion</u> : 
+* **Active Listening** : (1) Turn off scripts; (2) Listen beyond words (e.g. face and tune).
+* **Humble Inquiry** (ask the right question in right way) four types of questions can help :
+  1. <u>Confrontational inquiry</u>. help gain consense, but need to be careful.
+  2. <u>Diagnostic inquiry</u>. ask others to review their mind.
+  3. <u>Process inquiry</u>. ask about process of the conservations, to be in the same page.
+  4. <u>Humble or Pure inquiry</u>.  simple, without your own opinion.
+
+## 3.3 Using Power and Influence Ethically
+
+The **Five Bases of Power** (sixth later added) (to understand power source and effect):
+1. Legitimate Power: Authority from a formal role.
+2. Reward Power: Ability to provide rewards (tangible or intangible).
+3. Coercive Power: Using threats to influence behavior.
+4. Expert Power: Based on unique skills or knowledge.
+5. Referent Power: Derived from respect and trust.
+6. Informational Power: Influence from access to valuable information.
+
+Power make us focus more on ourself, and ignore perspectives. Leaders must be aware of how power affects their behavior and relationships, ensuring they <u>use their influence ethically and inclusively.</u>
+
+- **Psychological Safety**: Leaders should create an environment where employees feel safe to express themselves without fear of punishment. This fosters innovation and open communication.
+- **Trust and Respect**: Building trusting relationships requires both trust and respect. Leaders must treat employees with consideration and provide clear information to create a just organization.
+- **Ethical Use of Power**: Leaders should recognize their influence as a responsibility and use it ethically. Observing power dynamics and being self-aware are crucial for effective leadership.
+- **Practical Strategies**: Encouraging participation in team settings, such as using brainstorming sheets with names, can help individuals feel valued and engaged.
+
+## 3.4 Negotiation and Conflict
+
+**Inclusive Leadership**: recognize and incorporate diverse perspectives within their teams, ensuring that all voices are heard and considered in decision-making.
+  
+**Negotiation** is defined broadly as any interdependent decision-making process, not just formal contracts. Effective negotiation involves understanding the interests of all parties involved. **Three Goals of Negotiation**:
+  - **Create Value**: Identify interests to find mutually beneficial solutions.
+  - **Claim Value**: Determine how to distribute the value created.
+  - **Cultivate Relationships and Reputations**: Build trust for future negotiations.
+
+Leaders should foster an inclusive environment that encourages healthy conflict and dialogue, recognizing that conflict can lead to productive outcomes if managed well. Types of **Conflict**:
+* Task Conflict: Disagreements about work tasks or decisions.
+* Relationship Conflict: Differences in personalities or communication styles.
+* Values-Based Conflict: Deeply held beliefs and values that differ among individuals.
+
+**Conflict is Inevitable**: Different interests and motivations among individuals lead to conflicts that leaders must manage.
+
+(1) **Self-Awareness**: understand yourself, **Conflict Management Styles**: The Thomas-Kilmann Instrument (TKI) identifies five conflict behaviors:
+- **Avoiding**: Low assertiveness and cooperation.
+- **Accommodating**: Low assertiveness but high cooperation.
+- **Competitive**: High assertiveness but low cooperation.
+- **Collaborative**: High assertiveness and cooperation.
+- **Compromising**: Moderate assertiveness and cooperation.
+
+(2) **Communication strategy**: Open dialogue and asking questions are crucial for understanding interests and building trust.
+
+(3) Focus on **interests** (not positions). Ask for interests actively.
+
+**Psychological Safety**: Creating an environment where team members feel safe to express their ideas and concerns enhances collaboration and problem-solving.
 
 <a name="l4"></a>
 # 4. Growing as a Leader
