@@ -12,11 +12,38 @@
     <h2 style="color: white;">Choose Colmap Sparse Model</h2>
     <input style="color: white;" type="file" webkitdirectory directory multiple id="folderInput">
     <pre id="output" style="color: white;"></pre>
-    <label style="color: white;" >点大小: <input type="range" id="pointSize" min="0.01" max="1" step="0.01" value="0.05"></label>
+    <label style="color: white;" >点大小: <input type="range" id="pointSize" min="0.01" max="0.5" step="0.01" value="0.05"></label>
     <label style="color: white;">相机大小: <input type="range" id="cameraSize" min="0.1" max="2" step="0.1" value="0.5"></label>
 
     <script>
         let scene, camera, renderer, controls, pointCloud, camerasGroup;
+
+        document.getElementById("pointSize").addEventListener("input", handlePointSize);
+        document.getElementById("cameraSize").addEventListener("input", handleCameraSize);
+
+        function handlePointSize(event) {
+            if (pointCloud == null) return;
+            pointCloud.material.size = event.target.value;
+        }
+
+        function handleCameraSize(event) {
+            if (camerasGroup == null) return;
+
+            let newCamerasGroup = new THREE.Group();
+            camerasGroup.traverse((child) => {
+                const newAxesHelper = new THREE.AxesHelper(event.target.value);
+                newAxesHelper.position.copy(child.position);
+                newAxesHelper.rotation.copy(child.rotation);
+                // 将新的 AxesHelper 添加到组中
+                newCamerasGroup.add(newAxesHelper);
+            });
+
+            scene.remove(camerasGroup);
+            camerasGroup = newCamerasGroup;
+            camerasGroup.rotation.x = Math.PI; // 180度 = π 弧度
+            scene.add(camerasGroup);
+        }
+
 
         function initThreeJS() {
             scene = new THREE.Scene();
@@ -130,18 +157,18 @@
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
             const material = new THREE.PointsMaterial({ vertexColors: true, size: parseFloat(document.getElementById('pointSize').value) });
             pointCloud = new THREE.Points(geometry, material);
+            pointCloud.rotation.x = Math.PI; // 180度 = π 弧度
             scene.add(pointCloud);
 
             camerasGroup = new THREE.Group();
             images.forEach(img => {
-                const camGeometry = new THREE.ConeGeometry(parseFloat(document.getElementById('cameraSize').value), 0.5, 4);
-                const camMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
-                const camMesh = new THREE.Mesh(camGeometry, camMaterial);
+                const camMesh = new THREE.AxesHelper(parseFloat(document.getElementById('cameraSize').value));
                 camMesh.position.set(...img.position);
-                camMesh.quaternion.set(...img.quaternion);
-                // camMesh.setRotationFromMatrix(img.rotationMatrix);
+                camMesh.setRotationFromMatrix(img.rotationMatrix);
                 camerasGroup.add(camMesh);
             });
+            camerasGroup.rotation.x = Math.PI; // 180度 = π 弧度
+
             scene.add(camerasGroup);
         }
 
