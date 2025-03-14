@@ -36,6 +36,13 @@ bundle install
 bundle exec jekyll serve
 ```
 
+# test locally (android) :
+
+* Install **Termux** in android. (And I recommend [Markor](https://github.com/gsantner/markor), which is a wonderful free markdown editor)
+* Start Termux, run the install following "test locally (ubuntu)" (but with pkg)
+* Fix platform error (termux has limited access to system file, we need to change its code to avoid these access), comment these lines will be enough.
+* start server `bundle exec jekyll serve`
+
 # markdown to pdf
 
 * install dependences

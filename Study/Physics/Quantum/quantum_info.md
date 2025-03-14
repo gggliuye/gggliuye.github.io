@@ -203,7 +203,7 @@ $$
 \end{align}
 $$
 
-## 2.2 Two-qubit gates
+## 2.2 Two-qubit
 
 **Universality**: Any quantum circuit can be constructed using a combination of single qubit operations and two-qubit gates. This property allows for arbitrary transformations of quantum states.
 
@@ -214,10 +214,28 @@ $$
 $$
 
 $$
-|phi^{+}\rangle = \frac{1}{\sqrt 2}(|00\rangle + |11\rangle) =U_{CNOT}(H\otimes I) |00\rangle
+|\phi^{+}\rangle = \frac{1}{\sqrt 2}(|00\rangle + |11\rangle) =U_{CNOT}(H\otimes I) |00\rangle
 $$
 
 **Entanglement**: The lecture emphasizes the importance of entanglement in generating complex quantum states, which can be achieved through direct interactions between qubits or by using intermediate particles.
+
+**Two qubit measurement** : joint measurement, can be formed with individual measurements.
+
+Example for $$M_{\phi^{+}} = | \phi^{+} \rangle \langle \phi^{+} |$$:
+
+$$
+\begin{align}
+Prob(\phi^{+}) &= tr[\rho M_{\phi^{+}}] \\
+&= tr[(H\otimes I )U^{+} \rho U (H\otimes)I |00\rangle \langle 00 | ]
+\end{align}
+$$
+
+## 2.3 Quantum teleportation
+
+Quantum Teleportation: It allows the transfer of quantum states without physically moving the particles.
+
+**One-Time Pad**: A classical method where two parties share a secret bit (SA and SB) to securely transmit a message (M).
+The classical one-time pad can be translated into a quantum context, using quantum states and operations.
 
 <a name="l3"></a>
 # 3.
