@@ -10,7 +10,7 @@ title: Leading Teams - Developing as a Leader
 1. [Leadership Defined](#l1) the construct of leadership, the history of leadership. Leadship Competencies & Roles.
 2. [Strategic Self-leadership](#l2) inviting learners to explore themselves as individuals, including <u>self-awareness, efficient & ethical decision-making, and maintain psychological well-being.</u>
 3. [Leading Others](#l3) the relationship between leaders and others by exploring emotional intelligence, navigating differences of opinion, and power dynamics between individuals
-4. [Growing as a Leader](#l4) develop a practice for growing as a leader.
+4. [Growing as a Leader](#l4) develop a practice for growing as a leader : Curiosity, Courage, and Commitment.
 
 * [Leading Below the Surface: How to Build Real (and Psychologically Safe) Relationships with People Who Are Different from You 2021](https://www.amazon.com/Leading-Below-Surface-Psychologically-Relationships/dp/1951591844)
 * [Transforming Leader Paradigms 2019](https://www.amazon.com/Transforming-Leader-Paradigms-Solutions-Complexity/dp/0367139308)
@@ -284,3 +284,54 @@ Leaders should foster an inclusive environment that encourages healthy conflict 
 
 <a name="l4"></a>
 # 4. Growing as a Leader
+Curiosity Courage Commitment
+
+## 4.1 Reading
+[The six signature traits of inclusive leadership: Thriving in a diverse world 2016](https://www2.deloitte.com/content/dam/Deloitte/au/Documents/human-capital/deloitte-au-hc-six-signature-traits-inclusive-leadership-020516.pdf) adaptation to a diverse and complex world. Traditional heroic leadership models are insufficient in the face of global mega-trends such as diverse markets,customers,ideas,and talent.Inclusive leadership is identified as a critical capability for thriving in this new context.
+
+Four global mega-trends are reshaping the business environment:
+1. **Diversity of Markets**: Emerging markets,particularly in Asia,Africa,and Latin America,represent significant growth opportunities but require cultural and operational adaptability.
+2. **Diversity of Customers**: Empowered by technology,customers expect personalized products and services,necessitating a customer-centric approach.
+3. **Diversity of Ideas**: Digital disruption and hyper-connectivity demand rapid innovation and diverse thinking to avoid groupthink.
+4. **Diversity of Talent**: Demographic shifts,including aging populations and the rise of Millennials,require leaders to optimize a diverse talent pool.
+
+The Six Signature Traits of an Inclusive Leader.
+1. **Commitment**: Motivation: Driven by personal values and business case alignment. Actions: Treat diversity and inclusion as business priorities,allocate resources,and take personal responsibility.
+2. **Courage**: Challenging the Status Quo:Willingness to confront others,organizational practices,and personal limitations. Humility:Acknowledge personal weaknesses and seek contributions from others.
+3. **Cognizance of Bias**: Awareness: Recognize personal and organizational biases. Fair Play: Ensure decisions are fair,transparent,and merit-based.
+4. **Curiosity**: Open Mindset:Desire to understand diverse perspectives and experiences. Empathy:Engage in respectful questioning and withhold quick judgments.
+5. **Cultural Intelligence**: Cross-Cultural Effectiveness:Adapt behavior and communication to different cultural contexts while maintaining authenticity.
+6. **Collaboration**: Empowerment:Create environments where diverse individuals feel valued and empowered to contribute. Team Dynamics:Foster diverse thinking and mitigate process biases to enhance group performance.
+
+Organizations can foster inclusive leadership through strategic alignment,recruitment,capability management,performance management,rewards and recognition,leadership development,and system integration:
+• Highlighting inclusive leadership in diversity and inclusion strategies.
+• Ensuring job advertisements emphasize inclusive capabilities.
+• Integrating inclusive leadership into performance metrics and leadership development programs
+
+## 4.2 Curiosity
+**Curiosity** -- **Shifting Mindsets**: <u>Moving from being a "knower" (someone who has fixed answers) to a "learner" (someone open to new information)</u> is crucial for personal growth. Leadership Growth: Curiosity enhances leadership by fostering empathy, creativity, and trust within teams.
+
+**Asking Questions**: Cultivating curiosity involves asking open-ended questions and challenging assumptions, which can lead to deeper understanding and innovation.
+
+**Emotional Awareness**: Being curious about one's feelings can help in recognizing patterns and improving relationships with others.
+
+## 4.2 Courage
+
+- **Communication**: A significant portion of our communication is non-verbal, and recognizing this can enhance our interactions.
+- **Courage and Vulnerability**: Vulnerability is not a weakness; it is a measure of courage and essential for effective leadership. Leaders must embrace uncertainty and emotional exposure.
+- **Authentic Leadership**: Being a leader requires humility, the ability to have difficult conversations, and the willingness to grow.
+- **Emotional Armor**: Leaders often build emotional defenses, which can hinder their effectiveness. Practicing vulnerability helps lower this armor.
+- **Self-Reflection**: Leaders should reflect on their roles in team dynamics and avoid blaming others, focusing instead on their contributions to problems.
+- **Somatic Awareness**: Understanding how emotions manifest physically can help leaders manage anxiety and improve their interactions.
+
+## 4.3 Commitment
+
+- **Excuse: It's Too Hard**: Growth is challenging, but breaking down big goals into smaller, SMART (Specific, Measurable, Actionable, Relevant, Time-based) goals can enhance motivation.
+- **Excuse: I Don't Have Time**: Time management is crucial. We often prioritize unproductive tasks over meaningful activities. Reflecting on how we spend our time can reveal our true values.
+- **Creating Sustainable Habits**: 
+  - Develop a regular practice for reflection and learning.
+  - Be prepared for setbacks and have a plan to get back on track.
+  - Connect with others for accountability.
+  - Keep the big picture in mind to maintain motivation.
+
+The lecture emphasizes that building discipline and sustainable habits is essential for effective leadership development. 

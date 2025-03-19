@@ -9,7 +9,7 @@ title: Introduction to Quantum Information
 
 1. [Quantum Theory & Qubit](#l1)
 2. [Bipartite quantum systems](#l2)
-3. [](#l3)
+3. [Quantum computing](#l3)
 4. [](#l4)
 
 
@@ -238,7 +238,14 @@ Quantum Teleportation: It allows the transfer of quantum states without physical
 The classical one-time pad can be translated into a quantum context, using quantum states and operations.
 
 <a name="l3"></a>
-# 3.
+# 3. Quantum computing
 
+**Computation** is the transformation of input into a meaningful output that solves a problem, utilizing finite resources (time, steps, or space).
+- Classical computing uses logic gates (like NAND and OR) to process bits.
+- Quantum computing transforms classical bits into **qubits**, allowing for more complex operations.
+- Two main quantum algorithms are discussed:
+  - **Grover's Algorithm**: Optimizes database searching, achieving a quadratic speedup by amplifying the probability of finding a target state.
+  - **Shor's Algorithm**: Focuses on prime number factorization, combining quantum and classical processes, with the quantum Fourier transformation being a key component.
+  
 <a name="l4"></a>
 # 4.
