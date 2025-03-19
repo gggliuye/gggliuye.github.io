@@ -12,11 +12,12 @@
     <h2 style="color: white;">Choose Colmap Sparse Model</h2>
     <input style="color: white;" type="file" webkitdirectory directory multiple id="folderInput">
     <pre id="output" style="color: white;"></pre>
-    <label style="color: white;" >点大小: <input type="range" id="pointSize" min="0.01" max="0.5" step="0.01" value="0.05"></label>
-    <label style="color: white;">相机大小: <input type="range" id="cameraSize" min="0.1" max="2" step="0.1" value="0.5"></label>
+    <label style="color: white;" >点大小: <input type="range" id="pointSize" min="0.01" max="2" step="0.01" value="0.05"></label>
+    <label style="color: white;">相机大小: <input type="range" id="cameraSize" min="0.1" max="5" step="0.1" value="0.5"></label>
 
     <script>
         let scene, camera, renderer, controls, pointCloud, camerasGroup;
+        let constantOffsetX = -0.5 * Math.PI;
 
         document.getElementById("pointSize").addEventListener("input", handlePointSize);
         document.getElementById("cameraSize").addEventListener("input", handleCameraSize);
@@ -40,7 +41,7 @@
 
             scene.remove(camerasGroup);
             camerasGroup = newCamerasGroup;
-            camerasGroup.rotation.x = Math.PI; // 180度 = π 弧度
+            camerasGroup.rotation.x = constantOffsetX; // 180度 = π 弧度
             scene.add(camerasGroup);
         }
 
@@ -147,7 +148,8 @@
                 scene.remove(scene.children[0]);
             }
             // 添加坐标系
-            const axesHelper = new THREE.AxesHelper(50); // 参数为坐标轴的长度
+            const axesHelper = new THREE.AxesHelper(100); // 参数为坐标轴的长度
+            axesHelper.rotation.x = constantOffsetX;
             scene.add(axesHelper);
 
             const geometry = new THREE.BufferGeometry();
@@ -157,7 +159,7 @@
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
             const material = new THREE.PointsMaterial({ vertexColors: true, size: parseFloat(document.getElementById('pointSize').value) });
             pointCloud = new THREE.Points(geometry, material);
-            pointCloud.rotation.x = Math.PI; // 180度 = π 弧度
+            pointCloud.rotation.x = constantOffsetX; // 180度 = π 弧度
             scene.add(pointCloud);
 
             camerasGroup = new THREE.Group();
@@ -167,7 +169,7 @@
                 camMesh.setRotationFromMatrix(img.rotationMatrix);
                 camerasGroup.add(camMesh);
             });
-            camerasGroup.rotation.x = Math.PI; // 180度 = π 弧度
+            camerasGroup.rotation.x = constantOffsetX; // 180度 = π 弧度
 
             scene.add(camerasGroup);
         }
