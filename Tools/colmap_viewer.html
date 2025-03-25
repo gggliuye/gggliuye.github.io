@@ -72,19 +72,102 @@
                 fileMap[file.name] = file;
             }
 
-            if (!fileMap['images.txt'] || !fileMap['points3D.txt']) {
-                document.getElementById('output').textContent = '错误：缺少必要的Colmap稀疏重建文件';
-                return;
+            let stats = {};
+            if (fileMap['images.bin']) {
+              stats.images = await parseColmapBin(fileMap['images.bin']);
+            } else if (fileMap['images.txt']) {
+              stats.images = await parseImages(fileMap['images.txt']);
+            } else {
+              document.getElementById('output').textContent = '错误：缺少必要的Colmap稀疏重建文件';
             }
 
-            let stats = {};
-            stats.images = await parseImages(fileMap['images.txt']);
-            stats.points3D = await parsePoints3D(fileMap['points3D.txt']);
+            if (fileMap['points3D.bin']) {
+              stats.points3D = await parsePoints3DBin(fileMap['points3D.bin']);
+            } else if (fileMap['points3D.txt']) {
+              stats.points3D = await parsePoints3D(fileMap['points3D.txt']);
+            } else {
+              document.getElementById('output').textContent = '错误：缺少必要的Colmap稀疏重建文件';
+            }
 
             document.getElementById('output').textContent = `\n相机数量: ${stats.images.length}\n点云点数: ${stats.points3D.points.length}`;
 
             visualizeScene(stats.images, stats.points3D);
         });
+
+        async function parseColmapBin(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const buffer = event.target.result;
+                    const view = new DataView(buffer);
+                    let offset = 0;
+
+                    function readUint64() {
+                        let low = view.getUint32(offset, true);
+                        let high = view.getUint32(offset + 4, true);
+                        offset += 8;
+                        return high * 2 ** 32 + low;
+                    }
+
+                    function readInt32() {
+                        let value = view.getInt32(offset, true);
+                        offset += 4;
+                        return value;
+                    }
+
+                    function readFloat64() {
+                        let value = view.getFloat64(offset, true);
+                        offset += 8;
+                        return value;
+                    }
+
+                    function readString() {
+                        let str = "";
+                        while (offset < buffer.byteLength) {
+                            let char = view.getUint8(offset++);
+                            if (char === 0) break; // 读取到 null 终止符
+                            str += String.fromCharCode(char);
+                        }
+                        return str;
+                    }
+
+                    // 读取注册的图像数量
+                    const numImages = readUint64();
+                    let poses = [];
+
+                    for (let i = 0; i < numImages; i++) {
+                        const imageId = readInt32();
+                        let qvec = [readFloat64(), readFloat64(), readFloat64(), readFloat64()];
+                        let tvec = [readFloat64(), readFloat64(), readFloat64()];
+                        const cameraId = readInt32();
+                        const imageName = readString(); // 读取文件名
+
+                        // 读取 num_points2D
+                        const numPoints2D = readUint64();
+                        offset += numPoints2D * (8 + 8 + 8); // 跳过 x, y, id 数据
+
+                        // 生成旋转矩阵
+                        let quaternion = new THREE.Quaternion(qvec[1], qvec[2], qvec[3], qvec[0]);
+                        let rotationMatrix = new THREE.Matrix4();
+                        rotationMatrix.makeRotationFromQuaternion(quaternion);
+
+                        // 计算相机位置 (R^T * -T)
+                        let translation = new THREE.Vector3(-tvec[0], -tvec[1], -tvec[2]);
+                        let cameraPosition = translation.applyMatrix4(rotationMatrix.clone().transpose());
+
+                        poses.push({
+                            position: [cameraPosition.x, cameraPosition.y, cameraPosition.z],
+                            quaternion: qvec,
+                            rotationMatrix
+                        });
+                    }
+
+                    resolve(poses);
+                };
+
+                reader.readAsArrayBuffer(file);
+            });
+        }
 
         async function parseImages(file) {
             return new Promise((resolve) => {
@@ -139,6 +222,74 @@
                     resolve({ points, colors });
                 };
                 reader.readAsText(file);
+            });
+        }
+
+        async function parsePoints3DBin(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const buffer = event.target.result;
+                    const view = new DataView(buffer);
+                    let offset = 0;
+
+                    function readUint64() {
+                        let low = view.getUint32(offset, true);
+                        let high = view.getUint32(offset + 4, true);
+                        offset += 8;
+                        return high * 2 ** 32 + low;
+                    }
+
+                    function readFloat64() {
+                        let value = view.getFloat64(offset, true);
+                        offset += 8;
+                        return value;
+                    }
+
+                    function readUint8() {
+                        let value = view.getUint8(offset);
+                        offset += 1;
+                        return value;
+                    }
+
+                    function readInt32() {
+                        let value = view.getInt32(offset, true);
+                        offset += 4;
+                        return value;
+                    }
+
+                    // 读取 3D 点的数量
+                    const numPoints = readUint64();
+                    let points = [];
+                    let colors = [];
+
+                    for (let i = 0; i < numPoints; i++) {
+                        let point3DId = readUint64(); // 3D点 ID
+                        let x = readFloat64();
+                        let y = readFloat64();
+                        let z = readFloat64();
+                        let r = readUint8() / 255;
+                        let g = readUint8() / 255;
+                        let b = readUint8() / 255;
+                        let error = readFloat64(); // 误差
+                        let trackLength = readUint64(); // 观测到该点的图像数
+
+                        let imageIds = [];
+                        let point2DIndices = [];
+
+                        for (let j = 0; j < trackLength; j++) {
+                            imageIds.push(readInt32());
+                            point2DIndices.push(readInt32());
+                        }
+
+                        points.push([x, y, z]);
+                        colors.push([r, g, b]);
+                    }
+
+                    resolve({ points, colors });
+                };
+
+                reader.readAsArrayBuffer(file);
             });
         }
 
