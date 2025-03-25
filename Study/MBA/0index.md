@@ -42,7 +42,8 @@ L2：
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
   * 实战：制定一份企业社会责任报告或参与社会责任项目。
 * 领导力与变革管理：[Strategic Leadership and Management Specialization](https://www.coursera.org/specializations/strategic-leadership)
-  * [Leading Teams: Developing as a Leader](../lead/01leadteam)
+  * ✅ 👍 [Leading Teams: Developing as a Leader](../lead/01leadteam)
+  * [Leading Teams: Building Effective Team Cultures](../lead/02buildteam)
 * 企业财务战略：深度理解财务报表、资本结构、企业估值及战略性财务决策。
   * 《公司财务管理》 (Corporate Financial Strategy) Advanced Corporate Finance
 

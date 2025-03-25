@@ -221,7 +221,10 @@ $$
 
 **Two qubit measurement** : joint measurement, can be formed with individual measurements.
 
-Example for $$M_{\phi^{+}} = | \phi^{+} \rangle \langle \phi^{+} |$$:
+Example for
+$$
+M_{\phi^{+}} = | \phi^{+} \rangle \langle \phi^{+} |
+$$
 
 $$
 \begin{align}
@@ -246,6 +249,6 @@ The classical one-time pad can be translated into a quantum context, using quant
 - Two main quantum algorithms are discussed:
   - **Grover's Algorithm**: Optimizes database searching, achieving a quadratic speedup by amplifying the probability of finding a target state.
   - **Shor's Algorithm**: Focuses on prime number factorization, combining quantum and classical processes, with the quantum Fourier transformation being a key component.
-  
+
 <a name="l4"></a>
 # 4.

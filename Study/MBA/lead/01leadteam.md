@@ -5,7 +5,7 @@ title: Leading Teams - Developing as a Leader
 
 [MBA Home](../../0index)
 
-[Leading Teams: Developing as a Leader](https://www.coursera.org/learn/leading-teams-developing-as-a-leader/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Leading Teams: Developing as a Leader](https://www.coursera.org/learn/leading-teams-developing-as-a-leader/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/RQ9JJ3A2W7O6).
 
 1. [Leadership Defined](#l1) the construct of leadership, the history of leadership. Leadship Competencies & Roles.
 2. [Strategic Self-leadership](#l2) inviting learners to explore themselves as individuals, including <u>self-awareness, efficient & ethical decision-making, and maintain psychological well-being.</u>
@@ -228,7 +228,7 @@ Conversational Intelligence :
 2. **Positional** : someone take a side to influence others - selling ideas, or seek specific answer.
 3. **Transformational** (co-creating) : collect and consider ideas, lead to deep inside and trust.
 
-<u>Creating transformational conversion</u> : 
+<u>Creating transformational conversion</u> :
 * **Active Listening** : (1) Turn off scripts; (2) Listen beyond words (e.g. face and tune).
 * **Humble Inquiry** (ask the right question in right way) four types of questions can help :
   1. <u>Confrontational inquiry</u>. help gain consense, but need to be careful.
@@ -256,7 +256,7 @@ Power make us focus more on ourself, and ignore perspectives. Leaders must be aw
 ## 3.4 Negotiation and Conflict
 
 **Inclusive Leadership**: recognize and incorporate diverse perspectives within their teams, ensuring that all voices are heard and considered in decision-making.
-  
+
 **Negotiation** is defined broadly as any interdependent decision-making process, not just formal contracts. Effective negotiation involves understanding the interests of all parties involved. **Three Goals of Negotiation**:
   - **Create Value**: Identify interests to find mutually beneficial solutions.
   - **Claim Value**: Determine how to distribute the value created.
@@ -328,10 +328,10 @@ Organizations can foster inclusive leadership through strategic alignment,recrui
 
 - **Excuse: It's Too Hard**: Growth is challenging, but breaking down big goals into smaller, SMART (Specific, Measurable, Actionable, Relevant, Time-based) goals can enhance motivation.
 - **Excuse: I Don't Have Time**: Time management is crucial. We often prioritize unproductive tasks over meaningful activities. Reflecting on how we spend our time can reveal our true values.
-- **Creating Sustainable Habits**: 
+- **Creating Sustainable Habits**:
   - Develop a regular practice for reflection and learning.
   - Be prepared for setbacks and have a plan to get back on track.
   - Connect with others for accountability.
   - Keep the big picture in mind to maintain motivation.
 
-The lecture emphasizes that building discipline and sustainable habits is essential for effective leadership development. 
+The lecture emphasizes that building discipline and sustainable habits is essential for effective leadership development.
