@@ -5,7 +5,7 @@ title: Leading Teams - Building Effective Team Cultures
 
 [MBA Home](../../0index)
 
-[Leading Teams: Building Effective Team Cultures](https://www.coursera.org/learn/leading-teams-building-effective-team-cultures/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Leading Teams: Building Effective Team Cultures](https://www.coursera.org/learn/leading-teams-building-effective-team-cultures/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/574TYTDZS0TS).
 
 1. [Team Culture: Defined](#l1)
 2. [Cultures of Safety](#l2) : **Psychological Safety**.
