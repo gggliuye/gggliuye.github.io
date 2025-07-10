@@ -65,9 +65,10 @@ function loadTrip(csvPath) {
         const title = p.title || '';
         const desc = p.description || '';
         const img = p.image || '';
+        const time = p.time || '';
         const day = p.day || '1'; // default day 1
 
-        const pointData = { lat, lng, title, description: desc, image: img, day, index };
+        const pointData = { lat, lng, title, time, description: desc, image: img, day, index };
         dataPoints.push(pointData);
 
         // Add permanent label with day-based color class
@@ -96,7 +97,7 @@ function loadTrip(csvPath) {
         entry.className = `trip-entry day-${day}`;
         entry.innerHTML = `
           ${day > current_day ? `<h3>Day ${day}</h3>` : ''}
-          <p>${title} : ${desc}</p>
+          <p>${title} ${time ? `(${time})` : ''} : ${desc}</p>
         `;
         document.getElementById('trip-descriptions').appendChild(entry);
 
@@ -132,6 +133,7 @@ function createPopup(index, points_length) {
     <div style="max-width: 280px;">
       <h4>${point.title} <small style="font-weight:normal;">(Day ${point.day})</small></h4>
       ${point.image ? `<img src="${point.image}" style="width: 100%; border-radius: 6px; margin-bottom: 8px;" />` : ''}
+      <p>${point.time}</p>
       <p>${point.description}</p>
       <div style="text-align: center; margin-top: 8px;">
         <button onclick="jumpTo(${point.index - 1})" ${point.index === 0 ? 'disabled' : ''}>⬅ 上一站</button>
