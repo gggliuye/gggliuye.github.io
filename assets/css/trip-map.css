@@ -1,0 +1,54 @@
+.trip-label {
+  background: white;
+  border: 1px solid #888;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.leaflet-popup-content button {
+  background: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.leaflet-popup-content button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Add colors for days, example */
+.day-1.trip-label {
+  background: #f5d0b5;
+  border-color: #b86d33;
+}
+.day-2.trip-label {
+  background: #f5f1b5;
+  border-color: #706811;
+}
+.day-3.trip-label {
+  background: #dcf5b5;
+  border-color: #5c851b;
+}
+.day-4.trip-label {
+  background: #befab1;
+  border-color: #287319;
+}
+.day-5.trip-label {
+  background: #a2f2ca;
+  border-color: #177847;
+}
+.day-6.trip-label {
+  background: #abeaf5;
+  border-color: #166b7a;
+}
+.day-7.trip-label {
+  background: #a5b3fa;
+  border-color: #22348a;
+}
+.day-8.trip-label {
+  background: #bbb0f5;
+  border-color: #5037de;
+}
