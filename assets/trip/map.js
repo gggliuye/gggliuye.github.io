@@ -46,18 +46,17 @@ function getColor(day) {
   return 'red';
 }
 
-function loadTrip(csvPath) {
-  fetch(csvPath)
-    .then(response => response.text())
-    .then(csvText => {
-      const result = Papa.parse(csvText, { header: true });
-      const points = result.data.filter(p => p.lat && p.lng);
-
+function loadTrip(jsonPath) {
+  fetch(jsonPath)
+    .then(response => response.json())
+    .then(points => {
       clearMap();
 
       let latlngs = [];
       let all_latlngs = [];
       let current_day = 0;
+
+      points = points.filter(p => p.lat && p.lng);
 
       points.forEach((p, index) => {
         const lat = parseFloat(p.lat);
@@ -66,7 +65,7 @@ function loadTrip(csvPath) {
         const desc = p.description || '';
         const img = p.image || '';
         const time = p.time || '';
-        const day = p.day || '1'; // default day 1
+        const day = parseInt(p.day || '1'); // day as integer
 
         const pointData = { lat, lng, title, time, description: desc, image: img, day, index };
         dataPoints.push(pointData);
@@ -88,7 +87,6 @@ function loadTrip(csvPath) {
         });
 
         const marker = L.marker([lat, lng]).addTo(map).bindPopup(createPopup(index, points.length));
-
         markers.push(marker);
         labels.push(label);
 
@@ -107,18 +105,18 @@ function loadTrip(csvPath) {
             let polyline = L.polyline(latlngs, { color: color }).addTo(map);
             polylines.push(polyline);
 
-            last = latlngs[latlngs.length - 1];
-            latlngs = []
-            latlngs.push(last);
+            let last = latlngs[latlngs.length - 1];
+            latlngs = [last];
           }
         }
+
         latlngs.push([lat, lng]);
         all_latlngs.push([lat, lng]);
         current_day = day;
       });
 
       if (latlngs.length > 0) {
-        polyline = L.polyline(latlngs, { color: getColor(current_day) }).addTo(map);
+        let polyline = L.polyline(latlngs, { color: getColor(current_day) }).addTo(map);
         polylines.push(polyline);
         map.fitBounds(all_latlngs, { padding: [30, 30] });
       }
