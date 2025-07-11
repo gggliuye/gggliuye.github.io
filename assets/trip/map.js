@@ -52,7 +52,6 @@ function loadTrip(jsonPath) {
     .then(points => {
       clearMap();
 
-      let latlngs = [];
       let all_latlngs = [];
       let current_day = 0;
 
@@ -65,6 +64,8 @@ function loadTrip(jsonPath) {
         const desc = p.description || '';
         const img = p.image || '';
         const time = p.time || '';
+        const route = p.route || '';
+        const distance = p.distance || 0;
         const day = parseInt(p.day || '1'); // day as integer
 
         const pointData = { lat, lng, title, time, description: desc, image: img, day, index };
@@ -99,27 +100,25 @@ function loadTrip(jsonPath) {
         `;
         document.getElementById('trip-descriptions').appendChild(entry);
 
-        if (day > current_day) {
+        if (route) {
           const color = getColor(day);
-          if (latlngs.length > 1) {
-            let polyline = L.polyline(latlngs, { color: color }).addTo(map);
-            polylines.push(polyline);
-
-            let last = latlngs[latlngs.length - 1];
-            latlngs = [last];
-          }
+          // add route
+          const pairs = route.split(';');
+          // 2. 转成 Leaflet 需要的 [lat,lng] 数组
+          const latlngs = pairs.map(p => {
+            const [lng, lat] = p.split(',').map(Number);
+            return [lat, lng];          // Leaflet 用 [lat,lng]
+          });
+          const polyline = L.polyline(latlngs, { color }).addTo(map);
+          polylines.push(polyline);
         }
 
-        latlngs.push([lat, lng]);
+
         all_latlngs.push([lat, lng]);
         current_day = day;
       });
 
-      if (latlngs.length > 0) {
-        let polyline = L.polyline(latlngs, { color: getColor(current_day) }).addTo(map);
-        polylines.push(polyline);
-        map.fitBounds(all_latlngs, { padding: [30, 30] });
-      }
+      map.fitBounds(all_latlngs, { padding: [30, 30] });
 
       map.closePopup();
     });
