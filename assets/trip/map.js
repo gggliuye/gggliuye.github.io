@@ -46,6 +46,12 @@ function getColor(day) {
   return 'red';
 }
 
+function secondsToHHMM(totalSec) {
+  const hours   = Math.floor(totalSec / 3600);
+  const minutes = Math.floor((totalSec % 3600) / 60);
+  return `${hours}h${String(minutes).padStart(2, '0')}m`;
+}
+
 function loadTrip(jsonPath) {
   fetch(jsonPath)
     .then(response => response.json())
@@ -54,6 +60,7 @@ function loadTrip(jsonPath) {
 
       let all_latlngs = [];
       let current_day = 0;
+      let last_title = "";
 
       points = points.filter(p => p.lat && p.lng);
 
@@ -66,6 +73,7 @@ function loadTrip(jsonPath) {
         const time = p.time || '';
         const route = p.route || '';
         const distance = p.distance || 0;
+        const duration = p.duration || '';
         const day = parseInt(p.day || '1'); // day as integer
 
         const pointData = { lat, lng, title, time, description: desc, image: img, day, index };
@@ -96,9 +104,13 @@ function loadTrip(jsonPath) {
         entry.className = `trip-entry day-${day}`;
         entry.innerHTML = `
           ${day > current_day ? `<p></p><h3>Day ${day}</h3>` : ''}
-          <li><strong>${title}</strong> ${time ? `(${time})` : ''} : ${desc}</li>
+          <p></p>
+          <strong>${title}</strong> : ${desc}
+          ${duration ? `<li><u>${last_title}-${title}</u> : 行驶里程 ${Math.round(distance/1000)}km 大概耗时 ${secondsToHHMM(duration)}</li>` : ''}
+          ${time ? `<li>预估游览时间： ${time}</li>` : ''}
         `;
         document.getElementById('trip-descriptions').appendChild(entry);
+        last_title = title;
 
         if (route) {
           const color = getColor(day);

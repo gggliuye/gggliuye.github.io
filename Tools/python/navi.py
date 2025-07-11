@@ -85,7 +85,7 @@ API_KEY = f_key.read().strip()
 f_key.close()
 
 
-def get_route(origin, destination, strategy=10):
+def get_route(origin, destination, strategy=2):
     """
     获取高德地图驾车路径规划信息
     :param origin: 起点经纬度，格式为"经度,纬度"
@@ -94,10 +94,10 @@ def get_route(origin, destination, strategy=10):
     :param strategy: 路径规划策略，10为躲避拥堵
     :return: 路径规划结果
     """
-    url = "https://restapi.amap.com/v5/direction/driving?";
+    url = "https://restapi.amap.com/v3/direction/driving?";
     url += ("origin=" + origin);
     url += ("&destination=" + destination);
-    url += "&show_fields=navi,polyline";
+    url += "&show_fields=polyline";
     url += ("&key=" + API_KEY);
 
     response = requests.get(url)
@@ -116,9 +116,11 @@ def get_route(origin, destination, strategy=10):
 def run_routing(origin, destination, polyline_min_length = 2000):
     route = get_route(origin, destination)
     if route is None:
-        return 0, ""
+        return 0, 0, ""
 
-    total_distance = 0
+    total_duration = int(route["duration"])
+    total_distance = int(route["distance"])
+
     poly_line_total = []
     for step in route["steps"]:
         # step_distance
@@ -132,10 +134,7 @@ def run_routing(origin, destination, polyline_min_length = 2000):
             if distance > polyline_min_length:
                 poly_line_total.append(polyline[i + 1])
                 p1 = p2
-
-        # def haversine(lat1, lon1, lat2, lon2):
-        total_distance += int(step["step_distance"])
-    print(f"from {origin} to {destination} total distance {total_distance}, polysize : {len(poly_line_total)}")
+    print(f"from {origin} to {destination} total distance {total_distance} total duration {total_duration}, polysize : {len(poly_line_total)}")
 
     # transfrom the coordinates of the polyline
     poly_line_total_string = ""
@@ -144,7 +143,7 @@ def run_routing(origin, destination, polyline_min_length = 2000):
         lon, lat = gcj02_to_wgs84(float(pt[0]), float(pt[1]))
         poly_line_total_string = poly_line_total_string + str(lon) + "," + str(lat) + ";"
 
-    return total_distance, poly_line_total_string[:-1]
+    return total_distance, total_duration, poly_line_total_string[:-1]
 
 # process routing
 def read_json_waypoints(json_file_path):
@@ -158,10 +157,11 @@ def read_json_waypoints(json_file_path):
         if last_point is None:
             last_point = current_point
             continue
-        total_distance, poly_line_total = run_routing(last_point, current_point)
+        total_distance, total_duration, poly_line_total = run_routing(last_point, current_point)
         last_point = current_point
 
         p["distance"] = total_distance
+        p["duration"] = total_duration
         p["route"] = poly_line_total
 
         # We might have error "CUQPS_HAS_EXCEEDED_THE_LIMIT", so we sleep a bit
