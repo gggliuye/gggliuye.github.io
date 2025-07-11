@@ -94,8 +94,8 @@ function loadTrip(jsonPath) {
         const entry = document.createElement('div');
         entry.className = `trip-entry day-${day}`;
         entry.innerHTML = `
-          ${day > current_day ? `<h3>Day ${day}</h3>` : ''}
-          <p>${title} ${time ? `(${time})` : ''} : ${desc}</p>
+          ${day > current_day ? `<p></p><h3>Day ${day}</h3>` : ''}
+          <li><strong>${title}</strong> ${time ? `(${time})` : ''} : ${desc}</li>
         `;
         document.getElementById('trip-descriptions').appendChild(entry);
 
