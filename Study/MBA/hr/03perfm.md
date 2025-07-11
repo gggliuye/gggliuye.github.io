@@ -9,7 +9,7 @@ title: Managing Employee Performance
 
 1. [Introduction](#l1)
 2. [Implementing Performance Management System](#l2)
-3. [](#l3)
+3. [Tools for effective performance management](#l3)
 4. [](#l4)
 
 
@@ -82,11 +82,52 @@ The lecture emphasizes the importance of aligning individual objectives with dep
   - Must be **measurable** and **tangible** (e.g., "I will complete the HR People Management Certification Program by September 2016").
   - Help in holding individuals accountable for their performance.
 
+**Performance Standards** are more about behaviors and specific actions, while objectives focus on goals and outcomes
+(1) Quality: Ensuring the quality of work.
+(2) Time: Timeliness in completing tasks.
+(3) Quantity: Measuring the volume of work produced.
+
 ## 2.3 Measuring Results and Behaviors
 
+Accountabilities <-> Performnance standards <-> Objectives <-> Goals  + <u>Methods for measuring performance</u>
+
+(1) **Comparative Methods**: 
+- **Simple Ranking**: Employees are ranked from top to bottom.
+- **Alternating Ranking**: Alternates between top and bottom performers.
+- **Forced Distribution**: Employees are categorized into percentages across performance levels.
+
+(2) **Absolute Methods**: 
+- **Essays**: Written evaluations of performance.
+- **Behavior Checklists**: Ratings on specific behaviors using a scale.
+- **Critical Incidents**: Documenting significant positive and negative performance events.
+- **Graphic Rating Scales**: A scale with defined performance levels for various dimensions.
+
+(3) **Results Methods**: **Management by Objectives (MBO)**: Employees and managers agree on objectives and review performance against these goals.
+
+| **Aspect**                | **Comparative Methods**                                                                 | **Absolute Methods**                                                                 | **Results Methods (MBO)**                                                                 |
+|---------------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| **Definition**            | Employees are compared against each other.                                               | Employees are evaluated against predefined standards.                                 | Employees are evaluated based on the results achieved against jointly set objectives.      |
+| **Pros**                  | - Easy to explain and understand<br>- Clear results<br>- Identifies performance levels<br>- Encourages managerial evaluation | - Suitable for various organization sizes<br>- Higher employee acceptance<br>- Clear criteria<br>- Facilitates development<br>- Consistency | - Aligns with corporate strategies<br>- Facilitates monitoring<br>- Clear expectations<br>- Employee development<br>- Measures real results |
+| **Cons**                  | - Poorly designed rankings<br>- Legal challenges<br>- No relative distance<br>- Time-consuming | - Grading errors<br>- Time-consuming<br>- Inconsistency<br>- Manager dependency         | - Overlooks behaviors<br>- Requires strong management skills<br>- Regular review necessary |
+| **Specific Types**        | - Simple Ranking<br>- Alternating Ranking<br>- Forced Distribution                         | - Essays<br>- Behavior Checklists<br>- Critical Incidents<br>- Graphic Rating Scales     | - Setting objectives jointly<br>- Reviewing performance against objectives                |
+| **Best Suited For**       | - Small to medium-sized organizations<br>- Situations where relative performance is important | - Organizations of any size<br>- Situations where clear standards are available         | - Organizations focused on results<br>- Situations requiring clear objectives and outcomes |
+| **Implementation Complexity** | - Moderate to high (especially in large organizations)                                   | - Moderate (can be time-consuming to develop and implement)                           | - High (requires strong management skills and regular reviews)                             |
 
 <a name="l3"></a>
-# 3.
+# 3. Tools for effective performance management
+
+## 3.1 Effective Review
+
+1. Discuss the importance of the review process.
+2. Explanation of meeting purpose.
+3. Jointy discuss goals and accomplishments with rationale.
+4. Developmental and future goals discussion.
+5. Summarize.
+6. Set date for follow up.
+
+## 3.2 Effective Feedback
+
+## 3.3 Preventing Rater Bias
 
 <a name="l4"></a>
 # 4.

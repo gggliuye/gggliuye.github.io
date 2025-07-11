@@ -5,12 +5,12 @@ title: Leading Teams - Developing as a Leader
 
 [MBA Home](../../0index)
 
-[Leading Teams: Developing as a Leader](https://www.coursera.org/learn/leading-teams-developing-as-a-leader/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Leading Teams: Developing as a Leader](https://www.coursera.org/learn/leading-teams-developing-as-a-leader/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/RQ9JJ3A2W7O6).
 
 1. [Leadership Defined](#l1) the construct of leadership, the history of leadership. Leadship Competencies & Roles.
 2. [Strategic Self-leadership](#l2) inviting learners to explore themselves as individuals, including <u>self-awareness, efficient & ethical decision-making, and maintain psychological well-being.</u>
 3. [Leading Others](#l3) the relationship between leaders and others by exploring emotional intelligence, navigating differences of opinion, and power dynamics between individuals
-4. [Growing as a Leader](#l4) develop a practice for growing as a leader.
+4. [Growing as a Leader](#l4) develop a practice for growing as a leader : Curiosity, Courage, and Commitment.
 
 * [Leading Below the Surface: How to Build Real (and Psychologically Safe) Relationships with People Who Are Different from You 2021](https://www.amazon.com/Leading-Below-Surface-Psychologically-Relationships/dp/1951591844)
 * [Transforming Leader Paradigms 2019](https://www.amazon.com/Transforming-Leader-Paradigms-Solutions-Complexity/dp/0367139308)
@@ -193,5 +193,145 @@ Skill Development:
 <a name="l3"></a>
 # 3. Leading Others
 
+Leadership is fundamentally about relationships with others, emphasizing the importance of building and maintaining trust.
+Trust is described as a foundation for effective leadership, necessary for navigating both good and challenging times.
+
+[Why you should collaborate through boundaries 2022](https://www.ccl.org/articles/leading-effectively-articles/boundary-spanning-the-leadership-advantage/)
+* Boundary spanning leadership is the capability to establish direction, alignment, and commitment across boundaries in service of a higher vision or goal.
+* Types : Horizontal, Vertical, Stakeholder, Demographic, Geographic.
+* Benefits : increased agility,innovation,and achievement of critical results while fostering a more engaged and adaptable workforce.
+* Strategies and Tactics for Spanning Boundaries
+  1. **Manage Boundaries**: Clarify Roles and Build Psychological Safety.
+  2. **Forge Common Ground**: Build Trust and Collective Investment.
+  3. **Discove New Frontiers**: Drive Innovation and Transformation.
+
+## 3.1 Leading with Emotional Intelligence
+
+1. Perception & Expression.
+2. Using emotion to facilitate thinking.
+3. Understanding emotion.
+4. Managing emotions: remain open, and regulate motion.
+
+## 3.2 Building Trusting Relationships
+
+**ABI Model**: Trust is built on three elements:
+(1) Ability: The perceived competence of a leader.
+(2) Benevolence: The leader's concern for others' well-being.
+(3) Integrity: Consistency in a leader's actions and promises.
+
+High trust leads to better communication, cooperation, employee satisfaction, and reduced turnover.
+Trust influences brain activity, with oxytocin promoting trust and cortisol linked to stress.
+
+<u>Trust can be built through everyday conservations.</u>
+Conversational Intelligence :
+1. **Transactional** : straight forward way of communication - give & receive information.
+2. **Positional** : someone take a side to influence others - selling ideas, or seek specific answer.
+3. **Transformational** (co-creating) : collect and consider ideas, lead to deep inside and trust.
+
+<u>Creating transformational conversion</u> :
+* **Active Listening** : (1) Turn off scripts; (2) Listen beyond words (e.g. face and tune).
+* **Humble Inquiry** (ask the right question in right way) four types of questions can help :
+  1. <u>Confrontational inquiry</u>. help gain consense, but need to be careful.
+  2. <u>Diagnostic inquiry</u>. ask others to review their mind.
+  3. <u>Process inquiry</u>. ask about process of the conservations, to be in the same page.
+  4. <u>Humble or Pure inquiry</u>.  simple, without your own opinion.
+
+## 3.3 Using Power and Influence Ethically
+
+The **Five Bases of Power** (sixth later added) (to understand power source and effect):
+1. Legitimate Power: Authority from a formal role.
+2. Reward Power: Ability to provide rewards (tangible or intangible).
+3. Coercive Power: Using threats to influence behavior.
+4. Expert Power: Based on unique skills or knowledge.
+5. Referent Power: Derived from respect and trust.
+6. Informational Power: Influence from access to valuable information.
+
+Power make us focus more on ourself, and ignore perspectives. Leaders must be aware of how power affects their behavior and relationships, ensuring they <u>use their influence ethically and inclusively.</u>
+
+- **Psychological Safety**: Leaders should create an environment where employees feel safe to express themselves without fear of punishment. This fosters innovation and open communication.
+- **Trust and Respect**: Building trusting relationships requires both trust and respect. Leaders must treat employees with consideration and provide clear information to create a just organization.
+- **Ethical Use of Power**: Leaders should recognize their influence as a responsibility and use it ethically. Observing power dynamics and being self-aware are crucial for effective leadership.
+- **Practical Strategies**: Encouraging participation in team settings, such as using brainstorming sheets with names, can help individuals feel valued and engaged.
+
+## 3.4 Negotiation and Conflict
+
+**Inclusive Leadership**: recognize and incorporate diverse perspectives within their teams, ensuring that all voices are heard and considered in decision-making.
+
+**Negotiation** is defined broadly as any interdependent decision-making process, not just formal contracts. Effective negotiation involves understanding the interests of all parties involved. **Three Goals of Negotiation**:
+  - **Create Value**: Identify interests to find mutually beneficial solutions.
+  - **Claim Value**: Determine how to distribute the value created.
+  - **Cultivate Relationships and Reputations**: Build trust for future negotiations.
+
+Leaders should foster an inclusive environment that encourages healthy conflict and dialogue, recognizing that conflict can lead to productive outcomes if managed well. Types of **Conflict**:
+* Task Conflict: Disagreements about work tasks or decisions.
+* Relationship Conflict: Differences in personalities or communication styles.
+* Values-Based Conflict: Deeply held beliefs and values that differ among individuals.
+
+**Conflict is Inevitable**: Different interests and motivations among individuals lead to conflicts that leaders must manage.
+
+(1) **Self-Awareness**: understand yourself, **Conflict Management Styles**: The Thomas-Kilmann Instrument (TKI) identifies five conflict behaviors:
+- **Avoiding**: Low assertiveness and cooperation.
+- **Accommodating**: Low assertiveness but high cooperation.
+- **Competitive**: High assertiveness but low cooperation.
+- **Collaborative**: High assertiveness and cooperation.
+- **Compromising**: Moderate assertiveness and cooperation.
+
+(2) **Communication strategy**: Open dialogue and asking questions are crucial for understanding interests and building trust.
+
+(3) Focus on **interests** (not positions). Ask for interests actively.
+
+**Psychological Safety**: Creating an environment where team members feel safe to express their ideas and concerns enhances collaboration and problem-solving.
+
 <a name="l4"></a>
 # 4. Growing as a Leader
+Curiosity Courage Commitment
+
+## 4.1 Reading
+[The six signature traits of inclusive leadership: Thriving in a diverse world 2016](https://www2.deloitte.com/content/dam/Deloitte/au/Documents/human-capital/deloitte-au-hc-six-signature-traits-inclusive-leadership-020516.pdf) adaptation to a diverse and complex world. Traditional heroic leadership models are insufficient in the face of global mega-trends such as diverse markets,customers,ideas,and talent.Inclusive leadership is identified as a critical capability for thriving in this new context.
+
+Four global mega-trends are reshaping the business environment:
+1. **Diversity of Markets**: Emerging markets,particularly in Asia,Africa,and Latin America,represent significant growth opportunities but require cultural and operational adaptability.
+2. **Diversity of Customers**: Empowered by technology,customers expect personalized products and services,necessitating a customer-centric approach.
+3. **Diversity of Ideas**: Digital disruption and hyper-connectivity demand rapid innovation and diverse thinking to avoid groupthink.
+4. **Diversity of Talent**: Demographic shifts,including aging populations and the rise of Millennials,require leaders to optimize a diverse talent pool.
+
+The Six Signature Traits of an Inclusive Leader.
+1. **Commitment**: Motivation: Driven by personal values and business case alignment. Actions: Treat diversity and inclusion as business priorities,allocate resources,and take personal responsibility.
+2. **Courage**: Challenging the Status Quo:Willingness to confront others,organizational practices,and personal limitations. Humility:Acknowledge personal weaknesses and seek contributions from others.
+3. **Cognizance of Bias**: Awareness: Recognize personal and organizational biases. Fair Play: Ensure decisions are fair,transparent,and merit-based.
+4. **Curiosity**: Open Mindset:Desire to understand diverse perspectives and experiences. Empathy:Engage in respectful questioning and withhold quick judgments.
+5. **Cultural Intelligence**: Cross-Cultural Effectiveness:Adapt behavior and communication to different cultural contexts while maintaining authenticity.
+6. **Collaboration**: Empowerment:Create environments where diverse individuals feel valued and empowered to contribute. Team Dynamics:Foster diverse thinking and mitigate process biases to enhance group performance.
+
+Organizations can foster inclusive leadership through strategic alignment,recruitment,capability management,performance management,rewards and recognition,leadership development,and system integration:
+• Highlighting inclusive leadership in diversity and inclusion strategies.
+• Ensuring job advertisements emphasize inclusive capabilities.
+• Integrating inclusive leadership into performance metrics and leadership development programs
+
+## 4.2 Curiosity
+**Curiosity** -- **Shifting Mindsets**: <u>Moving from being a "knower" (someone who has fixed answers) to a "learner" (someone open to new information)</u> is crucial for personal growth. Leadership Growth: Curiosity enhances leadership by fostering empathy, creativity, and trust within teams.
+
+**Asking Questions**: Cultivating curiosity involves asking open-ended questions and challenging assumptions, which can lead to deeper understanding and innovation.
+
+**Emotional Awareness**: Being curious about one's feelings can help in recognizing patterns and improving relationships with others.
+
+## 4.2 Courage
+
+- **Communication**: A significant portion of our communication is non-verbal, and recognizing this can enhance our interactions.
+- **Courage and Vulnerability**: Vulnerability is not a weakness; it is a measure of courage and essential for effective leadership. Leaders must embrace uncertainty and emotional exposure.
+- **Authentic Leadership**: Being a leader requires humility, the ability to have difficult conversations, and the willingness to grow.
+- **Emotional Armor**: Leaders often build emotional defenses, which can hinder their effectiveness. Practicing vulnerability helps lower this armor.
+- **Self-Reflection**: Leaders should reflect on their roles in team dynamics and avoid blaming others, focusing instead on their contributions to problems.
+- **Somatic Awareness**: Understanding how emotions manifest physically can help leaders manage anxiety and improve their interactions.
+
+## 4.3 Commitment
+
+- **Excuse: It's Too Hard**: Growth is challenging, but breaking down big goals into smaller, SMART (Specific, Measurable, Actionable, Relevant, Time-based) goals can enhance motivation.
+- **Excuse: I Don't Have Time**: Time management is crucial. We often prioritize unproductive tasks over meaningful activities. Reflecting on how we spend our time can reveal our true values.
+- **Creating Sustainable Habits**:
+  - Develop a regular practice for reflection and learning.
+  - Be prepared for setbacks and have a plan to get back on track.
+  - Connect with others for accountability.
+  - Keep the big picture in mind to maintain motivation.
+
+The lecture emphasizes that building discipline and sustainable habits is essential for effective leadership development.
