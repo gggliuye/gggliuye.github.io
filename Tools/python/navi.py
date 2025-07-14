@@ -4,6 +4,8 @@ import math
 import time
 
 
+USE_GCJ02 = True
+
 # ---------------- 常量 ----------------
 _EE = 0.00669342162296594323
 _A  = 6378245.0
@@ -140,7 +142,11 @@ def run_routing(origin, destination, polyline_min_length = 2000):
     poly_line_total_string = ""
     for lon_lat in poly_line_total:
         pt = lon_lat.split(',')
-        lon, lat = gcj02_to_wgs84(float(pt[0]), float(pt[1]))
+        if USE_GCJ02:
+            lon = float(pt[0])
+            lat = float(pt[1])
+        else:
+            lon, lat = gcj02_to_wgs84(float(pt[0]), float(pt[1]))
         poly_line_total_string = poly_line_total_string + str(lon) + "," + str(lat) + ";"
 
     return total_distance, total_duration, poly_line_total_string[:-1]
@@ -152,7 +158,7 @@ def read_json_waypoints(json_file_path):
 
     last_point = None
     for p in points:
-        lon, lat = gcj02_to_wgs84(p["lng"], p["lat"])
+        lon, lat = gcj02_to_wgs84(p["lng_wgs84"], p["lat_wgs84"])
         current_point = str(lon) + "," + str(lat)
         if last_point is None:
             last_point = current_point
@@ -162,7 +168,9 @@ def read_json_waypoints(json_file_path):
 
         p["distance"] = total_distance
         p["duration"] = total_duration
-        p["route"] = poly_line_total
+        p["route_gcj"] = poly_line_total
+        p["lng_gcj"] = lon
+        p["lat_gcj"] = lat
 
         # We might have error "CUQPS_HAS_EXCEEDED_THE_LIMIT", so we sleep a bit
         time.sleep(1.0)
