@@ -8,9 +8,28 @@ document.addEventListener("DOMContentLoaded", function () {
   map = L.map('map').setView([0, 0], 2);
 
   // Use OpenStreetMap tiles (change if you want satellite)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-  }).addTo(map);
+  });
+  osmLayer.addTo(map);
+
+  // Satellite layer (from Esri)
+  const satelliteLayer = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 18,
+      attribution: '© Esri & the GIS User Community',
+    }
+  );
+  satelliteLayer.addTo(map);
+
+  // Layer control to toggle between OSM and Satellite
+  const baseMaps = {
+    'Satellite': satelliteLayer,
+    'OpenStreetMap': osmLayer,
+  };
+  L.control.layers(baseMaps).addTo(map);
+
 
   // Dropdown selector element
   const selector = document.getElementById("trip-selector");
