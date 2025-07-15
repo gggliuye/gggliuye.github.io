@@ -8,9 +8,38 @@ document.addEventListener("DOMContentLoaded", function () {
   map = L.map('map').setView([0, 0], 2);
 
   // Use OpenStreetMap tiles (change if you want satellite)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-  }).addTo(map);
+  // const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //   maxZoom: 19,
+  // });
+  // osmLayer.addTo(map);
+  // 天地图矢量底图
+  const osmLayer = L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+    subdomains: '1234',
+    maxZoom: 19
+  });
+  osmLayer.addTo(map);
+
+  // Satellite layer (from Esri)
+  // const satelliteLayer = L.tileLayer(
+  //   'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  //   {
+  //     maxZoom: 18,
+  //     attribution: '© Esri & the GIS User Community',
+  //   }
+  // );
+  const satelliteLayer = L.tileLayer('https://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}', {
+    subdomains: '1234',
+    maxZoom: 19
+  });
+  satelliteLayer.addTo(map);
+
+  // Layer control to toggle between OSM and Satellite
+  const baseMaps = {
+    'Satellite': satelliteLayer,
+    'VectorMap': osmLayer,
+  };
+  L.control.layers(baseMaps).addTo(map);
+
 
   // Dropdown selector element
   const selector = document.getElementById("trip-selector");
@@ -62,16 +91,16 @@ function loadTrip(jsonPath) {
       let current_day = 0;
       let last_title = "";
 
-      points = points.filter(p => p.lat && p.lng);
+      points = points.filter(p => p.lat_gcj && p.lng_gcj);
 
       points.forEach((p, index) => {
-        const lat = parseFloat(p.lat);
-        const lng = parseFloat(p.lng);
+        const lat = parseFloat(p.lat_gcj);
+        const lng = parseFloat(p.lng_gcj);
         const title = p.title || '';
         const desc = p.description || '';
         const img = p.image || '';
         const time = p.time || '';
-        const route = p.route || '';
+        const route = p.route_gcj || '';
         const distance = p.distance || 0;
         const duration = p.duration || '';
         const day = parseInt(p.day || '1'); // day as integer
