@@ -128,17 +128,25 @@ function loadTrip(jsonPath) {
         markers.push(marker);
         labels.push(label);
 
+        console.log(day);
+
         // Build HTML for the journal entry
         const entry = document.createElement('div');
         entry.className = `trip-entry day-${day}`;
         entry.innerHTML = `
-          ${day > current_day ? `<p></p><h3>Day ${day}</h3>` : ''}
+          ${day > current_day ? `<p></p><h3>Day ${day} 规划</h3>` : ''}
           <p></p>
           <strong>${title}</strong> : ${desc}
           ${duration ? `<li><u>${last_title}-${title}</u> : 行驶里程 ${Math.round(distance/1000)}km 大概耗时 ${secondsToHHMM(duration)}</li>` : ''}
           ${time ? `<li>预估游览时间： ${time}</li>` : ''}
+          <p></p>
         `;
-        document.getElementById('trip-descriptions').appendChild(entry);
+        const el = document.getElementById(`trip-day-${day}`);
+        if (el) {
+          el.appendChild(entry);
+        } else {
+          document.getElementById('trip-descriptions').appendChild(entry);
+        }
         last_title = title;
 
         if (route) {
