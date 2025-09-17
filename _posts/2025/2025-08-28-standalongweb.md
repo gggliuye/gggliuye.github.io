@@ -2,12 +2,11 @@
 layout: post
 title: Make a Product
 comments: true
-tags: [Market]
+tags: [Market, Kickstarter]
 ---
 
-
-
-## 销售与渠道策略
+## Market Talk
+### 销售与渠道策略
 <p></p>
 
 1. **独立站的重要性**
@@ -24,7 +23,7 @@ tags: [Market]
   * **代销模式**（例如：仪表产品由亚马逊代销）。
   * **自营店铺**（例如：外壳产品自己开店）。
 
-## 产品与服务
+### 产品与服务
 <p></p>
 
 1. **产品设计原则**
@@ -40,7 +39,7 @@ tags: [Market]
 * 要考虑海外市场（例如美国/EU）的物流方案。
 
 
-## 执行要点
+### 执行要点
 <p></p>
 
 * **独立站**：建好并用于前期预热和Email收集。

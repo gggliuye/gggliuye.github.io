@@ -1040,3 +1040,24 @@ pre {
     display: inline-block;
   }
 }
+
+.toc {
+  position: sticky;
+  top: 100px; /* adjust for your header */
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  font-size: 0.9rem;
+  padding-right: 1rem;
+  border-right: 1px solid #eee;
+}
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+.toc a {
+  text-decoration: none;
+  color: #555;
+}
+.toc a:hover {
+  color: #000;
+}

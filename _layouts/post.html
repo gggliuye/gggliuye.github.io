@@ -4,8 +4,36 @@ layout: base
 
 {% include header.html type="post" %}
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toc = document.getElementById("toc");
+  const headers = document.querySelectorAll("article h2, article h3, article h4");
+  if (!headers.length) return;
+  let ul = document.createElement("ul");
+  headers.forEach(h => {
+    const level = parseInt(h.tagName[1]); // 2 for H2, 3 for H3, etc.
+    const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+    h.id = id;
+
+    const li = document.createElement("li");
+    // Add spaces based on level
+    const indent = "&nbsp;".repeat((level + 1) * 2); // adjust number of spaces
+    li.innerHTML = `${indent}<a href="#${id}">${h.textContent}</a>`;
+    ul.appendChild(li);
+  });
+  toc.appendChild(ul);
+});
+</script>
+
+
 <div class="container-md">
   <div class="row">
+    <!-- Left Sidebar (TOC) -->
+    <aside class="d-none d-lg-block">
+      <nav id="toc" class="toc"></nav>
+    </aside>
+
     <div class="offset-lg-1 col-lg-10 offset-lg-1">
 
       {% if page.gh-repo %}
@@ -31,6 +59,7 @@ layout: base
         </div>
       {% endif %}
 
+      <!-- Main Content -->
       <article role="main" class="blog-post">
         {{ content }}
       </article>
