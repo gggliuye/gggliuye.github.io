@@ -30,7 +30,7 @@ WORKs
       Point Based SFM
       Global Averaging
       Line Based SFM
-      Image MVS
+      Cuda Based Image MVS
       Map Summarization
     Lidar Based
       TSDF Pointcloud
@@ -50,6 +50,10 @@ WORKs
     Vertigo Reduction
     RunTime Rendering
     OpenXR Native
+  (Embedded System)
+    Arduino
+    ESP IDF
+    OBD canbus
 </pre></div>
 
 
