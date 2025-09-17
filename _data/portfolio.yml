@@ -1,3 +1,11 @@
+- title: VR Drone Experience - 2025
+  description: The first Unreal Engine gaussian splatting based VR drone experience
+  img: wuxi_drone.gif
+  url: https://mp.weixin.qq.com/s/xYGgDKycignMzfC7y09vTQ?poc_token=HLgoymijHSzuRmOwnQboFEyoJMpMBsrI_9RaptuE
+- title: Rhythm of the Ancient Flow - 2025
+  description: The first water-based VR experience created with Unreal Engine.
+  img: boat_vr.jpg
+  url: https://www.xiaohongshu.com/discovery/item/676a69c3000000000b02087c?source=webshare&xhsshare=pc_web&xsec_token=AB1tpLI_hEqRqM357wkdLsa8PUWk8egh6LWABzCaoO-Eg=&xsec_source=pc_share
 - title: MR Travel Mode - 2024
   description: Travel Mode using Visual Odometry
   img: vo.gif
