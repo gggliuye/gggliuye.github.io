@@ -8,7 +8,7 @@ layout: base
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toc = document.getElementById("toc");
-  const headers = document.querySelectorAll("article h2, article h3, article h4");
+  const headers = document.querySelectorAll("article h1, article h2, article h3, article h4");
   if (!headers.length) return;
   let ul = document.createElement("ul");
   headers.forEach(h => {
