@@ -117,3 +117,25 @@ var BeautifulJekyllJS = {
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', BeautifulJekyllJS.init);
+
+document.addEventListener("DOMContentLoaded", function() {
+  const toc = document.getElementById("toc");
+  if (toc == null) {
+    return;
+  }
+  const headers = document.querySelectorAll("article h1, article h2, article h3, article h4");
+  if (!headers.length) return;
+  let ul = document.createElement("ul");
+  headers.forEach(h => {
+    const level = parseInt(h.tagName[1]); // 2 for H2, 3 for H3, etc.
+    const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+    h.id = id;
+
+    const li = document.createElement("li");
+    // Add spaces based on level
+    const indent = "&nbsp;".repeat((level + 1) * 2); // adjust number of spaces
+    li.innerHTML = `${indent}<a href="#${id}">${h.textContent}</a>`;
+    ul.appendChild(li);
+  });
+  toc.appendChild(ul);
+});
