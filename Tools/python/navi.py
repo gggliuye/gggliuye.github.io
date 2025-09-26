@@ -181,4 +181,4 @@ def read_json_waypoints(json_file_path):
 
 
 
-read_json_waypoints("assets/trip/trip_gannan_xc.json");
+read_json_waypoints("assets/trip/trip_guizhou.json");
