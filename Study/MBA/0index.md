@@ -20,6 +20,7 @@ L1：
 * 市场营销：掌握市场分析、消费者行为、营销策略、品牌管理等知识。
   * 《营销管理》 (Marketing Management)
   * 💡 [Philip Kotler's Marketing Talk](../market/PhilipKotlerMarketing)
+  * 👑 [Marketing 3.0 - From Products to Customers to the Human Spirit](../market/Market3)
   * Marketing Strategy
 * 运营管理：学习供应链管理、质量控制、生产规划等运营管理概念。
   * 《运营管理》 (Operations Management)
