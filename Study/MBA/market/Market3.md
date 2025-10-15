@@ -273,9 +273,73 @@ Summary : 公司要让股东认识到，一个以可持续性、使命感与价�
 
 ## Chapter 7. Delivering Socio-Cultural Transformation
 
-### MARKETING TO THE POST-GROWTH MARKET
-
 Being a marketer in the 3.0 era is <u>collaborating with other companies to find creative ways to social solve problems.</u>
+
+* Example : Need for Future Growth: Disney on Children’s Nutrition.
+* Example : Call for Strong Differentiation: Wegmans on Healthy Living.
+
+
+**Philanthropy** (direct donation) helps society, but has limited effects, with a rather short-term impact.
+**Cause-Marketing** : A more advanced form is <u>support a specific cause through their marketing activities.</u>
+
+| Identify Socio-Cultural Challenges | Select Target Constituents | Offer Transformational Solution |
+|--------------------------------|---------------------------------|---------------------------------|
+| - Identify current and predict future challenges.<br> - Challenges may include wellness (nutrition and health care), education or social injustice | - For immediate impact : select constituents such as the middle class, women, or the eldery<br> -For future impact : select children and youth |  - Provide behavior-changing solutions moving up the Maslow Pyramid <br>- Aim toward more collaborative, cultural, and creative transformation.|
+
+<p></p>
+
+## Chapter 8. Creating Emerging Market Entrepreneurs
+
+FROM PYRAMID TO DIAMOND, FROM AID TO ENTREPRENEURSHIP
+The pyramid must be reshaped into a diamond.
+
+* **THREE ENABLING FORCES**, reduce poverty (the bottom of the economic pyramid):
+  1. Increased access among the poor to information and communication technology infrastructure.
+  2. The blend of excess supply, under-consumption in mature markets, and hyper-competition at the top and middle of the pyramid.
+  3. Government policy to discourage people from migrating to overcrowded urban areas.
+* **FOUR REQUIREMENTS**:
+  1. Its scale should be huge to reach the billions who are in poverty.
+  2. Solutions must be enduring and last over generations.
+  3. Solutions must be truly effective and make a difference.
+  4. All this must happen efficiently.
+
+Social business enterprise (SBE) : a company that is making money while impacting the society in which it operates.
+
+## Chapter 9. Striving for Environmental Sustainability
+
+Three roles : the Innovator, the Investor, or the Propagator.
+
+* The Innovator: DuPont Case. Environment-saving products forms the core of their raison d’être.
+* The Investor: Wal-Mart Case. Lending financial resources to support environmentally friendly projects
+* The Propagator: Timberland Case. Seek to create environmental ambassadors by spreading the values of protecting the earth to employees and consumers.
+
+
+Motivations of Different Actors
+
+| Innovator | Propagator | Investor |
+| Enabler | Promoter | Amplifier |
+| - Natural resources dependence<br> - Current exposure to regulation <br>- Increasing potential for regulation | - Competitive market for talent <br>- Low market power in highlty competitive market<br>- Good environmental track records | - High brand exposure<br>- Big environmental impact |
+
+Companies need to distinguish the four segments in the green
+market—the trendsetters, value-seekers, standard matchers,
+and cautious buyers and note their differing behaviors and
+readiness to buy green products.
+
+
+## Chapter 10. Putting It All Together
+
+<p></p>
+* CREDO 1: LOVE YOUR CUSTOMERS, RESPECT YOUR COMPETITORS
+  * emotion leads to actions while reason leads to conclusions
+* CREDO 2: BE SENSITIVE TO CHANGE, BE READY TO TRANSFORM
+* CREDO 3: GUARD YOUR NAME, BE CLEAR ABOUT WHO YOU ARE
+* CREDO 4: CUSTOMERS ARE DIVERSE; GO FIRST TO THOSE WHO CAN BENEFIT MOST FROM YOU
+* CREDO 5: ALWAYS OFFER A GOOD PACKAGE AT A FAIR PRICE
+* CREDO 6: ALWAYS MAKE YOURSELF AVAILABLE, SPREAD THE GOOD NEWS
+* CREDO 7: GET YOUR CUSTOMERS, KEEP AND GROW THEM
+* CREDO 8: WHATEVER YOUR BUSINESS, IT IS A SERVICE BUSINESS
+* CREDO 9: ALWAYS REFINE YOUR BUSINESS PROCESS IN TERMS OF QUALITY, COST, AND DELIVERY
+* CREDO 10: GATHER RELEVANT INFORMATION, BUT USE WISDOM IN MAKING YOUR FINAL DECISION
 
 
 Topic deserve further research:
