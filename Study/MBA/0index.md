@@ -25,7 +25,7 @@ L1：
   * 👑 [Marketing 3.0 - From Products to Customers to the Human Spirit](../market/Market3)
   * [Advertising and Society](../market/adsoc)
 * 👑 [Meta Social Media Marketing Professional Certificate](https://www.coursera.org/professional-certificates/facebook-social-media-marketing).
-  * [Introduction to Social Media Marketing](../market/01sm_market_intro)
+  * ✅ 💡 [Introduction to Social Media Marketing](../market/01sm_market_intro)
 * 运营管理：学习供应链管理、质量控制、生产规划等运营管理概念。
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
