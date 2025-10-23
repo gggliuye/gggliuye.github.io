@@ -15,17 +15,18 @@ L0：
   * ✅ 👍 [Corporate Finance Essentials](../account/03corpfin)
   * ✅ 💡 [Corporate Finance Essentials II](../account/04corpfin2)
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
-  * ✎ᝰ.📖 [Finance Theory](/Study/Finance/theory/00index)
+  * ✅ 👑 [📖 Finance Theory](/Study/Finance/theory/00index)
   * ✅ 👑 [Yale: Financial Markets](../1finace)
 
 L1：
 * 市场营销：掌握市场分析、消费者行为、营销策略、品牌管理等知识。
   * 《营销管理》 (Marketing Management)
-  * 💡 [Philip Kotler's Marketing Talk](../market/PhilipKotlerMarketing)
-  * 👑 [Marketing 3.0 - From Products to Customers to the Human Spirit](../market/Market3)
-  * [Advertising and Society](../market/adsoc)
+  * ✅ 💡 [Philip Kotler's Marketing Talk](../market/PhilipKotlerMarketing)
+  * ✅ 👑 [📖 Marketing 3.0 - From Products to Customers to the Human Spirit](../market/Market3)
+  * [Duke: Advertising and Society](../market/adsoc)
 * 👑 [Meta Social Media Marketing Professional Certificate](https://www.coursera.org/professional-certificates/facebook-social-media-marketing).
   * ✅ 💡 [Introduction to Social Media Marketing](../market/01sm_market_intro)
+  * [Social Media Management](../market/02sm_man)
 * 运营管理：学习供应链管理、质量控制、生产规划等运营管理概念。
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
@@ -42,7 +43,8 @@ L2：
 * 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/specializations/human-resource-management)
   * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
   * ✅ 👍 [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
-  * [Managing Employee Performance](../hr/03perfm)
+  * ✅ 👍 [Managing Employee Performance](../hr/03perfm)
+  * [Managing Employee Compensation](../hr/04comp)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
