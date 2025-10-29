@@ -56,6 +56,35 @@ Seller["Seller
 | Internet | Client + Agency + CONSUMER | Personalized | Atomized | Computer and Internet Literacy |
 
 <p></p>
+### 1.1. Social Media
+
+[Social Media and Advertising](https://muse.jhu.edu/article/663709)
+Social media advertising turns users into marketers, relationships into distribution channels, and emotions into measurable ROI.
+* “两步流”理论（Two-step flow）：信息先传给“意见领袖”，再由他们影响普通人。
+* 在社交媒体上，KOL（意见领袖）和网红就是现代的意见领袖。
+* 品牌通过他们实现“去中心化”的传播，比传统广告更具说服力。
+
+
+| 类型            | 举例                         | 广告用途              |
+| ------------- | -------------------------- | ----------------- |
+| 社交网络站点（SNS）   | Facebook、Instagram、Twitter | 品牌建立形象、精准投放       |
+| 用户生成内容平台（UGC） | YouTube、TikTok、Wikipedia   | 利用KOL/UGC内容进行软性植入 |
+| 交易与营销平台（TMS）  | Amazon、eBay、Etsy           | 用户评价、推荐系统影响购买     |
+| 游戏与娱乐平台（PGS）  | FarmVille、Second Life      | 游戏内广告、品牌植入        |
+
+<p></p>
+
+| 知识点                        | 说明                           | 广告业意义                     |
+| -------------------------- | ---------------------------- | ------------------------- |
+| **Weak Tie Theory（弱关系理论）** | 人们对“熟人”而非“密友”的传播更认真，因为需要维护形象 | 广告更容易通过“弱关系”传播（如朋友圈、微博转发） |
+| **Earned Media 是广告业的金矿**   | 用户自发传播比品牌自己说更有说服力            | 品牌要设计**“值得被分享”**的内容，而不是“只卖产品” |
+| **数字受众劳动是免费广告资源**          | 用户每一次互动都在为品牌工作               | 广告主要设计**“情感钩子”**让用户愿意传播       |
+| **社交媒体广告=社交关系商品化**         | 广告平台把“人与人之间的关系”变成了可出售的资源     | 广告主不再只是买“广告位”，而是买**“人际关系链”**  |
+| **品牌不再是信息的唯一控制者**          | 用户可以随时“反广告”（如恶搞、抵制、#标签运动）    | 广告主要更**谨慎、真实、透明**，否则会反噬       |
+
+
+
+<p></p>
 ## 2. Am I being manipulated by advertising?
 
 **Subliminal Advertising** : suggests that messages can be communicated below the level of conscious awareness, influencing consumer actions. [EXAMPLES](https://www.wordstream.com/blog/ws/2017/10/24/subliminal-advertising)
@@ -108,7 +137,145 @@ It is important to understand deeper meanings in both art and advertising, viewe
 
 ## 4. How do ads get made?
 
-## 5. What do ads teach us about race, class, gender, and sexuality?
+<img style="float: right;" src="https://www.helloimg.com/i/2025/10/24/68fae0bece568.jpg" width="40%"/>
+
+
+### 4.1. Advertising Agency
+
+The 4 classical functions of an advertising agency:
+* **Account Executives** : run the agency, manager client/agency relationships.
+* **Creative Department** : make the ads. Artists, writers, etc.
+* **Research** : Applied research.
+  * Guide production before the ad is made.
+  * Assist creatives during production.
+  * Assess results after the ad is made.
+* **Media Division** : place the ads in various media channels and managing the advertising budget.
+
+<div align="center"><pre class="mermaid">
+graph LR
+A["Thinking caps"] --> B["Brain storm"]
+B --> C["Try the product"]
+C --> D["Listen to research"]
+E["Think some more!"] --> F["Try our ideas"]
+F --> G["Throw every thing out"]
+G --> H["Start all over again"]
+</pre></div>
+
+### 4.2. Creativity Case Study
+
+**Old Spice**, a brand with a long history, aimed to modernize its image and attract a younger audience after being acquired by Procter & Gamble.
+
+The [Old Spice commercial](https://www.youtube.com/watch?v=owGykVbfgUE) featured a humorous single-shot format, engaging both men and women, and was designed to highlight the brand's **masculine scent**.
+
+1. The Creative Process
+2. Putting the creative idea into action.
+
+### 4.3. Consumers Division & Research
+<p></p>
+
+**Consumers division** : by psycho-graphic categories — <u>life-style & values</u>.
+1. Ideals : Thinkers & Believers.
+2. Achievement : Achieve & Strives.
+3. Self-Expression : Experiences & Makers.
+
+<div align="center"><pre class="mermaid">
+block
+columns 3
+
+space
+INNO["<strong>Innovators</strong>(High resources & innovation)
+Highly successful people
+In control of their lives
+Have abundant resources
+Spend lots of money
+Buy expensive items that reflect their styles"]
+space
+
+TK["<strong>Thinkers</strong> (Ideals)
+Motivated by <u>ideals</u>, well educated
+professional occupations,
+content with careers, families, station in life
+informed about world & national events
+<u>functionality value, durability</u> of products"]
+
+AC["<strong>Achieve</strong> (Achievement)
+Motivated by desire to achieve, Successful
+Work = sense of duty, material rewards & prestige
+Value predictability
+Buy reliable, durable, stylish products
+Brands that <u>reflect their achievements</u>"]
+
+EX["<strong>Experiences</strong> (Self-Expression)
+Seek <u>variety and experience</u> in their lives
+Favor the off beat and risky
+Avid consumers
+But items on basis of <u>whims,
+appearance, & trendiness</u>
+"]
+
+BL["<strong>Believers</strong> (Ideals)
+Conservative, Conventional
+value family, religion, community & nation
+Predictable, Brand loyal
+Prefer American made products
+Respond to links to <u>fundamental American values</u>"]
+
+ST["<strong>Strives</strong> (Achievement)
+Seek to achieve, but <u>lack self-confidence</u>
+Place heavy emphasis on opinion and approval
+Like brands to help them fit into society
+Buy affordable expensive items
+but often settle for <u>lower budget alternatives</u>
+Frequently save for expensive items."]
+
+MA["<strong>Makers</strong> (Self-Expression)
+Enjoy do-it-yourself projects
+Self-sufficient and practival
+Demand safe & reliable products
+Always looking for <u>good quality at low price</u>
+Men = cars, household projects
+Women = sewing, cooking, household projects"]
+
+space
+SUR["<strong>Survivors</strong>(Low resources & innovation)
+People on low budgets
+Must shop for the least expensive
+Survivors are typically ignored by advertisers."]
+space
+
+
+style TK fill:#9ab;
+style BL fill:#9ab;
+
+style EX fill:#cda;
+style MA fill:#cda;
+
+style INNO fill:#9dd;
+style SUR fill:#dd9;
+
+</pre></div>
+
+* Research Before Production : gather qualitative data about consumer behavior and preferences.
+* Research During Production : address specific questions that arise during the creative process, ensuring realism in advertisements.
+* Research After Production : measure consumer recall and persuasion.
+
+## 5. Race, Class, Gender, and Sexuality
+
+Definition:
+* **Sex** refers to biologically based differences (male or female).
+* **Gender** is the socially defined differences between males and females, encompassing cultural ideas of masculinity and femininity.
+* **Sexism** involves the unequal treatment of genders, similar to racism.
+
+Issues in Advertising:
+* Gender Representations - How is masculinity and femininity depicted?
+* Sexist Representations - Are males and females treated unequally?
+  * Advertising often depicts masculinity as powerful and dominant, while femininity is shown as passive and submissive.
+* Using Sexual Imagery to Sell - How is sexuality linked to brand identities?
+  * Used to attract attention and link products to brand identities.
+
+Life cycle in advertising: Early Life Representations, Childhood and Adolescence, Adulthood and Aging
+
+Depictions of Gender in Mad Men.
 
 ## 6. Does sex sell?
 
