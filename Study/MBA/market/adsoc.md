@@ -10,7 +10,7 @@ title: Advertising and Society
   <nav id="toc" class="toc"></nav>
 </aside>
 
-[Advertising and Society](https://www.coursera.org/learn/role-of-advertising/home/module/1)
+[Advertising and Society](https://www.coursera.org/learn/role-of-advertising/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/XI939Y0NSS07).
 more resources in 🌸🍓[adtextonline](https://adtextonline.org/)🌷🍒 .
 
 ## 1. What Is Advertising? Definition & History
@@ -279,4 +279,33 @@ Depictions of Gender in Mad Men.
 
 ## 6. Does sex sell?
 
+Tom Reichert’s research (The Erotic History of Advertising):
+* Sex in ads includes: undress, suggestive poses, double entendres, sexual language, implied nudity.
+* Conclusion: Sex can increase attention and brand recall, but results are mixed and context-dependent.
+* Some brands (e.g., Calvin Klein, Victoria’s Secret) successfully use erotic appeal.
+
 ## 7. What's the future of advertising?
+
+**Historical Context of Advertising**
+- Advertising has historically been ephemeral, with a short lifespan and little preservation of past materials.
+- Significant collections of advertising history exist at institutions like Duke University and the Smithsonian, providing resources for studying advertising's evolution.
+
+**Current Trends in Advertising**
+- New advertising spaces are being utilized, such as unconventional locations like bathroom stalls and supermarket floors.
+- Innovations include postage stamps featuring advertisements and advertisements on public transportation, showcasing the creative use of available spaces.
+
+**Future Directions of Advertising**
+- The potential for advertising to colonize new spaces, including the night sky and even human bodies, raises ethical questions.
+- Emerging technologies, like Google Glass, may introduce new advertising formats, prompting discussions about the legitimacy of advertising in various contexts.
+
+This lecture focuses on the evolving landscape of advertising and its future, highlighting innovative practices that are reshaping the industry.
+
+Current Trends in Advertising
+- **Total Marketing Communications**: The shift from traditional advertising methods to creating relationships with consumers, as seen in Apple's immersive store experience and Dove's campaign promoting real beauty.
+- **Trend Spotting**: Agencies are employing trend spotters to monitor societal changes and consumer interests globally, ensuring their advertising strategies remain relevant.
+
+Innovative Advertising Practices
+- **Crowdsourcing**: Engaging consumers in the creation of advertising content, exemplified by Doritos' Super Bowl campaigns where public submissions were featured.
+- **Native Advertising**: Ads that blend seamlessly with editorial content, making it challenging for consumers to distinguish between regular articles and sponsored content, as illustrated by Netflix's promotion of "Orange is the New Black."
+
+Future Possibilities : as advertising continues to evolve, new innovations will emerge, reflecting changing consumer preferences and technological advancements.

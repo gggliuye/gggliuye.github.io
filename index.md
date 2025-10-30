@@ -7,9 +7,9 @@ css:
 
 <div id="header" markdown="1">
 
-# Ye Liu {#title}
+# The Open Clearing {#title}
 
-## Forms are Empty, Emptiness is Form
+## thought, code, and digital being {#subtitle}
 
 </div>
 
