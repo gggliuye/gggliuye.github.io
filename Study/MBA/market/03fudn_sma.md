@@ -11,7 +11,7 @@ title: Fundamentals of Social Media Advertising
 </aside>
 
 
-[Fundamentals of Social Media Advertising](https://www.coursera.org/learn/social-media-advertising-fundamentals/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/OSD9D8OW10V5)
+[Fundamentals of Social Media Advertising](https://www.coursera.org/learn/social-media-advertising-fundamentals/home/welcome), [Certification link](https://www.coursera.org/account/accomplishments/verify/U9SJIFZJAVMQ)
 
 
 ## 1. Introduction to Social Media Advertising
@@ -35,7 +35,7 @@ KPI : **Number of leads**, **Cost per Lead**, **Return on Ad Spend**.
 
 ## 2. Create Effective Ads
 
-### 2.1. Create Content
+### 2.1. 💡 Create Content
 <p></p>
 
 * [Create quality visual content](../02sm_man/#2-social-media-content---create-a-post)
@@ -47,7 +47,7 @@ KPI : **Number of leads**, **Cost per Lead**, **Return on Ad Spend**.
     * CTA : what expect audience to do.
   * Tips : tie to visual content, diff ads for diff people, speak to audience, emojis, be recognizable, mention price, create urgency.
 
-### 2.2. Team
+### 2.2. 💡 Team
 <p></p>
 
 * **Brand marketers** : brand's vision, personality, and guidelines, ensuring consistency across campaigns.
@@ -57,7 +57,7 @@ KPI : **Number of leads**, **Cost per Lead**, **Return on Ad Spend**.
 * **Marketing analysts** : evaluate campaign success and ROI.
 * External experts or agencies
 
-### 2.3. Creative Brief
+### 2.3. 💡 Creative Brief
 
 **Creative Brief** [📥 Template](https://docs.google.com/presentation/d/1x-Arbk0QQCNeonpmAIdFfFPlgJXWXUlu/edit?usp=drive_link&ouid=105010370794979562598&rtpof=true&sd=true) : a document that outlines the key information and objectives for a creative project, such as an advertising campaign.
 * Serves as a **road map** for the creative team, outlining project goals and objectives.
@@ -66,7 +66,39 @@ KPI : **Number of leads**, **Cost per Lead**, **Return on Ad Spend**.
 
 ## 3. Data, Privacy and Policies
 
+Data-Based Advertising.
+Data formats:
+* Web server logs : IP, User identifier (UID), username, timestamp, content, http status.
+* Cookies : website-specific code stored in a person's browser to ease navigation.
+  * local user behaviors.
+
+Data Protection Policies:
+* Government Regulations: GDPR  (General Data Protection Regulation, EU), CCPA (California Consumer Privacy Act, US) & COPPA (Children's Online Privacy Protection Act)
+* Industry Self-Regulation , DAA, EDAA.
+* Company Data Policies
 
 ## 4. Ads on Facebook & Instagram
+<p></p>
+
+Facebook Business Goals:
+
+| Business Goal | Ad Objective | Success Metrics |
+| --- | --- | --- |
+| Increase people's awareness of your business, brand or service and get Page likes | Promote Your Page | Number of Page likes |
+| Show your ad to as many people as possible in your target audience | Boost Post | Number of post engagements |
+| Reach people near your business | Promote Your Business Locally | Number of people reached |
+| Send people from Facebook to any URL you choose | Get More Website Visitors | Number of people that visited your website |
+| Encourage people to download your business app | Promote Your App | Number of app downloads |
+| Collect info from people interested in your product | Get More Leads | Number of leads |
+| Communicate with potential or existing customers to encourage interest in your business | Promote Your Send Message Button | Number of clicks on your Send Message button |
+| Encourage people to take a specific action on your business's site | Get More Website Purchases | Number of website purchases |
+
+
+Instagram Stories Ads
+
 
 ## 5. Create a Creative Brief
+
+[📥 Create the Creative Brief for your Paid-Ad](https://docs.google.com/presentation/d/1VHXq7xNXiUCPFOXHT0QcdbDX2-9efUv1EOgt-UbP7Yw/edit?usp=sharing)
+
+[📥 Copy of Create an Ad Templates](https://docs.google.com/presentation/d/1pzVPnkkN5gB5b_Tdh9NJicR3XZO9pnyF0vHkWARQ8VU/edit?usp=sharing)
