@@ -58,7 +58,7 @@ Business
   * Know your audience and choose your platform.
 
 <div align="center">    
-<img src="https://www.helloimg.com/i/2025/10/30/6902bf7752074.png" width="75%"/>
+<img src="https://www.helloimg.com/i/2025/10/30/690345aee31cc.jpg" width="60%"/>
 </div>
 
 * Key Elements of a Social Media Post:
