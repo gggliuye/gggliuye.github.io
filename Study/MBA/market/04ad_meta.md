@@ -11,7 +11,7 @@ title: Advertising with Meta
 </aside>
 
 
-[Fundamentals of Social Media Advertising](https://www.coursera.org/learn/advertising-with-facebook/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/)
+[Fundamentals of Social Media Advertising](https://www.coursera.org/learn/advertising-with-facebook/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/R3VKAZE6BO83)
 
 
 ## 1. Ads Manager
@@ -53,5 +53,13 @@ Ad placement: automatically or manually.
 Ad Scheduling Options: Daily Budget, Lifetime Budget.
 
 ## 4. Create Ads and Evaluate
+
+Ad Format Options:
+* <u>Single Image or Video Ads, Slideshow Ads.</u>
+* <u>Carousel Ads</u> : enable the display of up to 10 images or videos, each with its own link, allowing advertisers to showcase multiple products or tell a story across the carousel.
+* <u>Collection Ads</u> : featuring a lead video image and multiple product images, to create a single experience.
+
+And depending on the **campaign objective**, Meta will let you select between different **ad delivery optimization options**, which will influence who will see your ads. Key metrics are : <u>Result & Cost</u>.
+
 
 ## 5. Build Campaign in Ads Manager
