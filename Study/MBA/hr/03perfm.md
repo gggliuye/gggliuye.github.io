@@ -5,12 +5,13 @@ title: Managing Employee Performance
 
 [MBA Home](../../0index)
 
-[Managing Employee Performance](https://www.coursera.org/learn/employee-performance/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/).
+[Managing Employee Performance](https://www.coursera.org/learn/employee-performance/home/module/1), [Certification link](https://www.coursera.org/account/accomplishments/verify/W9IQ0WCPZB1H).
 
-1. [Introduction](#l1)
-2. [Implementing Performance Management System](#l2)
-3. [Tools for effective performance management](#l3)
-4. [](#l4)
+
+<!-- Left Sidebar (TOC) -->
+<aside class="d-none d-lg-block">
+  <nav id="toc" class="toc"></nav>
+</aside>
 
 
 <a name="l1"></a>
@@ -91,12 +92,12 @@ The lecture emphasizes the importance of aligning individual objectives with dep
 
 Accountabilities <-> Performnance standards <-> Objectives <-> Goals  + <u>Methods for measuring performance</u>
 
-(1) **Comparative Methods**: 
+(1) **Comparative Methods**:
 - **Simple Ranking**: Employees are ranked from top to bottom.
 - **Alternating Ranking**: Alternates between top and bottom performers.
 - **Forced Distribution**: Employees are categorized into percentages across performance levels.
 
-(2) **Absolute Methods**: 
+(2) **Absolute Methods**:
 - **Essays**: Written evaluations of performance.
 - **Behavior Checklists**: Ratings on specific behaviors using a scale.
 - **Critical Incidents**: Documenting significant positive and negative performance events.
@@ -125,9 +126,34 @@ Accountabilities <-> Performnance standards <-> Objectives <-> Goals  + <u>Metho
 5. Summarize.
 6. Set date for follow up.
 
+Effective performance evaluation form elements:
+1. Basic Employee Information
+2. Job Accountabilities and Performance Indicators
+3. Employee Contributions and Development
+
+**Individual Development Plans** (IDPs) not a binding contract but a commitment to support employee growth and development.
+
+
 ## 3.2 Effective Feedback
+
+Feedback is compared to a shot: it may be painful, but it is essential for growth and improvement.
+The feedback process should be a two-way dialogue between managers and employees, fostering commitment and involvement.
+
+**Multi-rater feedback** is a performance evaluation process that gathers input from multiple sources rather than relying solely on a single manager's assessment
 
 ## 3.3 Preventing Rater Bias
 
+Common Errors in Performance Reviews:
+* Central Tendency, Leniency, and Strictness: Raters may intentionally give similar ratings (e.g., all Bs) regardless of individual performance, which does not reflect true performance.
+* Varying Standards: Inconsistent standards can lead to unfair evaluations, such as rating similar performances differently based on biases.
+
+Strategies for Improvement
+* Justification of Ratings: Encouraging raters to provide data and reasoning for their ratings can enhance accuracy.
+* Monitoring by HR: Regular oversight can help identify and correct grading inconsistencies across departments.
+
 <a name="l4"></a>
-# 4.
+# 4. Creating a positive performance culture
+
+Culture influences the physical layout of the workplace, such as the design of conference rooms and hallways, to promote communication and collaboration.
+
+**3-R's**: Respect, Responsibility, Restraint.

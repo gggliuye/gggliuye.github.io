@@ -3,6 +3,10 @@ layout: page_tree
 title: 藏传佛教
 ---
 
+<!-- Left Sidebar (TOC) -->
+<aside class="d-none d-lg-block">
+  <nav id="toc" class="toc"></nav>
+</aside>
 
 ## 1. 藏传佛教四大主要派系对比
 <p></p>

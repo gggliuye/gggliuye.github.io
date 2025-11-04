@@ -117,3 +117,44 @@ var BeautifulJekyllJS = {
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', BeautifulJekyllJS.init);
+
+function LoadTOC() {
+  const toc = document.getElementById("toc");
+  if (toc == null) {
+    console.log("toc not found");
+    return;
+  }
+  console.log("load toc");
+  const headers = document.querySelectorAll("h1, h2, h3, h4");
+  // const headers = document.querySelectorAll("article h1, article h2, article h3, article h4");
+  // console.log(document);
+  if (!headers.length) {
+    console.log("headers not found");
+    return;
+  }
+  let ul = document.createElement("ul");
+  let skipped = false;
+  headers.forEach(h => {
+    if (!skipped) {
+      skipped = true;
+      return;
+    }
+    const level = parseInt(h.tagName[1]); // 2 for H2, 3 for H3, etc.
+    const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+    h.id = id;
+    // console.log(h);
+
+    const li = document.createElement("li");
+    // Add spaces based on level
+    const indent = "&nbsp;".repeat((level + 1) * 2); // adjust number of spaces
+    if (level == 1) {
+      li.innerHTML = `${indent}<strong><a href="#${id}">${h.textContent}</a></strong>`;
+    } else {
+      li.innerHTML = `${indent}<a href="#${id}">${h.textContent}</a>`;
+    }
+    ul.appendChild(li);
+  });
+  toc.appendChild(ul);
+}
+
+document.addEventListener("DOMContentLoaded", LoadTOC);

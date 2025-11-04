@@ -3,6 +3,10 @@ layout: page_tree
 title: Buddhism
 ---
 
+<!-- Left Sidebar (TOC) -->
+<aside class="d-none d-lg-block">
+  <nav id="toc" class="toc"></nav>
+</aside>
 
 ## Introduction
 

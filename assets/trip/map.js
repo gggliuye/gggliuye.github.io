@@ -43,12 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Dropdown selector element
   const selector = document.getElementById("trip-selector");
-  selector.addEventListener("change", () => {
+  if (selector) {
+    selector.addEventListener("change", () => {
+      loadTrip(`/assets/trip/${selector.value}`);
+    });
     loadTrip(`/assets/trip/${selector.value}`);
-  });
+    return;
+  }
 
   // Load initial trip
-  loadTrip(`/assets/trip/${selector.value}`);
+  const trip_name = document.getElementById("trip-name");
+  if (trip_name) {
+    console.log(trip_name);
+    loadTrip(`/assets/trip/${trip_name.innerText}`);
+    return;
+  }
 });
 
 function clearMap() {
@@ -82,6 +91,8 @@ function secondsToHHMM(totalSec) {
 }
 
 function loadTrip(jsonPath) {
+  console.log("load " + jsonPath);
+
   fetch(jsonPath)
     .then(response => response.json())
     .then(points => {
@@ -145,7 +156,10 @@ function loadTrip(jsonPath) {
         if (el) {
           el.appendChild(entry);
         } else {
-          document.getElementById('trip-descriptions').appendChild(entry);
+          let desc = document.getElementById('trip-descriptions');
+          if (desc) {
+            desc.appendChild(entry);
+          }
         }
         last_title = title;
 

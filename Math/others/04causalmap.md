@@ -39,3 +39,76 @@ title: Stochastic Process
 * <u>GHTs (geometric hyper transformers) can approximate any causal map over any time-horizon.</u> GHTs are consist of :
   * A **transformer network** gives "encoder" parameters. since transformers has advantages over RNN : (1) avoid recursion; (2) can learn encode before decode into prediction.
   * A small **hypernetwork** to interpolate "encoder" parameters and predict future steps.
+
+
+# Markov Chain : The Strange Math That Predicts (Almost) Anything
+
+
+<div align="center">    
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KZeIEiBrT_w?si=8SNaOEbMnfrE9NuW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+## Nekrasov
+
+**Independence <-> The Law of Large Numbers ？**
+* Independent events follow the law of large numbers.
+* If the law of large numbers is seen, we can infer that the underlying events are independent.
+
+**Nekrasov**: Because the statistics (of social events) followed the law of large numbers, the decisions causing them must be independent. In other word, they must be <u>acts of free will.</u>
+
+## Markov
+
+**Markov** : dependent events could also follow the law of large numbers. Markov chain is a way to do probability with dependent events.
+
+**The letters were dependent.**
+
+The probability of the appearance :
+
+| Vowel | Consonant |
+| 43% | 57% |
+
+<p></p>
+
+| VV | CC | VC | CV|
+|6% | 19% | 37.5% | 37.5 %|
+
+<div align="center"><pre class="mermaid">
+graph LR
+V --0.87--> C
+C --0.67--> V
+V --0.13--> V
+C --0.33--> C
+</pre></div>
+
+Using the upper graph (Markov chain), we can generate a sequence of vowels and consonants. Which also follow the law of large numbers.
+
+> "Thus, free will is not necessary to do probability."
+
+
+## Nuclear Fission - Monte Carlo Method
+
+Trillions of trillions of neutrons, all interacting with their surroundings. Impossible to compute all possible outcomes.
+And we need to model the whole chain of events, where each step influenced the next.
+
+<div align="center"><pre class="mermaid">
+graph LR
+Traveling --> Traveling
+Traveling --> LE["Leave of Absorb"]
+Traveling --> Fission
+</pre></div>
+
+With a random initial point, we could simulate to get the statistic of the reaction ratio.
+
+## Search Engine
+<p></p>
+
+* Yahoo - The first search engine, only tracing the keywords, the quality of the result is low.
+* Google - links of page, reflect the quality. Links of pages could be model by Markov chain.
+
+<p></p>
+## Text prediction - ChatGPT
+
+System with a **feedback** loop will become hard to model using Markov chains (e.g. weather).
+
+**Memeoryless property.**
+Using Markov chain : you can forget about the complicated past, by only looking at the current state, we can predict the rest.

@@ -158,7 +158,7 @@ def read_json_waypoints(json_file_path):
 
     last_point = None
     for p in points:
-        lon, lat = gcj02_to_wgs84(p["lng_wgs84"], p["lat_wgs84"])
+        lon, lat = wgs84_to_gcj02(p["lng_wgs84"], p["lat_wgs84"])
         current_point = str(lon) + "," + str(lat)
         if last_point is None:
             last_point = current_point
@@ -181,4 +181,4 @@ def read_json_waypoints(json_file_path):
 
 
 
-read_json_waypoints("assets/trip/trip_gannan_xc.json");
+read_json_waypoints("assets/trip/trip_guizhou.json");
