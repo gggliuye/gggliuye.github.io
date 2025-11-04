@@ -3,24 +3,12 @@ layout: page_tree
 title: Irrational Man
 ---
 
-# Irrational Man 非理性的人
+Irrational Man 非理性的人 - 威廉巴雷特。
 
-威廉巴雷特。
-
-
-# Table of Contents
-
-1. [当今的时代](#l1)
-2. [西方传统中存在主义源泉](#l2)
-3. [存在主义大师](#l3)
-    1. [基尔凯戈尔](#l3.1)
-    2. [尼采](#l3.2)
-    3. [海德格尔](#l3.3)
-    4. [萨特](#l3.4)
-4. [整体的人对理性的人](#l4)
-5. [附录](#l5)
-
-<br/><br/>
+<!-- Left Sidebar (TOC) -->
+<aside class="d-none d-lg-block">
+  <nav id="toc" class="toc"></nav>
+</aside>
 
 <a name="l1"></a>
 # 1. 当今的时代
