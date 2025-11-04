@@ -28,6 +28,7 @@ L1：
   * ✅ 💡 [Introduction to Social Media Marketing](../market/01sm_market_intro)
   * ✅ 💡 [Social Media Management](../market/02sm_man)
   * ✅ 💡 [Fundamentals of Social Media Advertising](../market/03fudn_sma)
+  * ✅ 👨🏻‍💻 [Advertising with Meta](../market/04ad_meta)
 * 运营管理：学习供应链管理、质量控制、生产规划等运营管理概念。
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
