@@ -1,0 +1,27 @@
+# _data/tag_categories.yml
+Technology:
+  - AI
+  - CS
+  - MR
+  - DEV
+  - CAR
+Philosophy:
+  - Philosophy
+  - Marxism
+  - Hegel
+  - Kant
+  - 中国社会科学
+  - History
+  - Math
+  - Zen
+Life:
+  - Art
+  - Life
+  - Trip
+  - Reading
+  - Thoughts
+  - Game
+Economy:
+  - Market
+  - Strategy
+  - Kickstarter
