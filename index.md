@@ -38,13 +38,25 @@ css:
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 {% assign tags_list = site_tags | split:',' | sort_natural %}
 
-<div align="center"><pre class="mermaid">
+<!-- <div align="center"><pre class="mermaid">
 mindmap
 Blogs
 {% for item in (0..site.tags.size) %}{% unless forloop.last %}
   {% capture this_word %}{{ tags_list[item] | strip_newlines }}{% endcapture %}
   {{ this_word }} - {{ site.tags[this_word].size }}
 {% endunless %}{% endfor %}
+</pre></div> -->
+
+<div align="center"><pre class="mermaid">
+mindmap
+Blogs
+{% for category in site.data.tag_categories %}
+  {{ category[0] }}
+
+  {% for tag in category[1] %}{% if site.tags[tag] %}
+    {{ tag }} - {{ site.tags[tag].size }}
+  {% endif %}{% endfor %}
+{% endfor %}
 </pre></div>
 
 
