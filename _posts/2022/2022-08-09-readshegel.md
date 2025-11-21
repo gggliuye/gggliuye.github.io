@@ -2,7 +2,7 @@
 layout: post
 title: Reading Notes - Hegel
 subtitle: and some thoughts
-tags: [Philosophy, Reading]
+tags: [Philosophy, Reading, Hegel]
 comments: true
 ---
 

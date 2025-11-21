@@ -17,6 +17,9 @@ L0：
 * 经济学：学习微观经济学和宏观经济学的基本原理，理解市场机制和经济政策。
   * ✅ 👑 [📖 Finance Theory](/Study/Finance/theory/00index)
   * ✅ 👑 [Yale: Financial Markets](../1finace)
+* Trading :
+  * [Google Tools for Trading](../trade/googletools)
+
 
 L1：
 * 市场营销：掌握市场分析、消费者行为、营销策略、品牌管理等知识。
@@ -29,7 +32,8 @@ L1：
   * ✅ 💡 [Social Media Management](../market/02sm_man)
   * ✅ 💡 [Fundamentals of Social Media Advertising](../market/03fudn_sma)
   * ✅ 👨🏻‍💻 [Advertising with Meta](../market/04ad_meta)
-  * [Measure and Optimize Social Media Marketing Campaigns](../market/05mea_opt)
+  * ✅ 💡 [Measure and Optimize Social Media Marketing Campaigns](../market/05mea_opt)
+  * ✅ 👍 [Meta Social Media Marketing Capstone](../market/06capstone)
 * 运营管理：学习供应链管理、质量控制、生产规划等运营管理概念。
   * 《运营管理》 (Operations Management)
 * 组织行为学：理解团队管理、领导力、激励机制、组织文化等。
@@ -43,11 +47,12 @@ L2：
   * ✅ 👍 [UVA: Business Growth Strategy](../strategy/4strategy_grow)
   * ✅ 💡 [UVA: Strategic Planning and Execution](../strategy/5strategy_plan)
   * ✅ 👨 [UVA: Business Strategy in Practice](../strategy/6strategy_in_p)
-* 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/specializations/human-resource-management)
+* 人力资源管理：[Human Resource Management: HR for People Managers Specialization](https://www.coursera.org/specializations/human-resource-management), 🏅 [Certification link](https://www.coursera.org/account/accomplishments/specialization/52Y5XPPSFAF2).
   * ✅ 💡 [Preparing to Manage Human Resources](../hr/01prepare)
   * ✅ 👍 [Recruiting, Hiring, and Onboarding Employees](../hr/02recruit)
   * ✅ 👍 [Managing Employee Performance](../hr/03perfm)
-  * [Managing Employee Compensation](../hr/04comp)
+  * ✅ 👍 [Managing Employee Compensation](../hr/04comp)
+  * ✅ 👍 [Human Resources Management Capstone: HR for People Managers](../hr/05capstone)
 * 企业伦理与社会责任：理解企业社会责任、商业伦理和可持续发展的重要性。
   * 《企业社会责任》 (Corporate Social Responsibility)
   * 《商业伦理与社会责任》 (Business Ethics and Corporate Social Responsibility)
