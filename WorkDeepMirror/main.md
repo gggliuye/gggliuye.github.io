@@ -4,13 +4,10 @@ title: DeepMirror 2020/11 - now
 subtitle: GuangZhou, China
 ---
 
-# Table of Contents
-
-* [DeepMirror](#ldm)
-* [My work 2024](#l2024)
-* [My work 2023](#l2023)
-* [My work 2022](#l2022)
-* [My work 2020 - 2021](#l2021)
+<!-- Left Sidebar (TOC) -->
+<aside class="d-none d-lg-block">
+  <nav id="toc" class="toc"></nav>
+</aside>
 
 <p></p>
 
@@ -91,10 +88,20 @@ Generate random world, based on earth topology and OSM road map. [Video](https:/
 
 <img style="float: right;" src="/assets/img/screenshots/vo.gif" width="30%"/>
 
-Enable MR device to have 6DOF tracking in any vehicle.
+Enable MR device to have 6DOF tracking in any vehicle. (tightly coupled VIO with car pose)
 * Well designed fusion algorithm to give a comfort experience.
 * Output poses both in car reference frame & world reference frame.
 * Realtime on board absolute localization (w.r.t. car) using deeplearning.
+
+<div align="center">    
+<img src="https://www.helloimg.com/i/2025/11/21/69203694a708a.gif" width="50%"/>
+</div>
+
+<p></p>
+
+<div align="center">    
+<img src="https://www.helloimg.com/i/2025/11/21/6920378a54e72.gif" width="50%"/>
+</div>
 
 <p></p>
 ## D. Video Streaming
@@ -105,6 +112,17 @@ Stream outside Panorama view to MR.
 * Camera hardware connection, image stitch, video encoder.
 * Video Streaming using FFMPEG.
 * MR video decoder, panorama rendering.
+
+<p></p>
+## E. Car Game Streaming
+
+Gaming with car steering wheel.
+
+<div align="center">    
+<img src="https://www.helloimg.com/i/2025/11/21/692038047e40a.gif" width="60%"/>
+</div>
+
+
 
 <a name="l2023"></a>
 # My work 2023
